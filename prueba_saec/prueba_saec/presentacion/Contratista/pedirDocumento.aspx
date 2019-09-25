@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="login.aspx.vb" Inherits="prueba_saec.Login" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="pedirDocumento.aspx.vb" Inherits="prueba_saec.pedirDocumento" %>
 
 <!DOCTYPE html>
 

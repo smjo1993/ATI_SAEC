@@ -92,7 +92,8 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="presentacion\Login.aspx" />
+    <Content Include="presentacion\Contratista\pedirDocumento.aspx" />
+    <Content Include="presentacion\login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -115,11 +116,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="presentacion\Login.aspx.designer.vb">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratista\pedirDocumento.aspx.designer.vb">
+      <DependentUpon>pedirDocumento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\Login.aspx.vb">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratista\pedirDocumento.aspx.vb">
+      <DependentUpon>pedirDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\login.aspx.designer.vb">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\login.aspx.vb">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -155,7 +163,6 @@
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="logica\" />
-    <Folder Include="presentacion\Contratista\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
