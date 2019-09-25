@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="presentacion\Contratista\pedirDocumento.aspx" />
     <Content Include="presentacion\login.aspx" />
+    <Content Include="presentacion\NewFolder1\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="presentacion\login.aspx.vb">
       <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\NewFolder1\WebForm1.aspx.designer.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\NewFolder1\WebForm1.aspx.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
