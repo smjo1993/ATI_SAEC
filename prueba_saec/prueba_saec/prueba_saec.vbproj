@@ -155,6 +155,7 @@
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="logica\" />
+    <Folder Include="presentacion\Contratista\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
