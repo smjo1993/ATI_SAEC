@@ -10,6 +10,20 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <div>
+                <asp:Label ID="lbUsuario" runat="server" Text="Usuario:"></asp:Label>
+                <asp:TextBox ID="tbUsuario" runat="server"></asp:TextBox>
+            </div>
+            <div>
+                <asp:Label ID="lbContrasenia" runat="server" Text="Contraseña:"></asp:Label>
+                <asp:TextBox ID="tbContrasenia" runat="server"></asp:TextBox>
+            </div>
+            <div>
+                <asp:Button ID="btLogin" runat="server" Text="Inicia Sesion" />
+            </div>
+            <div>
+                <asp:LinkButton ID="lbRecuperarContrasenia" runat="server">¿Olvido su contraseña? Click aqui para recuperarla</asp:LinkButton>
+            </div>
         </div>
     </form>
 </body>

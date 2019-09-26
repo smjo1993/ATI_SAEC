@@ -46,6 +46,7 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -93,9 +94,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="presentacion\login.aspx" />
+    <Content Include="presentacion\menu.aspx" />
+    <Content Include="presentacion\recuperarContrasenia.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="logica\clsContratista.vb" />
+    <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\Conexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -121,6 +126,20 @@
     </Compile>
     <Compile Include="presentacion\login.aspx.vb">
       <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\menu.aspx.designer.vb">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\menu.aspx.vb">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\recuperarContrasenia.aspx.designer.vb">
+      <DependentUpon>recuperarContrasenia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\recuperarContrasenia.aspx.vb">
+      <DependentUpon>recuperarContrasenia.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
