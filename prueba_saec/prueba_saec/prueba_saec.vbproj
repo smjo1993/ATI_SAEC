@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsUsuario.vb" />
+    <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -174,6 +175,7 @@
     <Folder Include="fonts\" />
     <Folder Include="img\" />
     <Folder Include="js\" />
+    <Folder Include="System\Windows\Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

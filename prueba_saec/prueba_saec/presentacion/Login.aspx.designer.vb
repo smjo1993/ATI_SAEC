@@ -75,4 +75,13 @@ Partial Public Class Login
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lbRecuperarContrasenia As Global.System.Web.UI.WebControls.LinkButton
+    
+    '''<summary>
+    '''Control gvDatos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gvDatos As Global.System.Web.UI.WebControls.GridView
 End Class
