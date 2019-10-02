@@ -24,6 +24,7 @@
             <div>
                 <asp:LinkButton ID="lbRecuperarContrasenia" runat="server">¿Olvido su contraseña? Click aqui para recuperarla</asp:LinkButton>
             </div>
+            <asp:GridView ID="gvDatos" runat="server"></asp:GridView>
         </div>
     </form>
 </body>
