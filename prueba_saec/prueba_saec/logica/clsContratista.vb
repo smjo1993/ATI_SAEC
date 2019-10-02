@@ -9,8 +9,9 @@ Public Class clsContratista
     Private Fono
     Private Correo
 
+    Public Sub New()
 
-
+    End Sub
     Public Sub New(nombre As Object, login As Object, clave As Object, rut As Object, fono As Object, correo As Object)
         Me.Nombre = nombre
         Me.Login = login
@@ -44,20 +45,21 @@ Public Class clsContratista
         End Try
     End Function
 
-    Dim con As New SqlConnection(Conexion.strSQLSERVER)
+    Public Function buscarContratista(contratista As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
 
-    Dim ds As New DataSet()
-    Dim sql As String = "SP_SAEC_ValidarContratista '" & contratista & "'"
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ValidarContratista '" & contratista & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds, "ValidarContratista")
             Return ds.Tables(0)
-    Catch ex As Exception
-    Return Nothing
-    Finally
+        Catch ex As Exception
+            Return Nothing
+        Finally
             con.Close()
             con.Dispose()
         End Try

@@ -96,7 +96,6 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
-    <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\crearNuevoDocumento.aspx" />
