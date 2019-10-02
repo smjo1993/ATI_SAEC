@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\prueba_saec"
+    "\\prueba_saec",
+    "\\prueba_saec\\prueba_saec",
+    "\\prueba_saec\\prueba_saec\\logica"
   ],
   "SelectedNode": "\\prueba_saec\\prueba_saec.sln",
   "PreviewInSolutionExplorer": false

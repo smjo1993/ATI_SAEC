@@ -11,20 +11,19 @@
     <form id="form1" runat="server">
         <div>
             <div>
-                <asp:Label ID="lbUsuario" runat="server" Text="Usuario:"></asp:Label>
-                <asp:TextBox ID="tbUsuario" runat="server"></asp:TextBox>
+                <asp:Label ID="lblUsuario" runat="server" Text="Usuario:"></asp:Label>
+                <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
             </div>
             <div>
-                <asp:Label ID="lbContrasenia" runat="server" Text="Contraseña:"></asp:Label>
-                <asp:TextBox ID="tbContrasenia" runat="server"></asp:TextBox>
+                <asp:Label ID="lblContrasenia" runat="server" Text="Contraseña:"></asp:Label>
+                <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div>
-                <asp:Button ID="btLogin" runat="server" Text="Inicia Sesion" />
+                <asp:Button ID="btnLogin" runat="server" Text="Inicia Sesion" />
             </div>
             <div>
-                <asp:LinkButton ID="lbRecuperarContrasenia" runat="server">¿Olvido su contraseña? Click aqui para recuperarla</asp:LinkButton>
+                <asp:LinkButton ID="lblRecuperarContrasenia" runat="server">¿Olvido su contraseña? Click aqui para recuperarla</asp:LinkButton>
             </div>
-            <asp:GridView ID="gvDatos" runat="server"></asp:GridView>
         </div>
     </form>
 </body>

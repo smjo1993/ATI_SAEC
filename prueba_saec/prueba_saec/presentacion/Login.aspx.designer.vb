@@ -23,65 +23,56 @@ Partial Public Class Login
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lbUsuario.
+    '''Control lblUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lbUsuario As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblUsuario As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control tbUsuario.
+    '''Control txtUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents tbUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtUsuario As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control lbContrasenia.
+    '''Control lblContrasenia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lbContrasenia As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblContrasenia As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control tbContrasenia.
+    '''Control txtContrasenia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents tbContrasenia As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtContrasenia As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control btLogin.
+    '''Control btnLogin.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btLogin As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnLogin As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control lbRecuperarContrasenia.
+    '''Control lblRecuperarContrasenia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lbRecuperarContrasenia As Global.System.Web.UI.WebControls.LinkButton
-    
-    '''<summary>
-    '''Control gvDatos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents gvDatos As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents lblRecuperarContrasenia As Global.System.Web.UI.WebControls.LinkButton
 End Class

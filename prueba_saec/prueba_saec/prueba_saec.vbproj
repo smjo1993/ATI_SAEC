@@ -93,8 +93,6 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\sb-admin-2.css" />
-    <Content Include="css\sb-admin-2.min.css" />
     <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
@@ -106,6 +104,7 @@
   <ItemGroup>
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsUsuario.vb" />
+    <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
     <Compile Include="logica\Trabajador.vb" />
     <Compile Include="logica\Vehiculo.vb" />
