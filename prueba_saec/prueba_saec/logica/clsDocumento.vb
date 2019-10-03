@@ -17,7 +17,7 @@ Public Class clsDocumento
 
             dbDataAdapter.Fill(ds, "InsertarNuevoDocumento")
 
-            'Return ds.Tables(0)
+            Return ds.Tables(0)
 
         Catch ex As Exception
             Return Nothing
