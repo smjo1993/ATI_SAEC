@@ -9,6 +9,7 @@ Public Class Login
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        lblMensaje.Text = ""
     End Sub
 
     Protected Sub lbRecuperarContrasenia_Click(sender As Object, e As EventArgs) Handles lblRecuperarContrasenia.Click
@@ -24,6 +25,8 @@ Public Class Login
     End Sub
 
     Public Sub RedireccionUsuario(usuario As String, contrasenia As String)
+
+        Dim alerta As New clsAlertas
 
         Dim clsUsuarioATI As New clsUsuario
 
@@ -49,6 +52,7 @@ Public Class Login
 
                         If (estado = "A" Or estado = "a") Then 'USUARIO SAEC ESTA ACTIVO
 
+                            'lblMensaje.Text = alerta.alertLight("alerta", "Usuario SAEC esta activo")
                             'MessageBox.Show("Usuario activo dentro de la plataforma SAEC") 'VER ROLES Y REDIRECCIONAR
                             Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
 
