@@ -12,6 +12,7 @@ Public Class clsContratista
     Public Sub New()
 
     End Sub
+
     Public Sub New(nombre As Object, login As Object, clave As Object, rut As Object, fono As Object, correo As Object)
         Me.Nombre = nombre
         Me.Login = login
@@ -22,7 +23,7 @@ Public Class clsContratista
         Me.Correo = correo
     End Sub
 
-    Public Function ListarContratistas() As DataTable
+    Public Function listarContratistas() As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
