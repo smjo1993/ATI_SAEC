@@ -58,7 +58,7 @@ Public Class Login
                             Session("usuario") = usuario
                             Session("contrasenia") = contrasenia
                             Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
-
+                            txtUsuario.Text = ""
                         Else 'USUARIO INACTIVO EN LA PLATAFORMA SAEC
                             lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO INACTIVO EN SAEC")
                         End If
@@ -98,7 +98,7 @@ Public Class Login
                         Session("usuario") = usuario
                         Session("contrasenia") = contrasenia
                         Response.Redirect("Contratistas/menuContratista.aspx")
-
+                        txtUsuario.Text = ""
                     Else 'CONTRATISTA INACTIVO
                         lblMensaje.Text = alerta.alerta("ALERTA", "CONTRATISTA INACTIVO EN EL SISTEMA")
                         txtUsuario.Text = ""
