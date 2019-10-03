@@ -33,6 +33,7 @@ Public Class clsArea
         Dim sql As String = "SP_SAEC_ListarAreas"
 
         con.Open()
+
         Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(Sql, con)
         dbDataAdapter.Fill(ds)
 

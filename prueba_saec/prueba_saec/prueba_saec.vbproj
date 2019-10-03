@@ -98,7 +98,8 @@
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
-    <Content Include="presentacion\Funcionarios ATI\crearNuevoDocumento.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\agregarDocumento.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\menu.aspx" />
@@ -156,11 +157,18 @@
       <DependentUpon>crearEmpresa.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="presentacion\Funcionarios ATI\crearNuevoDocumento.aspx.designer.vb">
-      <DependentUpon>crearNuevoDocumento.aspx</DependentUpon>
+    <Compile Include="presentacion\Funcionarios ATI\agregarDcto.aspx.designer.vb">
+      <DependentUpon>agregarDcto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\Funcionarios ATI\crearNuevoDocumento.aspx.vb">
-      <DependentUpon>crearNuevoDocumento.aspx</DependentUpon>
+    <Compile Include="presentacion\Funcionarios ATI\agregarDcto.aspx.vb">
+      <DependentUpon>agregarDcto.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\agregarDocumento.aspx.designer.vb">
+      <DependentUpon>agregarDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\agregarDocumento.aspx.vb">
+      <DependentUpon>agregarDocumento.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verEmpresas.aspx.designer.vb">
