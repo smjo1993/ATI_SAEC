@@ -21,7 +21,4 @@ Public Class clsUsuarioSAEC
             con.Dispose()
         End Try
     End Function
-    Public Function verificarContrasenia(usuario As String, contrasenia As String) As Boolean
-        Return True
-    End Function
 End Class

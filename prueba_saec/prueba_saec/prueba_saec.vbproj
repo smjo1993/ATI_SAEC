@@ -95,8 +95,10 @@
   <ItemGroup>
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
+    <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\crearNuevoDocumento.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
     <Content Include="presentacion\login.aspx" />
@@ -105,10 +107,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="logica\clsEmpresa.vb" />
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsArea.vb" />
     <Compile Include="logica\clsDocumento.vb" />
     <Compile Include="logica\clsUsuario.vb" />
+    <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
     <Compile Include="logica\Trabajador.vb" />
     <Compile Include="logica\Vehiculo.vb" />
@@ -131,11 +135,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="presentacion\Contratistas\crearTrabajador.aspx.designer.vb">
-      <DependentUpon>crearTrabajador.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratistas\crearContratista.aspx.designer.vb">
+      <DependentUpon>crearContratista.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\Contratistas\crearTrabajador.aspx.vb">
-      <DependentUpon>crearTrabajador.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratistas\crearContratista.aspx.vb">
+      <DependentUpon>crearContratista.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
@@ -143,6 +147,13 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">
+      <DependentUpon>crearEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Empresa\crearEmpresa.aspx.vb">
+      <DependentUpon>crearEmpresa.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\crearNuevoDocumento.aspx.designer.vb">
