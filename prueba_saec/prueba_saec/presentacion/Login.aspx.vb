@@ -53,12 +53,33 @@ Public Class Login
 
                         If (estado = "A" Or estado = "a") Then 'USUARIO SAEC ESTA ACTIVO
 
-                            'lblMensaje.Text = alerta.alertLight("alerta", "Usuario SAEC esta activo")
-                            'MessageBox.Show("Usuario activo dentro de la plataforma SAEC") 'VER ROLES Y REDIRECCIONAR
-                            Session("usuario") = usuario
-                            Session("contrasenia") = contrasenia
-                            Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
-                            txtUsuario.Text = ""
+                            Dim listaRoles As List(Of clsRol) = New List(Of clsRol) 'ACA SE GUARDAN LOS ROLES DEL USUARIO
+
+                            listaRoles = clsUsuarioSAEC.rolesUusario(usuarioSAEC.Rows(0)("rut").ToString())
+
+
+
+                            If (listaRoles.Count > 0) Then
+                                Dim usuarioEntrante As New clsUsuarioSAEC(usuarioSAEC.Rows(0)("nombre").ToString(),
+                                                                                                                      usuarioSAEC.Rows(0)("login").ToString(),
+                                                                                                                      usuarioSAEC.Rows(0)("clave").ToString(),
+                                                                                                                      usuarioSAEC.Rows(0)("rut").ToString(),
+                                                                                                                      System.Convert.ToChar(usuarioSAEC.Rows(0)("estado").ToString()),
+                                                                                                                      Convert.ToInt32(usuarioSAEC.Rows(0)("fono").ToString()),
+                                                                                                                      usuarioSAEC.Rows(0)("correo").ToString(),
+                                                                                                                      Convert.ToInt32(usuarioSAEC.Rows(0)("TB_SAEC_Areaid").ToString()))
+
+                                Session("roles") = listaRoles
+                                Session("usuario") = usuarioEntrante
+                                Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
+                                txtUsuario.Text = ""
+
+                            Else
+
+                                lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO SIN ROL(ES) EN EL SISTEMA")
+
+                            End If
+
                         Else 'USUARIO INACTIVO EN LA PLATAFORMA SAEC
                             lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO INACTIVO EN SAEC")
                         End If
