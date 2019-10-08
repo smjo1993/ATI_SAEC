@@ -113,6 +113,7 @@
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsArea.vb" />
     <Compile Include="logica\clsDocumento.vb" />
+    <Compile Include="logica\clsRol.vb" />
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
