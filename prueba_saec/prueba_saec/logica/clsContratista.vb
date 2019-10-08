@@ -13,15 +13,79 @@ Public Class clsContratista
 
     End Sub
 
-    'Public Sub New(nombre As Object, login As Object, clave As Object, rut As Object, fono As Object, correo As Object)
-    '    Me.Nombre = nombre
-    '    Me.Login = login
-    '    Me.Clave = clave
-    '    Me.Rut = rut
-    '    Me.Nombre = "A"
-    '    Me.Fono = fono
-    '    Me.Correo = correo
-    'End Sub
+    Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char, ByVal fono As Integer,
+                   ByVal correo As String)
+        Me.Nombre = nombre
+        Me.Login = login
+        Me.Clave = clave
+        Me.Rut = rut
+        Me.Estado = estado
+        Me.Fono = fono
+        Me.Correo = correo
+    End Sub
+
+    Public Property nombreContratista() As String
+        Get
+            Return Me.Nombre
+        End Get
+        Set
+            Me.Nombre = Value
+        End Set
+    End Property
+
+    Public Property loginContratista() As String
+        Get
+            Return Me.Login
+        End Get
+        Set
+            Me.Login = Value
+        End Set
+    End Property
+
+    Public Property claveContratista() As String
+        Get
+            Return Me.Clave
+        End Get
+        Set
+            Me.Clave = Value
+        End Set
+    End Property
+
+    Public Property rutContratista() As String
+        Get
+            Return Me.Rut
+        End Get
+        Set
+            Me.Rut = Value
+        End Set
+    End Property
+
+    Public Property estadoContratista() As Char
+        Get
+            Return Me.Estado
+        End Get
+        Set
+            Me.Estado = Value
+        End Set
+    End Property
+
+    Public Property fonoContratista() As Integer
+        Get
+            Return Me.Fono
+        End Get
+        Set
+            Me.Fono = Value
+        End Set
+    End Property
+
+    Public Property correoContratista() As String
+        Get
+            Return Me.Correo
+        End Get
+        Set
+            Me.Correo = Value
+        End Set
+    End Property
 
     Public Function listarContratistas() As DataTable
 

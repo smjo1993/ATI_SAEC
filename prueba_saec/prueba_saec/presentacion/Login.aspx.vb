@@ -116,8 +116,15 @@ Public Class Login
 
                     If (estado = "A" Or estado = "a") Then 'CONTRATISTA ESTA ACTIVO
 
-                        Session("usuario") = usuario
-                        Session("contrasenia") = contrasenia
+                        Dim contratistaEntrante As New clsContratista(contratista.Rows(0)("nombre").ToString,
+                                                                      contratista.Rows(0)("login").ToString,
+                                                                      contratista.Rows(0)("clave").ToString,
+                                                                      contratista.Rows(0)("rut").ToString,
+                                                                      contratista.Rows(0)("estado").ToString,
+                                                                      Convert.ToInt32(contratista.Rows(0)("fono").ToString),
+                                                                      contratista.Rows(0)("correo").ToString)
+
+                        Session("contratistaEntrante") = contratistaEntrante
                         Response.Redirect("Contratistas/menuContratista.aspx")
                         txtUsuario.Text = ""
                     Else 'CONTRATISTA INACTIVO
