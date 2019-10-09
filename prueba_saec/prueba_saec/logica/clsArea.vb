@@ -27,13 +27,15 @@ Public Class clsArea
     '    End Try
     'End Function
     Public Function obtenerNombre()
+
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Dim ds As New DataSet()
 
         Dim sql As String = "SP_SAEC_ListarAreas"
 
         con.Open()
-        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(Sql, con)
+
+        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
         dbDataAdapter.Fill(ds)
 
         Return ds.Tables(0)

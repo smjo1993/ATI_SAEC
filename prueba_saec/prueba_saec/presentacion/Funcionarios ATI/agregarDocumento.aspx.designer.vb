@@ -11,68 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Login
+Partial Public Class agregarDocumento
     
     '''<summary>
-    '''Control lblUsuario.
+    '''Control form1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblUsuario As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control txtUsuario.
+    '''Control txtNombreDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtNombreDocumento As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control lblContrasenia.
+    '''Control dropTipoDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblContrasenia As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control txtContrasenia.
+    '''Control chkListaAreas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtContrasenia As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents chkListaAreas As Global.System.Web.UI.WebControls.CheckBoxList
     
     '''<summary>
-    '''Control btnLogin.
+    '''Control btnCancelar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnLogin As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control lblMensaje.
+    '''Control btnCrearDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Control lblRecuperarContrasenia.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblRecuperarContrasenia As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents btnCrearDocumento As Global.System.Web.UI.WebControls.Button
 End Class

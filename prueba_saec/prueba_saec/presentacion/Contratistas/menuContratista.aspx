@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="menu.aspx.vb" Inherits="prueba_saec.menu" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="menuContratista.aspx.vb" Inherits="prueba_saec.menu" %>
 
 <!DOCTYPE html>
 

@@ -10,6 +10,7 @@ Public Class Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMensaje.Text = ""
+        'txtUsuario.Text = ""
     End Sub
 
     Protected Sub lbRecuperarContrasenia_Click(sender As Object, e As EventArgs) Handles lblRecuperarContrasenia.Click
@@ -52,24 +53,50 @@ Public Class Login
 
                         If (estado = "A" Or estado = "a") Then 'USUARIO SAEC ESTA ACTIVO
 
-                            'lblMensaje.Text = alerta.alertLight("alerta", "Usuario SAEC esta activo")
-                            'MessageBox.Show("Usuario activo dentro de la plataforma SAEC") 'VER ROLES Y REDIRECCIONAR
-                            Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
+                            Dim listaRoles As List(Of clsRol) = New List(Of clsRol) 'ACA SE GUARDAN LOS ROLES DEL USUARIO
+
+                            listaRoles = clsUsuarioSAEC.rolesUusario(usuarioSAEC.Rows(0)("rut").ToString())
+
+
+
+                            If (listaRoles.Count > 0) Then
+                                Dim usuarioEntrante As New clsUsuarioSAEC(usuarioSAEC.Rows(0)("nombre").ToString(),
+                                                                                                                      usuarioSAEC.Rows(0)("login").ToString(),
+                                                                                                                      usuarioSAEC.Rows(0)("clave").ToString(),
+                                                                                                                      usuarioSAEC.Rows(0)("rut").ToString(),
+                                                                                                                      System.Convert.ToChar(usuarioSAEC.Rows(0)("estado").ToString()),
+                                                                                                                      Convert.ToInt32(usuarioSAEC.Rows(0)("fono").ToString()),
+                                                                                                                      usuarioSAEC.Rows(0)("correo").ToString(),
+                                                                                                                      Convert.ToInt32(usuarioSAEC.Rows(0)("TB_SAEC_Areaid").ToString()))
+
+                                Session("roles") = listaRoles
+                                Session("usuario") = usuarioEntrante
+                                Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
+                                txtUsuario.Text = ""
+
+                            Else
+
+                                lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO SIN ROL(ES) EN EL SISTEMA")
+
+                            End If
 
                         Else 'USUARIO INACTIVO EN LA PLATAFORMA SAEC
-                            MessageBox.Show("Usuario inactivo dentro de la plataforma SAEC")
+                            lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO INACTIVO EN SAEC")
                         End If
 
                     Else 'CLAVE INCORRECTA
-                        MessageBox.Show("contraseÑa incorrecta")
+                        lblMensaje.Text = alerta.alerta("ALERTA", "CONTRASEÑA INCORRECTA")
+                        txtUsuario.Text = ""
                     End If
 
                 Else 'EL LOGIN DEL USUARIO NO ES DE SAEC PERO SI DE ATI
-                    MessageBox.Show("Usuario no participa en saec")
+                    lblMensaje.Text = alerta.alerta("ALERTA", "ESTE USUARIO NO PARTICIPA EN SAEC")
+                    txtUsuario.Text = ""
                 End If
 
             Else 'EL USUARIO ES DE ATI PERO SU CUENTA NO ESTA ACTIVA EN LOS SISTEMA DE ATI
-                MessageBox.Show("Usted no esta activo dentro de los sistemas de ATI")
+                lblMensaje.Text = alerta.alerta("ALERTA", "USTED NO ESTA ACTIVO EN LOS SISTEMAS DE ATI")
+                txtUsuario.Text = ""
             End If
 
         Else 'SI NO ES USUARIO DE ATI SE VE SI ES CONTRATISTA
@@ -89,27 +116,32 @@ Public Class Login
 
                     If (estado = "A" Or estado = "a") Then 'CONTRATISTA ESTA ACTIVO
 
-                        'SE REDIRECCIONA AL MENU DE CONTRATISTAS
-                        MessageBox.Show("CONTRATISTA ACTIVO EN EL SISTEMA")
+                        Dim contratistaEntrante As New clsContratista(contratista.Rows(0)("nombre").ToString,
+                                                                      contratista.Rows(0)("login").ToString,
+                                                                      contratista.Rows(0)("clave").ToString,
+                                                                      contratista.Rows(0)("rut").ToString,
+                                                                      contratista.Rows(0)("estado").ToString,
+                                                                      Convert.ToInt32(contratista.Rows(0)("fono").ToString),
+                                                                      contratista.Rows(0)("correo").ToString)
 
+                        Session("contratistaEntrante") = contratistaEntrante
+                        Response.Redirect("Contratistas/menuContratista.aspx")
+                        txtUsuario.Text = ""
                     Else 'CONTRATISTA INACTIVO
-                        MessageBox.Show("CONTRATISTA INACTIVO EN EL SISTEMA")
+                        lblMensaje.Text = alerta.alerta("ALERTA", "CONTRATISTA INACTIVO EN EL SISTEMA")
+                        txtUsuario.Text = ""
                     End If
 
                 Else 'CONTRASENIA INCORRECTA
-                    MessageBox.Show("contraseÑa incorrecta")
+                    lblMensaje.Text = alerta.alerta("ALERTA", "CONTRASEÑA INCORRECTA")
+                    txtUsuario.Text = ""
                 End If
 
             Else 'USUARIO INVALIDO
-                MessageBox.Show("usuario incorrecto")
+                lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO INCORRECTO")
+                txtUsuario.Text = ""
             End If
         End If
-
-        'como enviar datos de una pagina a otra
-        'Session("usuario") = usuario
-        'Session("contrasenia") = contrasenia
-        'Response.Redirect("menu.aspx")
-        'Server.Transfer("menu.aspx")
     End Sub
 
 End Class
