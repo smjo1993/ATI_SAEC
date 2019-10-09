@@ -13,39 +13,49 @@
 
      
         <div style="margin-top: 0px">
-              <label>Nombre:</label>
-              <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+              <label id="lblRazonSocial">Razón Social:</label>
+              <asp:TextBox ID="TxtRazonSocial" runat="server"></asp:TextBox>
         </div>
         <div>
-              <label>Rut:</label>
-              <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+              <label id="lblRut">Rut:</label>
+              <asp:TextBox ID="TxtRut" runat="server"></asp:TextBox>
         </div>
         <div>
-              <label>Giro:</label>
-              <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+              <label id="lblGiro">Giro:</label>
+              <asp:TextBox ID="TxtGiro" runat="server"></asp:TextBox>
         </div>
         <div>
-              <label>Código:</label>
-              <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+              <label id="lblDireccion">Dirección:</label>
+              <asp:TextBox ID="TxtDireccion" runat="server"></asp:TextBox>
         </div>
         <div>
-              <label>Fono:</label>
-              <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+              <label id="lblCiudad">Ciudad:</label>
+              <asp:TextBox ID="TxtCiudad" runat="server"></asp:TextBox>
         </div>
-    
-
         <div>
-              <label>Correo:</label>
-              <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+              <label id="lblFono">Fono:</label>
+              <asp:TextBox ID="TxtFono" runat="server"></asp:TextBox>
+        </div>
+        <div>
+              <label id="lblCelular">Celular:</label>
+              <asp:TextBox ID="TxtCelular" runat="server"></asp:TextBox>
+        </div>
+        <div>
+              <label id="lblCorreo">Correo:</label>
+              <asp:TextBox ID="TxtCorreo" runat="server"></asp:TextBox>
         </div>
         <div>
             <label>Encargado:</label>
-            <asp:DropDownList ID="dropUsuarios" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="dropContratistas" runat="server"></asp:DropDownList>
 
 
         </div>
 
             <asp:Button ID="Button1" runat="server" Text="Agregar" />
+
+        <p>
+            <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+        </p>
 
     </form>
 </body>
