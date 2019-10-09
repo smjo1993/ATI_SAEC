@@ -104,9 +104,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="logica\Usuario.vb" />
+    <Compile Include="logica\clsContratista.vb" />
+    <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\Conexion.vb" />
-    <Compile Include="logica\clsEmpresa.vb" />
+    <Compile Include="logica\Trabajador.vb" />
+    <Compile Include="logica\Vehiculo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
