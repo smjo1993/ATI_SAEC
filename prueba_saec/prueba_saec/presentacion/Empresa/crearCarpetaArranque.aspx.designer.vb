@@ -14,31 +14,31 @@ Option Explicit On
 Partial Public Class crearCarpetaArranque
     
     '''<summary>
-    '''Control Label1.
+    '''Control lblEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblEmpresa As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control DropDownList1.
+    '''Control dropEmpresas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents dropEmpresas As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control Label2.
+    '''Control lblFechaExpiracion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblFechaExpiracion As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control TextBox2.

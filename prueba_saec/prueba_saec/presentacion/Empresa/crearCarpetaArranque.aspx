@@ -263,11 +263,11 @@
                                         <form runat="server">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <asp:Label ID="Label1" class="col-lg-6" runat="server" Text="Label"></asp:Label>
-                                                    <asp:DropDownList ID="DropDownList1" class="form-control form-control-user" runat="server"></asp:DropDownList>
+                                                    <asp:Label ID="lblEmpresa" class="col-lg-6" runat="server" Text="Empresas"></asp:Label>
+                                                    <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <asp:Label ID="Label2" class="col-lg-6" runat="server" Text="Label"></asp:Label>
+                                                    <asp:Label ID="lblFechaExpiracion" class="col-lg-6" runat="server" Text="Fecha de expiracion carpeta de arranque"></asp:Label>
                                                     <asp:TextBox ID="TextBox2" class=" form-control form-control-user" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>

@@ -19,4 +19,5 @@ Public Class clsEmpresa
         Me.RutContratista = rutContratista
 
     End Sub
+
 End Class
