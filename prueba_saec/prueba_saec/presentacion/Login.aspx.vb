@@ -19,7 +19,7 @@ Public Class Login
         Dim usuario As String = tbUsuario.Text
         Dim contrasenia As String = tbContrasenia.Text
 
-        Dim cls As New clsUsuario
+        Dim cls As New Usuario
 
         Dim usuarioAti As Integer
         Dim contratista As Integer
