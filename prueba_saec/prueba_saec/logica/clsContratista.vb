@@ -23,12 +23,12 @@ Public Class clsContratista
         Me.Correo = correo
     End Sub
 
-    Public Function listarContratistas() As DataTable
+    Public Function listarContratistasHabilitados() As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarContratistas"
+            Dim sql As String = "SP_SAEC_ListarContratistasHabilitados"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
