@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="crearCarpetaArranque.aspx.vb" Inherits="prueba_saec.crearCarpetaArranque" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="iniciarCarpetaArranque.aspx.vb" Inherits="prueba_saec.iniciarCarpetaArranque" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -258,18 +258,41 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="dataTable" cellspacing="0">
                                     <thead runat="server">
                                         <form runat="server">
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-1"></div>
+                                                <div class="col-lg-4">
                                                     <asp:Label ID="lblEmpresa" class="col-lg-6" runat="server" Text="Empresas"></asp:Label>
                                                     <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
                                                 </div>
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-1"></div>
+                                                <div class="col-lg-4">
                                                     <asp:Label ID="lblFechaExpiracion" class="col-lg-6" runat="server" Text="Fecha de expiracion carpeta de arranque"></asp:Label>
                                                     <asp:TextBox ID="TextBox2" class=" form-control form-control-user" runat="server"></asp:TextBox>
                                                 </div>
+                                                <div class="col-1"></div>
+                                            </div>
+                                            <p></p>
+                                            <div class="row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-2">
+                                                    <asp:Button ID="btnCrearCarpeta" class="btn btn-primary btn-user btn-block" runat="server" Text="Crear Carpeta" />
+                                                </div>
+                                                <div class="col-lg-3"></div>
+                                                <div class="col-lg-2">
+                                                    <asp:Button ID="btnCrearEmpresa" class="btn btn-primary btn-user btn-block" runat="server" Text="Crear Empresa" />
+                                                </div>
+                                                <div class="col-2"></div>
+                                            </div>
+                                            <p></p>
+                                            <div class="row">
+                                                <div class="col-lg-4"></div>
+                                                <div class="col-lg-4">
+                                                    <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+                                                </div>
+                                                <div class="col-lg-4"></div>
                                             </div>
                                         </form>
                                     </thead>
