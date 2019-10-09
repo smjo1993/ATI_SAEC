@@ -12,7 +12,7 @@
         Me.Correo = correo
     End Sub
 
-    Public Function agregarTrabajador()
+    'Public Function agregarTrabajador()
 
-    End Function
+    'End Function
 End Class

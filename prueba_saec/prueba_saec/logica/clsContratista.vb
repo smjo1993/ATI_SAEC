@@ -1,5 +1,128 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class clsContratista
+    Private Nombre
+    Private Login
+    Private Clave
+    Private Rut
+    Private Estado
+    Private Fono
+    Private Correo
 
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char, ByVal fono As Integer,
+                   ByVal correo As String)
+        Me.Nombre = nombre
+        Me.Login = login
+        Me.Clave = clave
+        Me.Rut = rut
+        Me.Estado = estado
+        Me.Fono = fono
+        Me.Correo = correo
+    End Sub
+
+    Public Property nombreContratista() As String
+        Get
+            Return Me.Nombre
+        End Get
+        Set
+            Me.Nombre = Value
+        End Set
+    End Property
+
+    Public Property loginContratista() As String
+        Get
+            Return Me.Login
+        End Get
+        Set
+            Me.Login = Value
+        End Set
+    End Property
+
+    Public Property claveContratista() As String
+        Get
+            Return Me.Clave
+        End Get
+        Set
+            Me.Clave = Value
+        End Set
+    End Property
+
+    Public Property rutContratista() As String
+        Get
+            Return Me.Rut
+        End Get
+        Set
+            Me.Rut = Value
+        End Set
+    End Property
+
+    Public Property estadoContratista() As Char
+        Get
+            Return Me.Estado
+        End Get
+        Set
+            Me.Estado = Value
+        End Set
+    End Property
+
+    Public Property fonoContratista() As Integer
+        Get
+            Return Me.Fono
+        End Get
+        Set
+            Me.Fono = Value
+        End Set
+    End Property
+
+    Public Property correoContratista() As String
+        Get
+            Return Me.Correo
+        End Get
+        Set
+            Me.Correo = Value
+        End Set
+    End Property
+
+    Public Function listarContratistas() As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarContratistas'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarContratistas")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function buscarContratista(contratista As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ValidarContratista '" & contratista & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ValidarContratista")
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class
