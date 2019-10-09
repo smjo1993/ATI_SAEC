@@ -98,6 +98,7 @@
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
+    <Content Include="presentacion\Empresa\crearCarpetaArranque.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDocumento.aspx" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Empresa\crearCarpetaArranque.aspx.designer.vb">
+      <DependentUpon>crearCarpetaArranque.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Empresa\crearCarpetaArranque.aspx.vb">
+      <DependentUpon>crearCarpetaArranque.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">
