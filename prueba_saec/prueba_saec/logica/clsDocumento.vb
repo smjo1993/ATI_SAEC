@@ -26,5 +26,20 @@ Public Class clsDocumento
     '        con.Dispose()
     '    End Try
     'End Function
+    'obtenerTipo
+    Public Function obtenerDocumento()
 
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Dim ds As New DataSet()
+
+        Dim sql As String = "SP_SAEC_ListarDocumentos"
+
+        con.Open()
+
+        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+        dbDataAdapter.Fill(ds)
+
+        Return ds.Tables(0)
+
+    End Function
 End Class
