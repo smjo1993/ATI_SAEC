@@ -39,7 +39,7 @@ Public Class clsEmpresa
         Catch ex As Exception
         Finally
             con.Close()
-        con.Dispose()
+            con.Dispose()
         End Try
     End Function
     Public Function calcularPorcentaje(rutEmpersa As String) As String
