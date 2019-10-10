@@ -12,6 +12,10 @@ Public Class clsEmpresa
     Private celular
     Private rutContratista
 
+    Public Sub New()
+
+    End Sub
+
     Public Sub New(razonSocial As Object, rut As Object, giro As Object, direccion As Object, ciudad As Object, personacontacto As Object, fono As Object, correo As Object, rutContratista As Object)
         Me.razonSocial = razonSocial
         Me.rut = rut
