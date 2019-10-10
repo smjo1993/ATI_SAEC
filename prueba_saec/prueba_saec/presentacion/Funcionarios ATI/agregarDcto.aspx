@@ -7,7 +7,7 @@
 <head runat="server">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+
     <title>Agregar Documento</title>
 
     <!-- Custom fonts for this template-->
@@ -335,30 +335,129 @@
                     <h1 class="h3 mb-4 text-gray-800">Agregar Nuevo Documento</h1>
 
                     <form runat="server">
+                        
+                        
+                        <%--<div>
+
+                            <h5>Nombre</h5>
+
+                            <asp:TextBox ID="txtNombreDocumento"
+                                runat="server"
+                                class="form-control bg-light border-5 small">
+                            </asp:TextBox>
+                        </div>--%>
+
                         <div>
-                            <h3>Nombre</h3>
-                            <asp:TextBox ID="txtNombreDocumento" runat="server" class="form-control bg-light border-5 small"></asp:TextBox>
+                            <div class="card shadow mb-4">
+                                <%--<div class="card-header py-3">
+                                  <h4 class="m-0 font-weight-bold text-primary">Formulario de Nuevo requisito Documental</h4>
+                                </div>--%>
+                                <div class="card-body">
+
+                                    <div class="col-sm-4">
+                                        <h5 class="font-weight-bold text-primary">Nombre</h5>
+                                        <asp:TextBox ID="TextBox1"
+                                        runat="server"
+                                        class="form-control bg-light border-5 small">
+                                        </asp:TextBox>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
+
+                        <%--<br />
+                        <br />--%>
+
                         <div>
-                            <h3>Tipos</h3>
+                            <div class="card shadow mb-4">
+                                <%--<div class="card-header py-3">
+                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
+                                </div>--%>
+                                <div class="card-body">
+
+                                    <div class="col-sm-4">
+                                        <h5 class="font-weight-bold text-primary">Tipo</h5>
+                                        Escoja el tipo de documento a requerir
+                                        <%--<asp:DropDownList ID="dropTipoDocumento" runat="server"></asp:DropDownList>--%>
+                                        <div class="dropdown mb-4">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropTipoDocumentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Tipo de Documento
+                                        </button>
+                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                            
+                                            <asp:Label ID="lblDropTipoDocumentos" runat="server" Text=""></asp:Label>
+
+                                          <%--<a class="dropdown-item" href="#">Action</a>
+                                          <a class="dropdown-item" href="#">Another action</a>
+                                          <a class="dropdown-item" href="#">Something else here</a>--%>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="card shadow mb-4">
+                                <%--<div class="card-header py-3">
+                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
+                                </div>--%>
+                                <div class="card-body">
+
+                                    <div class="col-sm-4">
+                                        <h5 class="font-weight-bold text-primary">Áreas</h5>
+                                        Escoja el tipo de documento a requerir
+                                        <br /><br />
+
+                                        <asp:CheckBoxList 
+                                            ID="chkListaAreas"
+                                            AutoPostBack="False"
+                                            CellPadding="2"
+                                            CellSpacing="2"
+                                            RepeatDirection="Vertical"
+                                            RepeatLayout="Flow"
+                                            TextAlign="Right"
+                                            runat="server">
+                                        </asp:CheckBoxList>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                        <br />
+                        <br />
+
+                        <%--<div>
+                            <h5>Tipos</h5>
                             Escoja el tipo de documento a requerir
+                            <br />
+                            <br />
                             <asp:DropDownList ID="dropTipoDocumento" runat="server"></asp:DropDownList>
                         </div>
+
+                        <br />
+                        <br />
+
                         <div>
-                            <h3>Áreas</h3>
-                            Escoja las áreas pertinentes al documento
+                            <h5>Áreas</h5>
+                            Escoja las áreas pertinentes al documento<br />
+                            <br />
                             <asp:CheckBoxList ID="chkListaAreas"
-                                AutoPostBack="True"
                                 CellPadding="5"
                                 CellSpacing="5"
-                                RepeatColumns="2"
-                                RepeatDirection="Vertical"
-                                RepeatLayout="Flow"
                                 TextAlign="Right"
                                 runat="server">
                             </asp:CheckBoxList>
+                        </div>--%>
 
-                        </div>
+                        <br />
+                        <br />
+
                         <div>
                             <asp:Button ID="btnCancelar" runat="server" class="btn btn-outline-secondary btn-user btn-block" Text="Cancelar" />
                             <asp:Button ID="btnCrearDocumento" runat="server" class="btn btn-primary btn-user btn-block" Text="Crear Documento" />
@@ -373,7 +472,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2019</span>
+                        <span>Copyright &copy; SAEC, CAPSTONE 2019</span>
                     </div>
                 </div>
             </footer>
