@@ -5,6 +5,7 @@
 
         Dim areas As DataTable = obtenerTablaAreas()
         Dim documentos As DataTable = obtenerDocumentos()
+
         Dim dropItem As String = ""
 
         For Each celda As DataRow In areas.Rows
@@ -40,9 +41,23 @@
 
         For Each celda As DataRow In documentos.Rows
 
-            dropItem = dropItem & "<a class=""dropdown-item"" href=""#"">" + celda("tipo").ToString() + "</a>"
+            'recordCount = recordCount + recordCount
 
-            lblDropTipoDocumentos.Text = dropItem
+            dropItem = dropItem & "<li role=""presentation"">"
+
+            dropItem = dropItem & "<a class=""dropdown-item"" href=""#"">"
+
+            dropItem = dropItem & celda("tipo").ToString() & " "
+
+            dropItem = dropItem & documentos.Rows.IndexOf(celda).ToString
+
+            'dropItem = dropItem & recordCount.ToString()
+
+            dropItem = dropItem & "</a></li>"
+
+            'lblDropTipoDocumentos.Text = lblDropTipoDocumentos.Text & dropItem
+
+            Literal1.Text = Literal1.Text & dropItem
 
             'Dim item As New ListItem()
 
