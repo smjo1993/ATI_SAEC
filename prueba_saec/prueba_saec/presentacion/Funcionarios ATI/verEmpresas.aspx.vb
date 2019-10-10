@@ -62,13 +62,9 @@
 
         ElseIf EstadoRojo = False Then
 
-            If porcentaje = "100" Then
-                Return "success"
-            Else
-                Return "warning"
-            End If
-
         End If
+
+        Return "warning"
 
     End Function
 
