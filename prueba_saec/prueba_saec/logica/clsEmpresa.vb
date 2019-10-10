@@ -31,22 +31,43 @@ Public Class clsEmpresa
     End Sub
 
     Public Function obtenerEmpresas() As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ListarEmpresas"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
 
-        Dim sql As String = "SP_SAEC_ListarEmpresas"
-        Dim ds As DataSet = conexionDb(sql)
-        Return ds.Tables(0)
-
+        Catch ex As Exception
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
     End Function
     Public Function calcularPorcentaje(rutEmpersa As String) As String
 
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_CalcularProgresoCarpeta '" & rutEmpersa & "'"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
+            Dim aprobados As Integer = ds.Tables(0).Rows(0).Item(0)
+            Dim total As Integer = ds.Tables(1).Rows(0).Item(0)
+            Dim resultado As String = Int((aprobados * 100) / total)
 
-        Dim sql As String = "SP_SAEC_CalcularProgresoCarpeta '" & rutEmpersa & "'"
-        Dim ds As DataSet = conexionDb(sql)
-        Dim aprobados As Integer = ds.Tables(0).Rows(0).Item(0)
-        Dim total As Integer = ds.Tables(1).Rows(0).Item(0)
-        Dim resultado As String = Int((aprobados * 100) / total)
+            Return resultado
 
-        Return resultado
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
 
     End Function
 
@@ -71,8 +92,6 @@ Public Class clsEmpresa
 
             Return True
 
-
-
         Catch ex As Exception
             Return False
         Finally
@@ -83,15 +102,28 @@ Public Class clsEmpresa
 
     Public Function obtenerEstado(areaRevisor As Integer, rutEmpersa As String) As Boolean
 
-        Dim sql As String = "SP_SAEC_ListarEstadoDocumento '" & areaRevisor & "','" & rutEmpersa & " '"
-        Dim ds As DataSet = conexionDb(sql)
-        Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ListarEstadoDocumento '" & areaRevisor & "','" & rutEmpersa & " '"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
 
-        If estadoRojo > 0 Then
-            Return True
-        Else
+            If estadoRojo > 0 Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
             Return False
-        End If
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
 
     End Function
 
