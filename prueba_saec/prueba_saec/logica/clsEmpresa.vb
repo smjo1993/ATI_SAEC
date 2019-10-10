@@ -12,10 +12,6 @@ Public Class clsEmpresa
     Private celular
     Private rutContratista
 
-    Public Sub New()
-
-    End Sub
-
     Public Sub New(razonSocial As Object, rut As Object, giro As Object, direccion As Object, ciudad As Object, personacontacto As Object, fono As Object, correo As Object, rutContratista As Object)
         Me.razonSocial = razonSocial
         Me.rut = rut
@@ -35,13 +31,20 @@ Public Class clsEmpresa
     Public Function obtenerEmpresas() As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
-        Dim ds As New DataSet()
-        Dim sql As String = "SP_SAEC_ListarEmpresas"
-        con.Open()
-        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
-        dbDataAdapter.Fill(ds)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarEmpresas"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
 
-        Return ds.Tables(0)
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
 
     End Function
     Public Function calcularPorcentaje(rutEmpersa As String) As String

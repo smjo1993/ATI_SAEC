@@ -87,7 +87,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Function listarContratistas() As DataTable
+    'Public Function listarContratistas() As DataTable
     Public Function listarContratistasHabilitados() As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
