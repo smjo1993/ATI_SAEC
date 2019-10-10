@@ -87,16 +87,16 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Function listarContratistas() As DataTable
+    Public Function listarContratistasHabilitados() As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarContratistas'"
+            Dim sql As String = "SP_SAEC_ListarContratistasHabilitados"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
-            dbDataAdapter.Fill(ds, "ListarContratistas")
+            dbDataAdapter.Fill(ds, "ListarContratistasHabilitados")
             Return ds.Tables(0)
 
         Catch ex As Exception
@@ -120,6 +120,30 @@ Public Class clsContratista
             Return ds.Tables(0)
         Catch ex As Exception
             Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function insertarContratista(
+                                   nombre As String,
+                                   login As String,
+                                   clave As String,
+                                   rut As String,
+                                   estado As String,
+                                   fono As String,
+                                   correo As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarContratista '" & nombre & "' , '" & login & "' , '" & clave & "' , '" & rut & "' , '" & estado & "' , '" & fono & "' , '" & correo & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "InsertarContratista")
+            Return True
+        Catch ex As Exception
+            Return False
         Finally
             con.Close()
             con.Dispose()

@@ -11,59 +11,68 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class agregarDocumento
+Partial Public Class iniciarCarpetaArranque
     
     '''<summary>
-    '''Control form1.
+    '''Control lblEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents lblEmpresa As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control txtNombreDocumento.
+    '''Control dropEmpresas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreDocumento As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents dropEmpresas As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control dropTipoDocumento.
+    '''Control lblFechaExpiracion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents lblFechaExpiracion As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control chkListaAreas.
+    '''Control TextBox2.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents chkListaAreas As Global.System.Web.UI.WebControls.CheckBoxList
+    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control btnCancelar.
+    '''Control btnCrearCarpeta.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnCrearCarpeta As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control btnCrearDocumento.
+    '''Control btnCrearEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnCrearDocumento As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnCrearEmpresa As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control lblMensaje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
 End Class

@@ -1,25 +1,33 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class clsEmpresa
-    Private Nombre
-    Private Rut
-    Private Giro
-    Private Codigo
-    Private Fono
-    Private Correo
-    Private RutContratista
+    Private razonSocial
+    Private rut
+    Private giro
+    Private direccion
+    Private ciudad
+    Private personaContacto
+    Private correo
+    Private fono
+    Private celular
+    Private rutContratista
 
-    Public Sub New(nombre As Object, rut As Object, giro As Object, codigo As Object, fono As Object, correo As Object, rutContratista As Object)
-        Me.Nombre = nombre
-        Me.Rut = rut
-        Me.Giro = giro
-        Me.Codigo = codigo
-        Me.Fono = fono
-        Me.Correo = correo
-        Me.RutContratista = rutContratista
+    Public Sub New()
 
     End Sub
-    Public Sub New()
+
+    Public Sub New(razonSocial As Object, rut As Object, giro As Object, direccion As Object, ciudad As Object, personacontacto As Object, fono As Object, correo As Object, rutContratista As Object)
+        Me.razonSocial = razonSocial
+        Me.rut = rut
+        Me.giro = giro
+        Me.direccion = direccion
+        Me.ciudad = ciudad
+        Me.personaContacto = personacontacto
+        Me.correo = correo
+        Me.fono = fono
+        Me.celular = celular
+        Me.rutContratista = rutContratista
+
     End Sub
 
     Public Function obtenerEmpresas() As DataTable
@@ -40,6 +48,37 @@ Public Class clsEmpresa
 
         Return resultado
 
+    End Function
+
+    Public Function insertarEmpresa(nombre As String,
+                                   rut As String,
+                                   giro As String,
+                                   direccion As String,
+                                   ciudad As String,
+                                   personacontacto As String,
+                                   fono As String,
+                                   celular As String,
+                                   correo As String,
+                                   rutContratista As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarEmpresa '" & nombre & "' , '" & rut & "' , '" & giro & "' , '" & direccion & "' , '" & ciudad & "' , '" & personacontacto & "' , '" & correo & "' , '" & fono & "' , '" & celular & "' , '" & rutContratista & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "InsertarEmpresa")
+
+            Return True
+
+
+
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
     End Function
 
     Public Function obtenerEstado(areaRevisor As Integer, rutEmpersa As String) As Boolean
