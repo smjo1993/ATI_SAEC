@@ -13,33 +13,33 @@
      
     <div style="margin-top: 0px">
           <label>Nombre:</label>
-          <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
     </div>
     <div>
-          <label>Username:</label>
-          <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+          <label>Nombre de Usuario:</label>
+          <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
     </div>
     <div>
           <label>Password:</label>
-          <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
     </div>
     <div>
           <label>Rut:</label>
-          <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtRut" runat="server"></asp:TextBox>
     </div>
     <div>
           <label>Fono:</label>
-          <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtFono" runat="server"></asp:TextBox>
     </div>
-    
-
     <div>
           <label>Correo:</label>
-          <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+          <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
     </div>
 
-        <asp:Button ID="Button1" runat="server" Text="Agregar" />
-
+    <asp:Button ID="btnAceptar" runat="server" Text="Agregar" />
+    <p>
+        <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+    </p>
     </form>
 </body>
 </html>

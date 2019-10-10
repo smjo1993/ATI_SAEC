@@ -29,8 +29,6 @@ Public Class clsEmpresa
         Me.rutContratista = rutContratista
 
     End Sub
-    Public Sub New()
-    End Sub
 
     Public Function obtenerEmpresas() As DataTable
 
