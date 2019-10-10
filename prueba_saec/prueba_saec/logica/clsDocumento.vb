@@ -42,4 +42,6 @@ Public Class clsDocumento
         Return ds.Tables(0)
 
     End Function
+
+    'SP_SAEC_ListarTiposDocumentos
 End Class

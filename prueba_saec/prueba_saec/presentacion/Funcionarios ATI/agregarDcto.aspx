@@ -381,12 +381,15 @@
                                         Escoja el tipo de documento a requerir
                                         <%--<asp:DropDownList ID="dropTipoDocumento" runat="server"></asp:DropDownList>--%>
                                         <div class="dropdown mb-4">
+
                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropTipoDocumentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                           Tipo de Documento
+                                        <span class="caret"></span>
                                         </button>
+
                                         <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                            
-                                            <asp:Label ID="lblDropTipoDocumentos" runat="server" Text=""></asp:Label>
+               
+                                            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
                                           <%--<a class="dropdown-item" href="#">Action</a>
                                           <a class="dropdown-item" href="#">Another action</a>
