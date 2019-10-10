@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class agregarDcto
     
     '''<summary>
-    '''Control txtNombreDocumento.
+    '''Control TextBox1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreDocumento As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control dropTipoDocumento.
+    '''Control Literal1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents Literal1 As Global.System.Web.UI.WebControls.Literal
     
     '''<summary>
     '''Control chkListaAreas.
