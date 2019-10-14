@@ -335,18 +335,7 @@
                     <h1 class="h3 mb-4 text-gray-800">Agregar Nuevo Documento</h1>
 
                     <form runat="server">
-                        
-                        
-                        <%--<div>
-
-                            <h5>Nombre</h5>
-
-                            <asp:TextBox ID="txtNombreDocumento"
-                                runat="server"
-                                class="form-control bg-light border-5 small">
-                            </asp:TextBox>
-                        </div>--%>
-
+                  
                         <div>
                             <div class="card shadow mb-4">
                                 <%--<div class="card-header py-3">
@@ -356,18 +345,22 @@
 
                                     <div class="col-sm-4">
                                         <h5 class="font-weight-bold text-primary">Nombre</h5>
-                                        <asp:TextBox ID="TextBox1"
+                                        <asp:TextBox ID="txtNombreDocumento"
                                         runat="server"
                                         class="form-control bg-light border-5 small">
                                         </asp:TextBox>
+
+                                        <h5 class="font-weight-bold text-primary">Identificador</h5>
+                                        <asp:TextBox ID="txtIdDocumento"
+                                        runat="server"
+                                        class="form-control bg-light border-5 small">
+                                        </asp:TextBox>
+
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-
-                        <%--<br />
-                        <br />--%>
 
                         <div>
                             <div class="card shadow mb-4">
@@ -377,25 +370,17 @@
                                 <div class="card-body">
 
                                     <div class="col-sm-4">
+
                                         <h5 class="font-weight-bold text-primary">Tipo</h5>
+
                                         Escoja el tipo de documento a requerir
-                                        <%--<asp:DropDownList ID="dropTipoDocumento" runat="server"></asp:DropDownList>--%>
-                                        <div class="dropdown mb-4">
 
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropTipoDocumentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Tipo de Documento
-                                        <span class="caret"></span>
-                                        </button>
-
-                                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-               
-                                            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-
-                                          <%--<a class="dropdown-item" href="#">Action</a>
-                                          <a class="dropdown-item" href="#">Another action</a>
-                                          <a class="dropdown-item" href="#">Something else here</a>--%>
-                                        </div>
-                                      </div>
+                                        <asp:DropDownList 
+                                            class="btn btn-secondary dropdown-toggle"
+                                            ID="dropTipoDocumento" 
+                                            runat="server">
+                                        </asp:DropDownList>
+                                        
                                     </div>
 
                                 </div>
@@ -424,47 +409,40 @@
                                             TextAlign="Right"
                                             runat="server">
                                         </asp:CheckBoxList>
+
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-
-
                         
                         <br />
                         <br />
 
-                        <%--<div>
-                            <h5>Tipos</h5>
-                            Escoja el tipo de documento a requerir
-                            <br />
-                            <br />
-                            <asp:DropDownList ID="dropTipoDocumento" runat="server"></asp:DropDownList>
+                        <div class="row">
+                        
+                        <div class="d-flex justify-content-end"  >
+
+                            <asp:Button 
+                                ID="btnCancelar" 
+                                Padding="15px"
+                                runat="server" 
+                                class="btn btn-outline-secondary btn-user" 
+                                Text="Cancelar" 
+                                />
+
+                            <asp:Button 
+                                ID="btnCrearDocumento" 
+                                Padding="15px"
+                                runat="server" 
+                                class="btn btn-primary btn-user" 
+                                Text="Crear Documento" 
+                                />
+                            <p>
+                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+                            </p>
                         </div>
-
-                        <br />
-                        <br />
-
-                        <div>
-                            <h5>Áreas</h5>
-                            Escoja las áreas pertinentes al documento<br />
-                            <br />
-                            <asp:CheckBoxList ID="chkListaAreas"
-                                CellPadding="5"
-                                CellSpacing="5"
-                                TextAlign="Right"
-                                runat="server">
-                            </asp:CheckBoxList>
-                        </div>--%>
-
-                        <br />
-                        <br />
-
-                        <div>
-                            <asp:Button ID="btnCancelar" runat="server" class="btn btn-outline-secondary btn-user btn-block" Text="Cancelar" />
-                            <asp:Button ID="btnCrearDocumento" runat="server" class="btn btn-primary btn-user btn-block" Text="Crear Documento" />
-                        </div>
+                       </div>
                     </form>
                 </div>
                 <!-- /.container-fluid -->

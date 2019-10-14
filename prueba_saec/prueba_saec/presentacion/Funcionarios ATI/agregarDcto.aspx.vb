@@ -3,10 +3,16 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        Dim areas As DataTable = obtenerTablaAreas()
-        Dim documentos As DataTable = obtenerDocumentos()
+        cargarAreas()
+        cargarDocumentos()
 
-        Dim dropItem As String = ""
+    End Sub
+
+    Public Sub cargarAreas()
+
+        Dim areas As DataTable = obtenerTablaAreas()
+
+        chkListaAreas.Items.Clear()
 
         For Each celda As DataRow In areas.Rows
 
@@ -15,19 +21,12 @@
             item.Text = celda("descripcion").ToString()
 
             If celda("descripcion").ToString().Equals("RRHH") Then
-
                 item.Text = ("Recursos Humanos")
-
             ElseIf celda("descripcion").ToString().Equals("Prevencion") Then
-
                 item.Text = ("Prevención")
-
             ElseIf celda("descripcion").ToString().Equals("ControlGestion") Then
-
                 item.Text = ("Control de Gestión")
-
             ElseIf celda("descripcion").ToString().Equals("MedioAmbiente") Then
-
                 item.Text = ("Medio Ambiente")
 
             End If
@@ -38,53 +37,24 @@
             chkListaAreas.Items.Add(item)
         Next
 
+    End Sub
+
+    Public Sub cargarDocumentos()
+
+        Dim documentos As DataTable = obtenerDocumentos()
+
+        dropTipoDocumento.Items.Clear()
+        dropTipoDocumento.Items.Add("")
 
         For Each celda As DataRow In documentos.Rows
 
-            'recordCount = recordCount + recordCount
+            Dim itemDrop As New ListItem
 
-            dropItem = dropItem & "<li role=""presentation"">"
+            itemDrop.Text = celda("tipo").ToString()
 
-            dropItem = dropItem & "<a class=""dropdown-item"" href=""#"">"
+            itemDrop.Value = celda("tipo").ToString()
 
-            dropItem = dropItem & celda("tipo").ToString() & " "
-
-            dropItem = dropItem & documentos.Rows.IndexOf(celda).ToString
-
-            'dropItem = dropItem & recordCount.ToString()
-
-            dropItem = dropItem & "</a></li>"
-
-            'lblDropTipoDocumentos.Text = lblDropTipoDocumentos.Text & dropItem
-
-            Literal1.Text = Literal1.Text & dropItem
-
-            'Dim item As New ListItem()
-
-            'item.Text = celda("tipo").ToString()
-
-            'If celda("descripcion").ToString().Equals("RRHH") Then
-
-            '    item.Text = ("Recursos Humanos")
-
-            'ElseIf celda("descripcion").ToString().Equals("Prevencion") Then
-
-            '    item.Text = ("Prevención")
-
-            'ElseIf celda("descripcion").ToString().Equals("ControlGestion") Then
-
-            '    item.Text = ("Control de Gestión")
-
-            'ElseIf celda("descripcion").ToString().Equals("MedioAmbiente") Then
-
-            '    item.Text = ("Medio Ambiente")
-
-            'End If
-
-            'item.Value = celda("id").ToString()
-
-            'chkListaAreas.Items.Add(item)
-
+            dropTipoDocumento.Items.Add(itemDrop)
 
         Next
 
@@ -105,6 +75,16 @@
     End Sub
 
     Protected Sub btnCrearDocumento_Click(sender As Object, e As EventArgs) Handles btnCrearDocumento.Click
-        Response.Redirect("../login.aspx")
+
+        Dim nuevoDocumento = New clsDocumento()
+
+        Dim insercion As New Boolean
+
+        If (txtNombreDocumento.Text.Trim() = "") Then
+            lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
+        Else
+            insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text.Trim(), txtIdDocumento.Text.Trim(), dropTipoDocumento.SelectedItem.Text.Trim(), chkListaAreas.SelectedItem.Value.ToString.Trim())
+        End If
+
     End Sub
 End Class
