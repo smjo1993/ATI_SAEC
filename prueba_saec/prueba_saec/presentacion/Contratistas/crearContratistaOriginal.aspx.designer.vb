@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class crearContratista
+Partial Public Class crearTrabajador
     
     '''<summary>
     '''Control form1.
@@ -77,13 +77,13 @@ Partial Public Class crearContratista
     Protected WithEvents txtCorreo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control btnAgregar.
+    '''Control btnAceptar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnAgregar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnAceptar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''Control lblAdvertencia.
