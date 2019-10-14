@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Public Class clsEmpresa
     Private razonSocial
     Private rut
+
     Private giro
     Private direccion
     Private ciudad
@@ -33,7 +34,7 @@ Public Class clsEmpresa
     Public Function obtenerEmpresas() As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
-            Dim sql As String = "SP_SAEC_ListarEmpresas"
+            Dim sql As String = "SP_SAEC_ListarCarpetasEmpresas"
             Dim ds As New DataSet()
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

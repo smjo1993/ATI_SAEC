@@ -149,4 +149,48 @@ Public Class clsContratista
             con.Dispose()
         End Try
     End Function
+
+    Public Function obtenerCarpetas(rutContratista As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ListarCarpetasContratista'" & rutContratista & "'"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function obtenerEstado(rutEmpersa As String) As Boolean
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ListarEstadoDocumentoContratista'" & rutEmpersa & " '"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
+
+            If estadoRojo > 0 Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+
+    End Function
 End Class
