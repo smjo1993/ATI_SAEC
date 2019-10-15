@@ -97,7 +97,9 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
+    <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
+    <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
@@ -146,11 +148,25 @@
       <DependentUpon>crearContratista.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.designer.vb">
+      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.vb">
+      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
+      <DependentUpon>verCarpetas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verCarpetas.aspx.vb">
+      <DependentUpon>verCarpetas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">

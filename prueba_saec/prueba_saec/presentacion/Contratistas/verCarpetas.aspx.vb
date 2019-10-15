@@ -1,17 +1,19 @@
-﻿Public Class verEmpresas
+﻿Public Class verCarpetas
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Dim tarjeta As String = ""
         Dim color As String
-        Dim listaEmpresas As DataTable = crearEmpresas().obtenerEmpresas()
-        Dim Empresas As Object = crearEmpresas()
+        ' definir por session el rut
+        Dim rutContratista As String = "191494911"
+        Dim carpetaContratista As Object = crearCarpetasContratista()
 
-        For Each fila As DataRow In listaEmpresas.Rows
+        For Each fila As DataRow In carpetaContratista.obtenerCarpetas(rutContratista).Rows
 
-            Dim porcentaje As String = Empresas.calcularPorcentaje(fila("rut"))
-            Dim estado As Boolean = Empresas.ObtenerEstado(3, fila("rut"))
+            Dim Empresas As Object = crearEmpresas()
+            Dim porcentaje As String = Empresas.calcularPorcentaje(fila("TB_SAEC_Empresarut"))
+            Dim estado As Boolean = carpetaContratista.ObtenerEstado(fila("TB_SAEC_Empresarut"))
             color = obtenerColor(estado, porcentaje)
 
 
@@ -40,12 +42,19 @@
             tarjeta = tarjeta & "        </div> "
             tarjeta = tarjeta & "      </div> "
 
-            lblTarjetaEmpresa.Text = tarjeta
+            lblTarjetaCarpeta.Text = tarjeta
 
         Next
 
     End Sub
 
+    Public Function crearCarpetasContratista() As Object
+
+        Dim Empresas = New clsContratista()
+
+        Return Empresas
+
+    End Function
     Public Function crearEmpresas() As Object
 
         Dim Empresas = New clsEmpresa()
