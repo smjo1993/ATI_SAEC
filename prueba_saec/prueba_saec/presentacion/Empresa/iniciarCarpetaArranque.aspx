@@ -286,12 +286,13 @@
                                             </div>
                                             <p></p>
                                             <div class="row">
-                                                <div class="col-lg-3"></div>
+                                                <div class="col-lg-2"></div>
                                                 <div class="col-lg-3">
-                                                    <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg-6 btn-user btn-block" runat="server" Text="Crear Carpeta" />
+                                                    <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />
                                                 </div>
+                                                <p class="col-1"></p>
                                                 <div class="col-lg-3">
-                                                    <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg-6 btn-user btn-block" runat="server" Text="Crear Empresa" />
+                                                    <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
                                                 </div>
                                                 <div class="col-lg-3"></div>
                                             </div>

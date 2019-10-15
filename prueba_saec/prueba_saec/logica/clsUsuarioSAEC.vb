@@ -64,7 +64,10 @@ Public Class clsUsuarioSAEC
 
             Dim posicion = 0
             For Each row As DataRow In ds.Tables(0).Rows
-                roles.Add(New clsRol(Convert.ToInt32(row("id").ToString()), row("descripcion").ToString()))
+                Dim id As Integer = Convert.ToInt32(row("id").tostring())
+                Dim descripcion As String = row("nombre").ToString()
+                Dim rol As New clsRol(id, descripcion)
+                roles.Add(rol)
                 posicion += 1
             Next row
 
