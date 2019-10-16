@@ -104,13 +104,13 @@ Partial Public Class crearEmpresa
     Protected WithEvents dropContratistas As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control Button1.
+    '''Control btnAgregar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnAgregar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''Control lblAdvertencia.

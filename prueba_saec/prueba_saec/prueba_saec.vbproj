@@ -97,6 +97,7 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
+    <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logica\clsAlertas.vb" />
+    <Compile Include="logica\clsCarpetaArranque.vb" />
     <Compile Include="logica\clsEmpresa.vb" />
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsArea.vb" />
@@ -144,6 +146,13 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\crearContratista.aspx.vb">
       <DependentUpon>crearContratista.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.designer.vb">
+      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.vb">
+      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
