@@ -378,60 +378,7 @@
                             </div>
                     </div>
 
-                    <div>
-                        <div class="card shadow mb-4">
-                            <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
-                                </div>--%>
-                            <div class="card-body">
-
-                                <div class="col-sm-4">
-
-                                    <h5 class="font-weight-bold text-primary">Tipo</h5>
-
-                                    Escoja el tipo de documento a requerir
-
-                                        <asp:DropDownList
-                                            class="btn btn-secondary dropdown-toggle"
-                                            ID="dropTipoDocumento"
-                                            runat="server">
-                                        </asp:DropDownList>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="card shadow mb-4">
-                            <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
-                                </div>--%>
-                            <div class="card-body">
-
-                                <div class="col-sm-4">
-                                    <h5 class="font-weight-bold text-primary">Áreas</h5>
-                                    Escoja el tipo de documento a requerir
-                                        <br />
-                                    <br />
-
-                                    <asp:CheckBoxList
-                                        ID="chkListaAreas"
-                                        AutoPostBack="False"
-                                        CellPadding="2"
-                                        CellSpacing="2"
-                                        RepeatDirection="Vertical"
-                                        RepeatLayout="Flow"
-                                        TextAlign="Right"
-                                        runat="server">
-                                    </asp:CheckBoxList>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <br />
                     <br />
