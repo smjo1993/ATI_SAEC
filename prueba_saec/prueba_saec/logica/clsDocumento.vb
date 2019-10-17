@@ -1,7 +1,9 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class clsDocumento
-    Public Function insertarDocumento(nombre As String, identificador As String, tipo As String, area As Integer)
+    Public Function insertarDocumento(nombre As String,
+                                      tipo As String,
+                                      area As Integer)
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
 
@@ -9,19 +11,19 @@ Public Class clsDocumento
 
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_InsertarDocumento '" & nombre & "' " & "'" & tipo & "' " & "'" & area & "' " & identificador & "' "
-
+            Dim sql As String = "SP_SAEC_InsertarDocumento '" & nombre & "' , '" & tipo & "' , '" & area & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
             dbDataAdapter.Fill(ds, "InsertarDocumento")
 
-            Return ds.Tables(0)
+            'Return ds.Tables(0)
+            Return True
 
         Catch ex As Exception
 
-            Return Nothing
+            Return False
 
         Finally
 
@@ -34,10 +36,22 @@ Public Class clsDocumento
 
     Public Function obtenerDocumento()
 
+        'Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        'Dim ds As New DataSet()
+
+        'Dim sql As String = "SP_SAEC_ListarTiposDocumentos"
+
+        'con.Open()
+
+        'Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+        'dbDataAdapter.Fill(ds)
+
+        'Return ds.Tables(0)
+
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Dim ds As New DataSet()
 
-        Dim sql As String = "SP_SAEC_ListarTiposDocumentos"
+        Dim sql As String = "SP_SAEC_ListarDocumentos"
 
         con.Open()
 

@@ -1,10 +1,14 @@
-﻿Public Class agregarDcto
+﻿Imports System.Linq
+Public Class agregarDcto
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        cargarAreas()
-        cargarDocumentos()
+        If Not IsPostBack Then
+
+            cargarAreas()
+
+        End If
 
     End Sub
 
@@ -19,42 +23,9 @@
             Dim item As New ListItem()
 
             item.Text = celda("descripcion").ToString()
-
-            If celda("descripcion").ToString().Equals("RRHH") Then
-                item.Text = ("Recursos Humanos")
-            ElseIf celda("descripcion").ToString().Equals("Prevencion") Then
-                item.Text = ("Prevención")
-            ElseIf celda("descripcion").ToString().Equals("ControlGestion") Then
-                item.Text = ("Control de Gestión")
-            ElseIf celda("descripcion").ToString().Equals("MedioAmbiente") Then
-                item.Text = ("Medio Ambiente")
-
-            End If
-
-            item.Value = celda("id").ToString()
-            'item.Selected = Convert.ToBoolean(celda("IsSelected"))
+            item.Value = celda("id")
 
             chkListaAreas.Items.Add(item)
-        Next
-
-    End Sub
-
-    Public Sub cargarDocumentos()
-
-        Dim documentos As DataTable = obtenerDocumentos()
-
-        dropTipoDocumento.Items.Clear()
-        dropTipoDocumento.Items.Add("")
-
-        For Each celda As DataRow In documentos.Rows
-
-            Dim itemDrop As New ListItem
-
-            itemDrop.Text = celda("tipo").ToString()
-
-            itemDrop.Value = celda("tipo").ToString()
-
-            dropTipoDocumento.Items.Add(itemDrop)
 
         Next
 
@@ -76,15 +47,37 @@
 
     Protected Sub btnCrearDocumento_Click(sender As Object, e As EventArgs) Handles btnCrearDocumento.Click
 
-        Dim nuevoDocumento = New clsDocumento()
+        Dim nuevoDocumento As New clsDocumento
 
         Dim insercion As New Boolean
 
-        If (txtNombreDocumento.Text.Trim() = "") Then
+        If (txtNombreDocumento.Text.Trim() = "" Or dropTipoDocumento.Items.Equals("")) Then
             lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
         Else
-            insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text.Trim(), txtIdDocumento.Text.Trim(), dropTipoDocumento.SelectedItem.Text.Trim(), chkListaAreas.SelectedItem.Value.ToString.Trim())
+
+            For Each item In chkListaAreas.Items
+
+                If item.Selected Then
+
+                    insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text,
+                                                             dropTipoDocumento.SelectedItem.Value,
+                                                             item.Value)
+
+                End If
+
+            Next item
+
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "desplegarModal();", True)
+
+            'Dim title As String = "Greetings"
+            'Dim body As String = "Welcome to ASPSnippets.com"
+
+            'ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "ShowPopup('" & Title & "', '" & body & "');", True)
+
+            Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
+
         End If
+
 
     End Sub
 End Class

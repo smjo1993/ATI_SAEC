@@ -11,16 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class agregarDcto
+Partial Public Class modificarDcto
     
     '''<summary>
-    '''Control txtNombreDocumento.
+    '''Control dropAreas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreDocumento As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents dropAreas As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''Control dropDocumentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''Control dropTipoDocumento.
