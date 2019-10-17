@@ -345,16 +345,18 @@
 
                                     <div class="col-sm-4">
                                         <h5 class="font-weight-bold text-primary">Nombre</h5>
-                                        <asp:TextBox ID="txtNombreDocumento"
-                                        runat="server"
-                                        class="form-control bg-light border-5 small">
+                                        
+                                        <asp:TextBox 
+                                            ID="txtNombreDocumento"
+                                            runat="server"
+                                            class="form-control bg-light border-5 small">
                                         </asp:TextBox>
 
-                                        <h5 class="font-weight-bold text-primary">Identificador</h5>
+                                        <%--<h5 class="font-weight-bold text-primary">Identificador</h5>
                                         <asp:TextBox ID="txtIdDocumento"
                                         runat="server"
                                         class="form-control bg-light border-5 small">
-                                        </asp:TextBox>
+                                        </asp:TextBox>--%>
 
                                     </div>
 
@@ -379,7 +381,13 @@
                                             class="btn btn-secondary dropdown-toggle"
                                             ID="dropTipoDocumento" 
                                             runat="server">
-                                        </asp:DropDownList>
+
+                                            <asp:ListItem Selected="True" Value=""></asp:ListItem>
+                                            <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
+                                            <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
+                                            <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
+
+                                        </asp:DropDownList> 
                                         
                                     </div>
 
@@ -396,12 +404,11 @@
 
                                     <div class="col-sm-4">
                                         <h5 class="font-weight-bold text-primary">Áreas</h5>
-                                        Escoja el tipo de documento a requerir
+                                        Escoja el área al cual el documento es pertinente
                                         <br /><br />
 
                                         <asp:CheckBoxList 
                                             ID="chkListaAreas"
-                                            AutoPostBack="False"
                                             CellPadding="2"
                                             CellSpacing="2"
                                             RepeatDirection="Vertical"
@@ -446,6 +453,7 @@
                     </form>
                 </div>
                 <!-- /.container-fluid -->
+                <%--AutoPostBack="False"--%>
             </div>
             <!-- End of Main Content -->
 

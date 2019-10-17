@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logica\clsAlertas.vb" />
+    <Compile Include="logica\clsCarpetaArranque.vb" />
     <Compile Include="logica\clsEmpresa.vb" />
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsArea.vb" />
