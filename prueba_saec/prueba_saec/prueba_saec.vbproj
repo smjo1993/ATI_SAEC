@@ -104,6 +104,7 @@
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
     <Content Include="presentacion\Empresa\modificarEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
     <Content Include="presentacion\login.aspx" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\agregarDcto.aspx.vb">
       <DependentUpon>agregarDcto.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.designer.vb">
+      <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.vb">
+      <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\modificarDcto.aspx.designer.vb">
