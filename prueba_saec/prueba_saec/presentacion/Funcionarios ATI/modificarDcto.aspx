@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="agregarDcto.aspx.vb" Inherits="prueba_saec.agregarDcto" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="modificarDcto.aspx.vb" Inherits="prueba_saec.modificarDcto" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Agregar Documento</title>
+    <title>Edición de Documento</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -344,7 +344,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Agregar Nuevo Documento</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
 
                     <form runat="server">
                   
@@ -356,19 +356,24 @@
                                 <div class="card-body">
 
                                     <div class="col-sm-4">
-                                        <h5 class="font-weight-bold text-primary">Nombre</h5>
-                                        
-                                        <asp:TextBox 
-                                            ID="txtNombreDocumento"
-                                            runat="server"
-                                            class="form-control bg-light border-5 small">
-                                        </asp:TextBox>
+                                        <h5 class="font-weight-bold text-primary">Búsqueda</h5>
 
-                                        <%--<h5 class="font-weight-bold text-primary">Identificador</h5>
-                                        <asp:TextBox ID="txtIdDocumento"
-                                        runat="server"
-                                        class="form-control bg-light border-5 small">
-                                        </asp:TextBox>--%>
+                                        Escoja el Área del documento
+
+                                        <asp:DropDownList 
+                                            class="btn btn-light dropdown-toggle"
+                                            ID="dropAreas" 
+                                            runat="server">
+                                        </asp:DropDownList>
+
+                                         <br /><br />
+                                        Escoja el documento
+
+                                        <asp:DropDownList 
+                                            class="btn btn-light dropdown-toggle"
+                                            ID="dropDocumentos" 
+                                            runat="server">
+                                        </asp:DropDownList>
 
                                     </div>
 
@@ -389,22 +394,8 @@
 
                                         Escoja el tipo de documento a requerir
 
-                                        <%--<asp:DropDownList 
-                                            class="btn btn-secondary dropdown-toggle"
-                                            ID="dropTipoDocumento" 
-                                            runat="server">
-
-                                            <h6 class="dropdown-header"> Categorías </h6>
-
-                                            <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                            <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
-                                            <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
-                                            <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
-
-                                        </asp:DropDownList>--%> 
-
                                         <asp:DropDownList 
-                                            class="dropdown-list dropdown-menu show"
+                                            class="btn btn-light dropdown-toggle"
                                             ID="dropTipoDocumento" 
                                             runat="server">
 
