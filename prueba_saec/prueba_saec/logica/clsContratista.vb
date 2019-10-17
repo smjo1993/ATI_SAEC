@@ -107,7 +107,7 @@ Public Class clsContratista
         End Try
     End Function
 
-    Public Function buscarContratista(contratista As String) As DataTable
+    Public Function validarContratista(contratista As String) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
 

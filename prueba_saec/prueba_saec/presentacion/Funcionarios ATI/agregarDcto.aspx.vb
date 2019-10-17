@@ -7,15 +7,12 @@ Public Class agregarDcto
         If Not IsPostBack Then
 
             cargarAreas()
-            cargarDocumentos()
 
         End If
 
     End Sub
 
     Public Sub cargarAreas()
-
-        Dim checked(8) As Integer
 
         Dim areas As DataTable = obtenerTablaAreas()
 
@@ -31,28 +28,6 @@ Public Class agregarDcto
             chkListaAreas.Items.Add(item)
 
         Next
-
-
-    End Sub
-
-    Public Sub cargarDocumentos()
-
-        Dim documentos As DataTable = obtenerDocumentos()
-
-        'dropTipoDocumento.Items.Clear()
-        'dropTipoDocumento.Items.Add("")
-
-        'For Each celda As DataRow In documentos.Rows
-
-        '    Dim itemDrop As New ListItem
-
-        '    itemDrop.Text = celda("tipo").ToString()
-
-        '    itemDrop.Value = celda("tipo").ToString()
-
-        '    dropTipoDocumento.Items.Add(itemDrop)
-
-        'Next
 
     End Sub
 
@@ -76,21 +51,6 @@ Public Class agregarDcto
 
         Dim insercion As New Boolean
 
-        'For Each item In chkListaAreas.Items
-
-
-
-        '    If item.Selected Then
-
-        '        insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text,
-        '                                                     dropTipoDocumento.SelectedItem.Value,
-        '                                                     chkListaAreas.SelectedItem.Value)
-
-        '    End If
-
-        'Next
-
-
         If (txtNombreDocumento.Text.Trim() = "" Or dropTipoDocumento.Items.Equals("")) Then
             lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
         Else
@@ -107,9 +67,12 @@ Public Class agregarDcto
 
             Next item
 
-            'dropTipoDocumento.
-            'chkListaAreas.
-            'txtNombreDocumento.Text = ""
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "desplegarModal();", True)
+
+            'Dim title As String = "Greetings"
+            'Dim body As String = "Welcome to ASPSnippets.com"
+
+            'ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "ShowPopup('" & Title & "', '" & body & "');", True)
 
             Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
 

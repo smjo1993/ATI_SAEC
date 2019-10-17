@@ -30,7 +30,6 @@ Public Class clsEmpresa
         Me.rutContratista = rutContratista
 
     End Sub
-
     Public Function obtenerEmpresas() As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
