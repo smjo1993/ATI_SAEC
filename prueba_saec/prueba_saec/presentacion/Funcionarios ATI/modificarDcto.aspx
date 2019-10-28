@@ -17,8 +17,6 @@
     <!-- Custom styles for this template-->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
-    
-
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -34,7 +32,6 @@
             $('#logoutModal').modal('show');
         }
     </script>
-
 </head>
 
 <body id="page-top">
@@ -347,130 +344,176 @@
                     <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
 
                     <form runat="server">
-                  
+
                         <div>
                             <div class="card shadow mb-4">
-                                <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Formulario de Nuevo requisito Documental</h4>
-                                </div>--%>
-                                <div class="card-body">
 
-                                    <div class="col-sm-4">
+                                <div class="card-header py-3">
+                                  <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <%--<div class="col-sm-4">
                                         <h5 class="font-weight-bold text-primary">Búsqueda</h5>
+                                    </div>--%>
 
-                                        Escoja el Área del documento
 
-                                        <asp:DropDownList 
-                                            class="btn btn-light dropdown-toggle"
-                                            ID="dropAreas" 
-                                            runat="server">
-                                        </asp:DropDownList>
+                                    <div class="row">
 
-                                         <br /><br />
-                                        Escoja el documento
+                                        <div class="col-sm-4">
+                                            <label id="lblAreaDocumentoEdicion" class="col-12">Área:</label>
+                                        </div>
 
-                                        <asp:DropDownList 
-                                            class="btn btn-light dropdown-toggle"
-                                            ID="dropDocumentos" 
-                                            runat="server">
-                                        </asp:DropDownList>
-
+                                        <div class="col-6 my-auto">
+                                            <asp:DropDownList
+                                                class="btn btn-light bg-light dropdown-toggle col-12"
+                                                style="height:30px; padding:0px"
+                                                ID="dropAreas"
+                                                runat="server">
+                                            </asp:DropDownList>
+                                        </div>
                                     </div>
 
-                                </div>
-                            </div>
-                        </div>
+                               <br /><br />
 
+                                      <div class="row">
+
+                                        <div class="col-sm-4">
+                                            <label id="lblidDocumentoEdicion" class="col-12">Documento:</label>
+                                        </div>
+
+                                        <div class="col-6">  
+
+                                        <asp:DropDownList
+                                            class="btn btn-light bg-light dropdown-toggle col-12"
+                                            ID="dropDocumentos"
+                                            style="height:30px; padding:0px;"
+                                            runat="server">
+                                        </asp:DropDownList>
+
+                                        </div>
+                                    </div>
+ 
+                        </div>
+                                </div>
+  
                         <div>
                             <div class="card shadow mb-4">
-                                <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
-                                </div>--%>
+                                <div class="card-header py-3">
+                                  <h4 class="m-0 font-weight text-primary">Edición</h4>
+                                </div>
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblNombreDocumentoEdicion" class="col-12">Nombre:</label>
+                                        </div>
+                                        <div class="col-6">
 
-                                    <div class="col-sm-4">
+                                            <asp:TextBox ID="TxtNombreDocumentoEdicion" 
+                                                runat="server" 
+                                                style="height:30px; padding:0px" 
+                                                Class="form-control bg-light small col-12">
 
-                                        <h5 class="font-weight-bold text-primary">Tipo</h5>
+                                            </asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblTipoDocumento" class="col-12">Tipo:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:DropDownList
+                                                class="btn bg-light dropdown-toggle col-12"
+                                                ID="DropDownList1"
+                                                style="height:30px; padding:0px"
+                                                runat="server">
 
-                                        Escoja el tipo de documento a requerir
-
-                                        <asp:DropDownList 
-                                            class="btn btn-light dropdown-toggle"
-                                            ID="dropTipoDocumento" 
-                                            runat="server">
-
-                                            <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                            <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
-                                            <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
-                                            <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
-
-                                        </asp:DropDownList>
-                                        
+                                                <asp:ListItem Selected="True" Value=""></asp:ListItem>
+                                                <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
+                                                <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
+                                                <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
                                     </div>
 
+                                    <br /><br />
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblArea" class="col-12">Área(s):</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:CheckBoxList
+                                                class="custom-control custom-checkbox small"
+                                                ID="chkListaAreasEdicion"
+                                                CellPadding="2"
+                                                CellSpacing="2"
+                                                RepeatDirection="Vertical"
+                                                RepeatLayout="Flow"
+                                                TextAlign="Right"
+                                                runat="server">
+                                            </asp:CheckBoxList>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-10 d-flex">
+                                            <div>
+                                                <asp:Button
+                                                    ID="btnRealizarCambios"
+                                                    runat="server"
+                                                    class="btn btn-success btn-user"
+                                                    target="logoutModal"
+                                                    Text="Realizar Cambios" />
+
+                                                   
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div>
+                                            <p>
+                                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <div class="card shadow mb-4">
-                                <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
-                                </div>--%>
-                                <div class="card-body">
-
-                                    <div class="col-sm-4">
-                                        <h5 class="font-weight-bold text-primary">Áreas</h5>
-                                        Escoja el área al cual el documento es pertinente
-                                        <br /><br />
-
-                                        <asp:CheckBoxList 
-                                            ID="chkListaAreas"
-                                            CellPadding="2"
-                                            CellSpacing="2"
-                                            RepeatDirection="Vertical"
-                                            RepeatLayout="Flow"
-                                            TextAlign="Right"
-                                            runat="server">
-                                        </asp:CheckBoxList>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        
                         <br />
                         <br />
 
                         <div class="row">
-                        
-                        <div class="d-flex justify-content-end"  >
 
-                            <asp:Button 
-                                ID="btnCancelar" 
-                                Padding="15px"
-                                runat="server" 
-                                class="btn btn-outline-secondary btn-user" 
-                                Text="Cancelar" 
-                                />
+                            <div class="d-flex justify-content-end">
 
-                            <asp:Button 
-                                ID="btnCrearDocumento" 
-                                Padding="15px"
-                                runat="server" 
-                                class="btn btn-primary btn-user" 
-                                Text="Crear Documento" 
-                                />
-                            <p>
-                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                            </p>
+                                <asp:Button
+                                    ID="btnCancelar"
+                                    Padding="15px"
+                                    runat="server"
+                                    class="btn btn-outline-secondary btn-user"
+                                    Text="Cancelar" />
+
+                                <asp:Button
+                                    ID="btnCrearDocumento"
+                                    Padding="15px"
+                                    runat="server"
+                                    class="btn btn-primary btn-user"
+                                    Text="Crear Documento" />
+                                <p>
+                                    <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+                                </p>
+                            </div>
                         </div>
-                       </div>
                     </form>
                 </div>
                 <!-- /.container-fluid -->
-                <%--AutoPostBack="False"--%>
             </div>
             <!-- End of Main Content -->
 
@@ -512,7 +555,7 @@
         </div>
     </div>
 
-<%--    <script type="text/javascript">
+    <%--    <script type="text/javascript">
         function desplegarModal() {
             $('#logoutModal').modal('show');
         }

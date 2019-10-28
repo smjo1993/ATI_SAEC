@@ -36,18 +36,6 @@ Public Class clsDocumento
 
     Public Function obtenerDocumento()
 
-        'Dim con As New SqlConnection(Conexion.strSQLSERVER)
-        'Dim ds As New DataSet()
-
-        'Dim sql As String = "SP_SAEC_ListarTiposDocumentos"
-
-        'con.Open()
-
-        'Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
-        'dbDataAdapter.Fill(ds)
-
-        'Return ds.Tables(0)
-
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Dim ds As New DataSet()
 
@@ -59,17 +47,6 @@ Public Class clsDocumento
         dbDataAdapter.Fill(ds)
 
         Return ds.Tables(0)
-
-    End Function
-
-    Public Function conexionDb(sql As String) As DataSet
-
-        Dim con As New SqlConnection(Conexion.strSQLSERVER)
-        Dim ds As New DataSet()
-        con.Open()
-        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
-        dbDataAdapter.Fill(ds)
-        Return ds
 
     End Function
 

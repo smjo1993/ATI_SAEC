@@ -27,6 +27,7 @@ Public Class agregarDcto
 
             chkListaAreas.Items.Add(item)
 
+
         Next
 
     End Sub
