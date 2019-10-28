@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="CrearListaDocumentacion.aspx.vb" Inherits="prueba_saec.CrearListaDocumentacion" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -255,50 +256,42 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Iniciar Carpeta de Arranque</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Solicitar Documentos</h6>
                         </div>
-                        <div class="card-body">
+                        <div runat="server" id="div1"  class="card-body">
+
                             <form runat="server">
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-4">
-                                        <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
+                                <div id="empresa">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="col-sm-4">
+                                                <h5 class="font-weight-bold text-primary">Documentos Empresa</h5>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
-                                    </div>
-                                    <div class="col-1"></div>
                                 </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-4">
-                                        <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
+
+                                <div id="docTrabajador">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="col-sm-4">
+                                                <h5 class="font-weight-bold text-primary">Documentos Trabajador</h5>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
-                                    </div>
-                                    <div class="col-1"></div>
                                 </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-3">
-                                        <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />
+
+                                <div id="vehiculo">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="col-sm-4">
+                                                <h5 class="font-weight-bold text-primary">Documentos Vehiculo</h5>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="col-1"></p>
-                                    <div class="col-lg-3">
-                                        <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
-                                    </div>
-                                    <div class="col-lg-3"></div>
-                                </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-lg-4"></div>
-                                    <div class="col-lg-4">
-                                        <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
-                                    </div>
-                                    <div class="col-lg-4"></div>
                                 </div>
                             </form>
                         </div>

@@ -72,5 +72,24 @@ Public Class clsDocumento
         Return ds
 
     End Function
+    Public Function buscarDocumentosArea(ByVal area As Integer, ByVal descripcion As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_BuscarDocumentosArea '" & area & "' , '" & descripcion & "'"
+            con.Open()
 
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds, "BuscarDocumentoArea")
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class
