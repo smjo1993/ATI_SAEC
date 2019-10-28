@@ -110,4 +110,18 @@
             DropEncargados.Items.Add(item)
         Next
     End Sub
+
+    Protected Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Dim empresa As New clsEmpresa
+        Dim accion As Boolean
+        LblAdvertencia.Text = ""
+        If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "") Then
+            LblAdvertencia.Text = "Ha ocurrido un error. Uno de los campos se encuentra en blanco."
+        Else
+            accion = empresa.actualizarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), DropEncargados.SelectedItem.Text.Trim(), TxtCorreo.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), DropEncargados.SelectedItem.Value.Trim())
+            If accion = False Then
+                LblAdvertencia.Text = "Ha ocurrido un error en la conexión. Favor inténtelo nuevamente."
+            End If
+        End If
+    End Sub
 End Class

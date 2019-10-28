@@ -1,7 +1,9 @@
 ﻿
 Public Class clsRol
+
     Private id As Integer
     Private descripcion As String
+
     Public Sub New()
 
     End Sub
@@ -10,7 +12,7 @@ Public Class clsRol
         Me.descripcion = descripcion
     End Sub
 
-    Public Property idRol() As Integer
+    Public Property getIdRol() As Integer
         Get
             Return Me.id
         End Get
