@@ -122,24 +122,6 @@ Partial Public Class modificarEmpresa
     Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control dropTipoDocumento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
-    
-    '''<summary>
-    '''Control chkListaAreas.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents chkListaAreas As Global.System.Web.UI.WebControls.CheckBoxList
-    
-    '''<summary>
     '''Control btnCancelar.
     '''</summary>
     '''<remarks>

@@ -1,20 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="modificarEmpresa.aspx.vb" Inherits="prueba_saec.modificarEmpresa" %>
-
-<%--<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>--%>
-
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="CrearListaDocumentacion.aspx.vb" Inherits="prueba_saec.CrearListaDocumentacion" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +24,8 @@
 </head>
 
 <body id="page-top">
+
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -264,156 +250,68 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div>
-                    <div class="container-fluid">
+                <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-4 text-gray-800">Modificar Empresa Contratista</h1>
-
-                        <form runat="server">
-
-                            <div>
-                                <div class="card shadow mb-4">
-                                    <div class="card-body">
-
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <h5 class="font-weight-bold text-primary">Elija una empresa:</h5>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:DropDownList ID="dropEmpresas" runat="server" class="col-12" AutoPostBack="true"></asp:DropDownList>
-                                            </div>
-                                        </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Iniciar Carpeta de Arranque</h6>
+                        </div>
+                        <div class="card-body">
+                            <form runat="server">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
                                     </div>
-                                </div>
-                                <div class="card shadow mb-4">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblRazonSocial" class="col-12">Razón Social:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtRazonSocial" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblRut" class="col-12">Rut:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtRut" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblGiro" class="col-12">Giro:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtGiro" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblDireccion" class="col-12">Dirección:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtDireccion" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblCiudad" class="col-12">Ciudad:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtCiudad" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblFono" class="col-12">Fono:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtFono" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblCelular" class="col-12">Celular:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtCelular" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblCorreo" class="col-12">Correo:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtCorreo" runat="server" Class="col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblEncargado" class="col-12">Encargado:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:DropDownList ID="DropEncargados" runat="server" class="col-12"></asp:DropDownList>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                                    <div class="col-10 d-flex">
-                                                        <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="ml-auto" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div>
-                                                        <p>
-                                                            <asp:Label ID="LblAdvertencia" runat="server" Text=""></asp:Label>
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                    <div class="col-4">
+                                        <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
                                     </div>
+                                    <div class="col-1"></div>
                                 </div>
-
-                            </div>
-                    </div>
-
-                    
-
-                    <br />
-                    <br />
-
-                    <div class="row">
-
-                        <div class="d-flex justify-content-end">
-
-                            <asp:Button
-                                ID="btnCancelar"
-                                Padding="15px"
-                                runat="server"
-                                class="btn btn-outline-secondary btn-user"
-                                Text="Cancelar" />
-
-                            <asp:Button
-                                ID="btnCrearDocumento"
-                                Padding="15px"
-                                runat="server"
-                                class="btn btn-primary btn-user"
-                                Text="Crear Documento" />
-                            <%--<p>
-                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                            </p>--%>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
+                                    </div>
+                                    <div class="col-4">
+                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+                                    </div>
+                                    <div class="col-1"></div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-3">
+                                        <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />
+                                    </div>
+                                    <p class="col-1"></p>
+                                    <div class="col-lg-3">
+                                        <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+                                        <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4"></div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    </form>
+
                 </div>
                 <!-- /.container-fluid -->
-            </div>
-        </div>
-        <!-- End of Main Content -->
 
-    </div>
-    <!-- End of Content Wrapper -->
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

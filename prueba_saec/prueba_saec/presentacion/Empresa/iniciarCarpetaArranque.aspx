@@ -259,55 +259,49 @@
                             <h6 class="m-0 font-weight-bold text-primary">Iniciar Carpeta de Arranque</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                                    <thead runat="server">
-                                        <form runat="server">
-                                            <div class="row">
-                                                <div class="col-1"></div>
-                                                <div class="col-4">
-                                                    <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
-                                                </div>
-                                                <div class="col-4">
-                                                    <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
-                                                </div>
-                                                <div class="col-1"></div>
-                                            </div>
-                                            <p></p>
-                                            <div class="row">
-                                                <div class="col-1"></div>
-                                                <div class="col-4">
-                                                    <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
-                                                </div>
-                                                <div class="col-4">
-                                                    <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
-                                                </div>
-                                                <div class="col-1"></div>
-                                            </div>
-                                            <p></p>
-                                            <div class="row">
-                                                <div class="col-lg-2"></div>
-                                                <div class="col-lg-3">
-                                                    <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />
-                                                </div>
-                                                <p class="col-1"></p>
-                                                <div class="col-lg-3">
-                                                    <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
-                                                </div>
-                                                <div class="col-lg-3"></div>
-                                            </div>
-                                            <p></p>
-                                            <div class="row">
-                                                <div class="col-lg-4"></div>
-                                                <div class="col-lg-4">
-                                                    <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
-                                                </div>
-                                                <div class="col-lg-4"></div>
-                                            </div>
-                                        </form>
-                                    </thead>
-                                </table>
-                            </div>
+                            <form runat="server">
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
+                                    </div>
+                                    <div class="col-4">
+                                        <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
+                                    </div>
+                                    <div class="col-1"></div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
+                                    </div>
+                                    <div class="col-4">
+                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+                                    </div>
+                                    <div class="col-1"></div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-3">
+                                        <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />
+                                    </div>
+                                    <p class="col-1"></p>
+                                    <div class="col-lg-3">
+                                        <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+                                        <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-4"></div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 

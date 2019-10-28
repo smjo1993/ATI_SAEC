@@ -6,12 +6,9 @@ Imports System.Data.SqlClient
 Imports System.Windows
 Public Class crearEmpresa
     Inherits System.Web.UI.Page
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         cargarDatos()
-
     End Sub
-
     Public Sub cargarDatos()
         Dim contratista As New clsContratista
         Dim listaContratista As DataTable = contratista.listarContratistasHabilitados()
@@ -23,9 +20,7 @@ Public Class crearEmpresa
             item.Value = row("rut").ToString()
             dropContratistas.Items.Add(item)
         Next
-
     End Sub
-
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim empresa As New clsEmpresa
         Dim insercion As New Boolean

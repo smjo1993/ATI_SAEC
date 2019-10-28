@@ -30,7 +30,6 @@ Public Class clsEmpresa
         Me.rutContratista = rutContratista
 
     End Sub
-
     Public Function obtenerEmpresas() As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
@@ -47,11 +46,11 @@ Public Class clsEmpresa
             con.Dispose()
         End Try
     End Function
-    Public Function calcularPorcentaje(rutEmpersa As String) As String
+    Public Function calcularPorcentaje(rutEmpresa As String) As String
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
-            Dim sql As String = "SP_SAEC_CalcularProgresoCarpeta '" & rutEmpersa & "'"
+            Dim sql As String = "SP_SAEC_CalcularProgresoCarpeta '" & rutEmpresa & "'"
             Dim ds As New DataSet()
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -112,6 +111,7 @@ Public Class clsEmpresa
             dbDataAdapter.Fill(ds)
             Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
 
+            'Si el revisor tiene un documentod pendiente return true
             If estadoRojo > 0 Then
                 Return True
             Else
@@ -230,6 +230,35 @@ Public Class clsEmpresa
 
         Catch ex As Exception
             Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function actualizarEmpresa(razonSocial As String,
+                                     rut As String,
+                                     giro As String,
+                                     direccion As String,
+                                     ciudad As String,
+                                     personacontacto As String,
+                                     correo As String,
+                                     fono As String,
+                                     celular As String,
+                                     contratistaRut As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ActualizarEmpresa '" & razonSocial & "' , '" & rut & "' , '" & giro & "' , '" & direccion & "' , '" & ciudad & "' , '" & personacontacto & "' , '" & correo & "' , '" & fono & "' , '" & celular & "' , '" & contratistaRut & "'"
+            'Abriendo conexión
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ActualizarEmpresa")
+            Return True
+
+        Catch ex As Exception
+            Return False
         Finally
             con.Close()
             con.Dispose()
