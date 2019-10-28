@@ -31,7 +31,7 @@ Public Class clsEmpresa
 
     End Sub
 
-    Public Function obtenerEmpresas() As DataTable
+    Public Function obtenerCarpetas() As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim sql As String = "SP_SAEC_ListarCarpetasEmpresas"
@@ -47,11 +47,11 @@ Public Class clsEmpresa
             con.Dispose()
         End Try
     End Function
-    Public Function calcularPorcentaje(rutEmpersa As String) As String
+    Public Function calcularPorcentaje(rutEmpresa As String) As String
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
-            Dim sql As String = "SP_SAEC_CalcularProgresoCarpeta '" & rutEmpersa & "'"
+            Dim sql As String = "SP_SAEC_CalcularProgresoCarpeta '" & rutEmpresa & "'"
             Dim ds As New DataSet()
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -112,6 +112,7 @@ Public Class clsEmpresa
             dbDataAdapter.Fill(ds)
             Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
 
+            'Si el revisor tiene un documentod pendiente return true
             If estadoRojo > 0 Then
                 Return True
             Else

@@ -12,7 +12,6 @@ Public Class clsUsuarioSAEC
     Private area As Integer
 
     Public Sub New()
-
     End Sub
 
     Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char,
@@ -26,6 +25,15 @@ Public Class clsUsuarioSAEC
         Me.correo = correo
         Me.area = area
     End Sub
+
+    Public Property getArea As Integer
+        Get
+            Return area
+        End Get
+        Set(value As Integer)
+            area = value
+        End Set
+    End Property
 
     Public Function buscarUsuarioSAEC(usuario As String) As DataTable
 

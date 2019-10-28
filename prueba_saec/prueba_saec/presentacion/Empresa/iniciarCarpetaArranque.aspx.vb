@@ -11,7 +11,7 @@
 
     Protected Sub cargarDatos()
         Dim empresa As New clsEmpresa
-        Dim listaEmpresas As DataTable = empresa.obtenerEmpresas
+        Dim listaEmpresas As DataTable = empresa.obtenerCarpetas
         If (listaEmpresas Is Nothing) Then
 
         Else
