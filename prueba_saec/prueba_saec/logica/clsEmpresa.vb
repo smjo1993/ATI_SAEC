@@ -30,8 +30,7 @@ Public Class clsEmpresa
         Me.rutContratista = rutContratista
 
     End Sub
-
-    Public Function obtenerCarpetas() As DataTable
+    Public Function obtenerEmpresas() As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim sql As String = "SP_SAEC_ListarCarpetasEmpresas"
@@ -129,6 +128,83 @@ Public Class clsEmpresa
 
     End Function
 
+    Public Function listarEmpresas() As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_Listarempresas"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarEmpresas")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function obtenerEmpresa(rut As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ObtenerEmpresa '" & rut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ObtenerEmpresa")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+    Public Function obtenerContratistaDeEmpresa(rut As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ObtenerContratistaDeEmpresa '" & rut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ObtenerContratistaDeEmpresa")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function listarContratistasSinempresa() As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarContratistasSinEmpresa"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarContratistasSinEmpresa")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
     Public Function conexionDb(sql As String) As DataSet
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
@@ -139,4 +215,56 @@ Public Class clsEmpresa
         Return ds
 
     End Function
+
+    Public Function empresasSinCarpeta() As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ListarEmpresasSinCarpeta "
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function actualizarEmpresa(razonSocial As String,
+                                     rut As String,
+                                     giro As String,
+                                     direccion As String,
+                                     ciudad As String,
+                                     personacontacto As String,
+                                     correo As String,
+                                     fono As String,
+                                     celular As String,
+                                     contratistaRut As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ActualizarEmpresa '" & razonSocial & "' , '" & rut & "' , '" & giro & "' , '" & direccion & "' , '" & ciudad & "' , '" & personacontacto & "' , '" & correo & "' , '" & fono & "' , '" & celular & "' , '" & contratistaRut & "'"
+            'Abriendo conexión
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ActualizarEmpresa")
+            Return True
+
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+
 End Class

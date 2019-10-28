@@ -1,33 +1,52 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class clsDocumento
-    'Public Function insertarDocumento(nombre As String, tipo As String)
+    Public Function insertarDocumento(nombre As String,
+                                      tipo As String,
+                                      area As Integer)
 
-    '    Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
 
-    '    Console.WriteLine(con.ToString())
+        Console.WriteLine(con.ToString())
 
-    '    Try
-    '        Dim ds As New DataSet()
-    '        Dim sql As String = "SP_SAEC_InsertarNuevoDocumento '" & nombre & "' " &"'"& tipo & "' "
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarDocumento '" & nombre & "' , '" & tipo & "' , '" & area & "'"
+            con.Open()
 
-    '        con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
-    '        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "InsertarDocumento")
 
-    '        dbDataAdapter.Fill(ds, "InsertarNuevoDocumento")
+            'Return ds.Tables(0)
+            Return True
 
-    '        Return ds.Tables(0)
+        Catch ex As Exception
 
-    '    Catch ex As Exception
-    '        Return Nothing
-    '    Finally
-    '        con.Close()
-    '        con.Dispose()
-    '    End Try
-    'End Function
-    'obtenerTipo
+            Return False
+
+        Finally
+
+            con.Close()
+            con.Dispose()
+
+        End Try
+
+    End Function
+
     Public Function obtenerDocumento()
+
+        'Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        'Dim ds As New DataSet()
+
+        'Dim sql As String = "SP_SAEC_ListarTiposDocumentos"
+
+        'con.Open()
+
+        'Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+        'dbDataAdapter.Fill(ds)
+
+        'Return ds.Tables(0)
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Dim ds As New DataSet()
@@ -43,5 +62,15 @@ Public Class clsDocumento
 
     End Function
 
-    'SP_SAEC_ListarTiposDocumentos
+    Public Function conexionDb(sql As String) As DataSet
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Dim ds As New DataSet()
+        con.Open()
+        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+        dbDataAdapter.Fill(ds)
+        Return ds
+
+    End Function
+
 End Class

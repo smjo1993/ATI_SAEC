@@ -63,27 +63,29 @@ Public Class Login
 
                                     listaRoles = clsUsuarioSAEC.rolesUusario(usuarioSAEC.Rows(0)("rut").ToString())
 
-
-
-                                    If (listaRoles.Count > 0) Then
-                                        Dim usuarioEntrante As New clsUsuarioSAEC(usuarioSAEC.Rows(0)("nombre").ToString(),
-                                                                                                                              usuarioSAEC.Rows(0)("login").ToString(),
-                                                                                                                              usuarioSAEC.Rows(0)("clave").ToString(),
-                                                                                                                              usuarioSAEC.Rows(0)("rut").ToString(),
-                                                                                                                              System.Convert.ToChar(usuarioSAEC.Rows(0)("estado").ToString()),
-                                                                                                                              Convert.ToInt32(usuarioSAEC.Rows(0)("fono").ToString()),
-                                                                                                                              usuarioSAEC.Rows(0)("correo").ToString(),
-                                                                                                                              Convert.ToInt32(usuarioSAEC.Rows(0)("TB_SAEC_Areaid").ToString()))
-
-                                        Session("roles") = listaRoles
-                                        Session("usuario") = usuarioEntrante
-                                        Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
-                                        txtUsuario.Text = ""
-
+                                    If (listaRoles Is Nothing) Then
+                                        lblMensaje.Text = alerta.alerta("ALERTA", "ERROR CON EL SERVIDOR")
                                     Else
+                                        If (listaRoles.Count > 0) Then
+                                            Dim usuarioEntrante As New clsUsuarioSAEC(usuarioSAEC.Rows(0)("nombre").ToString(),
+                                                                                                                                  usuarioSAEC.Rows(0)("login").ToString(),
+                                                                                                                                  usuarioSAEC.Rows(0)("clave").ToString(),
+                                                                                                                                  usuarioSAEC.Rows(0)("rut").ToString(),
+                                                                                                                                  System.Convert.ToChar(usuarioSAEC.Rows(0)("estado").ToString()),
+                                                                                                                                  Convert.ToInt32(usuarioSAEC.Rows(0)("fono").ToString()),
+                                                                                                                                  usuarioSAEC.Rows(0)("correo").ToString(),
+                                                                                                                                  Convert.ToInt32(usuarioSAEC.Rows(0)("TB_SAEC_Areaid").ToString()))
 
-                                        lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO SIN ROL(ES) EN EL SISTEMA")
+                                            Session("roles") = listaRoles
+                                            Session("usuario") = usuarioEntrante
+                                            Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
+                                            txtUsuario.Text = ""
 
+                                        Else
+
+                                            lblMensaje.Text = alerta.alerta("ALERTA", "USUARIO SIN ROL(ES) EN EL SISTEMA")
+
+                                        End If
                                     End If
 
                                 Else 'USUARIO INACTIVO EN LA PLATAFORMA SAEC
@@ -101,7 +103,7 @@ Public Class Login
                         End If
                     End If
                 Else 'EL USUARIO ES DE ATI PERO SU CUENTA NO ESTA ACTIVA EN LOS SISTEMA DE ATI
-                        lblMensaje.Text = alerta.alerta("ALERTA", "USTED NO ESTA ACTIVO EN LOS SISTEMAS DE ATI")
+                    lblMensaje.Text = alerta.alerta("ALERTA", "USTED NO ESTA ACTIVO EN LOS SISTEMAS DE ATI")
                     txtUsuario.Text = ""
                 End If
 
@@ -110,7 +112,7 @@ Public Class Login
 
                 Dim clsContratista As New clsContratista
 
-                contratista = clsContratista.buscarContratista(usuario)
+                contratista = clsContratista.validarContratista(usuario)
 
                 If (contratista Is Nothing) Then
                     lblMensaje.Text = alerta.alerta("ALERTA", "ERROR CON EL SERVIDOR")
@@ -152,7 +154,7 @@ Public Class Login
                     End If
                 End If
             End If
-            End If
+        End If
 
     End Sub
 

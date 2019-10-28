@@ -11,16 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class crearEmpresa
+Partial Public Class modificarEmpresa
     
     '''<summary>
-    '''Control form1.
+    '''Control dropEmpresas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents dropEmpresas As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''Control TxtRazonSocial.
@@ -95,29 +95,47 @@ Partial Public Class crearEmpresa
     Protected WithEvents TxtCorreo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control dropContratistas.
+    '''Control DropEncargados.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropContratistas As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents DropEncargados As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control btnAgregar.
+    '''Control btnModificar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnAgregar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control lblAdvertencia.
+    '''Control LblAdvertencia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblAdvertencia As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control btnCancelar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control btnCrearDocumento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCrearDocumento As Global.System.Web.UI.WebControls.Button
 End Class

@@ -11,79 +11,61 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class crearContratista
+Partial Public Class modificarDcto
     
     '''<summary>
-    '''Control form1.
+    '''Control dropAreas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents dropAreas As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control txtNombre.
+    '''Control dropDocumentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control txtNombreUsuario.
+    '''Control dropTipoDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control txtPassword.
+    '''Control chkListaAreas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents chkListaAreas As Global.System.Web.UI.WebControls.CheckBoxList
     
     '''<summary>
-    '''Control txtRut.
+    '''Control btnCancelar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtRut As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control txtFono.
+    '''Control btnCrearDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtFono As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Control txtCorreo.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtCorreo As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Control btnAgregar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnAgregar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnCrearDocumento As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''Control lblAdvertencia.

@@ -1,90 +1,31 @@
-﻿Public Class agregarDcto
+﻿Imports System.Linq
+Public Class agregarDcto
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        Dim areas As DataTable = obtenerTablaAreas()
-        Dim documentos As DataTable = obtenerDocumentos()
+        If Not IsPostBack Then
 
-        Dim dropItem As String = ""
+            cargarAreas()
+
+        End If
+
+    End Sub
+
+    Public Sub cargarAreas()
+
+        Dim areas As DataTable = obtenerTablaAreas()
+
+        chkListaAreas.Items.Clear()
 
         For Each celda As DataRow In areas.Rows
 
             Dim item As New ListItem()
 
             item.Text = celda("descripcion").ToString()
-
-            If celda("descripcion").ToString().Equals("RRHH") Then
-
-                item.Text = ("Recursos Humanos")
-
-            ElseIf celda("descripcion").ToString().Equals("Prevencion") Then
-
-                item.Text = ("Prevención")
-
-            ElseIf celda("descripcion").ToString().Equals("ControlGestion") Then
-
-                item.Text = ("Control de Gestión")
-
-            ElseIf celda("descripcion").ToString().Equals("MedioAmbiente") Then
-
-                item.Text = ("Medio Ambiente")
-
-            End If
-
-            item.Value = celda("id").ToString()
-            'item.Selected = Convert.ToBoolean(celda("IsSelected"))
+            item.Value = celda("id")
 
             chkListaAreas.Items.Add(item)
-        Next
-
-
-        For Each celda As DataRow In documentos.Rows
-
-            'recordCount = recordCount + recordCount
-
-            dropItem = dropItem & "<li role=""presentation"">"
-
-            dropItem = dropItem & "<a class=""dropdown-item"" href=""#"">"
-
-            dropItem = dropItem & celda("tipo").ToString() & " "
-
-            dropItem = dropItem & documentos.Rows.IndexOf(celda).ToString
-
-            'dropItem = dropItem & recordCount.ToString()
-
-            dropItem = dropItem & "</a></li>"
-
-            'lblDropTipoDocumentos.Text = lblDropTipoDocumentos.Text & dropItem
-
-            Literal1.Text = Literal1.Text & dropItem
-
-            'Dim item As New ListItem()
-
-            'item.Text = celda("tipo").ToString()
-
-            'If celda("descripcion").ToString().Equals("RRHH") Then
-
-            '    item.Text = ("Recursos Humanos")
-
-            'ElseIf celda("descripcion").ToString().Equals("Prevencion") Then
-
-            '    item.Text = ("Prevención")
-
-            'ElseIf celda("descripcion").ToString().Equals("ControlGestion") Then
-
-            '    item.Text = ("Control de Gestión")
-
-            'ElseIf celda("descripcion").ToString().Equals("MedioAmbiente") Then
-
-            '    item.Text = ("Medio Ambiente")
-
-            'End If
-
-            'item.Value = celda("id").ToString()
-
-            'chkListaAreas.Items.Add(item)
-
 
         Next
 
@@ -105,6 +46,38 @@
     End Sub
 
     Protected Sub btnCrearDocumento_Click(sender As Object, e As EventArgs) Handles btnCrearDocumento.Click
-        Response.Redirect("../login.aspx")
+
+        Dim nuevoDocumento As New clsDocumento
+
+        Dim insercion As New Boolean
+
+        If (txtNombreDocumento.Text.Trim() = "" Or dropTipoDocumento.Items.Equals("")) Then
+            lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
+        Else
+
+            For Each item In chkListaAreas.Items
+
+                If item.Selected Then
+
+                    insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text,
+                                                             dropTipoDocumento.SelectedItem.Value,
+                                                             item.Value)
+
+                End If
+
+            Next item
+
+            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "desplegarModal();", True)
+
+            'Dim title As String = "Greetings"
+            'Dim body As String = "Welcome to ASPSnippets.com"
+
+            'ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "ShowPopup('" & Title & "', '" & body & "');", True)
+
+            Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
+
+        End If
+
+
     End Sub
 End Class

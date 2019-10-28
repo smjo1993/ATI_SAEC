@@ -97,11 +97,15 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
+    <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
+    <Content Include="presentacion\Empresa\modificarEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\Contratistas\menuContratista.aspx" />
@@ -110,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logica\clsAlertas.vb" />
+    <Compile Include="logica\clsCarpetaArranque.vb" />
     <Compile Include="logica\clsEmpresa.vb" />
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsArea.vb" />
@@ -146,6 +151,13 @@
       <DependentUpon>crearContratista.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.designer.vb">
+      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.vb">
+      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
     </Compile>
@@ -174,11 +186,32 @@
       <DependentUpon>iniciarCarpetaArranque.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Empresa\modificarEmpresa.aspx.designer.vb">
+      <DependentUpon>modificarEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Empresa\modificarEmpresa.aspx.vb">
+      <DependentUpon>modificarEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Funcionarios ATI\agregarDcto.aspx.designer.vb">
       <DependentUpon>agregarDcto.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\agregarDcto.aspx.vb">
       <DependentUpon>agregarDcto.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.designer.vb">
+      <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.vb">
+      <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\modificarDcto.aspx.designer.vb">
+      <DependentUpon>modificarDcto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\modificarDcto.aspx.vb">
+      <DependentUpon>modificarDcto.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verEmpresas.aspx.designer.vb">
