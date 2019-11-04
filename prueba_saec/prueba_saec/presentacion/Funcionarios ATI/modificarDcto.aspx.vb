@@ -15,6 +15,8 @@
         Dim areas As DataTable = obtenerTablaAreas()
 
         dropAreas.Items.Clear()
+        chkListaAreasEdicion.Items.Clear()
+
         dropAreas.Items.Add("")
 
         For Each celda As DataRow In areas.Rows
@@ -25,6 +27,7 @@
             item.Value = celda("id")
 
             dropAreas.Items.Add(item)
+            chkListaAreasEdicion.Items.Add(item)
 
         Next
 

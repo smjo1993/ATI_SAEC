@@ -32,22 +32,49 @@ Partial Public Class modificarDcto
     Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control dropTipoDocumento.
+    '''Control TxtNombreDocumentoEdicion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents TxtNombreDocumentoEdicion As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control chkListaAreas.
+    '''Control DropDownList1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents chkListaAreas As Global.System.Web.UI.WebControls.CheckBoxList
+    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''Control chkListaAreasEdicion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents chkListaAreasEdicion As Global.System.Web.UI.WebControls.CheckBoxList
+    
+    '''<summary>
+    '''Control btnRealizarCambios.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnRealizarCambios As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control Label1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control btnCancelar.

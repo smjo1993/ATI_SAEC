@@ -12,7 +12,6 @@ Public Class clsUsuarioSAEC
     Private area As Integer
 
     Public Sub New()
-
     End Sub
 
     Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char,
