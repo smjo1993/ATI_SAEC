@@ -12,12 +12,12 @@
         'End If
 
 
-        'For Each rol In Session("roles")
+        For Each rol In Session("roles")
 
-        'si tiene rol revisor que muestre la vista correspondiente
-        'If rol.getIdRol() = 21 Then
+            'si tiene rol revisor que muestre la vista correspondiente
+            If rol.getIdRol() = 3 Then
 
-        Dim tarjeta As String = ""
+                Dim tarjeta As String = ""
                 Dim color As String
                 Dim listaEmpresas As DataTable = crearEmpresas().obtenerCarpetas()
                 Dim Empresas As Object = crearEmpresas()
@@ -25,11 +25,12 @@
                 ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
                 For Each fila As DataRow In listaEmpresas.Rows
 
-                    Dim porcentaje As String = Empresas.calcularPorcentaje(fila("rut"))
-            'Dim estado As Boolean = Empresas.ObtenerEstado(3, fila("rut"))
-            'color = obtenerColor(estado, porcentaje)
 
-            tarjeta = tarjeta & "   <div Class=""col-xl-3 col-md-6 mb-4""> "
+                    Dim porcentaje As String = Empresas.calcularPorcentaje(fila("rut"))
+                    Dim estado As Boolean = Empresas.ObtenerEstado(Session("usuario").areaUsuario(), fila("rut"))
+                    color = obtenerColor(estado, porcentaje)
+
+                    tarjeta = tarjeta & "   <div Class=""col-xl-3 col-md-6 mb-4""> "
                     tarjeta = tarjeta & "         <div Class=""card border-left-" + color + " shadow h-100 py-2""> "
                     tarjeta = tarjeta & "           <div Class=""card-body""> "
                     tarjeta = tarjeta & "             <div Class=""row no-gutters align-items-center""> "
@@ -58,15 +59,15 @@
 
                 Next
 
-        ' End If
+            End If
 
-        ' Next
+        Next
 
 
 
     End Sub
 
-    'Funcion que crea el objeto Empresa
+    'Función que crea el objeto Empresa
     Public Function crearEmpresas() As Object
 
         Dim Empresas = New clsEmpresa()
