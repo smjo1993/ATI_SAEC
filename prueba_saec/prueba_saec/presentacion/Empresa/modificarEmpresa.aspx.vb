@@ -121,6 +121,9 @@
             accion = empresa.actualizarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), DropEncargados.SelectedItem.Text.Trim(), TxtCorreo.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), DropEncargados.SelectedItem.Value.Trim())
             If accion = False Then
                 LblAdvertencia.Text = "Ha ocurrido un error en la conexión. Favor inténtelo nuevamente."
+            Else
+                LblAdvertencia.Text = "Se ha modificado la empresa con éxito."
+                Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
             End If
         End If
     End Sub
