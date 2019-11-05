@@ -14,11 +14,38 @@ Option Explicit On
 Partial Public Class CrearListaDocumentacion
     
     '''<summary>
-    '''Control div1.
+    '''Control seccionEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents div1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents seccionEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control seccionTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents seccionTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control seccionVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents seccionVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control Button1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 End Class

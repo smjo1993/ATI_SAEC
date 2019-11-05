@@ -19,8 +19,8 @@
 
         Dim tarjeta As String = ""
                 Dim color As String
-                Dim listaEmpresas As DataTable = crearEmpresas().obtenerCarpetas()
-                Dim Empresas As Object = crearEmpresas()
+        Dim listaEmpresas As DataTable = crearEmpresas().obtenerEmpresas()
+        Dim Empresas As Object = crearEmpresas()
 
                 ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
                 For Each fila As DataRow In listaEmpresas.Rows

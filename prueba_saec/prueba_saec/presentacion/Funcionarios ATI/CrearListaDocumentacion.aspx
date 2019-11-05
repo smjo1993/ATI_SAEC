@@ -258,10 +258,10 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Solicitar Documentos</h6>
                         </div>
-                        <div runat="server" id="div1"  class="card-body">
+                        <div class="card-body">
 
                             <form runat="server">
-                                <div id="empresa">
+                                <div runat="server" id="seccionEmpresa">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
@@ -272,7 +272,7 @@
                                     </div>
                                 </div>
 
-                                <div id="docTrabajador">
+                                <div runat="server" id="seccionTrabajador">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
@@ -283,7 +283,7 @@
                                     </div>
                                 </div>
 
-                                <div id="vehiculo">
+                                <div runat="server" id="seccionVehiculo">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
@@ -293,6 +293,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <asp:Button ID="Button1" runat="server" Text="Button" />
                             </form>
                         </div>
                     </div>
