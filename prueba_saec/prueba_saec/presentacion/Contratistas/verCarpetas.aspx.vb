@@ -6,7 +6,7 @@
         Dim tarjeta As String = ""
         Dim color As String
         ' definir por session el rut
-        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
+        Dim rutContratista As String = "191494911"
         Dim carpetaContratista As Object = crearCarpetasContratista()
 
         For Each fila As DataRow In carpetaContratista.obtenerCarpetas(rutContratista).Rows
