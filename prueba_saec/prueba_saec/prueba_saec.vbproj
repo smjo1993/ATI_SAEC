@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\sb-admin-2.css" />
+    <Content Include="css\checkbox.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
