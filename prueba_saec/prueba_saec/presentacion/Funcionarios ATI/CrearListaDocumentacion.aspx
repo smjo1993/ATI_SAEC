@@ -266,7 +266,7 @@
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Empresa</h5>
-
+                                                <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                                             </div>
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Trabajador</h5>
-
+                                                <asp:GridView ID="GridView2" runat="server"></asp:GridView>
                                             </div>
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Vehiculo</h5>
-
+                                                <asp:GridView ID="GridView3" runat="server"></asp:GridView>
                                             </div>
                                         </div>
                                     </div>

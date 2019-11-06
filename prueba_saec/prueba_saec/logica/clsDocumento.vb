@@ -60,11 +60,11 @@ Public Class clsDocumento
         Return ds
 
     End Function
-    Public Function buscarDocumentosArea(ByVal area As Integer, ByVal descripcion As String) As DataTable
+    Public Function buscarDocumentosArea(ByVal area As Integer, ByVal descripcion As String, ByVal idCarpeta As Integer) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_BuscarDocumentosArea '" & area & "' , '" & descripcion & "'"
+            Dim sql As String = "SP_SAEC_BuscarDocumentosArea '" & area & "' , '" & descripcion & "' , '" & idCarpeta & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

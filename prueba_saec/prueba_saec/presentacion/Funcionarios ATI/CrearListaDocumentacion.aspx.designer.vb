@@ -23,6 +23,15 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents seccionEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''Control GridView1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
     '''Control seccionTrabajador.
     '''</summary>
     '''<remarks>
@@ -32,6 +41,15 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents seccionTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
+    '''Control GridView2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
     '''Control seccionVehiculo.
     '''</summary>
     '''<remarks>
@@ -39,6 +57,15 @@ Partial Public Class CrearListaDocumentacion
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents seccionVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control GridView3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
     '''Control Button1.
