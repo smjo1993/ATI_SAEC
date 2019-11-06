@@ -81,7 +81,7 @@ Public Class clsDocumento
         'End Try
     End Function
 
-    Public Function buscarDocumentoPorArea(ByVal area As Integer, ByVal descripcion As String) As DataTable
+    Public Function buscarDocumentoPorArea(ByVal area As Integer, ByVal descripcion As String, ByVal idCarpeta As Integer) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
