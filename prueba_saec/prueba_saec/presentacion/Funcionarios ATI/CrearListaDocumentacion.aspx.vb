@@ -35,10 +35,11 @@ Public Class CrearListaDocumentacion
                     documentos = documentos & "   <div class=""row""> "
                     documentos = documentos & "   <div class=""col-1""> "
                     documentos = documentos & "   </div> "
-                    documentos = documentos & "   <div class=""col-lg-6""> "
+                    documentos = documentos & "   <div class=""col-8""> "
                     documentos = documentos & "   <asp:Label  class=""font-weight-bold "" runat=""server"" Text="""">" + documentoEmpresa("nombre") + "</asp:Label>"
                     documentos = documentos & "   </div> "
                     'documentos = documentos & "      <li class=""col-2"">"
+                    documentos = documentos & "   <div class=""col-lg-4""> "
                     documentos = documentos & "          <label class=""switch"">"
                     If (documentoEmpresa("estado") = "inactivo") Then
                         documentos = documentos & "              <input runat=""server"" type=""checkbox"" class=""default"">"
@@ -47,6 +48,7 @@ Public Class CrearListaDocumentacion
                     End If
                     documentos = documentos & "              <span class=""slider round""></span>"
                     documentos = documentos & "          </label>"
+                    documentos = documentos & "   </div> "
                     ' documentos = documentos & "      </li>"
                     documentos = documentos & "   </div> "
                     documentos = documentos & "   </div> "
