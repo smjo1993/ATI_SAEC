@@ -67,7 +67,7 @@ Public Class clsDocumento
         Dim sql As String = "SP_SAEC_ListarDocumentosPorArea '" & area & "'"
         con.Open()
 
-            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
         dbDataAdapter.Fill(ds, "ListarDocumentosArea")
 
@@ -85,7 +85,7 @@ Public Class clsDocumento
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarDocumentoPorArea '" & area & "' , '" & descripcion & "'"
+            Dim sql As String = "SP_SAEC_BuscarDocumentosArea '" & area & "' , '" & descripcion & "' , '" & idCarpeta & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -101,4 +101,26 @@ Public Class clsDocumento
             con.Dispose()
         End Try
     End Function
+
+    Public Function obtenerDocumentoEstadoEspera(rutContratista As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosEnEspera '" & rutContratista & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
+
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
 End Class
