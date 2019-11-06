@@ -124,6 +124,7 @@
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
+    <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\revisarRequerimientos.aspx.designer.vb">
+      <DependentUpon>revisarRequerimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\revisarRequerimientos.aspx.vb">
+      <DependentUpon>revisarRequerimientos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
@@ -267,6 +275,13 @@
       <DependentUpon>recuperarContrasenia.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\panel.Master.designer.vb">
+      <DependentUpon>panel.Master</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\panel.Master.vb">
+      <DependentUpon>panel.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -287,6 +302,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <Content Include="presentacion\panel.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

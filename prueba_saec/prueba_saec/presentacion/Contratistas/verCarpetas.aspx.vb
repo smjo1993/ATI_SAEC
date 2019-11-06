@@ -15,6 +15,7 @@
             Dim porcentaje As String = Empresas.calcularPorcentaje(fila("TB_SAEC_Empresarut"))
             Dim estado As Boolean = carpetaContratista.ObtenerEstado(fila("TB_SAEC_Empresarut"))
             color = obtenerColor(estado, porcentaje)
+            Dim idCarpeta As String = fila("id")
 
 
             tarjeta = tarjeta & "   <div Class=""col-xl-3 col-md-6 mb-4""> "
@@ -35,7 +36,7 @@
             tarjeta = tarjeta & "                </div> "
             tarjeta = tarjeta & "              </div> "
             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-            tarjeta = tarjeta & "              <a href=""#"" class=""btn btn-" + color + """>Ver</a>"
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx?idCarpeta=" + idCarpeta + """ class=""btn btn-" + color + """>Ver</a>"
             tarjeta = tarjeta & "              </div> "
             tarjeta = tarjeta & "            </div> "
             tarjeta = tarjeta & "          </div> "
