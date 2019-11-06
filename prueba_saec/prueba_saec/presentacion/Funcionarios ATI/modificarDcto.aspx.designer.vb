@@ -32,6 +32,24 @@ Partial Public Class modificarDcto
     Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''Control CardEdicionDocumento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CardEdicionDocumento As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control lblHeadEdicion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblHeadEdicion As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control TxtNombreDocumentoEdicion.
     '''</summary>
     '''<remarks>
@@ -41,13 +59,13 @@ Partial Public Class modificarDcto
     Protected WithEvents TxtNombreDocumentoEdicion As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control DropDownList1.
+    '''Control dropTipoNuevoDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents dropTipoNuevoDocumento As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''Control chkListaAreasEdicion.

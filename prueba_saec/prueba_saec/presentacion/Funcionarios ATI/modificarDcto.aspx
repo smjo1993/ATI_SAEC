@@ -344,8 +344,6 @@
                     <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
 
                     <form runat="server">
-
-                        <div>
                             <div class="card shadow mb-4">
 
                                 <div class="card-header py-3">
@@ -357,7 +355,6 @@
                                         <h5 class="font-weight-bold text-primary">Búsqueda</h5>
                                     </div>--%>
 
-
                                     <div class="row">
 
                                         <div class="col-sm-4">
@@ -367,6 +364,7 @@
                                         <div class="col-6 my-auto">
                                             <asp:DropDownList
                                                 class="btn btn-light bg-light dropdown-toggle col-12"
+                                                AutoPostBack="true" CausesValidation="false"
                                                 style="height:30px; padding:0px"
                                                 ID="dropAreas"
                                                 runat="server">
@@ -386,6 +384,7 @@
 
                                         <asp:DropDownList
                                             class="btn btn-light bg-light dropdown-toggle col-12"
+                                            AutoPostBack="true" CausesValidation="false"
                                             ID="dropDocumentos"
                                             style="height:30px; padding:0px;"
                                             runat="server">
@@ -393,14 +392,17 @@
 
                                         </div>
                                     </div>
- 
+
                         </div>
-                                </div>
+                        </div>
   
                         <div>
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                  <h4 class="m-0 font-weight text-primary">Edición</h4>
+                                <div class="card-header py-3" id="CardEdicionDocumento" runat="server">
+                                  <h4 class="m-0 font-weight text-primary">
+                                      <asp:Label ID="lblHeadEdicion" runat="server" Text="Edición"></asp:Label>
+
+                                  </h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -411,10 +413,10 @@
 
                                             <asp:TextBox ID="TxtNombreDocumentoEdicion" 
                                                 runat="server" 
-                                                style="height:30px; padding:0px" 
+                                                style="height:30px" 
                                                 Class="form-control bg-light small col-12">
-
                                             </asp:TextBox>
+
                                         </div>
                                     </div>
                                     <br />
@@ -424,9 +426,10 @@
                                             <label id="lblTipoDocumento" class="col-12">Tipo:</label>
                                         </div>
                                         <div class="col-6">
+
                                             <asp:DropDownList
                                                 class="btn bg-light dropdown-toggle col-12"
-                                                ID="DropDownList1"
+                                                ID="dropTipoNuevoDocumento"
                                                 style="height:30px; padding:0px"
                                                 runat="server">
 
@@ -434,7 +437,9 @@
                                                 <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
                                                 <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
                                                 <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
+
                                             </asp:DropDownList>
+
                                         </div>
                                     </div>
 
@@ -446,10 +451,7 @@
                                         </div>
                                         <div class="col-6">
                                             <asp:CheckBoxList
-                                                class="custom-control custom-checkbox small"
                                                 ID="chkListaAreasEdicion"
-                                                CellPadding="2"
-                                                CellSpacing="2"
                                                 RepeatDirection="Vertical"
                                                 RepeatLayout="Flow"
                                                 TextAlign="Right"
@@ -554,21 +556,5 @@
             </div>
         </div>
     </div>
-
-    <%--    <script type="text/javascript">
-        function desplegarModal() {
-            $('#logoutModal').modal('show');
-        }
-    </script>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>--%>
 </body>
 </html>
