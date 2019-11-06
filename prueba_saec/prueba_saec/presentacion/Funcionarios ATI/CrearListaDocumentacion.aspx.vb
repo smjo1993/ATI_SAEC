@@ -24,7 +24,7 @@ Public Class CrearListaDocumentacion
         Dim idCarpeta As Integer = Convert.ToInt32(Request.QueryString("idCarpeta").ToString())
         Dim documentos As String = " "
 
-        Dim documentosEmpresa As DataTable = documento.buscarDocumentosArea(usuario.areaUsuario, "empresa", idCarpeta)
+        Dim documentosEmpresa As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "empresa", idCarpeta)
         If (documentosEmpresa Is Nothing) Then
             seccionEmpresa.Visible = False
         Else
@@ -57,7 +57,7 @@ Public Class CrearListaDocumentacion
             End If
         End If
 
-        Dim documentosTrabajador As DataTable = documento.buscarDocumentosArea(usuario.areaUsuario, "trabajador", idCarpeta)
+        Dim documentosTrabajador As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "trabajador", idCarpeta)
         If (documentosTrabajador Is Nothing) Then
             seccionTrabajador.Visible = False
         Else
@@ -82,7 +82,7 @@ Public Class CrearListaDocumentacion
             End If
         End If
 
-        Dim documentosVehiculo As DataTable = documento.buscarDocumentosArea(usuario.areaUsuario, "vehiculo", idCarpeta)
+        Dim documentosVehiculo As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "vehiculo", idCarpeta)
         If (documentosVehiculo Is Nothing) Then
             seccionVehiculo.Visible = False
         Else
