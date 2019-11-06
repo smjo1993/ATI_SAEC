@@ -23,13 +23,13 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents seccionEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control GridView1.
+    '''Control empresas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents empresas As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control seccionTrabajador.
@@ -41,13 +41,13 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents seccionTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control GridView2.
+    '''Control trabajadores.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents trabajadores As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control seccionVehiculo.
@@ -59,13 +59,13 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents seccionVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control GridView3.
+    '''Control vehiculos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents vehiculos As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control Button1.
@@ -75,4 +75,13 @@ Partial Public Class CrearListaDocumentacion
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control Label1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
 End Class

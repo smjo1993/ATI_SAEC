@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/checkbox.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -266,7 +267,7 @@
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Empresa</h5>
-                                                <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                                                <asp:Label runat="server" ID="empresas" runat="server" Text="Label"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -277,7 +278,7 @@
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Trabajador</h5>
-                                                <asp:GridView ID="GridView2" runat="server"></asp:GridView>
+                                                <asp:Label runat="server" ID="trabajadores" runat="server" Text="Label"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -288,12 +289,13 @@
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Vehiculo</h5>
-                                                <asp:GridView ID="GridView3" runat="server"></asp:GridView>
+                                                <asp:Label runat="server" ID="vehiculos" runat="server" Text="Label"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <asp:Button ID="Button1" runat="server" Text="Button" />
+                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                             </form>
                         </div>
                     </div>
