@@ -273,7 +273,7 @@
                         <form runat="server">
 
                             <div>
-                                <div class="card shadow mb-4">
+                                <%--<div class="card shadow mb-4">
                                     <div class="card-body">
 
                                         <div class="row">
@@ -285,7 +285,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="card shadow mb-4">
                                     <div class="card-body">
                                         <div class="row">
@@ -293,7 +293,7 @@
                                                 <label id="lblRazonSocial" class="col-12">Razón Social:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtRazonSocial" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtRazonSocial" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -301,7 +301,7 @@
                                                 <label id="lblRut" class="col-12">Rut:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtRut" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtRut" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -309,7 +309,7 @@
                                                 <label id="lblGiro" class="col-12">Giro:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtGiro" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtGiro" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -317,7 +317,7 @@
                                                 <label id="lblDireccion" class="col-12">Dirección:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtDireccion" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtDireccion" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -325,7 +325,7 @@
                                                 <label id="lblCiudad" class="col-12">Ciudad:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCiudad" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCiudad" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -333,7 +333,7 @@
                                                 <label id="lblFono" class="col-12">Fono:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtFono" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtFono" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -341,7 +341,7 @@
                                                 <label id="lblCelular" class="col-12">Celular:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCelular" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCelular" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -349,7 +349,7 @@
                                                 <label id="lblCorreo" class="col-12">Correo:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCorreo" runat="server" Class="col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCorreo" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -357,63 +357,37 @@
                                                 <label id="lblEncargado" class="col-12">Encargado:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:DropDownList ID="DropEncargados" runat="server" class="col-12"></asp:DropDownList>
+                                                <asp:DropDownList ID="DropEncargados" runat="server" class="btn btn-light bg-light dropdown-toggle col-12"></asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="row">
-                                                    <div class="col-10 d-flex">
-                                                        <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="ml-auto" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div>
-                                                        <p>
-                                                            <asp:Label ID="LblAdvertencia" runat="server" Text=""></asp:Label>
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                            <div class="col-10 d-flex justify-content-end">
+                                                <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="ml-auto" />
+                                                <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="ml-auto" />
+                                                <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="ml-auto"/>
+                                            </div>
+                                                
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <p>
+                                                    <asp:Label ID="LblAdvertencia" runat="server" Text=""></asp:Label>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
+                        </form>
                     </div>
-
-                    
-
-                    <br />
-                    <br />
-
-                    <div class="row">
-
-                        <div class="d-flex justify-content-end">
-
-                            <asp:Button
-                                ID="btnCancelar"
-                                Padding="15px"
-                                runat="server"
-                                class="btn btn-outline-secondary btn-user"
-                                Text="Cancelar" />
-
-                            <asp:Button
-                                ID="btnCrearDocumento"
-                                Padding="15px"
-                                runat="server"
-                                class="btn btn-primary btn-user"
-                                Text="Crear Documento" />
-                            <%--<p>
-                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                            </p>--%>
-                        </div>
-                    </div>
-                    </form>
+                    <!-- /.container-fluid -->
                 </div>
-                <!-- /.container-fluid -->
             </div>
-        </div>
-        <!-- End of Main Content -->
+            <!-- End of Main Content -->
 
-    </div>
-    <!-- End of Content Wrapper -->
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

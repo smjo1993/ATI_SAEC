@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class modificarEmpresa
     
     '''<summary>
-    '''Control dropEmpresas.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents dropEmpresas As Global.System.Web.UI.WebControls.DropDownList
-    
-    '''<summary>
     '''Control TxtRazonSocial.
     '''</summary>
     '''<remarks>
@@ -104,6 +95,15 @@ Partial Public Class modificarEmpresa
     Protected WithEvents DropEncargados As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''Control BtnVolver.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Control btnModificar.
     '''</summary>
     '''<remarks>
@@ -113,6 +113,15 @@ Partial Public Class modificarEmpresa
     Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''Control BtnAceptar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnAceptar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''Control LblAdvertencia.
     '''</summary>
     '''<remarks>
@@ -120,22 +129,4 @@ Partial Public Class modificarEmpresa
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Control btnCancelar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''Control btnCrearDocumento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnCrearDocumento As Global.System.Web.UI.WebControls.Button
 End Class
