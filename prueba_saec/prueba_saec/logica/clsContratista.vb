@@ -107,6 +107,26 @@ Public Class clsContratista
         End Try
     End Function
 
+    Public Function listarContratistas() As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarContratistas"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarContratistas")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
     Public Function validarContratista(contratista As String) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
