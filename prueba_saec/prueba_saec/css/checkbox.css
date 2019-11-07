@@ -38,7 +38,7 @@
     }
 
 input.default:checked + .slider {
-    background-color: #444;
+    background-color: #4CFF33;
 }
 
 
