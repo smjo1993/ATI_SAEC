@@ -1,6 +1,4 @@
-﻿Imports System.Net.Mail
-Imports System.Net
-Public Class iniciarCarpetaArranque
+﻿Public Class iniciarCarpetaArranque
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMensaje.Text = ""

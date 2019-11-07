@@ -2,7 +2,7 @@
 
 Public Class CrearListaDocumentacion
     Inherits System.Web.UI.Page
-
+    Dim cantidadDocumentosEmpresa As Integer = 0
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         empresas.Visible = False
         vehiculos.Visible = False
@@ -24,38 +24,54 @@ Public Class CrearListaDocumentacion
         Dim idCarpeta As Integer = Convert.ToInt32(Request.QueryString("idCarpeta").ToString())
         Dim documentos As String = " "
 
-        Dim documentosEmpresa As DataTable = documento.buscarDocumentosArea(usuario.areaUsuario, "empresa", idCarpeta)
+        Dim documentosEmpresa As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "empresa", idCarpeta)
         If (documentosEmpresa Is Nothing) Then
             seccionEmpresa.Visible = False
         Else
             If (documentosEmpresa.Rows.Count > 0) Then
-                empresas.Visible = True
+
+                gridDocumentosEmpresa.Columns(0).HeaderText = "fdhgf"
+                gridDocumentosEmpresa.Columns(1).HeaderText = "adfasdfasdfas"
+                gridDocumentosEmpresa.Columns(1).HeaderText = "5876"
+
                 For Each documentoEmpresa As DataRow In documentosEmpresa.Rows
-                    documentos = documentos & "   <div class=""wrapper""> "
-                    documentos = documentos & "   <div class=""row""> "
-                    documentos = documentos & "   <div class=""col-1""> "
-                    documentos = documentos & "   </div> "
-                    documentos = documentos & "   <div class=""col-lg-6""> "
-                    documentos = documentos & "   <asp:Label  class=""font-weight-bold "" runat=""server"" Text="""">" + documentoEmpresa("nombre") + "</asp:Label>"
-                    documentos = documentos & "   </div> "
-                    'documentos = documentos & "      <li class=""col-2"">"
-                    documentos = documentos & "          <label class=""switch"">"
-                    If (documentoEmpresa("estado") = "inactivo") Then
-                        documentos = documentos & "              <input runat=""server"" type=""checkbox"" class=""default"">"
-                    Else
-                        documentos = documentos & "              <input runat=""server"" type=""checkbox"" class=""default"" checked>"
-                    End If
-                    documentos = documentos & "              <span class=""slider round""></span>"
-                    documentos = documentos & "          </label>"
-                    ' documentos = documentos & "      </li>"
-                    documentos = documentos & "   </div> "
-                    documentos = documentos & "   </div> "
+                    'Dim item As New ListItem()
+
+                    'item.Text = documentoEmpresa("nombre").ToString()
+                    'item.Value = documentoEmpresa("TB_SAEC_Documentoid")
+                    'If (documentoEmpresa("estado") = "espera") Then
+                    '    item.Selected = True
+                    'End If
+
+                    'chkDocumentosEmpresa.Items.Add(item)
+
+                    '    documentos = documentos & "   <div class=""wrapper""> "
+                    '    documentos = documentos & "   <div class=""row""> "
+                    '    documentos = documentos & "      <label id="" lb" + cantidadDocumentosEmpresa.ToString + """ hidden> " + documentoEmpresa("TB_SAEC_Documentoid").ToString + " </label>"
+                    '    documentos = documentos & "      <li class="""">" + documentoEmpresa("nombre") + ""
+                    '    documentos = documentos & "          <label class=""switch"">"
+                    '    If (documentoEmpresa("estado") = "inactivo") Then
+                    '        documentos = documentos & "              <input runat=""server"" id=""" + cantidadDocumentosEmpresa.ToString + """ type=""checkbox"" class=""default"">"
+                    '    Else
+                    '        documentos = documentos & "              <input runat=""server"" id=""" + cantidadDocumentosEmpresa.ToString + """ type=""checkbox"" class=""default"" checked>"
+                    '    End If
+                    '    documentos = documentos & "              <span class=""slider round""></span>"
+                    '    documentos = documentos & "          </label>"
+                    '    documentos = documentos & "      </li>"
+                    '    documentos = documentos & "   </div> "
+                    '    documentos = documentos & "   </div> "
+                    '    cantidadDocumentosEmpresa = +1
                 Next
-                empresas.Text = documentos
+
+                'empresas.Text = documentos
+                'empresas.Visible = True
+
+
+
             End If
         End If
 
-        Dim documentosTrabajador As DataTable = documento.buscarDocumentosArea(usuario.areaUsuario, "trabajador", idCarpeta)
+        Dim documentosTrabajador As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "trabajador", idCarpeta)
         If (documentosTrabajador Is Nothing) Then
             seccionTrabajador.Visible = False
         Else
@@ -80,7 +96,7 @@ Public Class CrearListaDocumentacion
             End If
         End If
 
-        Dim documentosVehiculo As DataTable = documento.buscarDocumentosArea(usuario.areaUsuario, "vehiculo", idCarpeta)
+        Dim documentosVehiculo As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "vehiculo", idCarpeta)
         If (documentosVehiculo Is Nothing) Then
             seccionVehiculo.Visible = False
         Else
@@ -107,11 +123,16 @@ Public Class CrearListaDocumentacion
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-        'If (i1.Checked) Then
-        '    Label1.Text = "chequeado"
-        'Else
-        '    Label1.Text = "no chequeado"
-        'End If
+        'Dim c As New HtmlInputCheckBox
+        'Dim l As New Label
+        'For documento As Integer = 0 To cantidadDocumentosEmpresa - 1
+        '    'c = Page.FindControl(documento.ToString())
+        '    'If (c.Checked) Then
+        '    '    vehiculos.Visible = True
+        '    'Else
+        '    '    vehiculos.Visible = False
+        '    'End If
+        '    l = Page.FindControl("lb" + documento.ToString())
+        'Next
     End Sub
 End Class
