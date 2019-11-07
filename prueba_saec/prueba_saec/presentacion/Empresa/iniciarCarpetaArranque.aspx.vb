@@ -34,46 +34,6 @@ Public Class iniciarCarpetaArranque
             End If
         End If
     End Sub
-    Protected Sub notificarInicio()
-        Dim clsUsuario As New clsUsuario
-        Dim destinatarios As DataTable = clsUsuario.obtenerRevisores()
-        If (destinatarios Is Nothing) Then
-        Else
-            If (destinatarios.Rows.Count > 0) Then
-                For Each destinatario As DataRow In destinatarios.Rows
-                    Dim mensaje As String = "La empresa" + " " + dropEmpresas.SelectedItem.Text + " " +
-                        "acaba de iniciar su carpeta de arranque, por favo solicitar los documentos necesarios para su acreditacion"
-                    enviarCorreo("inicio carpeta de arranque", mensaje, destinatario("correo"))
-                Next
-            End If
-        End If
-    End Sub
-    Protected Sub enviarCorreo(ByVal asunto As String, ByVal mensaje As String, ByVal destinatario As String)
-        Dim message As New MailMessage()
-        Try
-            'Email desde el que se envia el mensaje.
-            Dim email As String = "ati.saec.2019@gmail.com"
-            'Password del email.
-            Dim password As String = "adminsaec123"
-            'Instancia del protocolo smtp.
-            Dim smtp = New SmtpClient()
-            If True Then
-                smtp.Host = "smtp.gmail.com"
-                smtp.Port = 587
-                smtp.EnableSsl = True
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network
-                smtp.Credentials = New NetworkCredential(email, password)
-                smtp.Timeout = 5000
-            End If
-            message.From = New MailAddress(email)
-            message.To.Add(destinatario)
-            message.Subject = asunto
-            message.Body = mensaje
-            smtp.Send(message)
-            message.Dispose()
-        Catch generatedExceptionName As Exception
-        End Try
-    End Sub
     Protected Sub btnCrearCarpeta_Click(sender As Object, e As EventArgs) Handles btnCrearCarpeta.Click
         Dim alerta As New clsAlertas
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -93,7 +53,6 @@ Public Class iniciarCarpetaArranque
                     fechaCreacion = Today
                     fechaExpiracion = DateAdd("m", 12, Today)
                     If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.rutUsuario) = True) Then
-                        notificarInicio()
                         Response.Redirect("iniciarCarpetaArranque.aspx")
                     Else
                         Response.Redirect("iniciarCarpetaArranque.aspx")
@@ -106,7 +65,6 @@ Public Class iniciarCarpetaArranque
                     Else
                         Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
                         If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.rutUsuario) = True) Then
-                            notificarInicio()
                             Response.Redirect("iniciarCarpetaArranque.aspx")
                         Else
                             Response.Redirect("iniciarCarpetaArranque.aspx")

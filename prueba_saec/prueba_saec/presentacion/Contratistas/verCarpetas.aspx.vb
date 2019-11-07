@@ -6,7 +6,7 @@
         Dim tarjeta As String = ""
         Dim color As String
         ' definir por session el rut
-        Dim rutContratista As String = "191494911"
+        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
         Dim carpetaContratista As Object = crearCarpetasContratista()
 
         For Each fila As DataRow In carpetaContratista.obtenerCarpetas(rutContratista).Rows
@@ -15,6 +15,7 @@
             Dim porcentaje As String = Empresas.calcularPorcentaje(fila("TB_SAEC_Empresarut"))
             Dim estado As Boolean = carpetaContratista.ObtenerEstado(fila("TB_SAEC_Empresarut"))
             color = obtenerColor(estado, porcentaje)
+            Dim idCarpeta As String = fila("id")
 
 
             tarjeta = tarjeta & "   <div Class=""col-xl-3 col-md-6 mb-4""> "
@@ -35,7 +36,7 @@
             tarjeta = tarjeta & "                </div> "
             tarjeta = tarjeta & "              </div> "
             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-            tarjeta = tarjeta & "              <a href=""#"" class=""btn btn-" + color + """>Ver</a>"
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx?idCarpeta=" + idCarpeta + """ class=""btn btn-" + color + """>Ver</a>"
             tarjeta = tarjeta & "              </div> "
             tarjeta = tarjeta & "            </div> "
             tarjeta = tarjeta & "          </div> "

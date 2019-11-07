@@ -55,10 +55,15 @@ Public Class clsEmpresa
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
-            Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
             Dim aprobados As Integer = ds.Tables(0).Rows(0).Item(0)
-            Dim total As Integer = ds.Tables(1).Rows(0).Item(0)
-            Dim resultado As String = Int((aprobados * 100) / total)
+            Dim resultado As String
+
+            If aprobados = 0 Then
+                Return "0"
+            Else
+                Dim total As Integer = ds.Tables(1).Rows(0).Item(0)
+                resultado = Int((aprobados * 100) / total)
+            End If
 
             Return resultado
 
@@ -104,7 +109,7 @@ Public Class clsEmpresa
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
-            Dim sql As String = "SP_SAEC_ListarEstadoDocumento '" & areaRevisor & "','" & rutEmpersa & " '"
+            Dim sql As String = "SP_SAEC_ListarEstadoDocumentoRevisor '" & areaRevisor & "','" & rutEmpersa & " '"
             Dim ds As New DataSet()
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

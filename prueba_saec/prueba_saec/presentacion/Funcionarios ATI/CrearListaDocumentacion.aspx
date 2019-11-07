@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/checkbox.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -258,41 +259,43 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Solicitar Documentos</h6>
                         </div>
-                        <div runat="server" id="div1"  class="card-body">
+                        <div class="card-body">
 
                             <form runat="server">
-                                <div id="empresa">
+                                <div runat="server" id="seccionEmpresa">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Empresa</h5>
-
+                                                <asp:Label runat="server" ID="empresas" runat="server" Text="Label"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div id="docTrabajador">
+                                <div runat="server" id="seccionTrabajador">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Trabajador</h5>
-
+                                                <asp:Label runat="server" ID="trabajadores" runat="server" Text="Label"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div id="vehiculo">
+                                <div runat="server" id="seccionVehiculo">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Vehiculo</h5>
-
+                                                <asp:Label runat="server" ID="vehiculos" runat="server" Text="Label"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <asp:Button ID="Button1" runat="server" Text="Button" />
+                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                             </form>
                         </div>
                     </div>

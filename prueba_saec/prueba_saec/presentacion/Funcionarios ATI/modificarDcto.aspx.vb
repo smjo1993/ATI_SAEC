@@ -5,9 +5,18 @@
         If Not IsPostBack Then
 
             cargarAreas()
-            cargarDocumentos()
+            bloquearCampos()
 
         End If
+    End Sub
+
+    Public Sub bloquearCampos()
+        dropDocumentos.Enabled = False
+        dropDocumentos.CssClass = "btn btn-light bg-light dropdown-toggle col-12"
+        dropTipoNuevoDocumento.Enabled = False
+        dropTipoNuevoDocumento.CssClass = "btn btn-light bg-light dropdown-toggle col-12"
+        TxtNombreDocumentoEdicion.ReadOnly = True
+        chkListaAreasEdicion.Enabled = False
     End Sub
 
     Public Sub cargarAreas()
@@ -64,4 +73,73 @@
         Return Documentos.obtenerDocumento()
     End Function
 
+    Protected Sub dropAreas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropAreas.SelectedIndexChanged
+
+        If dropAreas.SelectedItem.Text.ToString <> "" Then
+            Dim documento As New clsDocumento
+
+            dropDocumentos.Items.Clear()
+            dropDocumentos.Items.Add("")
+            lblHeadEdicion.Text = "Edición"
+            TxtNombreDocumentoEdicion.Text = ""
+            dropTipoNuevoDocumento.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
+            bloquearCampos()
+
+
+            Dim dt As New DataTable
+            dt = documento.buscarDocumentosArea(dropAreas.SelectedValue)
+
+            For Each celda As DataRow In dt.Rows
+
+                Dim itemDrop As New ListItem
+
+                itemDrop.Text = celda("nombre").ToString()
+
+                itemDrop.Value = celda("id")
+
+                dropDocumentos.Items.Add(itemDrop)
+
+            Next
+
+            dropDocumentos.Enabled = True
+
+        Else
+            dropDocumentos.Items.Clear()
+            dropDocumentos.Items.Add("")
+            lblHeadEdicion.Text = "Edición"
+            TxtNombreDocumentoEdicion.Text = ""
+            dropTipoNuevoDocumento.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
+            bloquearCampos()
+        End If
+
+    End Sub
+
+    Protected Sub dropDocumentos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropDocumentos.SelectedIndexChanged
+
+        If dropDocumentos.SelectedItem.Text.ToString <> "" Then
+
+            TxtNombreDocumentoEdicion.Text = ""
+            dropTipoNuevoDocumento.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
+
+            dropTipoNuevoDocumento.Enabled = True
+            TxtNombreDocumentoEdicion.ReadOnly = False
+            chkListaAreasEdicion.Enabled = True
+            lblHeadEdicion.Text = "Edición / " & dropDocumentos.SelectedItem.Text.ToString
+
+        Else
+            TxtNombreDocumentoEdicion.Text = ""
+            dropTipoNuevoDocumento.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
+            lblHeadEdicion.Text = "Edición"
+        End If
+
+    End Sub
+
+    Protected Sub btnRealizarCambios_Click(sender As Object, e As EventArgs) Handles btnRealizarCambios.Click
+        Dim documento As New clsDocumento
+        Dim acc As Boolean
+    End Sub
 End Class
