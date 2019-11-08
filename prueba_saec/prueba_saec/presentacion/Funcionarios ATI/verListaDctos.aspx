@@ -38,6 +38,10 @@
     <!-- Page level custom scripts -->
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/js/demo/datatables-demo.js"></script>
 
+    <!-- Custom script y para tablas -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
 
 </head>
 
@@ -348,7 +352,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Lista de Requerimientos Documentales</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>
 
                     <form runat="server">
                         <div class="card shadow mb-4">
@@ -526,8 +530,59 @@
                                         </div>
                                     </div>
                                 </div>--%>
-                            </div>
-                        </div>
+
+                                <div>
+                                    <table class="table table-bordered dataTable" 
+                                        id="tablaRequisitos" 
+                                        width="100%" 
+                                        cellspacing="0" 
+                                        role="grid" 
+                                        aria-describedby="dataTable_info" 
+                                        style="width: 100%;"> 
+
+                                        <tr class="align-left">
+                                            <td class="auto-style1">
+                                                <asp:GridView ID="gridRequisitos"
+                                                    runat="server" 
+                                                    AutoGenerateColumns="False" 
+                                                    class="table table-bordered dataTable" 
+                                                    Width="100%"
+                                                    CellSpacing="0" 
+                                                    role="grid" 
+                                                    aria-describedby="dataTable_info" 
+                                                    Style="width: 100%;">
+
+                                                    <Columns>
+                                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
+                                                        <asp:BoundField DataField="Area" HeaderText="Área" />
+                                                        <asp:BoundField DataField="Estado" HeaderText="Estado en Sistema" />
+
+                                                        <asp:TemplateField HeaderText="Ver">
+
+                                                            <ItemTemplate>
+                                                                <asp:Button ID="btVer" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />
+                                                            </ItemTemplate>
+
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+
+                                                        </asp:TemplateField>
+
+                                                    </Columns>
+                                                </asp:GridView>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                 
+                                  
+                                    
+                                </div> <%--card body--%>
+                        </div> <%--card shadow--%>
+
 
                         <div>
                             <div class="card shadow mb-4">
