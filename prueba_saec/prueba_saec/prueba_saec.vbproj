@@ -134,6 +134,7 @@
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\Contratistas\menuContratista.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
@@ -253,6 +254,13 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verEmpresas.aspx.vb">
       <DependentUpon>verEmpresas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.designer.vb">
+      <DependentUpon>verListaDctos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.vb">
+      <DependentUpon>verListaDctos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\login.aspx.designer.vb">
