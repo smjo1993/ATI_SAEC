@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class revisarRequerimientos
+Partial Public Class WebForm1
     
     '''<summary>
     '''Control form1.
@@ -23,20 +23,11 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control LblDocumentos.
+    '''Control gridEmpresas.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblDocumentos As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Control Button1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents gridEmpresas As Global.System.Web.UI.WebControls.GridView
 End Class
