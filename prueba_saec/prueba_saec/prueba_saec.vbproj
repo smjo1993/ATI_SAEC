@@ -90,6 +90,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -145,6 +146,7 @@
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verEmpresas.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\Contratistas\menuContratista.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
@@ -322,6 +324,13 @@
       <DependentUpon>verEmpresas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.designer.vb">
+      <DependentUpon>verListaDctos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.vb">
+      <DependentUpon>verListaDctos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\login.aspx.designer.vb">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
@@ -393,7 +402,7 @@
     <Folder Include="js\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <Content Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

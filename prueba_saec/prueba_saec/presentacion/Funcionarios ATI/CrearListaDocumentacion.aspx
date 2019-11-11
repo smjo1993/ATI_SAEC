@@ -261,13 +261,16 @@
                         </div>
                         <div class="card-body">
 
-                            <form runat="server">
+                            <form id="documentos" runat="server">
                                 <div runat="server" id="seccionEmpresa">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div class="col-sm-4">
                                                 <h5 class="font-weight-bold text-primary">Documentos Empresa</h5>
-                                                <asp:Label runat="server" ID="empresas" runat="server" Text="Label"></asp:Label>
+                                                <asp:Label runat="server" ID="empresas" Text="Label"></asp:Label>
+                                                <asp:CheckBoxList ID="chkDocumentosEmpresa" runat="server" class="">
+                                                    <asp:GridView ID="gridDocumentosEmpresa" runat="server"></asp:GridView>
+                                                </asp:CheckBoxList>
                                             </div>
                                         </div>
                                     </div>

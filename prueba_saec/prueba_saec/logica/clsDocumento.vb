@@ -34,6 +34,37 @@ Public Class clsDocumento
 
     End Function
 
+    Public Function actualizarDocumento(nombreAnterior As String,
+                                        nombreNuevo As String,
+                                        tipo As String,
+                                        area As Integer)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+            Dim ds As New DataSet()
+
+            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "' , '" & area & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ActualizarDocumento")
+            Return True
+
+        Catch ex As Exception
+
+            Return False
+
+        Finally
+
+            con.Close()
+            con.Dispose()
+
+        End Try
+
+
+
+    End Function
+
     Public Function obtenerDocumento()
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
@@ -62,23 +93,23 @@ Public Class clsDocumento
     End Function
     Public Function buscarDocumentosArea(ByVal area As Integer) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
-        'Try
-        Dim ds As New DataSet()
-        Dim sql As String = "SP_SAEC_ListarDocumentosPorArea '" & area & "'"
-        con.Open()
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosPorArea '" & area & "'"
+            con.Open()
 
-        Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
-        dbDataAdapter.Fill(ds, "ListarDocumentosArea")
+            dbDataAdapter.Fill(ds, "ListarDocumentosArea")
 
-        Return ds.Tables(0)
+            Return ds.Tables(0)
 
-        'Catch ex As Exception
-        '    Return Nothing
-        'Finally
-        '    con.Close()
-        '    con.Dispose()
-        'End Try
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
     End Function
 
     Public Function buscarDocumentoPorArea(ByVal area As Integer, ByVal descripcion As String, ByVal idCarpeta As Integer) As DataTable
@@ -113,6 +144,27 @@ Public Class clsDocumento
             dbDataAdapter.Fill(ds)
             Return ds.Tables(0)
 
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function listarRequisitosDocumentales() As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarRequisitosDocumentales"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
 
         Catch ex As Exception
             Return Nothing

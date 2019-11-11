@@ -11,25 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class modificarDcto
+Partial Public Class verListaDctos
 
     '''<summary>
-    '''Control dropAreas.
+    '''Control gridRequisitos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropAreas As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control dropDocumentos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents gridRequisitos As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''Control CardEdicionDocumento.
