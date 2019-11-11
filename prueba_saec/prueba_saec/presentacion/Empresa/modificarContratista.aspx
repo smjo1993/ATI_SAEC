@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="modificarEmpresa.aspx.vb" Inherits="prueba_saec.modificarEmpresa" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="modificarContratista.aspx.vb" Inherits="prueba_saec.modificarContratista" %>
 
 <%--<!DOCTYPE html>
 
@@ -268,67 +268,47 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-                        <%--<h1 class="h3 mb-4 text-gray-800">Modificar Empresa Contratista</h1>--%>
+                        <%--<h1 class="h3 mb-4 text-gray-800">Ver Contratista</h1>--%>
 
                         <form runat="server">
 
                             <div>
-                                <%--<div class="card shadow mb-4">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Ver Contratista</h6>
+                                    </div>
                                     <div class="card-body">
 
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <h5 class="font-weight-bold text-primary">Elija una empresa:</h5>
+                                                <label id="lblNombre" class="col-12">Nombre:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:DropDownList ID="dropEmpresas" runat="server" class="col-12" AutoPostBack="true"></asp:DropDownList>
+                                                <asp:TextBox ID="TxtNombre" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>--%>
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Modificar Empresa Contratista</h6>
-                                    </div>
-                                    <div class="card-body">
+                                        <%--<div class="row">
+                                            <div class="col-sm-4">
+                                                <label id="lblLogin" class="col-12">Login:</label>
+                                            </div>
+                                            <div class="col-6">
+                                                <asp:TextBox ID="TxtLogin" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <label id="lblRazonSocial" class="col-12">Razón Social:</label>
+                                                <label id="lblClave" class="col-12">Clave:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtRazonSocial" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtClave" runat="server" TextMode="Password" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                         <div class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblRut" class="col-12">Rut:</label>
                                             </div>
                                             <div class="col-6">
                                                 <asp:TextBox ID="TxtRut" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblGiro" class="col-12">Giro:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtGiro" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblDireccion" class="col-12">Dirección:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtDireccion" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <label id="lblCiudad" class="col-12">Ciudad:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtCiudad" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -341,14 +321,6 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <label id="lblCelular" class="col-12">Celular:</label>
-                                            </div>
-                                            <div class="col-6">
-                                                <asp:TextBox ID="TxtCelular" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
                                                 <label id="lblCorreo" class="col-12">Correo:</label>
                                             </div>
                                             <div class="col-6">
@@ -357,11 +329,11 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <label id="lblEncargado" class="col-12">Encargado:</label>
+                                                <label id="lblEstado" class="col-12">Estado:</label>
                                             </div>
-                                            <div class="col-6">
-                                                <asp:DropDownList ID="DropEncargados" runat="server" class="btn btn-light bg-light dropdown-toggle col-12"></asp:DropDownList>
-                                            </div>
+                                            <%--<div class="col-6">
+                                                <asp:DropDownList ID="DropEstado" runat="server" class="btn btn-light bg-light dropdown-toggle col-12"></asp:DropDownList>
+                                            </div>--%>
                                         </div>
                                         <div class="row">
                                             <div class="col-10 d-flex justify-content-end">

@@ -10,11 +10,12 @@ Public Class crearEmpresa
         cargarDatos()
     End Sub
     Public Sub cargarDatos()
-        Dim contratista As New clsContratista
-        Dim listaContratista As DataTable = contratista.listarContratistasHabilitados()
+        Dim empresa As New clsEmpresa
+        Dim dt As New DataTable
+        dt = empresa.listarContratistasSinempresa()
         dropContratistas.Items.Clear()
         dropContratistas.Items.Add("")
-        For Each row As DataRow In listaContratista.Rows
+        For Each row As DataRow In dt.Rows
             Dim item As New ListItem()
             item.Text = row("nombre").ToString()
             item.Value = row("rut").ToString()
@@ -28,6 +29,13 @@ Public Class crearEmpresa
             lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
         Else
             insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
+            asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
         End If
+    End Sub
+
+    Public Sub asignarContratista(rut As String)
+        Dim contratista As clsContratista
+        Dim accion As New Boolean
+        accion = contratista.activarContratista(rut)
     End Sub
 End Class

@@ -11,86 +11,77 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CrearListaDocumentacion
+Partial Public Class modificarContratista
     
     '''<summary>
-    '''Control documentos.
+    '''Control TxtNombre.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents TxtNombre As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control seccionEmpresa.
+    '''Control TxtRut.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents seccionEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents TxtRut As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control gridDocumentosEmpresa.
+    '''Control TxtFono.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridDocumentosEmpresa As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents TxtFono As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control seccionTrabajador.
+    '''Control TxtCorreo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents seccionTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents TxtCorreo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control gridDocumentosTrabajador.
+    '''Control BtnVolver.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridDocumentosTrabajador As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control seccionVehiculo.
+    '''Control btnModificar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents seccionVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control gridDocumentosVehiculo.
+    '''Control BtnAceptar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents BtnAceptar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control Button1.
+    '''Control LblAdvertencia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''Control Label1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
 End Class

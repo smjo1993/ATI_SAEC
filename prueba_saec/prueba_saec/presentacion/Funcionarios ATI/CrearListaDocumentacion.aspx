@@ -20,7 +20,11 @@
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../../css/checkbox.css" rel="stylesheet">
-
+    <style type="text/css">
+        .auto-style1 {
+            width: 984px;
+        }
+    </style>
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
@@ -257,20 +261,38 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Solicitar Documentos</h6>
+                            <h5 class="m-0 font-weight-bold text-primary">Solicitar Documentos</h5>
                         </div>
                         <div class="card-body">
 
                             <form id="documentos" runat="server">
+
+
                                 <div runat="server" id="seccionEmpresa">
                                     <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="font-weight-bold text-primary">Documentos Empresa</h6>
+                                        </div>
                                         <div class="card-body">
-                                            <div class="col-sm-4">
-                                                <h5 class="font-weight-bold text-primary">Documentos Empresa</h5>
-                                                <asp:Label runat="server" ID="empresas" Text="Label"></asp:Label>
-                                                <asp:CheckBoxList ID="chkDocumentosEmpresa" runat="server" class="">
-                                                    <asp:GridView ID="gridDocumentosEmpresa" runat="server"></asp:GridView>
-                                                </asp:CheckBoxList>
+                                            <div <%--class="col-sm-4"--%>>
+                                                <asp:GridView ID="gridDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                                    <Columns>
+                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" />
+                                                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" />
+
+                                                        <asp:TemplateField HeaderText="Estado">
+                                                            <ItemTemplate>
+                                                                <label class="switch ">
+                                                                    <input runat="server" id="chkDocEmpresa" type="checkbox" class="default">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
                                             </div>
                                         </div>
                                     </div>
@@ -278,10 +300,29 @@
 
                                 <div runat="server" id="seccionTrabajador">
                                     <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="font-weight-bold text-primary">Documentos Trabajador</h6>
+                                        </div>
                                         <div class="card-body">
-                                            <div class="col-sm-4">
-                                                <h5 class="font-weight-bold text-primary">Documentos Trabajador</h5>
-                                                <asp:Label runat="server" ID="trabajadores" runat="server" Text="Label"></asp:Label>
+                                            <div <%--class="col-sm-4"--%>>
+                                                <asp:GridView ID="gridDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                                    <Columns>
+                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" />
+                                                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" />
+
+                                                        <asp:TemplateField HeaderText="Estado">
+                                                            <ItemTemplate>
+                                                                <label class="switch ">
+                                                                    <input runat="server" id="chkDocTrabajador" type="checkbox" class="default">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
                                             </div>
                                         </div>
                                     </div>
@@ -289,10 +330,29 @@
 
                                 <div runat="server" id="seccionVehiculo">
                                     <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="font-weight-bold text-primary">Documentos Vehiculo</h6>
+                                        </div>
                                         <div class="card-body">
-                                            <div class="col-sm-4">
-                                                <h5 class="font-weight-bold text-primary">Documentos Vehiculo</h5>
-                                                <asp:Label runat="server" ID="vehiculos" runat="server" Text="Label"></asp:Label>
+                                            <div <%--class="col-sm-4"--%>>
+                                                <asp:GridView ID="gridDocumentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                                    <Columns>
+                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" />
+                                                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" />
+
+                                                        <asp:TemplateField HeaderText="Estado">
+                                                            <ItemTemplate>
+                                                                <label class="switch ">
+                                                                    <input runat="server" id="chkDocVehiculo" type="checkbox" class="default">
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
                                             </div>
                                         </div>
                                     </div>
