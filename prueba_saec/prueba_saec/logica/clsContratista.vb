@@ -207,22 +207,55 @@ Public Class clsContratista
         End Try
     End Function
 
-    Public Function obtenerEstado(rutEmpersa As String) As Boolean
+    Public Function activarContratista(rut As String) As Boolean
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
-            Dim sql As String = "SP_SAEC_ListarEstadoDocumentoContratista'" & rutEmpersa & " '"
+            Dim sql As String = "SP_SAEC_ActivarContratista'" & rut & " '"
             Dim ds As New DataSet()
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
-            dbDataAdapter.Fill(ds)
-            Dim estadoRojo As Integer = ds.Tables(0).Rows.Count
+            dbDataAdapter.Fill(ds, "ActivarContratista")
+            Return True
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 
-            If estadoRojo > 0 Then
-                Return True
-            Else
-                Return False
-            End If
+    Public Function desactivarContratista(rut As String) As Boolean
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_DesactivarContratista'" & rut & " '"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "DesactivarContratista")
+            Return True
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function actualizarContratista(nombre As String,
+                                     rut As String,
+                                     fono As String,
+                                     correo As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ActualizarContratista '" & nombre & "' , '" & rut & "' , '" & fono & "' , '" & correo & "'"
+            'Abriendo conexión
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ActualizarContratista")
+            Return True
 
         Catch ex As Exception
             Return False
@@ -230,7 +263,6 @@ Public Class clsContratista
             con.Close()
             con.Dispose()
         End Try
-
 
     End Function
 End Class
