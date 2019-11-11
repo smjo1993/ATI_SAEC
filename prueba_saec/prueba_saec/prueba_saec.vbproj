@@ -137,6 +137,7 @@
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
+    <Content Include="presentacion\Empresa\modificarContratista.aspx" />
     <Content Include="presentacion\Empresa\modificarEmpresa.aspx" />
     <Content Include="presentacion\Empresa\verContratistas.aspx" />
     <Content Include="presentacion\Empresa\verEmpresas.aspx" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="presentacion\Empresa\iniciarCarpetaArranque.aspx.vb">
       <DependentUpon>iniciarCarpetaArranque.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Empresa\modificarContratista.aspx.designer.vb">
+      <DependentUpon>modificarContratista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Empresa\modificarContratista.aspx.vb">
+      <DependentUpon>modificarContratista.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Empresa\modificarEmpresa.aspx.designer.vb">

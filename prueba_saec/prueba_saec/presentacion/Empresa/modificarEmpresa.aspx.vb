@@ -122,6 +122,15 @@
         DropEncargados.Items.Add(item)
     End Sub
 
+    Public Function obtenerRutEncargadoEmpresa(rut As String) As String
+        Dim empresa As New clsEmpresa
+        Dim dt As New DataTable
+        dt = empresa.obtenerContratistaDeEmpresa(rut)
+        Dim row As DataRow
+        row = dt.Rows(0)
+        Return row("rut").ToString()
+    End Function
+
     Public Sub cargarOtrosContratistasDisponibles()
         Dim empresa As New clsEmpresa
         Dim dt As New DataTable
@@ -142,13 +151,19 @@
 
     Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         Dim empresa As New clsEmpresa
+        Dim contratista As New clsContratista
         Dim accion As Boolean
+        Dim accion2 As Boolean
+        Dim accion3 As Boolean
         LblAdvertencia.Text = ""
         If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "") Then
             LblAdvertencia.Text = "Ha ocurrido un error. Uno de los campos se encuentra en blanco."
         Else
+            accion3 = contratista.desactivarContratista(obtenerRutEncargadoEmpresa(TxtRut.Text.Trim()))
             accion = empresa.actualizarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), DropEncargados.SelectedItem.Text.Trim(), TxtCorreo.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), DropEncargados.SelectedItem.Value.Trim())
-            If accion = False Then
+            accion2 = contratista.activarContratista(DropEncargados.SelectedItem.Value.Trim())
+
+            If accion = False Or accion2 = False Or accion3 = False Then
                 LblAdvertencia.Text = "Ha ocurrido un error en la conexión. Favor inténtelo nuevamente."
             Else
                 LblAdvertencia.Text = "Se ha modificado la empresa con éxito."
