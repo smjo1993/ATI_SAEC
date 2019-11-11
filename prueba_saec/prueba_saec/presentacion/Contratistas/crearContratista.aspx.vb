@@ -11,7 +11,7 @@
         If (txtNombre.Text.Trim() = "" Or txtNombreUsuario.Text.Trim() = "" Or txtPassword.Text.Trim() = "" Or txtRut.Text.Trim() = "" Or txtFono.Text.Trim() = "" Or txtCorreo.Text.Trim() = "") Then
             lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
         Else
-            insercion = contratista.insertarContratista(txtNombre.Text.Trim(), txtNombreUsuario.Text.Trim(), txtPassword.Text.Trim(), txtRut.Text.Trim(), "a", txtFono.Text.Trim(), txtCorreo.Text.Trim())
+            insercion = contratista.insertarContratista(txtNombre.Text.Trim(), txtNombreUsuario.Text.Trim(), txtPassword.Text.Trim(), txtRut.Text.Trim(), "I", txtFono.Text.Trim(), txtCorreo.Text.Trim())
             If (insercion) Then
                 lblAdvertencia.Text = "Contratista ingresado con éxito."
                 txtNombre.Text = ""

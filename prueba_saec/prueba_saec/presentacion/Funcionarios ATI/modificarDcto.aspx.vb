@@ -32,7 +32,7 @@
 
             Dim item As New ListItem()
 
-            item.Text = celda("descripcion").ToString()
+            item.Text = celda("nombre").ToString()
             item.Value = celda("id")
 
             dropAreas.Items.Add(item)
@@ -140,6 +140,23 @@
 
     Protected Sub btnRealizarCambios_Click(sender As Object, e As EventArgs) Handles btnRealizarCambios.Click
         Dim documento As New clsDocumento
-        Dim acc As Boolean
+        Dim task As Boolean
+        lblAdvertencia.Text = ""
+
+        If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or chkListaAreasEdicion.SelectedIndex = -1 Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
+
+            lblAdvertencia.Text = "Campos invalidos"
+
+        Else
+            task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text, chkListaAreasEdicion.SelectedItem.Value)
+            If task = False Then
+                lblAdvertencia.Text = "Error de procedimiento almc."
+            Else
+                lblAdvertencia.Text = "Operación exitosa"
+                Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
+            End If
+        End If
+
+
     End Sub
 End Class

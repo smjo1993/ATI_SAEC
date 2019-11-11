@@ -22,7 +22,7 @@ Public Class agregarDcto
 
             Dim item As New ListItem()
 
-            item.Text = celda("descripcion").ToString()
+            item.Text = celda("nombre").ToString()
             item.Value = celda("id")
 
             chkListaAreas.Items.Add(item)

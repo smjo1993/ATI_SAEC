@@ -11,86 +11,77 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class modificarDcto
-
+Partial Public Class modificarContratista
+    
     '''<summary>
-    '''Control dropAreas.
+    '''Control TxtNombre.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropAreas As Global.System.Web.UI.WebControls.DropDownList
-
+    Protected WithEvents TxtNombre As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control dropDocumentos.
+    '''Control TxtRut.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
-
+    Protected WithEvents TxtRut As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control CardEdicionDocumento.
+    '''Control TxtFono.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents CardEdicionDocumento As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    Protected WithEvents TxtFono As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control lblHeadEdicion.
+    '''Control TxtCorreo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblHeadEdicion As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents TxtCorreo As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control TxtNombreDocumentoEdicion.
+    '''Control BtnVolver.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TxtNombreDocumentoEdicion As Global.System.Web.UI.WebControls.TextBox
-
+    Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
+    
     '''<summary>
-    '''Control dropTipoNuevoDocumento.
+    '''Control btnModificar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipoNuevoDocumento As Global.System.Web.UI.WebControls.DropDownList
-
+    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
+    
     '''<summary>
-    '''Control chkListaAreasEdicion.
+    '''Control BtnAceptar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents chkListaAreasEdicion As Global.System.Web.UI.WebControls.CheckBoxList
-
+    Protected WithEvents BtnAceptar As Global.System.Web.UI.WebControls.Button
+    
     '''<summary>
-    '''Control lblAdvertencia.
+    '''Control LblAdvertencia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblAdvertencia As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control btnRealizarCambios.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnRealizarCambios As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
 End Class
