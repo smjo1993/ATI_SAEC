@@ -16,7 +16,7 @@
         dropTipoNuevoDocumento.Enabled = False
         dropTipoNuevoDocumento.CssClass = "btn btn-light bg-light dropdown-toggle col-12"
         TxtNombreDocumentoEdicion.ReadOnly = True
-        'chkListaAreasEdicion.Enabled = False
+        chkListaAreasEdicion.Enabled = False
     End Sub
 
     Public Sub cargarAreas()
@@ -24,7 +24,7 @@
         Dim areas As DataTable = obtenerTablaAreas()
 
         dropAreas.Items.Clear()
-        'chkListaAreasEdicion.Items.Clear()
+        chkListaAreasEdicion.Items.Clear()
 
         dropAreas.Items.Add("")
 
@@ -36,7 +36,7 @@
             item.Value = celda("id")
 
             dropAreas.Items.Add(item)
-            'chkListaAreasEdicion.Items.Add(item)
+            chkListaAreasEdicion.Items.Add(item)
 
         Next
 
@@ -83,7 +83,7 @@
             lblHeadEdicion.Text = "Edición"
             TxtNombreDocumentoEdicion.Text = ""
             dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
             bloquearCampos()
 
 
@@ -110,7 +110,7 @@
             lblHeadEdicion.Text = "Edición"
             TxtNombreDocumentoEdicion.Text = ""
             dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
             bloquearCampos()
         End If
 
@@ -122,17 +122,17 @@
 
             TxtNombreDocumentoEdicion.Text = ""
             dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
 
             dropTipoNuevoDocumento.Enabled = True
             TxtNombreDocumentoEdicion.ReadOnly = False
-            'chkListaAreasEdicion.Enabled = True
+            chkListaAreasEdicion.Enabled = True
             lblHeadEdicion.Text = "Edición / " & dropDocumentos.SelectedItem.Text.ToString
 
         Else
             TxtNombreDocumentoEdicion.Text = ""
             dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
+            chkListaAreasEdicion.ClearSelection()
             lblHeadEdicion.Text = "Edición"
         End If
 
@@ -143,26 +143,12 @@
         Dim task As Boolean
         lblAdvertencia.Text = ""
 
-        'If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or chkListaAreasEdicion.SelectedIndex = -1 Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
-
-        '    lblAdvertencia.Text = "Campos invalidos"
-
-        'Else
-        '    task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text, chkListaAreasEdicion.SelectedItem.Value)
-        '    If task = False Then
-        '        lblAdvertencia.Text = "Error de procedimiento almc."
-        '    Else
-        '        lblAdvertencia.Text = "Operación exitosa"
-        '        Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
-        '    End If
-        'End If
-
-        If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
+        If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or chkListaAreasEdicion.SelectedIndex = -1 Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
 
             lblAdvertencia.Text = "Campos invalidos"
 
         Else
-            task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text)
+            task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text, chkListaAreasEdicion.SelectedItem.Value)
             If task = False Then
                 lblAdvertencia.Text = "Error de procedimiento almc."
             Else

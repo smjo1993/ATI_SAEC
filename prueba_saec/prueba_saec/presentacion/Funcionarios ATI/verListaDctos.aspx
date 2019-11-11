@@ -338,7 +338,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalConfirmacion">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -358,76 +358,342 @@
                         <div class="card shadow mb-4">
 
                             <div class="card-header py-3">
-                                <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
-                                <%--<p>Date/Time: 
-                                    <span id="datetime"></span>
-                                </p>--%>
-                                <script>var dt = new Date();
-                                    document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
-                                </script>
+                                <h4 class="m-0 font-weight text-primary">Listado al 7/11/2019</h4>
                             </div>
 
                             <div class="card-body">
 
-                                <div class="table-responsive">
+                                <%--<div class="table-responsive">
 
-                                    <asp:GridView ID="gridRequisitos"
-                                        runat="server"
-                                        AutoGenerateColumns="False"
-                                        class="table table-bordered dataTable"
-                                        Width="100%"
-                                        CellSpacing="0"
-                                        role="grid"
-                                        aria-describedby="dataTable_info"
-                                        Style="width: 100%;">
+                                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="dataTables_length" id="dataTable_length">
+                                                    <label>
+                                                        Show
+                                                        <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                                                            <option value="10">10
 
-                                        <Columns>
-                                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                                            <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
-                                            <asp:BoundField DataField="Area" HeaderText="Área" />
-                                            <asp:BoundField DataField="Estado" HeaderText="Estado en Sistema" />
+                                                            </option>
+                                                            <option value="25">25
 
-                                            <asp:TemplateField HeaderText="Edición">
+                                                            </option>
+                                                            <option value="50">50
 
-                                                <ItemTemplate>
-                                                    <%--<asp:Button ID="btnVerDocumento" CssClass="btn btn-success btn-user" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />--%>
+                                                            </option>
+                                                            <option value="100">100
 
-                                                    <a href="#" class="btn btn-success btn-circle">
-                                                        <i class="far fa-edit"></i>
-                                                    </a>
+                                                            </option>
 
-                                                </ItemTemplate>
+                                                        </select>
+                                                        entries
 
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle HorizontalAlign="Center" />
+                                                    </label>
 
-                                            </asp:TemplateField>
+                                                </div>
 
-                                        </Columns>
-                                    </asp:GridView>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div id="dataTable_filter" class="dataTables_filter">
+                                                    <label>
+                                                        Search:
+                                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 57px;">Name</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 62px;">Position</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 50px;">Office</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Age</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Start date</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 67px;">Salary</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th rowspan="1" colspan="1">Name</th>
+                                                            <th rowspan="1" colspan="1">Position</th>
+                                                            <th rowspan="1" colspan="1">Office</th>
+                                                            <th rowspan="1" colspan="1">Age</th>
+                                                            <th rowspan="1" colspan="1">Start date</th>
+                                                            <th rowspan="1" colspan="1">Salary</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">Airi Satou</td>
+                                                            <td>Accountant</td>
+                                                            <td>Tokyo</td>
+                                                            <td>33</td>
+                                                            <td>2008/11/28</td>
+                                                            <td>$162,700</td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">Angelica Ramos</td>
+                                                            <td>Chief Executive Officer (CEO)</td>
+                                                            <td>London</td>
+                                                            <td>47</td>
+                                                            <td>2009/10/09</td>
+                                                            <td>$1,200,000</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">Ashton Cox</td>
+                                                            <td>Junior Technical Author</td>
+                                                            <td>San Francisco</td>
+                                                            <td>66</td>
+                                                            <td>2009/01/12</td>
+                                                            <td>$86,000</td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">Bradley Greer</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>London</td>
+                                                            <td>41</td>
+                                                            <td>2012/10/13</td>
+                                                            <td>$132,000</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">Brenden Wagner</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>San Francisco</td>
+                                                            <td>28</td>
+                                                            <td>2011/06/07</td>
+                                                            <td>$206,850</td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">Brielle Williamson</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>New York</td>
+                                                            <td>61</td>
+                                                            <td>2012/12/02</td>
+                                                            <td>$372,000</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">Bruno Nash</td>
+                                                            <td>Software Engineer</td>
+                                                            <td>London</td>
+                                                            <td>38</td>
+                                                            <td>2011/05/03</td>
+                                                            <td>$163,500</td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">Caesar Vance</td>
+                                                            <td>Pre-Sales Support</td>
+                                                            <td>New York</td>
+                                                            <td>21</td>
+                                                            <td>2011/12/12</td>
+                                                            <td>$106,450</td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">Cara Stevens</td>
+                                                            <td>Sales Assistant</td>
+                                                            <td>New York</td>
+                                                            <td>46</td>
+                                                            <td>2011/12/06</td>
+                                                            <td>$145,600</td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">Cedric Kelly</td>
+                                                            <td>Senior Javascript Developer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>22</td>
+                                                            <td>2012/03/29</td>
+                                                            <td>$433,060</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-5">
+                                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7">
+                                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                                        <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                                        <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                                        <li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>--%>
 
-                                    <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
-                                        data-target="#modalConfirmacion" />
+                                <div>
+                                    <table class="table table-bordered dataTable" 
+                                        id="tablaRequisitos" 
+                                        width="100%" 
+                                        cellspacing="0" 
+                                        role="grid" 
+                                        aria-describedby="dataTable_info" 
+                                        style="width: 100%;"> 
 
+                                        <tr class="align-left">
+                                            <td class="auto-style1">
+                                                <asp:GridView ID="gridRequisitos"
+                                                    runat="server" 
+                                                    AutoGenerateColumns="False" 
+                                                    class="table table-bordered dataTable" 
+                                                    Width="100%"
+                                                    CellSpacing="0" 
+                                                    role="grid" 
+                                                    aria-describedby="dataTable_info" 
+                                                    Style="width: 100%;">
+
+                                                    <Columns>
+                                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
+                                                        <asp:BoundField DataField="Area" HeaderText="Área" />
+                                                        <asp:BoundField DataField="Estado" HeaderText="Estado en Sistema" />
+
+                                                        <asp:TemplateField HeaderText="Ver">
+
+                                                            <ItemTemplate>
+                                                                <asp:Button ID="btVer" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />
+                                                            </ItemTemplate>
+
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+
+                                                        </asp:TemplateField>
+
+                                                    </Columns>
+                                                </asp:GridView>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                 
+                                  
+                                    
+                                </div> <%--card body--%>
+                        </div> <%--card shadow--%>
+
+
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3" id="CardEdicionDocumento" runat="server">
+                                    <h4 class="m-0 font-weight text-primary">
+                                        <asp:Label ID="lblHeadEdicion" runat="server" Text="Edición"></asp:Label>
+
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblNombreDocumentoEdicion" class="col-12">Nombre:</label>
+                                        </div>
+                                        <div class="col-6">
+
+                                            <asp:TextBox ID="TxtNombreDocumentoEdicion"
+                                                runat="server"
+                                                Style="height: 30px"
+                                                Class="form-control bg-light small col-12">
+                                            </asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblTipoDocumento" class="col-12">Tipo:</label>
+                                        </div>
+                                        <div class="col-6">
+
+                                            <asp:DropDownList
+                                                class="btn bg-light dropdown-toggle col-12"
+                                                ID="dropTipoNuevoDocumento"
+                                                Style="height: 30px; padding: 0px"
+                                                runat="server">
+
+                                                <asp:ListItem Selected="True" Value=""></asp:ListItem>
+                                                <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
+                                                <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
+                                                <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
+
+                                            </asp:DropDownList>
+
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblArea" class="col-12">Área(s):</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:CheckBoxList
+                                                ID="chkListaAreasEdicion"
+                                                class="custom-checkbox"
+                                                RepeatDirection="Vertical"
+                                                RepeatLayout="Flow"
+                                                TextAlign="Right"
+                                                runat="server">
+                                            </asp:CheckBoxList>
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-10 d-flex">
+                                            <div>
+                                                <%--<asp:Button
+                                                    ID="btnRealizarCambios"
+                                                    runat="server"
+                                                    class="btn btn-success btn-user"
+                                                    data-toggle="modal" 
+                                                    data-target="#logoutModal"
+                                                    Text="Realizar Cambios" />--%>
+                                                <a
+                                                    class="btn btn-success btn-user"
+                                                    data-toggle="modal"
+                                                    data-target="#logoutModal">Realizar Cambios
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div>
+                                            <p>
+                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <%--card body--%>
                         </div>
-                        <%--card shadow--%>
 
-
-
-                        <!-- Modal-->
-                        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                        <!-- Logout Modal-->
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">¿Desea confirmar los cambios a la lista de Documentos?</div>
+                                    <div class="modal-body">¿Desea confirmar los cambios al Documento?</div>
 
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -435,7 +701,9 @@
                                             ID="btnRealizarCambios"
                                             runat="server"
                                             class="btn btn-success btn-user"
-                                            Text="Aceptar" />
+                                            data-toggle="modal"
+                                            data-target="#logoutModal"
+                                            Text="Realizar Cambios" />
 
                                         <%--<a class="btn btn-primary" href="login.html">Aceptar</a>--%>
                                     </div>

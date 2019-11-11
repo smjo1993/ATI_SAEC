@@ -322,7 +322,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalConfirmacion">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -339,66 +339,65 @@
                     <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
 
                     <form runat="server">
-                        <div class="card shadow mb-4">
+                            <div class="card shadow mb-4">
 
-                            <div class="card-header py-3">
-                                <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
-                            </div>
-
-                            <div class="card-body">
-                                <%--<div class="col-sm-4">
+                                <div class="card-header py-3">
+                                  <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <%--<div class="col-sm-4">
                                         <h5 class="font-weight-bold text-primary">Búsqueda</h5>
                                     </div>--%>
 
-                                <div class="row">
+                                    <div class="row">
 
-                                    <div class="col-sm-4">
-                                        <label id="lblAreaDocumentoEdicion" class="col-12">Área:</label>
+                                        <div class="col-sm-4">
+                                            <label id="lblAreaDocumentoEdicion" class="col-12">Área:</label>
+                                        </div>
+
+                                        <div class="col-6 my-auto">
+                                            <asp:DropDownList
+                                                class="btn btn-light bg-light dropdown-toggle col-12"
+                                                AutoPostBack="true" CausesValidation="false"
+                                                style="height:30px; padding:0px"
+                                                ID="dropAreas"
+                                                runat="server">
+                                            </asp:DropDownList>
+                                        </div>
                                     </div>
 
-                                    <div class="col-6 my-auto">
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            Style="height: 30px; padding: 0px"
-                                            ID="dropAreas"
-                                            runat="server">
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
+                               <br /><br />
 
-                                <br />
-                                <br />
+                                      <div class="row">
 
-                                <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblidDocumentoEdicion" class="col-12">Documento:</label>
+                                        </div>
 
-                                    <div class="col-sm-4">
-                                        <label id="lblidDocumentoEdicion" class="col-12">Documento:</label>
-                                    </div>
-
-                                    <div class="col-6">
+                                        <div class="col-6">  
 
                                         <asp:DropDownList
                                             class="btn btn-light bg-light dropdown-toggle col-12"
                                             AutoPostBack="true" CausesValidation="false"
                                             ID="dropDocumentos"
-                                            Style="height: 30px; padding: 0px;"
+                                            style="height:30px; padding:0px;"
                                             runat="server">
                                         </asp:DropDownList>
 
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
                         </div>
-
+                        </div>
+  
                         <div>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3" id="CardEdicionDocumento" runat="server">
-                                    <h4 class="m-0 font-weight text-primary">
-                                        <asp:Label ID="lblHeadEdicion" runat="server" Text="Edición"></asp:Label>
+                                  <h4 class="m-0 font-weight text-primary">
+                                      <asp:Label ID="lblHeadEdicion" runat="server" Text="Edición"></asp:Label>
 
-                                    </h4>
+                                  </h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -407,9 +406,9 @@
                                         </div>
                                         <div class="col-6">
 
-                                            <asp:TextBox ID="TxtNombreDocumentoEdicion"
-                                                runat="server"
-                                                Style="height: 30px"
+                                            <asp:TextBox ID="TxtNombreDocumentoEdicion" 
+                                                runat="server" 
+                                                style="height:30px" 
                                                 Class="form-control bg-light small col-12">
                                             </asp:TextBox>
 
@@ -426,7 +425,7 @@
                                             <asp:DropDownList
                                                 class="btn bg-light dropdown-toggle col-12"
                                                 ID="dropTipoNuevoDocumento"
-                                                Style="height: 30px; padding: 0px"
+                                                style="height:30px; padding:0px"
                                                 runat="server">
 
                                                 <asp:ListItem Selected="True" Value=""></asp:ListItem>
@@ -439,10 +438,9 @@
                                         </div>
                                     </div>
 
-                                    <br />
-                                    <br />
+                                    <br /><br />
 
-                                    <%-- <div class="row">
+                                    <div class="row">
                                         <div class="col-sm-4">
                                             <label id="lblArea" class="col-12">Área(s):</label>
                                         </div>
@@ -456,7 +454,7 @@
                                                 runat="server">
                                             </asp:CheckBoxList>
                                         </div>
-                                    </div>--%>
+                                    </div>
 
                                     <br />
                                     <br />
@@ -468,12 +466,15 @@
                                                     runat="server"
                                                     class="btn btn-success btn-user"
                                                     data-toggle="modal" 
-                                                    data-target="#modalConfirmacion"
+                                                    data-target="#logoutModal"
                                                     Text="Realizar Cambios" />--%>
-
-                                                <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
-                                                    data-target="#modalConfirmacion" />
-
+                                                <a 
+                                                    class="btn btn-success btn-user" 
+                                                    data-toggle="modal" 
+                                                    data-target="#logoutModal"
+                                                    >
+                                                    Realizar Cambios
+                                                </a>
 
                                             </div>
 
@@ -490,27 +491,27 @@
                             </div>
                         </div>
 
-                        <!--Modal-->
-                        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                        <!-- Logout Modal-->
+                        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
                                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">¿Desea confirmar los cambios al Documento?</div>
-
+                
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
                                             class="btn btn-success btn-user"
-                                            data-toggle="modal"
-                                            data-target="#modalConfirmacion"
-                                            Text="Aceptar" />
+                                            data-toggle="modal" 
+                                            data-target="#logoutModal"
+                                            Text="Realizar Cambios" />
 
                                         <%--<a class="btn btn-primary" href="login.html">Aceptar</a>--%>
                                     </div>
@@ -543,6 +544,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-
+    
 </body>
 </html>
