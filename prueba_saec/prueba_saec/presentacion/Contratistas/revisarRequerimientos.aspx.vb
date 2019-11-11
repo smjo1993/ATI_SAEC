@@ -4,36 +4,40 @@
     Private listaDocumentosEspera As DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If IsPostBack Then
+            Return
+        End If
 
         Dim rutContratista As String = "8660229"
-        Dim listaDocumentosEspera As DataTable = crearDocumentos().obtenerDocumentoEstadoEspera(rutContratista)
-        Me.listaDocumentosEspera = listaDocumentosEspera
+        Dim TablaDocumentosEspera As DataTable = crearDocumentos().obtenerDocumentoEstadoEspera(rutContratista)
 
-        Dim documento As String = ""
-        Dim idChk As Integer = 1
+        Me.listaDocumentosEspera = TablaDocumentosEspera
 
-        For Each fila As DataRow In listaDocumentosEspera.Rows
+        gridDocumentos.DataSource = TablaDocumentosEspera
+        gridDocumentos.DataBind()
 
-
-            documento = documento & "    <tr> "
-            documento = documento & "        <td> " + fila("nombre") + "</td> "
-            documento = documento & "        <td> " + fila("nombre") + "</td> "
-            documento = documento & "        <td> " + switchDocumentos(idChk) + "</td> "
-            documento = documento & "        <td> Edinburgh</td> "
-            documento = documento & "    </tr> "
-
-            idChk = idChk + 1
-
-            'prueba
-            'Dim item As New ListItem()
-            'item.Text = fila("nombre").ToString()
-            'item.Value = primaryKeys
-            'chkDocumentos.Items.Add(item)
-            '----
-        Next
+        'For Each fila As DataRow In listaDocumentosEspera.Rows
 
 
-        LblDocumentos.Text = documento
+        '    documento = documento & "    <tr> "
+        '    documento = documento & "        <td> " + fila("nombre") + "</td> "
+        '    documento = documento & "        <td> " + fila("nombre") + "</td> "
+        '    documento = documento & "        <td> " + switchDocumentos(idChk) + "</td> "
+        '    documento = documento & "        <td> Edinburgh</td> "
+        '    documento = documento & "    </tr> "
+
+        '    idChk = idChk + 1
+
+        '    'prueba
+        '    'Dim item As New ListItem()
+        '    'item.Text = fila("nombre").ToString()
+        '    'item.Value = primaryKeys
+        '    'chkDocumentos.Items.Add(item)
+        '    '----
+        'Next
+
+
+
 
     End Sub
 
@@ -61,21 +65,78 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim idChk As Integer = 1
-        Dim chek As checkbox
+
+        'Dim acs As CheckBox
+        'acs = FindControl("qwe")
+        Dim ccc As HtmlInputCheckBox
 
 
+        ccc = form1.FindControl("qwe")
+        If qwe.Checked Then
+            Dim assdss As String
+        End If
 
-        For Each fila As DataRow In listaDocumentosEspera.Rows
+        Dim idChk As Integer = 0
 
-            chek = Page.FindControl("chk" + idChk.ToString)
+        For Each fila As GridViewRow In gridDocumentos.Rows
 
-            If (chek.Checked) Then
+            'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
+            Dim check As HtmlInputCheckBox
+            'Dim result As HtmlInputCheckBox = TryCast(fila.Cells(2).FindControl("chk"), HtmlInputCheckBox)
+            'Dim cb As CheckBox = CType(fila.Cells(2).FindControl("CheckBox1"), CheckBox)
+            check = fila.FindControl("chk")
+
+            If check.Checked Then
                 Dim asd As String
             End If
 
+
+
+            idChk = idChk + 1
+
         Next
 
+
+        'idChk = 0
+        'Dim chek As GridView
+        'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
+        'chek = Page.FindControl(idcheckbox)
+
+        '    If (chek.Checked) Then
+        '        Dim asd As String
+        '    End If
+
+        '    idChk = idChk + 1
+
+
+
+        '    idChk = 0
+
+
+
+
+
+
+
+
+
+
+        'Dim idChk As Integer = 1
+        'Dim chek As checkbox
+
+
+
+        'For Each fila As DataRow In listaDocumentosEspera.Rows
+
+        '    chek = Page.FindControl("chk" + idChk.ToString)
+
+        '    If (chek.Checked) Then
+        '        Dim asd As String
+        '    End If
+
+        'Next
+
     End Sub
+
 
 End Class

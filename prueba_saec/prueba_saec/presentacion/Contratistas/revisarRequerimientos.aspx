@@ -24,29 +24,47 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>DOCUMENTOS</th>
-                                    <th>ÁREA</th>
-                                    <th>ACEPTAR</th>
-                                    <th>AGREGAR COMENTARIO (opcional)</th>
-                                </tr>
 
-                            </thead>
-                            <tbody>
-                                 <asp:Label ID="LblDocumentos" runat="server" Text=""></asp:Label>
-                                
-                            </tbody>
+                    <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">                       
+                            <tr class="align-left">
+                                <td class="auto-style1">
+                                   
+                                    <asp:GridView ID="gridDocumentos" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                        <Columns>
+                                            
+                                            <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />         
+                                            <asp:TemplateField HeaderText="ACEPTAR">
+
+                                                <ItemTemplate >
+
+                                                    <%--<asp:CheckBox ID="chk" runat="server" CommandName="chekear" />--%>
+                                                    <%--<input id="chk" type="checkbox" runat="server" />--%>
+                                                    <input id="chk" type="checkbox" runat="server" />
+                                                </ItemTemplate>
+                                              
+                                            </asp:TemplateField>
+
+                                             <asp:TemplateField HeaderText="AGREGAR COMENTARIO">
+                                         
+                                            </asp:TemplateField>
+
+                                        </Columns>
+                                        
+                                    </asp:GridView>  
+                                    
+                                </td>
+                            </tr>
                         </table>
                         
+                        <input id="qwe" type="checkbox" runat="server"/>
                     </div>
                 </div>
                 
             </div>
 
         </div>
-
+         
         <asp:Button ID="Button1" runat="server" Text="Confirmar solicitud" />
     </form>
 </body>
