@@ -78,7 +78,7 @@ Public Class Login
 
                                             Session("roles") = listaRoles
                                             Session("usuario") = usuarioEntrante
-                                            Response.Redirect("Funcionarios%20ATI/verEmpresas.aspx")
+                                            Response.Redirect("Funcionarios%20ATI/verCarpetas.aspx")
                                             txtUsuario.Text = ""
 
                                         Else

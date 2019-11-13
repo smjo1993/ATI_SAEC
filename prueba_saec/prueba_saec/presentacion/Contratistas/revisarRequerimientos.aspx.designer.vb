@@ -23,13 +23,13 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control LblDocumentos.
+    '''Control gridDocumentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblDocumentos As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gridDocumentos As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
     '''Control Button1.

@@ -365,9 +365,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-10 d-flex justify-content-end">
-                                                <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="ml-auto" />
-                                                <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="ml-auto" />
-                                                <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="ml-auto" />
+                                                <div class="col-11"></div>
+                                                <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="btn btn-success btn-user ml-auto" />
+                                                <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="btn btn-success btn-user ml-auto" />
+                                                <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-success btn-user ml-auto" style="width:82.11px" />
                                             </div>
 
                                         </div>

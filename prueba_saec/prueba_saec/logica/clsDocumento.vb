@@ -36,14 +36,13 @@ Public Class clsDocumento
 
     Public Function actualizarDocumento(nombreAnterior As String,
                                         nombreNuevo As String,
-                                        tipo As String,
-                                        area As Integer)
+                                        tipo As String)
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
             Dim ds As New DataSet()
 
-            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "' , '" & area & "'"
+            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -60,8 +59,6 @@ Public Class clsDocumento
             con.Dispose()
 
         End Try
-
-
 
     End Function
 
