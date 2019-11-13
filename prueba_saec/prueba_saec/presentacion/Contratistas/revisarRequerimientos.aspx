@@ -33,20 +33,27 @@
                                         <Columns>
                                             
                                             <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />         
+                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" /> 
+                                            <asp:BoundField DataField="idCarpeta"  /> 
+                                            <asp:BoundField DataField="idDocumento"  /> 
+                                            <asp:BoundField DataField="idArea"  /> 
                                             <asp:TemplateField HeaderText="ACEPTAR">
 
                                                 <ItemTemplate >
-
-                                                    <%--<asp:CheckBox ID="chk" runat="server" CommandName="chekear" />--%>
-                                                    <%--<input id="chk" type="checkbox" runat="server" />--%>
-                                                    <input id="chk" type="checkbox" runat="server" />
-                                                </ItemTemplate>
-                                              
+                                                    <label class="switch ">
+                                                                    <input id="chk" type="checkbox" runat="server" />
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                    
+                                                </ItemTemplate>                       
                                             </asp:TemplateField>
 
-                                             <asp:TemplateField HeaderText="AGREGAR COMENTARIO">
-                                         
+                                             <asp:TemplateField HeaderText="COMENTARIOS">
+                                                 
+                                                 <ItemTemplate>
+                                                     <asp:Button ID="Button2" runat="server" Text="Button" />
+                                                 </ItemTemplate>
+
                                             </asp:TemplateField>
 
                                         </Columns>
@@ -55,9 +62,10 @@
                                     
                                 </td>
                             </tr>
+                        
                         </table>
                         
-                        <input id="qwe" type="checkbox" runat="server"/>
+                        <asp:Button ID="Button1" runat="server" Text="Confirmar solicitud" />
                     </div>
                 </div>
                 
@@ -65,7 +73,7 @@
 
         </div>
          
-        <asp:Button ID="Button1" runat="server" Text="Confirmar solicitud" />
+        
     </form>
 </body>
 </html>

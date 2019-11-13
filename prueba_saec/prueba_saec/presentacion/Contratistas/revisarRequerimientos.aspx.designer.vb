@@ -32,15 +32,6 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents gridDocumentos As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control qwe.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents qwe As Global.System.Web.UI.HtmlControls.HtmlInputCheckBox
-    
-    '''<summary>
     '''Control Button1.
     '''</summary>
     '''<remarks>

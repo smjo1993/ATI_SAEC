@@ -4,6 +4,7 @@
     Private listaDocumentosEspera As DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         If IsPostBack Then
             Return
         End If
@@ -14,6 +15,9 @@
         Me.listaDocumentosEspera = TablaDocumentosEspera
 
         gridDocumentos.DataSource = TablaDocumentosEspera
+        Me.gridDocumentos.Columns(2).Visible = False
+        Me.gridDocumentos.Columns(3).Visible = False
+        Me.gridDocumentos.Columns(4).Visible = False
         gridDocumentos.DataBind()
 
         'For Each fila As DataRow In listaDocumentosEspera.Rows
@@ -65,36 +69,33 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-
-        'Dim acs As CheckBox
-        'acs = FindControl("qwe")
-        Dim ccc As HtmlInputCheckBox
-
-
-        ccc = form1.FindControl("qwe")
-        If qwe.Checked Then
-            Dim assdss As String
-        End If
-
         Dim idChk As Integer = 0
+        Dim dt As DataTable = New DataTable("CambioEstado")
 
+        'Se recorre cada checkbox generado 
         For Each fila As GridViewRow In gridDocumentos.Rows
 
-            'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
             Dim check As HtmlInputCheckBox
-            'Dim result As HtmlInputCheckBox = TryCast(fila.Cells(2).FindControl("chk"), HtmlInputCheckBox)
-            'Dim cb As CheckBox = CType(fila.Cells(2).FindControl("CheckBox1"), CheckBox)
             check = fila.FindControl("chk")
 
             If check.Checked Then
-                Dim asd As String
+                'Cambia el estado del documento a "aplica"
+                Dim asd As String = fila.Cells(1).Text
+                Dim asds As String = fila.Cells(2).Text
+                Dim asdss As String = fila.Cells(3).Text
+            Else
+                'Cambia el estado del documento a "no aplica"
+
+
             End If
 
 
 
-            idChk = idChk + 1
+
 
         Next
+
+
 
 
         'idChk = 0
@@ -137,6 +138,9 @@
         'Next
 
     End Sub
+    Public Function cambiarEstado()
 
+
+    End Function
 
 End Class
