@@ -1,7 +1,9 @@
 ﻿Public Class revisarRequerimientos
     Inherits System.Web.UI.Page
 
-    Private listaDocumentosEspera As DataTable
+    Private listaDocumentosEsperaEmpresa As DataTable
+    Private listaDocumentosEsperaTrabajador As DataTable
+    Private listaDocumentosEsperaVehiculo As DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -10,15 +12,21 @@
         End If
 
         Dim rutContratista As String = "8660229"
-        Dim TablaDocumentosEspera As DataTable = crearDocumentos().obtenerDocumentoEstadoEspera(rutContratista)
+        Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
+        Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
+        Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
 
-        Me.listaDocumentosEspera = TablaDocumentosEspera
+        Me.listaDocumentosEsperaEmpresa = TablaDocumentosEsperaEmpresa
+        Me.listaDocumentosEsperaTrabajador = TablaDocumentosEsperaTrabajador
+        Me.listaDocumentosEsperaVehiculo = TablaDocumentosEsperaVehiculo
 
-        gridDocumentos.DataSource = TablaDocumentosEspera
-        Me.gridDocumentos.Columns(2).Visible = False
-        Me.gridDocumentos.Columns(3).Visible = False
-        Me.gridDocumentos.Columns(4).Visible = False
-        gridDocumentos.DataBind()
+        documentosEmpresa.DataSource = TablaDocumentosEsperaEmpresa
+        documentosTrabajador.DataSource = TablaDocumentosEsperaTrabajador
+        documentosVehiculo.DataSource = TablaDocumentosEsperaVehiculo
+
+        documentosEmpresa.DataBind()
+        documentosTrabajador.DataBind()
+        documentosVehiculo.DataBind()
 
         'For Each fila As DataRow In listaDocumentosEspera.Rows
 
@@ -69,20 +77,24 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim idChk As Integer = 0
+        Dim contador As Integer = 0
         Dim dt As DataTable = New DataTable("CambioEstado")
 
         'Se recorre cada checkbox generado 
-        For Each fila As GridViewRow In gridDocumentos.Rows
+        For Each fila As GridViewRow In documentosEmpresa.Rows
 
+            'Dim idCarpeta = listaDocumentosEspera.Rows(contador).Item(0)
+            'Dim idDocumento = listaDocumentosEspera.Rows(contador).Item(1)
+            'Dim idArea = listaDocumentosEspera.Rows(contador).Item(2)
             Dim check As HtmlInputCheckBox
+
             check = fila.FindControl("chk")
 
+            'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                Dim asd As String = fila.Cells(1).Text
-                Dim asds As String = fila.Cells(2).Text
-                Dim asdss As String = fila.Cells(3).Text
+
+
             Else
                 'Cambia el estado del documento a "no aplica"
 
@@ -90,13 +102,10 @@
             End If
 
 
-
+            contador = contador + 1
 
 
         Next
-
-
-
 
         'idChk = 0
         'Dim chek As GridView
@@ -107,7 +116,7 @@
         '        Dim asd As String
         '    End If
 
-        '    idChk = idChk + 1
+
 
 
 
@@ -138,9 +147,7 @@
         'Next
 
     End Sub
-    Public Function cambiarEstado()
 
 
-    End Function
 
 End Class
