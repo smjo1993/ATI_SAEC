@@ -77,20 +77,11 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents gridDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control Button1.
+    '''Control btnPedirDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''Control Label1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnPedirDocumento As Global.System.Web.UI.WebControls.Button
 End Class

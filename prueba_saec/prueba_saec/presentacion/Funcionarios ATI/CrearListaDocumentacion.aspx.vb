@@ -15,12 +15,19 @@ Public Class CrearListaDocumentacion
             Response.Redirect("../login.aspx")
         End If
     End Sub
+
+    Protected Function decodificarId() As Integer
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(idCodificada)
+        Dim idDecodificada As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim idCarpeta As Integer = Convert.ToInt32(idDecodificada)
+        Return idCarpeta
+    End Function
     Private Sub cargarDatos()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim documento As New clsDocumento
-        Dim idCarpeta As Integer = Convert.ToInt32(Request.QueryString("idCarpeta").ToString())
-        Dim cantidadDocumento As Integer = 0
-
+        Dim idCarpeta As Integer = decodificarId()
+        Dim chk As HtmlInputCheckBox
 
         Dim documentosEmpresa As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "empresa", idCarpeta)
         If (documentosEmpresa Is Nothing) Then
@@ -30,14 +37,11 @@ Public Class CrearListaDocumentacion
                 Me.gridDocumentosEmpresa.DataSource = documentosEmpresa
                 Me.gridDocumentosEmpresa.DataBind()
                 For Each documentoEmpresa As GridViewRow In gridDocumentosEmpresa.Rows
-                    Dim chk As HtmlInputCheckBox
                     chk = documentoEmpresa.FindControl("chkDocEmpresa")
                     If documentoEmpresa.Cells(2).Text = "espera" Then
                         chk.Checked = True
                     End If
                 Next
-                gridDocumentosEmpresa.Columns(0).Visible = False
-                gridDocumentosEmpresa.Columns(2).Visible = False
             End If
         End If
 
@@ -49,14 +53,11 @@ Public Class CrearListaDocumentacion
                 Me.gridDocumentosTrabajador.DataSource = documentosTrabajador
                 Me.gridDocumentosTrabajador.DataBind()
                 For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajador.Rows
-                    Dim chk As HtmlInputCheckBox
                     chk = documentoTrabajador.FindControl("chkDocTrabajador")
                     If documentoTrabajador.Cells(2).Text = "espera" Then
                         chk.Checked = True
                     End If
                 Next
-                gridDocumentosTrabajador.Columns(0).Visible = False
-                gridDocumentosTrabajador.Columns(2).Visible = False
             End If
         End If
 
@@ -68,41 +69,39 @@ Public Class CrearListaDocumentacion
                 Me.gridDocumentosVehiculo.DataSource = documentosEmpresa
                 Me.gridDocumentosVehiculo.DataBind()
                 For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculo.Rows
-                    Dim chk As HtmlInputCheckBox
                     chk = documentoVehiculo.FindControl("chkDocVehiculo")
                     If documentoVehiculo.Cells(2).Text = "espera" Then
                         chk.Checked = True
                     End If
                 Next
-                gridDocumentosVehiculo.Columns(0).Visible = False
-                gridDocumentosVehiculo.Columns(2).Visible = False
             End If
         End If
     End Sub
 
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim h As New HtmlElement
+    Protected Sub btnPedirDocumento_Click(sender As Object, e As EventArgs) Handles btnPedirDocumento.Click
+        'Dim idCarpeta As Integer = Convert.ToInt32(Request.QueryString("idCarpeta").ToString()) //id de la carpeta
+        'Dim usuario As clsUsuarioSAEC = Session("usuario") 
+        'Dim area As Integer = usuario.areaUsuario //area del documento = area usuario
+        Dim chk As HtmlInputCheckBox
+        For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajador.Rows
+            chk = documentoTrabajador.FindControl("chkDocTrabajador")
+            If chk.Checked = True Then 'pasan a espera
+            Else 'sino quedan inactivos
+            End If
+        Next
 
-        'Dim VALUE As String
-        'VALUE = Request.Form("gridDocumentosEmpresa_Checkbox1_0")
+        For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajador.Rows
+            chk = documentoTrabajador.FindControl("chkDocTrabajador")
+            If chk.Checked = True Then
+            Else
+            End If
+        Next
 
-        'Dim c As New HtmlInputCheckBox
-
-        'If (i1.Checked) Then
-        '    Label1.Text = "chequeado"
-        'Else
-        '    Label1.Text = "no chequeado"
-        'End If
-
-        'Dim l As New Checkbox
-        'For documento As Integer = 0 To cantidadDocumentosEmpresa - 1
-        '    'c = Page.FindControl(documento.ToString())
-        '    'If (c.Checked) Then
-        '    '    vehiculos.Visible = True
-        '    'Else
-        '    '    vehiculos.Visible = False
-        '    'End If
-        '    l = Page.FindControl("lb" + documento.ToString())
-        'Next
+        For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculo.Rows
+            chk = documentoVehiculo.FindControl("chkDocVehiculo")
+            If chk.Checked = True Then
+            Else
+            End If
+        Next
     End Sub
 End Class
