@@ -42,6 +42,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 
+    <%--Custom script para Checkbox--%>
+    <link href="../../css/checkbox.css" rel="stylesheet"/>
 
 </head>
 
@@ -382,20 +384,35 @@
                                         Style="width: 100%;">
 
                                         <Columns>
+                                            <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" />
                                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                             <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
                                             <asp:BoundField DataField="Area" HeaderText="Área" />
                                             <asp:BoundField DataField="Estado" HeaderText="Estado en Sistema" />
-
+                                            <asp:TemplateField HeaderText="Estado">
+                                                <ItemTemplate>
+                                                    <label class="switch ">
+                                                        <input runat="server" id="chkDocumento" type="checkbox" class="default"/>
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Edición">
 
                                                 <ItemTemplate>
-                                                    <%--<asp:Button ID="btnVerDocumento" CssClass="btn btn-success btn-user" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />--%>
+                                                    <asp:Button
+                                                        ID="btnVerDocumento"
+                                                        CssClass="btn btn-success btn-circle"
+                                                        CommandName="editar"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
+                                                        Text="Editar" />
 
-                                                    <a href="#" class="btn btn-success btn-circle">
+                                                    <%--<a href="#" class="btn btn-success btn-circle">
                                                         <i class="far fa-edit"></i>
-                                                    </a>
-
+                                                    </a>--%>
                                                 </ItemTemplate>
 
                                                 <HeaderStyle HorizontalAlign="Center" />

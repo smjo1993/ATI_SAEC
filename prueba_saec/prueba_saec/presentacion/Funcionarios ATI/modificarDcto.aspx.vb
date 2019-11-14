@@ -4,64 +4,63 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
 
-            cargarAreas()
-            bloquearCampos()
+            'cargarAreas()
+            'bloquearCampos()
+
+            lblHeadEdicion.Text = "Edición: " & Session("nombreDocumento")
 
         End If
     End Sub
 
-    Public Sub bloquearCampos()
-        dropDocumentos.Enabled = False
-        dropDocumentos.CssClass = "btn btn-light bg-light dropdown-toggle col-12"
-        dropTipoNuevoDocumento.Enabled = False
-        dropTipoNuevoDocumento.CssClass = "btn btn-light bg-light dropdown-toggle col-12"
-        TxtNombreDocumentoEdicion.ReadOnly = True
-        'chkListaAreasEdicion.Enabled = False
-    End Sub
+    'Public Sub bloquearCampos()
+    '    dropTipoNuevoDocumento.Enabled = False
+    '    dropTipoNuevoDocumento.CssClass = "btn btn-light bg-light dropdown-toggle col-12"
+    '    TxtNombreDocumentoEdicion.ReadOnly = True
+    'End Sub
 
-    Public Sub cargarAreas()
+    'Public Sub cargarAreas()
 
-        Dim areas As DataTable = obtenerTablaAreas()
+    '    Dim areas As DataTable = obtenerTablaAreas()
 
-        dropAreas.Items.Clear()
-        'chkListaAreasEdicion.Items.Clear()
+    '    dropAreas.Items.Clear()
+    '    'chkListaAreasEdicion.Items.Clear()
 
-        dropAreas.Items.Add("")
+    '    dropAreas.Items.Add("")
 
-        For Each celda As DataRow In areas.Rows
+    '    For Each celda As DataRow In areas.Rows
 
-            Dim item As New ListItem()
+    '        Dim item As New ListItem()
 
-            item.Text = celda("nombre").ToString()
-            item.Value = celda("id")
+    '        item.Text = celda("nombre").ToString()
+    '        item.Value = celda("id")
 
-            dropAreas.Items.Add(item)
-            'chkListaAreasEdicion.Items.Add(item)
+    '        dropAreas.Items.Add(item)
+    '        'chkListaAreasEdicion.Items.Add(item)
 
-        Next
+    '    Next
 
-    End Sub
+    'End Sub
 
-    Public Sub cargarDocumentos()
+    'Public Sub cargarDocumentos()
 
-        Dim documentos As DataTable = obtenerDocumentos()
+    '    Dim documentos As DataTable = obtenerDocumentos()
 
-        dropDocumentos.Items.Clear()
-        dropDocumentos.Items.Add("")
+    '    dropDocumentos.Items.Clear()
+    '    dropDocumentos.Items.Add("")
 
-        For Each celda As DataRow In documentos.Rows
+    '    For Each celda As DataRow In documentos.Rows
 
-            Dim itemDrop As New ListItem
+    '        Dim itemDrop As New ListItem
 
-            itemDrop.Text = celda("nombre").ToString()
+    '        itemDrop.Text = celda("nombre").ToString()
 
-            itemDrop.Value = celda("id")
+    '        itemDrop.Value = celda("id")
 
-            dropDocumentos.Items.Add(itemDrop)
+    '        dropDocumentos.Items.Add(itemDrop)
 
-        Next
+    '    Next
 
-    End Sub
+    'End Sub
 
     Public Function obtenerTablaAreas() As DataTable
         Dim Areas = New clsArea()
@@ -73,100 +72,93 @@
         Return Documentos.obtenerDocumento()
     End Function
 
-    Protected Sub dropAreas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropAreas.SelectedIndexChanged
+    'Protected Sub dropAreas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropAreas.SelectedIndexChanged
 
-        If dropAreas.SelectedItem.Text.ToString <> "" Then
-            Dim documento As New clsDocumento
+    '    If dropAreas.SelectedItem.Text.ToString <> "" Then
+    '        Dim documento As New clsDocumento
 
-            dropDocumentos.Items.Clear()
-            dropDocumentos.Items.Add("")
-            lblHeadEdicion.Text = "Edición"
-            TxtNombreDocumentoEdicion.Text = ""
-            dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
-            bloquearCampos()
+    '        dropDocumentos.Items.Clear()
+    '        dropDocumentos.Items.Add("")
+    '        lblHeadEdicion.Text = "Edición"
+    '        TxtNombreDocumentoEdicion.Text = ""
+    '        dropTipoNuevoDocumento.ClearSelection()
+    '        bloquearCampos()
 
 
-            Dim dt As New DataTable
-            dt = documento.buscarDocumentosArea(dropAreas.SelectedValue)
+    '        Dim dt As New DataTable
+    '        dt = documento.buscarDocumentosArea(dropAreas.SelectedValue)
 
-            For Each celda As DataRow In dt.Rows
+    '        For Each celda As DataRow In dt.Rows
 
-                Dim itemDrop As New ListItem
+    '            Dim itemDrop As New ListItem
 
-                itemDrop.Text = celda("nombre").ToString()
+    '            itemDrop.Text = celda("nombre").ToString()
 
-                itemDrop.Value = celda("id")
+    '            itemDrop.Value = celda("id")
 
-                dropDocumentos.Items.Add(itemDrop)
+    '            dropDocumentos.Items.Add(itemDrop)
 
-            Next
+    '        Next
 
-            dropDocumentos.Enabled = True
+    '        dropDocumentos.Enabled = True
 
-        Else
-            dropDocumentos.Items.Clear()
-            dropDocumentos.Items.Add("")
-            lblHeadEdicion.Text = "Edición"
-            TxtNombreDocumentoEdicion.Text = ""
-            dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
-            bloquearCampos()
-        End If
+    '    Else
+    '        dropDocumentos.Items.Clear()
+    '        dropDocumentos.Items.Add("")
+    '        lblHeadEdicion.Text = "Edición"
+    '        TxtNombreDocumentoEdicion.Text = ""
+    '        dropTipoNuevoDocumento.ClearSelection()
+    '        chkListaAreasEdicion.ClearSelection()
+    '        bloquearCampos()
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Protected Sub dropDocumentos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropDocumentos.SelectedIndexChanged
+    'Protected Sub dropDocumentos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropDocumentos.SelectedIndexChanged
 
-        If dropDocumentos.SelectedItem.Text.ToString <> "" Then
+    '    If dropDocumentos.SelectedItem.Text.ToString <> "" Then
 
-            TxtNombreDocumentoEdicion.Text = ""
-            dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
+    '        TxtNombreDocumentoEdicion.Text = ""
+    '        dropTipoNuevoDocumento.ClearSelection()
 
-            dropTipoNuevoDocumento.Enabled = True
-            TxtNombreDocumentoEdicion.ReadOnly = False
-            'chkListaAreasEdicion.Enabled = True
-            lblHeadEdicion.Text = "Edición / " & dropDocumentos.SelectedItem.Text.ToString
+    '        dropTipoNuevoDocumento.Enabled = True
+    '        TxtNombreDocumentoEdicion.ReadOnly = False
+    '        lblHeadEdicion.Text = "Edición / " & dropDocumentos.SelectedItem.Text.ToString
 
-        Else
-            TxtNombreDocumentoEdicion.Text = ""
-            dropTipoNuevoDocumento.ClearSelection()
-            'chkListaAreasEdicion.ClearSelection()
-            lblHeadEdicion.Text = "Edición"
-        End If
+    '    Else
+    '        TxtNombreDocumentoEdicion.Text = ""
+    '        dropTipoNuevoDocumento.ClearSelection()
+    '        lblHeadEdicion.Text = "Edición"
+    '    End If
 
-    End Sub
+    'End Sub
 
     Protected Sub btnRealizarCambios_Click(sender As Object, e As EventArgs) Handles btnRealizarCambios.Click
         Dim documento As New clsDocumento
+        Dim nombreDocumento As String = Session("nombreDocumento")
+        Dim idDocumento As Integer = Session("idDocumento")
         Dim task As Boolean
         lblAdvertencia.Text = ""
 
-        'If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or chkListaAreasEdicion.SelectedIndex = -1 Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
+        'If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
 
         '    lblAdvertencia.Text = "Campos invalidos"
 
-        'Else
-        '    task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text, chkListaAreasEdicion.SelectedItem.Value)
-        '    If task = False Then
-        '        lblAdvertencia.Text = "Error de procedimiento almc."
-        '    Else
-        '        lblAdvertencia.Text = "Operación exitosa"
-        '        Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
-        '    End If
-        'End If
-
-        If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
+        If TxtNombreDocumentoEdicion.Text.Trim().ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.Trim().ToString = "" Then
 
             lblAdvertencia.Text = "Campos invalidos"
 
         Else
-            task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text)
+
+            'task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text.Trim())
+            task = documento.actualizarDocumento(nombreDocumento, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text.Trim(), idDocumento)
+
             If task = False Then
                 lblAdvertencia.Text = "Error de procedimiento almc."
             Else
                 lblAdvertencia.Text = "Operación exitosa"
+                Session("nombreDocumento") = TxtNombreDocumentoEdicion.Text.Trim()
+                'Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
                 Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
             End If
         End If
