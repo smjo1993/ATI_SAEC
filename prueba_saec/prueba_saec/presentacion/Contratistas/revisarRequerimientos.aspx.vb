@@ -1,20 +1,24 @@
 ﻿Public Class revisarRequerimientos
     Inherits System.Web.UI.Page
 
-    Private listaDocumentosEspera As DataTable
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         If IsPostBack Then
             Return
         End If
 
         Dim rutContratista As String = "8660229"
-        Dim TablaDocumentosEspera As DataTable = crearDocumentos().obtenerDocumentoEstadoEspera(rutContratista)
+        Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
+        Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
+        Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
 
-        Me.listaDocumentosEspera = TablaDocumentosEspera
+        documentosEmpresa.DataSource = TablaDocumentosEsperaEmpresa
+        documentosTrabajador.DataSource = TablaDocumentosEsperaTrabajador
+        documentosVehiculo.DataSource = TablaDocumentosEsperaVehiculo
 
-        gridDocumentos.DataSource = TablaDocumentosEspera
-        gridDocumentos.DataBind()
+        documentosEmpresa.DataBind()
+        documentosTrabajador.DataBind()
+        documentosVehiculo.DataBind()
 
         'For Each fila As DataRow In listaDocumentosEspera.Rows
 
@@ -65,38 +69,71 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        Dim contador As Integer = 0
+        Dim dt As DataTable = New DataTable("CambioEstado")
 
-        'Dim acs As CheckBox
-        'acs = FindControl("qwe")
-        Dim ccc As HtmlInputCheckBox
+        'Se recorre cada checkbox generado 
+        For Each fila As GridViewRow In documentosEmpresa.Rows
 
-
-        ccc = form1.FindControl("qwe")
-        If qwe.Checked Then
-            Dim assdss As String
-        End If
-
-        Dim idChk As Integer = 0
-
-        For Each fila As GridViewRow In gridDocumentos.Rows
-
-            'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
+            Dim idCarpeta As Integer = fila.Cells(2).Text
+            Dim idDocumento As Integer = fila.Cells(3).Text
+            Dim idArea As Integer = fila.Cells(4).Text
             Dim check As HtmlInputCheckBox
-            'Dim result As HtmlInputCheckBox = TryCast(fila.Cells(2).FindControl("chk"), HtmlInputCheckBox)
-            'Dim cb As CheckBox = CType(fila.Cells(2).FindControl("CheckBox1"), CheckBox)
+            Dim actualizarEstado = New clsDocumento()
+
             check = fila.FindControl("chk")
 
+            'Si está check
             If check.Checked Then
-                Dim asd As String
+                'Cambia el estado del documento a "aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+            Else
+                'Cambia el estado del documento a "no aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
             End If
-
-
-
-            idChk = idChk + 1
 
         Next
 
+        For Each fila As GridViewRow In documentosTrabajador.Rows
 
+            Dim idCarpeta As Integer = fila.Cells(2).Text
+            Dim idDocumento As Integer = fila.Cells(3).Text
+            Dim idArea As Integer = fila.Cells(4).Text
+            Dim check As HtmlInputCheckBox
+            Dim actualizarEstado = New clsDocumento()
+
+            check = fila.FindControl("chk")
+
+            'Si está check
+            If check.Checked Then
+                'Cambia el estado del documento a "aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+            Else
+                'Cambia el estado del documento a "no aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+            End If
+        Next
+
+        For Each fila As GridViewRow In documentosVehiculo.Rows
+
+            Dim idCarpeta As Integer = fila.Cells(2).Text
+            Dim idDocumento As Integer = fila.Cells(3).Text
+            Dim idArea As Integer = fila.Cells(4).Text
+            Dim check As HtmlInputCheckBox
+            Dim actualizarEstado = New clsDocumento()
+
+            check = fila.FindControl("chk")
+
+            'Si está check
+            If check.Checked Then
+                'Cambia el estado del documento a "aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+            Else
+                'Cambia el estado del documento a "no aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+            End If
+
+        Next
         'idChk = 0
         'Dim chek As GridView
         'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
@@ -106,7 +143,7 @@
         '        Dim asd As String
         '    End If
 
-        '    idChk = idChk + 1
+
 
 
 
@@ -137,6 +174,5 @@
         'Next
 
     End Sub
-
 
 End Class

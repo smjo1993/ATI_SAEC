@@ -30,6 +30,8 @@
                     Dim estado As Boolean = Empresas.ObtenerEstado(Session("usuario").areaUsuario(), fila("rut"))
                     color = obtenerColor(estado, porcentaje)
                     Dim idCarpeta As String = fila("id")
+                    Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))
+                    Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
 
                     tarjeta = tarjeta & "   <div Class=""col-xl-3 col-md-6 mb-4""> "
                     tarjeta = tarjeta & "         <div Class=""card border-left-" + color + " shadow h-100 py-2""> "
@@ -49,7 +51,7 @@
                     tarjeta = tarjeta & "                </div> "
                     tarjeta = tarjeta & "              </div> "
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?idCarpeta=" + idCarpeta + """ class=""btn btn-" + color + """>Ver</a>"
+                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?i=" + idCodificada + """ class=""btn btn-" + color + """>Ver</a>"
                     tarjeta = tarjeta & "              </div> "
                     tarjeta = tarjeta & "            </div> "
                     tarjeta = tarjeta & "          </div> "

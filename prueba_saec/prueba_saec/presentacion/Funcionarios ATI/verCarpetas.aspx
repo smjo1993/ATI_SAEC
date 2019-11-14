@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verEmpresas.aspx.vb" Inherits="prueba_saec.verEmpresas" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verCarpetas.aspx.vb" Inherits="prueba_saec.verEmpresas" %>
 
 <!DOCTYPE html>
 
