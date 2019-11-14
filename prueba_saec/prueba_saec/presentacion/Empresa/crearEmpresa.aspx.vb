@@ -7,7 +7,9 @@ Imports System.Windows
 Public Class crearEmpresa
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        cargarDatos()
+        If Not Page.IsPostBack Then
+            cargarDatos()
+        End If
     End Sub
     Public Sub cargarDatos()
         Dim empresa As New clsEmpresa
@@ -30,12 +32,26 @@ Public Class crearEmpresa
         Else
             insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
             asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
+            lblAdvertencia.Text = "Empresa creada con éxito."
+            limpiarCampos()
+            cargarDatos()
         End If
     End Sub
 
     Public Sub asignarContratista(rut As String)
-        Dim contratista As clsContratista
+        Dim contratista As New clsContratista
         Dim accion As New Boolean
         accion = contratista.activarContratista(rut)
+    End Sub
+
+    Public Sub limpiarCampos()
+        TxtRazonSocial.Text = ""
+        TxtRut.Text = ""
+        TxtGiro.Text = ""
+        TxtDireccion.Text = ""
+        TxtCiudad.Text = ""
+        TxtFono.Text = ""
+        TxtCelular.Text = ""
+        TxtCorreo.Text = ""
     End Sub
 End Class

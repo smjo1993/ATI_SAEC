@@ -143,6 +143,7 @@
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
+    <Content Include="presentacion\Contratistas\verComentarios.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
     <Content Include="presentacion\Empresa\modificarContratista.aspx" />
@@ -1791,6 +1792,7 @@
   <ItemGroup>
     <Compile Include="logica\clsAlertas.vb" />
     <Compile Include="logica\clsCarpetaArranque.vb" />
+    <Compile Include="logica\clsComentario.vb" />
     <Compile Include="logica\clsEmpresa.vb" />
     <Compile Include="logica\clsContratista.vb" />
     <Compile Include="logica\clsArea.vb" />
@@ -1854,6 +1856,12 @@
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verComentarios.aspx.designer.vb">
+      <DependentUpon>verComentarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verComentarios.aspx.vb">
+      <DependentUpon>verComentarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">
       <DependentUpon>crearEmpresa.aspx</DependentUpon>
