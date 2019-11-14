@@ -199,7 +199,7 @@ Public Class clsDocumento
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_CambiarEstadoDocumento" & idCarpeta & " , " & idArea & "," & idDocumento & "'" & estado & "'"
+            Dim sql As String = "SP_SAEC_CambiarEstadoDocumento'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & estado & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
