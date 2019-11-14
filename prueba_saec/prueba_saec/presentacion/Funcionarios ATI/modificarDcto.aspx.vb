@@ -159,7 +159,7 @@
                 lblAdvertencia.Text = "Operación exitosa"
                 Session("nombreDocumento") = TxtNombreDocumentoEdicion.Text.Trim()
                 'Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
-                Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
+                Response.Redirect("verListaDctos.aspx")
             End If
         End If
 
