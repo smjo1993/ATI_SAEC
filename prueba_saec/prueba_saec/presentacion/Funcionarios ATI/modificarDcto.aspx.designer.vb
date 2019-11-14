@@ -14,24 +14,6 @@ Option Explicit On
 Partial Public Class modificarDcto
 
     '''<summary>
-    '''Control dropAreas.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents dropAreas As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control dropDocumentos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents dropDocumentos As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''Control CardEdicionDocumento.
     '''</summary>
     '''<remarks>

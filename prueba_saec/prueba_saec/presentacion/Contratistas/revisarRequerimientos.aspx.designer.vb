@@ -23,22 +23,31 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control gridDocumentos.
+    '''Control documentosEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridDocumentos As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents documentosEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control qwe.
+    '''Control documentosTrabajador.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents qwe As Global.System.Web.UI.HtmlControls.HtmlInputCheckBox
+    Protected WithEvents documentosTrabajador As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control documentosVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents documentosVehiculo As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
     '''Control Button1.

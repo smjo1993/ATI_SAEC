@@ -36,13 +36,14 @@ Public Class clsDocumento
 
     Public Function actualizarDocumento(nombreAnterior As String,
                                         nombreNuevo As String,
-                                        tipo As String)
+                                        tipo As String,
+                                        id As Integer)
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
             Dim ds As New DataSet()
 
-            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "'"
+            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "', '" & id & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -130,7 +131,7 @@ Public Class clsDocumento
         End Try
     End Function
 
-    Public Function obtenerDocumentoEstadoEspera(rutContratista As String) As DataTable
+    Public Function obtenerDocumentoEstadoEsperaEmpresa(rutContratista As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
@@ -151,6 +152,67 @@ Public Class clsDocumento
 
     End Function
 
+    Public Function obtenerDocumentoEstadoEsperaTrabajador(rutContratista As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosEnEspera '" & rutContratista & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(1)
+
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+    Public Function obtenerDocumentoEstadoEsperaVehiculo(rutContratista As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosEnEspera '" & rutContratista & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(2)
+
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+
+    Public Function cambiarEstadoDocumento(idCarpeta As Integer, idArea As Integer,
+                                           idDocumento As Integer, estado As String)
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_CambiarEstadoDocumento'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & estado & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
     Public Function listarRequisitosDocumentales() As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)

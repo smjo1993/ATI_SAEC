@@ -401,9 +401,9 @@
                                             runat="server">
 
                                             <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                            <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
-                                            <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
-                                            <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
+                                            <asp:ListItem Value="Empresa"> Empresa </asp:ListItem>
+                                            <asp:ListItem Value="Vehiculo"> Vehículo </asp:ListItem>
+                                            <asp:ListItem Value="Trabajador"> Trabajador </asp:ListItem>
 
                                         </asp:DropDownList>
                                         

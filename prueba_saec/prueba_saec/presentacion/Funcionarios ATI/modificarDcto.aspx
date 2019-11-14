@@ -339,16 +339,14 @@
                     <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
 
                     <form runat="server">
-                        <div class="card shadow mb-4">
+                        
+                        <%--<div class="card shadow mb-4">
 
                             <div class="card-header py-3">
                                 <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
                             </div>
 
                             <div class="card-body">
-                                <%--<div class="col-sm-4">
-                                        <h5 class="font-weight-bold text-primary">Búsqueda</h5>
-                                    </div>--%>
 
                                 <div class="row">
 
@@ -390,7 +388,11 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div>--%>
+
+
+
+
 
                         <div>
                             <div class="card shadow mb-4">
@@ -430,9 +432,9 @@
                                                 runat="server">
 
                                                 <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                                <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
-                                                <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
-                                                <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
+                                                <asp:ListItem Value="Empresa"> Empresa </asp:ListItem>
+                                                <asp:ListItem Value="Vehiculo"> Vehículo </asp:ListItem>
+                                                <asp:ListItem Value="Trabajador"> Trabajador </asp:ListItem>
 
                                             </asp:DropDownList>
 
