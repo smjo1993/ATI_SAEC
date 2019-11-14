@@ -79,14 +79,13 @@ Public Class CrearListaDocumentacion
     End Sub
 
     Protected Sub btnPedirDocumento_Click(sender As Object, e As EventArgs) Handles btnPedirDocumento.Click
-        'Dim idCarpeta As Integer = Convert.ToInt32(Request.QueryString("idCarpeta").ToString()) //id de la carpeta
-        'Dim usuario As clsUsuarioSAEC = Session("usuario") 
-        'Dim area As Integer = usuario.areaUsuario //area del documento = area usuario
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim idCarpeta As Integer = decodificarId()
         Dim chk As HtmlInputCheckBox
         For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajador.Rows
             chk = documentoTrabajador.FindControl("chkDocTrabajador")
             If chk.Checked = True Then 'pasan a espera
-            Else 'sino quedan inactivos
+            Else 'sino quedan no solicitados
             End If
         Next
 

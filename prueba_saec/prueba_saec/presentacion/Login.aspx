@@ -45,11 +45,11 @@
                   <form  runat="server" class="user">
                     <div class="form-group">
                         <asp:Label ID="lblUsuario" runat="server" Text="Usuario:"></asp:Label>
-                        <asp:TextBox ID="txtUsuario" runat="server" class="form-control bg-light border-0 small"></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario" runat="server" class="form-control bg-light border-0 small" required></asp:TextBox>
                     </div>
                     <div class="form-group">
                       <asp:Label ID="lblContrasenia" runat="server" Text="Contraseña:"></asp:Label>
-                      <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password"  class="form-control bg-light border-0 small"></asp:TextBox>
+                      <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password"  class="form-control bg-light border-0 small" required></asp:TextBox>
                     </div>
                     <div class="form-group">
                     <asp:Button ID="btnLogin" runat="server" class="btn btn-primary btn-user btn-block" Text="Inicia Sesion" />
