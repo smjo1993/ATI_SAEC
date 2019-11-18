@@ -11,50 +11,50 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class revisarRequerimientos
+Partial Public Class confirmarDocumentos
     
     '''<summary>
-    '''Control form15.
+    '''Control form1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control documentosEmpresa.
+    '''Control confirmarEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents documentosEmpresa As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents confirmarEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control documentosTrabajador.
+    '''Control confirmarTrabajador.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents documentosTrabajador As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents confirmarTrabajador As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control documentosVehiculo.
+    '''Control confirmarVehiculo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents documentosVehiculo As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents confirmarVehiculo As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control confirmarPinponeo.
+    '''Control btnConfirmarDocumentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents confirmarPinponeo As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnConfirmarDocumentos As Global.System.Web.UI.WebControls.Button
 End Class
