@@ -32,6 +32,15 @@
             End If
         End If
     End Sub
+    Private Function calcularFechaExpiracion(ByVal fecha As Date) As Date
+        Dim mes As Integer = fecha.Month
+        Dim diferencia As Integer = 12 - mes
+        fecha = fecha.AddMonths(diferencia)
+        Dim dia As Integer = fecha.Day
+        diferencia = 31 - dia
+        fecha = fecha.AddDays(diferencia)
+        Return fecha
+    End Function
     Protected Sub btnCrearCarpeta_Click(sender As Object, e As EventArgs) Handles btnCrearCarpeta.Click
         Dim alerta As New clsAlertas
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -49,14 +58,22 @@
                 If (txtFecha.Text = "") Then
                     Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
                     fechaCreacion = Today
-                    fechaExpiracion = DateAdd("m", 12, Today)
-                    If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.rutUsuario) = True) Then
-                        Response.Redirect("iniciarCarpetaArranque.aspx")
+                    Dim mes As Integer = fechaCreacion.Month
+                    If (mes = 11 Or mes = 12) Then
+                        fechaExpiracion = calcularFechaExpiracion(fechaCreacion)
+                        fechaExpiracion = fechaExpiracion.AddYears(1)
                     Else
-                        Response.Redirect("iniciarCarpetaArranque.aspx")
+                        fechaExpiracion = calcularFechaExpiracion(fechaCreacion)
                     End If
-                Else
-                    fechaCreacion = Today
+
+                    'fechaExpiracion = DateAdd("m", 12, Today)
+                    If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.rutUsuario) = True) Then
+                            Response.Redirect("iniciarCarpetaArranque.aspx")
+                        Else
+                            Response.Redirect("iniciarCarpetaArranque.aspx")
+                        End If
+                    Else
+                        fechaCreacion = Today
                     fechaExpiracion = Convert.ToDateTime(txtFecha.Text)
                     If (DateTime.Compare(fechaCreacion, fechaExpiracion) = 0 Or DateTime.Compare(fechaCreacion, fechaExpiracion) > 0) Then
                         lblMensaje.Text = alerta.alerta("ALERTA", "fecha erronea")

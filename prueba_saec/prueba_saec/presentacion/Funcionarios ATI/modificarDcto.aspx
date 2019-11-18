@@ -339,7 +339,7 @@
                     <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
 
                     <form runat="server">
-                        
+
                         <%--<div class="card shadow mb-4">
 
                             <div class="card-header py-3">
@@ -441,8 +441,6 @@
                                         </div>
                                     </div>
 
-                                    <br />
-                                    <br />
 
                                     <%-- <div class="row">
                                         <div class="col-sm-4">
@@ -462,25 +460,8 @@
 
                                     <br />
                                     <br />
-                                    <div class="row">
-                                        <div class="col-10 d-flex">
-                                            <div>
-                                                <%--<asp:Button
-                                                    ID="btnRealizarCambios"
-                                                    runat="server"
-                                                    class="btn btn-success btn-user"
-                                                    data-toggle="modal" 
-                                                    data-target="#modalConfirmacion"
-                                                    Text="Realizar Cambios" />--%>
-
-                                                <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
-                                                    data-target="#modalConfirmacion" />
 
 
-                                            </div>
-
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div>
                                             <p>
@@ -489,6 +470,21 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="card-footer">
+
+                                    <div class="col-10">
+
+                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver</a>
+
+                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                            data-target="#modalConfirmacion" />
+
+                                    </div>
+
+                                </div>
+
+
                             </div>
                         </div>
 
