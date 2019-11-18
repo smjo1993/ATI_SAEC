@@ -13,12 +13,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-
             <!-- Earnings (Monthly) Card Example -->
             <asp:Label runat="server" ID="lblTarjetaEmpresa" Text=""></asp:Label>
             <!-- ---------------------------------------- -->
-
-
         </div>
     </form>
 

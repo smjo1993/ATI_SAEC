@@ -109,7 +109,7 @@ Public Class clsEmpresa
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
-            Dim sql As String = "SP_SAEC_ListarEstadoDocumentoRevisor '" & areaRevisor & "','" & rutEmpersa & " '"
+            Dim sql As String = "SP_SAEC_ListarDocumentosParaAlertaRevisor '" & areaRevisor & "','" & rutEmpersa & " '"
             Dim ds As New DataSet()
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
