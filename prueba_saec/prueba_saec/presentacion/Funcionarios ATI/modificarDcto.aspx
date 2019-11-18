@@ -510,7 +510,7 @@
                                             data-target="#modalConfirmacion"
                                             Text="Aceptar" />
 
-                                        <%--<a class="btn btn-primary" href="login.html">Aceptar</a>--%>
+                                        
                                     </div>
                                 </div>
                             </div>

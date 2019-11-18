@@ -42,9 +42,9 @@ Public Class agregarDcto
         Return Documentos.obtenerDocumento()
     End Function
 
-    Protected Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        Response.Redirect("../login.aspx")
-    End Sub
+    'Protected Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+    '    Response.Redirect("../login.aspx")
+    'End Sub
 
     Protected Sub btnCrearDocumento_Click(sender As Object, e As EventArgs) Handles btnCrearDocumento.Click
 
@@ -53,7 +53,7 @@ Public Class agregarDcto
         Dim insercion As New Boolean
 
         If (txtNombreDocumento.Text.Trim() = "" Or dropTipoDocumento.Items.Equals("")) Then
-            lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
+            'lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
         Else
 
             For Each item In chkListaAreas.Items
@@ -68,14 +68,8 @@ Public Class agregarDcto
 
             Next item
 
-            ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "desplegarModal();", True)
-
-            'Dim title As String = "Greetings"
-            'Dim body As String = "Welcome to ASPSnippets.com"
-
-            'ClientScript.RegisterStartupScript(Me.GetType(), "Popup", "ShowPopup('" & Title & "', '" & body & "');", True)
-
-            Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
+            'Response.Redirect(HttpContext.Current.Request.Url.ToString(), True)
+            Response.Redirect("verListaDctos.aspx")
 
         End If
 
