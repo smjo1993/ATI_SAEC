@@ -1,10 +1,6 @@
 ﻿Public Class revisarRequerimientos
     Inherits System.Web.UI.Page
 
-    Private listaDocumentosEsperaEmpresa As DataTable
-    Private listaDocumentosEsperaTrabajador As DataTable
-    Private listaDocumentosEsperaVehiculo As DataTable
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         If IsPostBack Then
@@ -15,10 +11,6 @@
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
-
-        Me.listaDocumentosEsperaEmpresa = TablaDocumentosEsperaEmpresa
-        Me.listaDocumentosEsperaTrabajador = TablaDocumentosEsperaTrabajador
-        Me.listaDocumentosEsperaVehiculo = TablaDocumentosEsperaVehiculo
 
         documentosEmpresa.DataSource = TablaDocumentosEsperaEmpresa
         documentosTrabajador.DataSource = TablaDocumentosEsperaTrabajador
@@ -83,30 +75,65 @@
         'Se recorre cada checkbox generado 
         For Each fila As GridViewRow In documentosEmpresa.Rows
 
-            'Dim idCarpeta = listaDocumentosEspera.Rows(contador).Item(0)
-            'Dim idDocumento = listaDocumentosEspera.Rows(contador).Item(1)
-            'Dim idArea = listaDocumentosEspera.Rows(contador).Item(2)
+            Dim idCarpeta As Integer = fila.Cells(2).Text
+            Dim idDocumento As Integer = fila.Cells(3).Text
+            Dim idArea As Integer = fila.Cells(4).Text
             Dim check As HtmlInputCheckBox
+            Dim actualizarEstado = New clsDocumento()
 
             check = fila.FindControl("chk")
 
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-
-
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
             Else
                 'Cambia el estado del documento a "no aplica"
-
-
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
             End If
-
-
-            contador = contador + 1
-
 
         Next
 
+        For Each fila As GridViewRow In documentosTrabajador.Rows
+
+            Dim idCarpeta As Integer = fila.Cells(2).Text
+            Dim idDocumento As Integer = fila.Cells(3).Text
+            Dim idArea As Integer = fila.Cells(4).Text
+            Dim check As HtmlInputCheckBox
+            Dim actualizarEstado = New clsDocumento()
+
+            check = fila.FindControl("chk")
+
+            'Si está check
+            If check.Checked Then
+                'Cambia el estado del documento a "aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+            Else
+                'Cambia el estado del documento a "no aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+            End If
+        Next
+
+        For Each fila As GridViewRow In documentosVehiculo.Rows
+
+            Dim idCarpeta As Integer = fila.Cells(2).Text
+            Dim idDocumento As Integer = fila.Cells(3).Text
+            Dim idArea As Integer = fila.Cells(4).Text
+            Dim check As HtmlInputCheckBox
+            Dim actualizarEstado = New clsDocumento()
+
+            check = fila.FindControl("chk")
+
+            'Si está check
+            If check.Checked Then
+                'Cambia el estado del documento a "aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+            Else
+                'Cambia el estado del documento a "no aplica"
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+            End If
+
+        Next
         'idChk = 0
         'Dim chek As GridView
         'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
@@ -147,7 +174,5 @@
         'Next
 
     End Sub
-
-
 
 End Class

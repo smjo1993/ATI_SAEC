@@ -42,6 +42,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 
+    <%--Custom script para Checkbox--%>
+    <link href="../../css/checkbox.css" rel="stylesheet" />
 
 </head>
 
@@ -358,13 +360,24 @@
                         <div class="card shadow mb-4">
 
                             <div class="card-header py-3">
-                                <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
-                                <%--<p>Date/Time: 
-                                    <span id="datetime"></span>
-                                </p>--%>
-                                <script>var dt = new Date();
-                                    document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
-                                </script>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                    <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
+
+                                    <script>var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+                                    </script>
+                                 </div>
+                                <div class="col-6 ">
+                                    <asp:Button
+                                        ID="Button1"
+                                        runat="server"
+                                        class="btn btn-success btn-user"
+                                        style="float: right;"
+                                        Text="Nuevo Documento" />
+                                </div>
+                                </div>
                             </div>
 
                             <div class="card-body">
@@ -382,20 +395,35 @@
                                         Style="width: 100%;">
 
                                         <Columns>
+                                            <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                             <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
                                             <asp:BoundField DataField="Area" HeaderText="Área" />
-                                            <asp:BoundField DataField="Estado" HeaderText="Estado en Sistema" />
-
+                                            <asp:BoundField DataField="Estado" HeaderText="Estado en Sistema" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:TemplateField HeaderText="Estado">
+                                                <ItemTemplate>
+                                                    <label class="switch ">
+                                                        <input runat="server" id="chkDocumento" type="checkbox" class="default" />
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Edición">
 
                                                 <ItemTemplate>
-                                                    <%--<asp:Button ID="btnVerDocumento" CssClass="btn btn-success btn-user" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />--%>
+                                                    <asp:Button
+                                                        ID="btnVerDocumento"
+                                                        CssClass="btn btn-success btn-circle"
+                                                        CommandName="editar"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
+                                                        Text="Editar" />
 
-                                                    <a href="#" class="btn btn-success btn-circle">
+                                                    <%--<a href="#" class="btn btn-success btn-circle">
                                                         <i class="far fa-edit"></i>
-                                                    </a>
-
+                                                    </a>--%>
                                                 </ItemTemplate>
 
                                                 <HeaderStyle HorizontalAlign="Center" />
@@ -436,8 +464,6 @@
                                             runat="server"
                                             class="btn btn-success btn-user"
                                             Text="Aceptar" />
-
-                                        <%--<a class="btn btn-primary" href="login.html">Aceptar</a>--%>
                                     </div>
                                 </div>
                             </div>

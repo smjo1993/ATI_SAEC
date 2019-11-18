@@ -36,13 +36,14 @@ Public Class clsDocumento
 
     Public Function actualizarDocumento(nombreAnterior As String,
                                         nombreNuevo As String,
-                                        tipo As String)
+                                        tipo As String,
+                                        id As Integer)
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
             Dim ds As New DataSet()
 
-            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "'"
+            Dim sql As String = "SP_SAEC_ActualizarDocumento '" & nombreAnterior & "' , '" & nombreNuevo & "' , '" & tipo & "', '" & id & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -106,6 +107,31 @@ Public Class clsDocumento
         Finally
             con.Close()
             con.Dispose()
+        End Try
+    End Function
+
+    Public Function actualizarEstadoRequerimiento(idDocumento As Integer, estadoDocumento As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+            Dim ds As New DataSet()
+
+            Dim sql As String = "SP_SAEC_ActualizarEstadoRequerimiento '" & idDocumento & "' , '" & estadoDocumento & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ActualizarEstadoRequerimiento")
+            Return True
+
+        Catch ex As Exception
+
+            Return False
+
+        Finally
+
+            con.Close()
+            con.Dispose()
+
         End Try
     End Function
 
@@ -199,7 +225,7 @@ Public Class clsDocumento
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_CambiarEstadoDocumento'" & idCarpeta & "' , '" & idArea & "','" & idDocumento & "','" & estado & "'"
+            Dim sql As String = "SP_SAEC_CambiarEstadoDocumento'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & estado & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
