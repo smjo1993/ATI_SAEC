@@ -1,5 +1,5 @@
 ﻿
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="revisarRequerimientos.aspx.vb" Inherits="prueba_saec.revisarRequerimientos" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="confirmarDocumentos.aspx.vb" Inherits="prueba_saec.confirmarDocumentos" %>
 
 <!DOCTYPE html>
 
@@ -14,7 +14,7 @@
     <link href="../../css/checkbox.css" rel="stylesheet">
 </head>
 <body>
-    <form id="form15" runat="server">
+    <form id="form1" runat="server">
 
         <div class="container-fluid">
 
@@ -32,16 +32,16 @@
                             <tr class="align-left">
                                 <td class="auto-style1">
 
-                                    <asp:GridView ID="documentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                    <asp:GridView ID="confirmarEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         <Columns>
-
+                                            
                                             <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
                                             <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
                                             <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="ACEPTAR">
+                                            <asp:TemplateField HeaderText="CONFIRMAR">
 
                                                 <ItemTemplate>
                                                     <label class="switch ">
@@ -55,7 +55,7 @@
                                             <asp:TemplateField HeaderText="COMENTARIOS">
 
                                                 <ItemTemplate>
-                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                                                    <asp:Button ID="Button3" runat="server" Text="Button" />
                                                 </ItemTemplate>
 
                                             </asp:TemplateField>
@@ -84,7 +84,7 @@
                             <tr class="align-left">
                                 <td class="auto-style1">
 
-                                    <asp:GridView ID="documentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                    <asp:GridView ID="confirmarTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         <Columns>
 
                                             <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
@@ -93,7 +93,7 @@
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
-                                            <asp:TemplateField HeaderText="ACEPTAR">
+                                            <asp:TemplateField HeaderText="CONFIRMAR">
 
                                                 <ItemTemplate>
                                                     <label class="switch ">
@@ -136,7 +136,7 @@
                             <tr class="align-left">
                                 <td class="auto-style1">
 
-                                    <asp:GridView ID="documentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                    <asp:GridView ID="confirmarVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         <Columns>
 
                                             <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
@@ -145,7 +145,7 @@
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="ACEPTAR">
+                                            <asp:TemplateField HeaderText="CONFIRMAR">
 
                                                 <ItemTemplate>
                                                     <label class="switch ">
@@ -159,7 +159,7 @@
                                             <asp:TemplateField HeaderText="COMENTARIOS">
 
                                                 <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="Button" />
+                                                    <asp:Button ID="Button5" runat="server" Text="Button" />
                                                 </ItemTemplate>
 
                                             </asp:TemplateField>
@@ -176,7 +176,7 @@
                 </div>
 
             </div>
-            <asp:Button ID="confirmarPinponeo" runat="server" Text="Confirmar solicitud" />
+            <asp:Button ID="btnConfirmarDocumentos" runat="server" Text="Confirmar solicitud" />
 
 
         </div>

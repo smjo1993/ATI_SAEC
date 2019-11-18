@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class CrearListaDocumentacion
     
     '''<summary>
+    '''Control lblMenu.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control documentos.
     '''</summary>
     '''<remarks>
@@ -41,6 +50,15 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents gridDocumentosEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control seccionTrabajador.
     '''</summary>
     '''<remarks>
@@ -59,6 +77,15 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents gridDocumentosTrabajador As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control seccionVehiculo.
     '''</summary>
     '''<remarks>
@@ -75,6 +102,15 @@ Partial Public Class CrearListaDocumentacion
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control btnPedirDocumento.

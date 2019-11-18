@@ -67,7 +67,7 @@
 
     End Function
 
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles confirmarPinponeo.Click
 
         Dim contador As Integer = 0
         Dim dt As DataTable = New DataTable("CambioEstado")
