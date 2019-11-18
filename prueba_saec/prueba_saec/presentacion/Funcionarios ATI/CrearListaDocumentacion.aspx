@@ -277,14 +277,14 @@
                                             <div <%--class="col-sm-4"--%>>
                                                 <asp:GridView ID="gridDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
-                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID"   ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" >
-                                                            <ItemStyle Width="1px"/>
+                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta">
+                                                            <ItemStyle Width="1px" />
                                                         </asp:BoundField>
                                                         <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
                                                         <asp:TemplateField HeaderText="Estado">
-                                                             <ItemStyle Width="1px"/>
+                                                            <ItemStyle Width="1px" />
                                                             <ItemTemplate>
                                                                 <label class="switch ">
                                                                     <input runat="server" id="chkDocEmpresa" type="checkbox" class="default">
@@ -296,6 +296,9 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                <div runat="server" id="sinDocEmpresa">
+                                                    <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para solicitar</h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -310,14 +313,14 @@
                                             <div <%--class="col-sm-4"--%>>
                                                 <asp:GridView ID="gridDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
-                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" >
-                                                                     <ItemStyle Width="1px"/>
+                                                        <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta">
+                                                            <ItemStyle Width="1px" />
                                                         </asp:BoundField>
                                                         <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"  />
+                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
                                                         <asp:TemplateField HeaderText="Estado">
-                                                             <ItemStyle Width="1px"/>
+                                                            <ItemStyle Width="1px" />
                                                             <ItemTemplate>
                                                                 <label class="switch ">
                                                                     <input runat="server" id="chkDocTrabajador" type="checkbox" class="default">
@@ -329,6 +332,9 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                <div runat="server" id="sinDocTrabajador">
+                                                    <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para solicitar</h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -345,7 +351,7 @@
                                                     <Columns>
                                                         <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"  />
+                                                        <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
                                                         <asp:TemplateField HeaderText="Estado">
                                                             <ItemTemplate>
@@ -359,13 +365,22 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                <div runat="server" id="sinDocVehiculo">
+                                                    <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para solicitar</h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <asp:Button ID="btnPedirDocumento" class="btn btn-primary btn-user btn-block" runat="server" Text="Pedir Documentos" />
+                                <div class="row">
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <asp:Button ID="btnPedirDocumento" class="btn btn-primary btn-user btn-block" runat="server" Text="Pedir Documentos" />
+                                        </div>
+                                    </div>
+                                    <div class="col-4"></div>
+                                </div>
 
                             </form>
                         </div>
