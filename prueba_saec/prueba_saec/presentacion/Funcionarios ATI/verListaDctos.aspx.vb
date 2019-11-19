@@ -5,10 +5,34 @@
         If IsPostBack Then
             Return
         End If
-        'If (Not clsUsuario.ValidaAccesoForm(Session("Usuario"), Request.Url.Segments(Request.Url.Segments.Length - 1))) Then
-        '    Response.Redirect("AccesoDenegado.aspx")
-        'End If
-        cargarGrid()
+        validarUsuario()
+    End Sub
+
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+
+        listaRoles = Session("roles")
+
+        If (usuario Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+
+            For Each rol As clsRol In listaRoles
+
+                If rol.descripcionRol.ToString <> "super-admin" Then
+
+                    Response.Redirect("../login.aspx")
+
+                Else
+
+                    cargarGrid()
+
+                End If
+
+            Next
+
+        End If
     End Sub
 
     Private Sub cargarGrid()

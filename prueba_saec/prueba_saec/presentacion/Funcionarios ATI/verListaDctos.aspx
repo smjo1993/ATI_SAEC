@@ -447,8 +447,6 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver</a>
-
                                         <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
                                         data-target="#modalConfirmacion" />
 

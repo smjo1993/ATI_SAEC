@@ -12,6 +12,8 @@ Public Class agregarDcto
 
     End Sub
 
+
+
     Public Sub cargarAreas()
 
         Dim areas As DataTable = obtenerTablaAreas()
