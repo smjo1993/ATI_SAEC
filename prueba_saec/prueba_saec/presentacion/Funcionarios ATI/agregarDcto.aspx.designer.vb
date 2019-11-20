@@ -14,7 +14,16 @@ Option Explicit On
 Partial Public Class agregarDcto
 
     '''<summary>
-    '''Control CardNuevoDocumento.
+    '''Control lblMenu.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control txtNombreDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.

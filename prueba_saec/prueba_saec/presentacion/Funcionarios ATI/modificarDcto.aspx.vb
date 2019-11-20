@@ -6,10 +6,28 @@
 
             'cargarAreas()
             'bloquearCampos()
-
+            validarUsuario()
+            cargarMenu()
             lblHeadEdicion.Text = "Edición: " & Session("nombreDocumento")
 
         End If
+    End Sub
+
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        End If
+    End Sub
+
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.rutUsuario
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
     End Sub
 
     'Public Sub bloquearCampos()

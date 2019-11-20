@@ -25,7 +25,7 @@ Public Class CrearListaDocumentacion
         Dim rutUsuario As String = usuario.rutUsuario
         Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
-        Dim stringMenu As String = menu.menuUsuarioAti(rutUsuario, idCarpeta)
+        Dim stringMenu As String = menu.menuUsuarioAtiCarpeta(rutUsuario, idCarpeta)
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
