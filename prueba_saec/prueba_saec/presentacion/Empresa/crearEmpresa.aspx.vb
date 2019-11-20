@@ -9,6 +9,7 @@ Public Class crearEmpresa
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             cargarDatos()
+            cargarMenu()
         End If
     End Sub
     Public Sub cargarDatos()
@@ -23,6 +24,15 @@ Public Class crearEmpresa
             item.Value = row("rut").ToString()
             dropContratistas.Items.Add(item)
         Next
+    End Sub
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.rutUsuario
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
     End Sub
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim empresa As New clsEmpresa

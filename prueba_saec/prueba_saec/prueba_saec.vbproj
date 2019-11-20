@@ -156,7 +156,6 @@
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
-    <Content Include="presentacion\Contratistas\menuContratista.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -1948,13 +1947,6 @@
     <Compile Include="presentacion\login.aspx.vb">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\menuContratista.aspx.designer.vb">
-      <DependentUpon>menuContratista.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\menuContratista.aspx.vb">
-      <DependentUpon>menuContratista.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\recuperarContrasenia.aspx.designer.vb">
       <DependentUpon>recuperarContrasenia.aspx</DependentUpon>
