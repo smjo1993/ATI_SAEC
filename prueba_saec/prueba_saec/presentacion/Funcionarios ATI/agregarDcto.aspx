@@ -10,12 +10,12 @@
 
     <title>Agregar Documento</title>
 
-   <!-- Custom fonts for this template-->
-    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
 
     <!-- Custom styles for this template-->
-    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet"/>
 
     <!-- Bootstrap core JavaScript-->
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
@@ -237,69 +237,114 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Agregar Nuevo Documento</h1>
-
                     <form runat="server">
-                  
+
                         <div>
                             <div class="card shadow mb-4">
-                                <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Formulario de Nuevo requisito Documental</h4>
-                                </div>--%>
+
+                                <div class="card-header py-3" id="CardNuevoDocumento" runat="server">
+                                    <h4 class="m-0 font-weight text-primary">
+                                        <asp:Label ID="lblHeadEdicion" runat="server" Text="Agregar Nuevo Documento"></asp:Label>
+
+                                    </h4>
+                                </div>
+
                                 <div class="card-body">
+                                    <div class="row">
 
-                                    <div class="col-sm-4">
-                                        <h5 class="font-weight-bold text-primary">Nombre</h5>
-                                        
-                                        <asp:TextBox 
-                                            ID="txtNombreDocumento"
-                                            runat="server"
-                                            class="form-control bg-light border-5 small">
-                                        </asp:TextBox>
+                                        <div class="col-sm-4">
+                                            <label id="lblNombreNuevoDocumento" class="col-12">Nombre:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox
+                                                ID="txtNombreDocumento"
+                                                runat="server"
+                                                Style="height: 30px"
+                                                Class="form-control bg-light small col-12">
+                                            </asp:TextBox>
+                                        </div>
 
-                                        <%--<h5 class="font-weight-bold text-primary">Identificador</h5>
-                                        <asp:TextBox ID="txtIdDocumento"
-                                        runat="server"
-                                        class="form-control bg-light border-5 small">
-                                        </asp:TextBox>--%>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblTipoNuevoDocumento" class="col-12">Tipo:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:DropDownList
+                                                class="btn bg-light dropdown-toggle col-12"
+                                                Style="height: 30px; padding: 0px"
+                                                ID="dropTipoDocumento"
+                                                runat="server">
+
+                                                <asp:ListItem Selected="True" Value=""></asp:ListItem>
+                                                <asp:ListItem Value="Empresa"> Empresa </asp:ListItem>
+                                                <asp:ListItem Value="Vehiculo"> Vehículo </asp:ListItem>
+                                                <asp:ListItem Value="Trabajador"> Trabajador </asp:ListItem>
+
+                                            </asp:DropDownList>
+                                        </div>
+
+
+                                    </div>
+                                    <br />
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblAreasNuevoDocumento" class="col-12">Área(s):</label>
+                                        </div>
+                                        <div class="col-6">
+
+                                            <asp:CheckBoxList
+                                                ID="chkListaAreas"
+                                                CellPadding="2"
+                                                CellSpacing="2"
+                                                RepeatDirection="Vertical"
+                                                RepeatLayout="Flow"
+                                                TextAlign="Right"
+                                                runat="server">
+                                            </asp:CheckBoxList>
+
+                                        </div>
+
 
                                     </div>
 
                                 </div>
+
+                                <div class="card-footer">
+
+                                    <div class="row" style="float: right;">
+
+                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver</a>
+
+                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Agregar" data-toggle="modal"
+                                            data-target="#modalConfirmacion" />
+
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
+                
 
-                        <div>
-                            <div class="card shadow mb-4">
-                                <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
-                                </div>--%>
-                                <div class="card-body">
+                <%--<div>
+                    <div class="card shadow mb-4">
 
-                                    <div class="col-sm-4">
+                        <div class="card-body">
 
-                                        <h5 class="font-weight-bold text-primary">Tipo</h5>
+                            <div class="col-sm-4">
 
-                                        Escoja el tipo de documento a requerir
+                                <h5 class="font-weight-bold text-primary">Tipo</h5>
 
-                                        <%--<asp:DropDownList 
-                                            class="btn btn-secondary dropdown-toggle"
-                                            ID="dropTipoDocumento" 
-                                            runat="server">
+                                Escoja el tipo de documento a requerir
 
-                                            <h6 class="dropdown-header"> Categorías </h6>
-
-                                            <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                            <asp:ListItem Value="EMPRESA"> Empresa </asp:ListItem>
-                                            <asp:ListItem Value="VEHICULO"> Vehículo </asp:ListItem>
-                                            <asp:ListItem Value="TRABAJADOR"> Trabajador </asp:ListItem>
-
-                                        </asp:DropDownList>--%> 
-
-                                        <asp:DropDownList 
+                                        <asp:DropDownList
                                             class="dropdown-list dropdown-menu show"
-                                            ID="dropTipoDocumento" 
+                                            ID="dropTipoDocumento"
                                             runat="server">
 
                                             <asp:ListItem Selected="True" Value=""></asp:ListItem>
@@ -308,86 +353,81 @@
                                             <asp:ListItem Value="Trabajador"> Trabajador </asp:ListItem>
 
                                         </asp:DropDownList>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>--%>
+
+                <%--<div>
+                    <div class="card shadow mb-4">
+                        
+                        <div class="card-body">
+
+                            <div class="col-sm-4">
+                                <h5 class="font-weight-bold text-primary">Áreas</h5>
+                                Escoja el área al cual el documento es pertinente
+                                        <br />
+                                <br />
+
+                                <asp:CheckBoxList
+                                    ID="chkListaAreas"
+                                    CellPadding="2"
+                                    CellSpacing="2"
+                                    RepeatDirection="Vertical"
+                                    RepeatLayout="Flow"
+                                    TextAlign="Right"
+                                    runat="server">
+                                </asp:CheckBoxList>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>--%>
+
+                <!--Modal-->
+                        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">¿Desea confirmar el Documento?</div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <asp:Button
+                                            ID="btnCrearDocumento"
+                                            runat="server"
+                                            class="btn btn-success btn-user"
+                                            Text="Aceptar" />
+
                                         
                                     </div>
-
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <div class="card shadow mb-4">
-                                <%--<div class="card-header py-3">
-                                  <h4 class="m-0 font-weight-bold text-primary">Información Operacional</h4>
-                                </div>--%>
-                                <div class="card-body">
-
-                                    <div class="col-sm-4">
-                                        <h5 class="font-weight-bold text-primary">Áreas</h5>
-                                        Escoja el área al cual el documento es pertinente
-                                        <br /><br />
-
-                                        <asp:CheckBoxList 
-                                            ID="chkListaAreas"
-                                            CellPadding="2"
-                                            CellSpacing="2"
-                                            RepeatDirection="Vertical"
-                                            RepeatLayout="Flow"
-                                            TextAlign="Right"
-                                            runat="server">
-                                        </asp:CheckBoxList>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <br />
-                        <br />
-
-                        <div class="row">
-                        
-                        <div class="d-flex justify-content-end"  >
-
-                            <asp:Button 
-                                ID="btnCancelar" 
-                                Padding="15px"
-                                runat="server" 
-                                class="btn btn-outline-secondary btn-user" 
-                                Text="Cancelar" 
-                                />
-
-                            <asp:Button 
-                                ID="btnCrearDocumento" 
-                                Padding="15px"
-                                runat="server" 
-                                class="btn btn-primary btn-user" 
-                                Text="Crear Documento" 
-                                />
-                            <p>
-                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                            </p>
-                        </div>
-                       </div>
-                    </form>
-                </div>
-                <!-- /.container-fluid -->
-                <%--AutoPostBack="False"--%>
+                </form>
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SAEC, CAPSTONE 2019</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <!-- /.container-fluid -->
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; SAEC, CAPSTONE 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
 
@@ -396,39 +436,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-<%--    <script type="text/javascript">
-        function desplegarModal() {
-            $('#logoutModal').modal('show');
-        }
-    </script>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>--%>
 </body>
 </html>

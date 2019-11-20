@@ -264,6 +264,8 @@
 
                                 <div class="row">
                                     <div class="col-6">
+
+
                                     <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
 
                                     <script>var dt = new Date();
@@ -271,12 +273,17 @@
                                     </script>
                                  </div>
                                 <div class="col-6 ">
-                                    <asp:Button
+                                    <%--<asp:Button
                                         ID="Button1"
                                         runat="server"
                                         class="btn btn-success btn-user"
                                         style="float: right;"
-                                        Text="Nuevo Documento" />
+                                        Text="Nuevo Documento" />--%>
+
+                                    <a href="agregarDcto.aspx" class="btn btn-success btn-user" style="float: right;">
+                                        Nuevo Documento
+                                                        <%--<i class="far fa-edit"></i>--%>
+                                                    </a>
                                 </div>
                                 </div>
                             </div>
@@ -314,17 +321,14 @@
                                             <asp:TemplateField HeaderText="Edición">
 
                                                 <ItemTemplate>
-                                                    <asp:Button
+                                                    <asp:ImageButton
                                                         ID="btnVerDocumento"
-                                                        CssClass="btn btn-success btn-circle"
+                                                        ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
                                                         CommandName="editar"
                                                         CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                         runat="server"
-                                                        Text="Editar" />
+                                                        />
 
-                                                    <%--<a href="#" class="btn btn-success btn-circle">
-                                                        <i class="far fa-edit"></i>
-                                                    </a>--%>
                                                 </ItemTemplate>
 
                                                 <HeaderStyle HorizontalAlign="Center" />
@@ -335,12 +339,21 @@
                                         </Columns>
                                     </asp:GridView>
 
-                                    <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
-                                        data-target="#modalConfirmacion" />
 
                                 </div>
                             </div>
                             <%--card body--%>
+
+                            <div class="card-footer">
+
+                                    <div class="row" style="float: right;">
+
+                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                        data-target="#modalConfirmacion" />
+
+                                    </div>
+
+                                </div>
                         </div>
                         <%--card shadow--%>
 
