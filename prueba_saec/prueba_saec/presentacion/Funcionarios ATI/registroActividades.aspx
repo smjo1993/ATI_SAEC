@@ -6,7 +6,7 @@
 
 <head runat="server">
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>Registro de Actividades SAEC</title>
 
@@ -351,7 +351,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
+
 
                     <form runat="server">
                         <div class="card shadow mb-4">
@@ -359,39 +359,42 @@
                             <div class="card-header py-3">
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-8">
 
 
-                                   <%-- <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
+                                        <%-- <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
 
 
                                     <script>var dt = new Date();
                                         document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
                                     </script>--%>
-                                <h4 class="m-0 font-weight text-primary">Registro de Actividades SAEC</h4>
-                                        
-                                 </div>
-                                <div class="col-6 ">
-                                    <%--<asp:Button
+                                        <h4 class="m-0 font-weight text-primary">Registro de Actividades SAEC</h4>
+
+                                    </div>
+                                    <div class="col-4 ">
+                                        <%--<asp:Button
                                         ID="Button1"
                                         runat="server"
                                         class="btn btn-success btn-user"
                                         style="float: right;"
                                         Text="Nuevo Documento" />--%>
 
-                                    <%--<a href="agregarDcto.aspx" class="btn btn-success btn-user" style="float: right;">
+                                        <%--<a href="agregarDcto.aspx" class="btn btn-success btn-user" style="float: right;">
                                         Nuevo Documento
                                                         
                                                     </a>--%>
-                                    <div class="input-group">
-                                    <input type="text" class="form-control border-0 small" style="float: right;" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2"/>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
+                                        <div class="input-group">
+                                            <%--<input type="text" class="form-control border-0 small" style="float: right;" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2" />--%>
+
+                                            <asp:TextBox ID="txtBuscar" class="form-control border-0 small" style="float: right;" runat="server" AutoPostBack="true" placeholder="Buscar..."></asp:TextBox>
+
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
 
@@ -414,7 +417,7 @@
                                         Style="width: 100%;">
 
                                         <Columns>
-                                           <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                            <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                                             <asp:BoundField DataField="Actividad" HeaderText="Actividad" />
                                             <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
                                             <asp:BoundField DataField="Rol" HeaderText="Rol" />
