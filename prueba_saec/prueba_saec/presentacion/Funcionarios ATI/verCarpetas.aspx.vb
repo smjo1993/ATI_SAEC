@@ -37,8 +37,9 @@
         If listaRoles.Item(0).getIdRol() = 1 Or listaRoles.Item(0).getIdRol() = 2 Or listaRoles.Item(0).getIdRol() = 3 Then
             Dim tarjeta As String = ""
             Dim color As String
-            Dim listaEmpresas As DataTable = crearEmpresas().obtenerCarpetas()
-            Dim Empresas As Object = crearEmpresas()
+            Dim empresas As Object = New clsEmpresa()
+            Dim listaEmpresas As DataTable = empresas.obtenerCarpetas()
+
 
             ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
             For Each fila As DataRow In listaEmpresas.Rows
@@ -109,14 +110,6 @@
         'Next
     End Sub
 
-    'Función que crea el objeto Empresa
-    Public Function crearEmpresas() As Object
-
-        Dim Empresas = New clsEmpresa()
-
-        Return Empresas
-
-    End Function
 
     'Función que devuelve el color dependiendo del estado del documento
     Public Function obtenerColor(EstadoRojo As Boolean, porcentaje As String) As String

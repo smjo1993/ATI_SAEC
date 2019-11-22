@@ -11,25 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verListaDctos
+Partial Public Class registroActividades
 
     '''<summary>
-    '''Control lblMenu.
+    '''Control gridRegistros.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Control gridRequisitos.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents gridRequisitos As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gridRegistros As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''Control btnRealizarCambios.

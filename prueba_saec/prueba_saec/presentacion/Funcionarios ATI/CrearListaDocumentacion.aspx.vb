@@ -111,27 +111,27 @@ Public Class CrearListaDocumentacion
         For Each documentoEmpresa As GridViewRow In gridDocumentosEmpresa.Rows
             chk = documentoEmpresa.FindControl("chkDocEmpresa")
             If chk.Checked = True Then 'pasan a espera
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoEmpresa.Cells(0).Text, "espera")
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoEmpresa.Cells(0).Text, "espera", Nothing)
             Else 'sino quedan no solicitados
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoEmpresa.Cells(0).Text, "no solicitado")
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoEmpresa.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
 
         For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajador.Rows
             chk = documentoTrabajador.FindControl("chkDocTrabajador")
             If chk.Checked = True Then
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoTrabajador.Cells(0).Text, "espera")
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoTrabajador.Cells(0).Text, "espera", Nothing)
             Else
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoTrabajador.Cells(0).Text, "no solicitado")
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoTrabajador.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
 
         For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculo.Rows
             chk = documentoVehiculo.FindControl("chkDocVehiculo")
             If chk.Checked = True Then
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "espera")
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "espera", Nothing)
             Else
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "no solicitado")
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
         'Response.Redirect(Page.Request.Url.AbsoluteUri)

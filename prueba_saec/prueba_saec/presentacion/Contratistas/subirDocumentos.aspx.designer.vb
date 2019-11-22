@@ -11,68 +11,50 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class agregarDcto
-
+Partial Public Class subirDocumentos
+    
     '''<summary>
-    '''Control lblMenu.
+    '''Control form15.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
+    
     '''<summary>
-    '''Control CardNuevoDocumento.
+    '''Control subirEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents CardNuevoDocumento As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    Protected WithEvents subirEmpresa As Global.System.Web.UI.WebControls.GridView
+    
     '''<summary>
-    '''Control lblHeadEdicion.
+    '''Control subirTrabajador.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblHeadEdicion As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents subirTrabajador As Global.System.Web.UI.WebControls.GridView
+    
     '''<summary>
-    '''Control txtNombreDocumento.
+    '''Control subirVehiculos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreDocumento As Global.System.Web.UI.WebControls.TextBox
-
+    Protected WithEvents subirVehiculos As Global.System.Web.UI.WebControls.GridView
+    
     '''<summary>
-    '''Control dropTipoDocumento.
+    '''Control Button1.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipoDocumento As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Control chkListaAreas.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents chkListaAreas As Global.System.Web.UI.WebControls.CheckBoxList
-
-    '''<summary>
-    '''Control btnCrearDocumento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnCrearDocumento As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 End Class

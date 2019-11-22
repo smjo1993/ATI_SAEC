@@ -2,9 +2,13 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If IsPostBack Then
-            Return
+        If Not IsPostBack Then
+            validarUsuario()
         End If
+
+    End Sub
+
+    Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
 
@@ -29,18 +33,8 @@
             Next
 
         End If
-        'If (Not clsUsuario.ValidaAccesoForm(Session("Usuario"), Request.Url.Segments(Request.Url.Segments.Length - 1))) Then
-        '    Response.Redirect("AccesoDenegado.aspx")
-        'End If
-        validarUsuario()
         cargarMenu()
         cargarGrid()
-    End Sub
-    Protected Sub validarUsuario()
-        Dim usuario As clsUsuarioSAEC = Session("usuario")
-        If (usuario Is Nothing) Then
-            Response.Redirect("../login.aspx")
-        End If
     End Sub
 
     Protected Sub cargarMenu()

@@ -87,7 +87,7 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles confirmarPinponeo.Click
 
-        Dim contador As Integer = 0
+
         Dim dt As DataTable = New DataTable("CambioEstado")
 
         'Se recorre cada checkbox generado 
@@ -104,10 +104,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
 
         Next
@@ -125,10 +125,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
         Next
 
@@ -145,10 +145,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
 
         Next
@@ -190,6 +190,24 @@
         '    End If
 
         'Next
+
+    End Sub
+
+    Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles documentosEmpresa.RowCommand
+
+        If (e.CommandName = "Ver") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = documentosEmpresa.Rows(pos).Cells(4).Text
+            Dim docuemntoId As String = documentosEmpresa.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = documentosEmpresa.Rows(pos).Cells(2).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = "revisarRequerimientos.aspx"
+            Response.Redirect("verComentarios.aspx")
+        End If
+
 
     End Sub
 
