@@ -17,10 +17,11 @@
             'si tiene rol revisor que muestre la vista correspondiente
             If rol.getIdRol() = 3 Then
 
+                Dim Empresas = New clsEmpresa()
                 Dim tarjeta As String = ""
                 Dim color As String
-                Dim listaEmpresas As DataTable = crearEmpresas().obtenerCarpetas()
-                Dim Empresas As Object = crearEmpresas()
+                Dim listaEmpresas As DataTable = Empresas.obtenerCarpetas()
+
 
                 ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
                 For Each fila As DataRow In listaEmpresas.Rows
@@ -66,18 +67,8 @@
 
         Next
 
-
-
     End Sub
 
-    'Función que crea el objeto Empresa
-    Public Function crearEmpresas() As Object
-
-        Dim Empresas = New clsEmpresa()
-
-        Return Empresas
-
-    End Function
 
     'Función que devuelve el color dependiendo del estado del documento
     Public Function obtenerColor(EstadoRojo As Boolean, porcentaje As String) As String

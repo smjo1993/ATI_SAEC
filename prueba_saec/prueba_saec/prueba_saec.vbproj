@@ -142,8 +142,8 @@
     <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
-    <Content Include="presentacion\Contratistas\verComentarios.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
     <Content Include="presentacion\Empresa\modificarContratista.aspx" />
@@ -1851,18 +1851,19 @@
       <DependentUpon>revisarRequerimientos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos.aspx.designer.vb">
+      <DependentUpon>subirDocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos.aspx.vb">
+      <DependentUpon>subirDocumentos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\verComentarios.aspx.designer.vb">
-      <DependentUpon>verComentarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\verComentarios.aspx.vb">
-      <DependentUpon>verComentarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">
       <DependentUpon>crearEmpresa.aspx</DependentUpon>

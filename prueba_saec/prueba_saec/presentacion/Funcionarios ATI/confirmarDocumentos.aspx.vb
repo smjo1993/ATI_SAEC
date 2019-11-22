@@ -47,10 +47,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "pendiente"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente", Nothing)
             Else
                 'Cambia el estado del documento a "no solicitado"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
             End If
 
         Next
@@ -68,10 +68,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "pendiente"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente", Nothing)
             Else
                 'Cambia el estado del documento a "no solicitado"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
             End If
         Next
 
@@ -88,10 +88,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "pendiente"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente", Nothing)
             Else
                 'Cambia el estado del documento a "no solicitado"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
             End If
 
         Next

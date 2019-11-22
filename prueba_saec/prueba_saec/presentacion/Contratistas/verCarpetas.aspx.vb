@@ -7,11 +7,11 @@
         Dim color As String
         ' definir por session el rut
         Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
-        Dim carpetaContratista As Object = crearCarpetasContratista()
+        Dim carpetaContratista As Object = New clsContratista()
 
         For Each fila As DataRow In carpetaContratista.obtenerCarpetas(rutContratista).Rows
 
-            Dim Empresas As Object = crearEmpresas()
+            Dim Empresas As Object = New clsEmpresa()
             Dim porcentaje As String = Empresas.calcularPorcentaje(fila("TB_SAEC_Empresarut"))
             Dim estado As Boolean = carpetaContratista.ObtenerEstado(fila("TB_SAEC_Empresarut"))
             color = obtenerColor(estado, porcentaje)
@@ -48,21 +48,6 @@
         Next
 
     End Sub
-
-    Public Function crearCarpetasContratista() As Object
-
-        Dim Empresas = New clsContratista()
-
-        Return Empresas
-
-    End Function
-    Public Function crearEmpresas() As Object
-
-        Dim Empresas = New clsEmpresa()
-
-        Return Empresas
-
-    End Function
 
     Public Function obtenerColor(EstadoRojo As Boolean, porcentaje As String) As String
 

@@ -69,7 +69,7 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles confirmarPinponeo.Click
 
-        Dim contador As Integer = 0
+
         Dim dt As DataTable = New DataTable("CambioEstado")
 
         'Se recorre cada checkbox generado 
@@ -86,10 +86,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
 
         Next
@@ -107,10 +107,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
         Next
 
@@ -127,10 +127,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
 
         Next
