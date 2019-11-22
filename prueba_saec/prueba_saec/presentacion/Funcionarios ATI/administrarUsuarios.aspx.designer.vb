@@ -11,32 +11,50 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class registroActividades
-
+Partial Public Class administrarUsuarios
+    
     '''<summary>
-    '''Control txtBuscar.
+    '''Control lblMenu.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtBuscar As Global.System.Web.UI.WebControls.TextBox
-
+    Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
-    '''Control gridRegistros.
+    '''Control usuarios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridRegistros As Global.System.Web.UI.WebControls.GridView
-
+    Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
+    
     '''<summary>
-    '''Control btnRealizarCambios.
+    '''Control gridUsuarios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnRealizarCambios As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents gridUsuarios As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinUsuarios.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinUsuarios As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control btnCambioEstado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCambioEstado As Global.System.Web.UI.WebControls.Button
 End Class

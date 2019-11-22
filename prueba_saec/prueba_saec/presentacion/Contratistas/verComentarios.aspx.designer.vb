@@ -11,86 +11,68 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class ambiente
+Partial Public Class verComentarios
     
     '''<summary>
-    '''Control lblError.
+    '''Control lblTarjetaComentario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTarjetaComentario As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control form1.
+    '''Control lblPrueba.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents lblPrueba As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control dropTipo.
+    '''Control documentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipo As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control txtNombreEmpresa.
+    '''Control seccionIngresarComentario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreEmpresa As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents seccionIngresarComentario As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control txtEmail.
+    '''Control TxtAreaNuevoComentario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TxtAreaNuevoComentario As Global.System.Web.UI.HtmlControls.HtmlTextArea
     
     '''<summary>
-    '''Control txtLugar.
+    '''Control BtnVolver.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtLugar As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control txtDescripcion.
+    '''Control BtnAceptar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtDescripcion As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Control fileFoto1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents fileFoto1 As Global.System.Web.UI.WebControls.FileUpload
-    
-    '''<summary>
-    '''Control btnIngresar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnIngresar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents BtnAceptar As Global.System.Web.UI.WebControls.Button
 End Class

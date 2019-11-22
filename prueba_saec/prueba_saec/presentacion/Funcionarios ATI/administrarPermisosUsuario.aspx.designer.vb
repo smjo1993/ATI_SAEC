@@ -11,86 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class ambiente
+Partial Public Class administrarUsuario
     
     '''<summary>
-    '''Control lblError.
+    '''Control lblMenu.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control form1.
+    '''Control usuarios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control dropTipo.
+    '''Control lblNombreUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropTipo As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control txtNombreEmpresa.
+    '''Control gridPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombreEmpresa As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents gridPermisos As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control txtEmail.
+    '''Control sinPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents sinPermisos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control txtLugar.
+    '''Control btnPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtLugar As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Control txtDescripcion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtDescripcion As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''Control fileFoto1.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents fileFoto1 As Global.System.Web.UI.WebControls.FileUpload
-    
-    '''<summary>
-    '''Control btnIngresar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnIngresar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnPermisos As Global.System.Web.UI.WebControls.Button
 End Class

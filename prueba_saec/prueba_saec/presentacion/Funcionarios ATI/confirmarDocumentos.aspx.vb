@@ -6,6 +6,7 @@
             Return
         End If
         Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.rutUsuario
         Dim idCarpeta As Integer = decodificarId()
         'Dim areaRevisor = 2
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.areaUsuario)

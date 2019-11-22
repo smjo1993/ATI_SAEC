@@ -59,15 +59,6 @@ Partial Public Class iniciarCarpetaArranque
     Protected WithEvents txtFecha As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control btnCrearCarpeta.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnCrearCarpeta As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
     '''Control btnCrearEmpresa.
     '''</summary>
     '''<remarks>
@@ -84,4 +75,13 @@ Partial Public Class iniciarCarpetaArranque
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control btnCrearCarpeta.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCrearCarpeta As Global.System.Web.UI.WebControls.Button
 End Class

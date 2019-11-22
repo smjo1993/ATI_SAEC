@@ -157,12 +157,15 @@
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
+    <Content Include="presentacion\Contratistas\verComentarios.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
     <Content Include="presentacion\Empresa\modificarContratista.aspx" />
     <Content Include="presentacion\Empresa\modificarEmpresa.aspx" />
     <Content Include="presentacion\Empresa\verContratistas.aspx" />
     <Content Include="presentacion\Empresa\verEmpresas.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\administrarPermisosUsuario.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\administrarUsuarios.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
@@ -1880,6 +1883,13 @@
       <DependentUpon>verCarpetas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Contratistas\verComentarios.aspx.designer.vb">
+      <DependentUpon>verComentarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verComentarios.aspx.vb">
+      <DependentUpon>verComentarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">
       <DependentUpon>crearEmpresa.aspx</DependentUpon>
     </Compile>
@@ -1920,6 +1930,20 @@
     </Compile>
     <Compile Include="presentacion\Empresa\verEmpresas.aspx.vb">
       <DependentUpon>verEmpresas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\administrarPermisosUsuario.aspx.designer.vb">
+      <DependentUpon>administrarPermisosUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\administrarPermisosUsuario.aspx.vb">
+      <DependentUpon>administrarPermisosUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\administrarUsuarios.aspx.designer.vb">
+      <DependentUpon>administrarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\administrarUsuarios.aspx.vb">
+      <DependentUpon>administrarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\agregarDcto.aspx.designer.vb">

@@ -8,6 +8,7 @@ Public Class CrearListaDocumentacion
         sinDocTrabajador.Visible = False
         sinDocVehiculo.Visible = False
         lblMenu.Visible = False
+        lblNombreEmpresa.Visible = False
         If Not Page.IsPostBack Then
             validarUsuario()
             cargarMenu()
@@ -37,6 +38,11 @@ Public Class CrearListaDocumentacion
         Return idCarpeta
     End Function
     Private Sub cargarDatos()
+        lblNombreEmpresa.Visible = True
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(nombreCodificado)
+        Dim nombreDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        lblNombreEmpresa.Text = nombreDecodificado
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim documento As New clsDocumento
         Dim idCarpeta As Integer = decodificarId()
@@ -128,5 +134,7 @@ Public Class CrearListaDocumentacion
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
+        'Response.Redirect(Page.Request.Url.AbsoluteUri)
+        cargarMenu()
     End Sub
 End Class

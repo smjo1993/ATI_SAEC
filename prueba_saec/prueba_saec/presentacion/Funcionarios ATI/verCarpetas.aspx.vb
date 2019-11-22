@@ -51,6 +51,8 @@
                 Dim idCarpeta As String = fila("id")
                 Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))
                 Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
+                Dim razonCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("razonSocial"))
+                Dim razonCodificada As String = System.Convert.ToBase64String(razonCodificadaBase64)
 
                 tarjeta = tarjeta & "            <div Class=""row justify-content-center "">"
                 tarjeta = tarjeta & "   <div Class="" col-xl-8 col-md-6 mb-4""> "
@@ -72,12 +74,12 @@
                 tarjeta = tarjeta & "              </div> "
                 tarjeta = tarjeta & "             &nbsp;"
                 tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?i=" + idCodificada + """ class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
+                tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
                 tarjeta = tarjeta & "              </div> "
                 tarjeta = tarjeta & "              <div Class=""col-1""> "
                 tarjeta = tarjeta & "              </div> "
                 tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/confirmarDocumentos.aspx?i=" + idCodificada + """ class=""fas fa-comments fa-2x text-" + color + """></a>"
+                tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/confirmarDocumentos.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-comments fa-2x text-" + color + """></a>"
                 tarjeta = tarjeta & "              </div> "
                 tarjeta = tarjeta & "              <div Class=""col-1""> "
                 tarjeta = tarjeta & "              </div> "

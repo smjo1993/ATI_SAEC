@@ -127,12 +127,12 @@ Public Class clsContratista
         End Try
     End Function
 
-    Public Function validarContratista(contratista As String) As DataTable
+    Public Function validarContratista(login As String) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
 
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ValidarContratista '" & contratista & "'"
+            Dim sql As String = "SP_SAEC_ValidarContratista '" & login & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
