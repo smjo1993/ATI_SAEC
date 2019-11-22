@@ -19,19 +19,19 @@ Public Class Login
 
     Protected Sub btLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-        Dim usuario As String = txtUsuario.Text
+        Dim login As String = txtUsuario.Text
         Dim contrasenia As String = txtContrasenia.Text
 
-        RedireccionUsuario(usuario, contrasenia)
+        RedireccionUsuario(login, contrasenia)
     End Sub
 
-    Public Sub RedireccionUsuario(usuario As String, contrasenia As String)
+    Public Sub RedireccionUsuario(login As String, contrasenia As String)
 
         Dim alerta As New clsAlertas
 
         Dim clsUsuarioATI As New clsUsuario
 
-        Dim usuarioAti As DataTable = clsUsuarioATI.buscarUsuarioAti(usuario)
+        Dim usuarioAti As DataTable = clsUsuarioATI.validarUsuarioAti(login)
         If (usuarioAti Is Nothing) Then
             lblMensaje.Text = alerta.alerta("ALERTA", "ERROR CON EL SERVIDOR")
         Else
@@ -42,7 +42,7 @@ Public Class Login
                 If (estado = "A" Or estado = "a") Then 'USUARIO ES DE ATI Y SU CUENTA ESTA ACTIVA DENTRO DE LOS SISTEMAS
 
                     Dim clsUsuarioSAEC As New clsUsuarioSAEC
-                    Dim usuarioSAEC As DataTable = clsUsuarioSAEC.buscarUsuarioSAEC(usuario)
+                    Dim usuarioSAEC As DataTable = clsUsuarioSAEC.validarUsuarioSAEC(login)
 
                     If (usuarioSAEC Is Nothing) Then
                         lblMensaje.Text = alerta.alerta("ALERTA", "ERROR CON EL SERVIDOR")
@@ -112,7 +112,7 @@ Public Class Login
 
                 Dim clsContratista As New clsContratista
 
-                contratista = clsContratista.validarContratista(usuario)
+                contratista = clsContratista.validarContratista(login)
 
                 If (contratista Is Nothing) Then
                     lblMensaje.Text = alerta.alerta("ALERTA", "ERROR CON EL SERVIDOR")
