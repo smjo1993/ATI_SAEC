@@ -29,7 +29,6 @@ Public Class clsComentario
     'End Sub
 
     Public Function insertarComentario(rutAutor As String,
-                                      fecha As Date,
                                       texto As String,
                                       areaId As Integer,
                                       documentoId As Integer,
@@ -41,7 +40,7 @@ Public Class clsComentario
 
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_InsertarComentario '" & rutAutor & "' , '" & fecha & "' , '" & texto & "' , '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "'"
+            Dim sql As String = "SP_SAEC_InsertarComentario '" & rutAutor & "' , '" & texto & "' , '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -63,4 +62,27 @@ Public Class clsComentario
         End Try
 
     End Function
+
+    Public Function obtenerComentarios(areaId As Integer,
+                                      documentoId As Integer,
+                                      carpetaArranqueId As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarComentarios '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarComentarios")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
 End Class

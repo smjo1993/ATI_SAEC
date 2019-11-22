@@ -90,14 +90,14 @@ Public Class clsUsuarioSAEC
             Me.area = Value
         End Set
     End Property
-    Public Function buscarUsuarioSAEC(usuario As String) As DataTable
+    Public Function buscarUsuarioSAEC(rut As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
 
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ValidarUsuarioSAEC '" & usuario & "'"
+            Dim sql As String = "SP_SAEC_ValidarUsuarioSAEC '" & rut & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -135,6 +135,28 @@ Public Class clsUsuarioSAEC
             Next row
 
             Return roles
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    'Método que, según un rut, devuelve el rol que ejerce la persona con dicho rut.
+    Public Function obtenerNombreRol(rut As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ObtenerNombreRol '" & rut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ObtenerNombreRol")
+            Return ds.Tables(0)
         Catch ex As Exception
             Return Nothing
         Finally
