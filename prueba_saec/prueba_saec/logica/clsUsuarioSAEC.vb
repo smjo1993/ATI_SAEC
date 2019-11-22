@@ -90,14 +90,14 @@ Public Class clsUsuarioSAEC
             Me.area = Value
         End Set
     End Property
-    Public Function buscarUsuarioSAEC(usuario As String) As DataTable
+    Public Function validarUsuarioSAEC(login As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
 
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ValidarUsuarioSAEC '" & usuario & "'"
+            Dim sql As String = "SP_SAEC_ValidarUsuarioSAEC '" & login & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -143,4 +143,66 @@ Public Class clsUsuarioSAEC
         End Try
     End Function
 
+    Public Function listarUsuarios() As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarUsuarios "
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function cambiarEstadoCuentaUsuario(rut As String, estado As Char) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_CambiarEstadoCuentaUsuario '" & rut & "','" & estado & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "CambiarEstadoCuentaUsuario")
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function obtenerPermisos(rut As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarPermisos '" & rut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarPermisos")
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class

@@ -1,13 +1,13 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Public Class clsUsuario
-    Public Function buscarUsuarioAti(usuario As String) As DataTable
+    Public Function validarUsuarioAti(login As String) As DataTable
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
 
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ValidarUsuarioATI '" & usuario & "'"
+            Dim sql As String = "SP_SAEC_ValidarUsuarioATI '" & login & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

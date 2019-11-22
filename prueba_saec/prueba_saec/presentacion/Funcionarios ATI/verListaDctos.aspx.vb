@@ -5,10 +5,6 @@
         If IsPostBack Then
             Return
         End If
-        validarUsuario()
-    End Sub
-
-    Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
 

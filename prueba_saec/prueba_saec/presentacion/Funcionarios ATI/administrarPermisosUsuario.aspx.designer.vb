@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class iniciarCarpetaArranque
+Partial Public Class administrarUsuario
     
     '''<summary>
     '''Control lblMenu.
@@ -23,65 +23,47 @@ Partial Public Class iniciarCarpetaArranque
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblEmpresa.
+    '''Control usuarios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblEmpresa As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control dropEmpresas.
+    '''Control lblNombreUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents dropEmpresas As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblFechaExpiracion.
+    '''Control gridPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblFechaExpiracion As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gridPermisos As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control txtFecha.
+    '''Control sinPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtFecha As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents sinPermisos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control btnCrearEmpresa.
+    '''Control btnPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnCrearEmpresa As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''Control lblMensaje.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Control btnCrearCarpeta.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnCrearCarpeta As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnPermisos As Global.System.Web.UI.WebControls.Button
 End Class
