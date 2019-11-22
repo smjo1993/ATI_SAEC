@@ -6,8 +6,31 @@
         If IsPostBack Then
             Return
         End If
+        validarContratista()
+        cargarMenu()
+        cargarGrid()
+    End Sub
 
-        Dim rutContratista As String = "8660229"
+    Protected Sub validarContratista()
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        End If
+    End Sub
+
+    Protected Sub cargarMenu()
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        Dim rutContratista As String = contratista.rutContratista
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioContratista(rutContratista)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
+
+    Protected Sub cargarGrid()
+
+        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
@@ -39,12 +62,7 @@
         '    'chkDocumentos.Items.Add(item)
         '    '----
         'Next
-
-
-
-
     End Sub
-
     Public Function switchDocumentos(id As Integer) As String
 
         Dim seleccion As String = ""

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="modificarDcto.aspx.vb" Inherits="prueba_saec.modificarDcto" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="registroActividades.aspx.vb" Inherits="prueba_saec.registroActividades" %>
 
 <!DOCTYPE html>
 
@@ -6,9 +6,9 @@
 
 <head runat="server">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Edición de Documento</title>
+    <title>Registro de Actividades SAEC</title>
 
     <!-- Custom fonts for this template-->
     <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,6 +27,24 @@
     <!-- Custom scripts for all pages-->
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/js/sb-admin-2.min.js"></script>
 
+    <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>--%>
+
+    <!-- Page level plugins -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/js/demo/datatables-demo.js"></script>
+
+    <!-- Custom script y para tablas -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
+    <%--Custom script para Checkbox--%>
+    <link href="../../css/checkbox.css" rel="stylesheet" />
+
 </head>
 
 <body id="page-top">
@@ -38,14 +56,112 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SAEC</div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
 
-            <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <a class="collapse-item" href="cards.html">Cards</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Utilities</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item active" href="blank.html">Elemento Lista</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
         </ul>
         <!-- End of Sidebar -->
 
@@ -238,159 +354,89 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
+                    
 
                     <form runat="server">
-
-                        <%--<div class="card shadow mb-4">
+                        <div class="card shadow mb-4">
 
                             <div class="card-header py-3">
-                                <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
+
+                                <div class="row">
+                                    <div class="col-6">
+
+
+                                   <%-- <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
+
+
+                                    <script>var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+                                    </script>--%>
+                                <h4 class="m-0 font-weight text-primary">Registro de Actividades SAEC</h4>
+                                        
+                                 </div>
+                                <div class="col-6 ">
+                                    <%--<asp:Button
+                                        ID="Button1"
+                                        runat="server"
+                                        class="btn btn-success btn-user"
+                                        style="float: right;"
+                                        Text="Nuevo Documento" />--%>
+
+                                    <%--<a href="agregarDcto.aspx" class="btn btn-success btn-user" style="float: right;">
+                                        Nuevo Documento
+                                                        
+                                                    </a>--%>
+                                </div>
+                                </div>
                             </div>
 
                             <div class="card-body">
 
-                                <div class="row">
+                                <div class="table-responsive">
 
-                                    <div class="col-sm-4">
-                                        <label id="lblAreaDocumentoEdicion" class="col-12">Área:</label>
-                                    </div>
+                                    <br />
 
-                                    <div class="col-6 my-auto">
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            Style="height: 30px; padding: 0px"
-                                            ID="dropAreas"
-                                            runat="server">
-                                        </asp:DropDownList>
-                                    </div>
+                                    <asp:GridView ID="gridRegistros"
+                                        runat="server"
+                                        AutoGenerateColumns="False"
+                                        AllowPaging="true"
+                                        OnPageIndexChanging="gridRegistros_PageIndexChanging"
+                                        class="table table-bordered dataTable"
+                                        Width="100%"
+                                        CellSpacing="0"
+                                        role="grid"
+                                        aria-describedby="dataTable_info"
+                                        Style="width: 100%;">
+
+                                        <Columns>
+                                           <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                                            <asp:BoundField DataField="Actividad" HeaderText="Actividad" />
+                                            <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
+                                            <asp:BoundField DataField="Rol" HeaderText="Rol" />
+                                        </Columns>
+                                    </asp:GridView>
+
+
                                 </div>
-
-                                <br />
-                                <br />
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                        <label id="lblidDocumentoEdicion" class="col-12">Documento:</label>
-                                    </div>
-
-                                    <div class="col-6">
-
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            ID="dropDocumentos"
-                                            Style="height: 30px; padding: 0px;"
-                                            runat="server">
-                                        </asp:DropDownList>
-
-                                    </div>
-                                </div>
-
                             </div>
-                        </div>--%>
+                            <%--card body--%>
 
+                            <%--<div class="card-footer">
 
-
-
-
-                        <div>
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3" id="CardEdicionDocumento" runat="server">
-                                    <h4 class="m-0 font-weight text-primary">
-                                        <asp:Label ID="lblHeadEdicion" runat="server" Text="Edición"></asp:Label>
-
-                                    </h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <label id="lblNombreDocumentoEdicion" class="col-12">Nombre:</label>
-                                        </div>
-                                        <div class="col-6">
-
-                                            <asp:TextBox ID="TxtNombreDocumentoEdicion"
-                                                runat="server"
-                                                Style="height: 30px"
-                                                Class="form-control bg-light small col-12">
-                                            </asp:TextBox>
-
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <label id="lblTipoDocumento" class="col-12">Tipo:</label>
-                                        </div>
-                                        <div class="col-6">
-
-                                            <asp:DropDownList
-                                                class="btn bg-light dropdown-toggle col-12"
-                                                ID="dropTipoNuevoDocumento"
-                                                Style="height: 30px; padding: 0px"
-                                                runat="server">
-
-                                                <asp:ListItem Selected="True" Value=""></asp:ListItem>
-                                                <asp:ListItem Value="Empresa"> Empresa </asp:ListItem>
-                                                <asp:ListItem Value="Vehiculo"> Vehículo </asp:ListItem>
-                                                <asp:ListItem Value="Trabajador"> Trabajador </asp:ListItem>
-
-                                            </asp:DropDownList>
-
-                                        </div>
-                                    </div>
-
-
-                                    <%-- <div class="row">
-                                        <div class="col-sm-4">
-                                            <label id="lblArea" class="col-12">Área(s):</label>
-                                        </div>
-                                        <div class="col-6">
-                                            <asp:CheckBoxList
-                                                ID="chkListaAreasEdicion"
-                                                class="custom-checkbox"
-                                                RepeatDirection="Vertical"
-                                                RepeatLayout="Flow"
-                                                TextAlign="Right"
-                                                runat="server">
-                                            </asp:CheckBoxList>
-                                        </div>
-                                    </div>--%>
-
-                                    <br />
-                                    <br />
-
-
-                                    <div class="row">
-                                        <div>
-                                            <p>
-                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-footer">
-
-                                    <div class="col-10">
-
-                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver</a>
+                                    <div class="row" style="float: right;">
 
                                         <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
-                                            data-target="#modalConfirmacion" />
+                                        data-target="#modalConfirmacion" />
 
                                     </div>
 
-                                </div>
-
-
-                            </div>
+                                </div>--%>
                         </div>
+                        <%--card shadow--%>
 
-                        <!--Modal-->
+
+
+                        <!-- Modal-->
                         <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -400,7 +446,7 @@
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">¿Desea confirmar los cambios al Documento?</div>
+                                    <div class="modal-body">¿Desea confirmar los cambios a la lista de Documentos?</div>
 
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -408,11 +454,7 @@
                                             ID="btnRealizarCambios"
                                             runat="server"
                                             class="btn btn-success btn-user"
-                                            data-toggle="modal"
-                                            data-target="#modalConfirmacion"
                                             Text="Aceptar" />
-
-                                        
                                     </div>
                                 </div>
                             </div>

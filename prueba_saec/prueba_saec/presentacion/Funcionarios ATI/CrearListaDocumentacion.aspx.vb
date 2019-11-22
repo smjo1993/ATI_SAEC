@@ -7,8 +7,10 @@ Public Class CrearListaDocumentacion
         sinDocEmpresa.Visible = False
         sinDocTrabajador.Visible = False
         sinDocVehiculo.Visible = False
+        lblMenu.Visible = False
         If Not Page.IsPostBack Then
             validarUsuario()
+            cargarMenu()
             cargarDatos()
         End If
     End Sub
@@ -18,7 +20,15 @@ Public Class CrearListaDocumentacion
             Response.Redirect("../login.aspx")
         End If
     End Sub
-
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.rutUsuario
+        Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiCarpeta(rutUsuario, idCarpeta)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
     Protected Function decodificarId() As Integer
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim data() As Byte = System.Convert.FromBase64String(idCodificada)

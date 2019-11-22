@@ -5,12 +5,12 @@
         If IsPostBack Then
             Return
         End If
-
-        Dim idCarpeta = 113
-        Dim areaRevisor = 2
-        Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, areaRevisor)
-        Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaTrabajador(idCarpeta, areaRevisor)
-        Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaVehiculo(idCarpeta, areaRevisor)
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim idCarpeta As Integer = decodificarId()
+        'Dim areaRevisor = 2
+        Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.areaUsuario)
+        Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaTrabajador(idCarpeta, usuario.areaUsuario)
+        Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaVehiculo(idCarpeta, usuario.areaUsuario)
 
         confirmarEmpresa.DataSource = TablaDocumentosEsperaEmpresa
         confirmarTrabajador.DataSource = TablaDocumentosEsperaTrabajador
@@ -20,6 +20,14 @@
         confirmarTrabajador.DataBind()
         confirmarVehiculo.DataBind()
     End Sub
+    Protected Function decodificarId() As Integer
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(idCodificada)
+        Dim idDecodificada As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim idCarpeta As Integer = Convert.ToInt32(idDecodificada)
+        Return idCarpeta
+    End Function
+
     Public Function crearDocumentos() As Object
 
         Dim documentosEspera = New clsDocumento()
