@@ -33,34 +33,56 @@ Public Class verComentarios
         ' Ciclo for que recorre la lista de comentarios 
         For Each fila As DataRow In listaComentarios.Rows
 
+            If fila("rutAutor") = rutUsuario Then
+                tarjeta = tarjeta & "  <div class=""row"">"
+                tarjeta = tarjeta & "   <div class=""col-2""></div>"
+                tarjeta = tarjeta & "   <div class=""col-10"">"
+                tarjeta = tarjeta & "    <div Class=""card shadow mb-4""> "
+                Dim nombre As String
+                nombre = obtenerNombreAutor(fila("rutAutor"))
+                Dim rol As String
+                rol = obtenerRolAutor(fila("rutAutor"))
+                tarjeta = tarjeta & "         <div Class=""card-header"">"
+                tarjeta = tarjeta & "           <div class=""row"">"
+                tarjeta = tarjeta & "               <div class=""m-0 font-weight-bold text-primary col-6"" >" + nombre + "/" + rol + "</div>"
+                tarjeta = tarjeta & "               <p class=""d-none d-lg-inline text-grey-600 small col-6 text-right"" >" + fila("fecha") + "</p>"
+                tarjeta = tarjeta & "           </div>"
+                tarjeta = tarjeta & "         </div>"
+                tarjeta = tarjeta & "         <div Class=""card-body"">"
+                Dim mensaje As String
+                mensaje = fila("texto")
+                tarjeta = tarjeta & "           <div>" + mensaje + "</div>"
+                tarjeta = tarjeta & "         </div> "
+                tarjeta = tarjeta & "      </div> "
+                tarjeta = tarjeta & "     </div> "
+                tarjeta = tarjeta & "    </div> "
+
+                lblTarjetaComentario.Text = tarjeta
+            Else
+                tarjeta = tarjeta & "  <div class=""col-10"">"
+                tarjeta = tarjeta & "   <div Class=""card shadow mb-4""> "
+                Dim nombre As String
+                nombre = obtenerNombreAutor(fila("rutAutor"))
+                Dim rol As String
+                rol = obtenerRolAutor(fila("rutAutor"))
+                tarjeta = tarjeta & "         <div Class=""card-header"">"
+                tarjeta = tarjeta & "           <div class=""row"">"
+                tarjeta = tarjeta & "               <div class=""m-0 font-weight-bold text-primary col-6"" >" + nombre + "/" + rol + "</div>"
+                tarjeta = tarjeta & "               <p class=""d-none d-lg-inline text-grey-600 small col-6 text-right"" >" + fila("fecha") + "</p>"
+                tarjeta = tarjeta & "           </div>"
+                tarjeta = tarjeta & "         </div>"
+                tarjeta = tarjeta & "           <div Class=""card-body"">"
+                Dim mensaje As String
+                mensaje = fila("texto")
+                tarjeta = tarjeta & "                     <div>" + mensaje + "</div>"
+                tarjeta = tarjeta & "        </div> "
+                tarjeta = tarjeta & "      </div> "
+                tarjeta = tarjeta & "     </div> "
+
+                lblTarjetaComentario.Text = tarjeta
+            End If
 
 
-            '    Dim porcentaje As String = Empresas.calcularPorcentaje(fila("rut"))
-            '    Dim estado As Boolean = Empresas.ObtenerEstado(Session("usuario").areaUsuario(), fila("rut"))
-            '    color = obtenerColor(estado, porcentaje)
-            '    Dim idCarpeta As String = fila("id")
-
-            tarjeta = tarjeta & "  <div class=""col-10"">"
-            tarjeta = tarjeta & "   <div Class=""card shadow mb-4""> "
-            Dim nombre As String
-            nombre = obtenerNombreAutor(fila("rutAutor"))
-            Dim rol As String
-            rol = obtenerRolAutor(fila("rutAutor"))
-            tarjeta = tarjeta & "         <div Class=""card-header bg-secondary"">"
-            tarjeta = tarjeta & "           <div class=""row"">"
-            tarjeta = tarjeta & "               <div class=""m-0 font-weight-bold text-primary col-6"" >" + nombre + "/" + rol + "</div>"
-            tarjeta = tarjeta & "               <p class=""d-none d-lg-inline text-grey-600 small col-6 text-right"" >" + fila("fecha") + "</p>"
-            tarjeta = tarjeta & "           </div>"
-            tarjeta = tarjeta & "         </div>"
-            tarjeta = tarjeta & "           <div Class=""card-body"">"
-            Dim mensaje As String
-            mensaje = fila("texto")
-            tarjeta = tarjeta & "                     <div>" + mensaje + "</div>"
-            tarjeta = tarjeta & "        </div> "
-            tarjeta = tarjeta & "      </div> "
-            tarjeta = tarjeta & "     </div> "
-
-            lblTarjetaComentario.Text = tarjeta
 
         Next
 

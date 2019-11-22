@@ -6,6 +6,7 @@
             Return
         End If
         Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.rutUsuario
         Dim idCarpeta As Integer = decodificarId()
         'Dim areaRevisor = 2
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.areaUsuario)
@@ -116,8 +117,10 @@
             Session("areaId") = areaId
             Session("docuemntoId") = docuemntoId
             Session("carpetaId") = carpetaId
-            Session("origen") = "confirmarDocumentos.aspx"
-            Response.Redirect("verComentarios.aspx")
+
+            Session("origen") = HttpContext.Current.Request.Url.ToString()
+            'Session("origen") = "../Funcionarios ATI/confirmarDocumentos.aspx"
+            Response.Redirect("../Contratistas/verComentarios.aspx")
         End If
 
 

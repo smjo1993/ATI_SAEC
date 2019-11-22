@@ -31,6 +31,7 @@
     Protected Sub cargarGrid()
 
         Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
+        Session("rutUsuario") = Session("contratistaEntrante").rutContratista()
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
