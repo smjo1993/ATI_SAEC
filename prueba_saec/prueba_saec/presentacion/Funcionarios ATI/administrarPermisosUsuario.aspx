@@ -1,6 +1,7 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="iniciarCarpetaArranque.aspx.vb" Inherits="prueba_saec.iniciarCarpetaArranque" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="administrarPermisosUsuario.aspx.vb" Inherits="prueba_saec.administrarUsuario" %>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head runat="server">
@@ -19,7 +20,12 @@
 
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="../../css/checkbox.css" rel="stylesheet">
+    <style type="text/css">
+        .auto-style1 {
+            width: 984px;
+        }
+    </style>
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
@@ -35,21 +41,21 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
 
+            <!-- Divider -->
+
             <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
 
         </ul>
         <!-- End of Sidebar -->
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
 
@@ -59,8 +65,8 @@
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
                     <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>--%>
+                        <i class="fa fa-bars"></i>
+                    </button>--%>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -120,8 +126,8 @@
                         </li>
 
                         <!-- Nav Item - Messages -->
-
-                        <%--<div class="topbar-divider d-none d-sm-block"></div>--%>
+                        <%--
+                        <div class="topbar-divider d-none d-sm-block"></div>--%>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -151,102 +157,106 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <form id="usuarios" runat="server">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Iniciar Carpeta de Arranque</h6>
-                        </div>
-                        <div class="card-body">
-                            <form runat="server">
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-4">
-                                        <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
-                                    </div>
-                                    <div class="col-4">
-                                        <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
-                                    </div>
-                                    <div class="col-1"></div>
+
+
+                            <div>
+                                <div class="card-header py-3">
+                                    <h5 class="m-0 font-weight-bold text-primary">
+                                        <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></h5>
                                 </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-4">
-                                        <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
-                                    </div>
-                                    <div class="col-4">
-                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
-                                    </div>
-                                    <div class="col-1"></div>
-                                </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-3">
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-primary col-lg btn-user btn-block" value="Crear Carpeta" data-toggle="modal"
-                                            data-target="#modalConfirmacion" />
-                                        <%--                                        <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />--%>
-                                    </div>
-                                    <p class="col-1"></p>
-                                    <div class="col-lg-3">
-                                        <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
-                                    </div>
-                                    <div class="col-lg-3"></div>
-                                </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-lg-4"></div>
-                                    <div class="col-lg-4">
-                                        <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
-                                    </div>
-                                    <div class="col-lg-4"></div>
-                                </div>
+                                <div class="card-body">
+                                    <div>
 
+                                        <asp:GridView ID="gridPermisos" runat="server"
+                                            AutoGenerateColumns="False"
+                                            class="table table-bordered dataTable"
+                                            Width="100%"
+                                            CellSpacing="0"
+                                            role="grid"
+                                            aria-describedby="dataTable_info"
+                                            Style="width: 100%;">
+                                            <Columns>
+                                                <asp:BoundField DataField="opcion" HeaderText="Opcion" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                                <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:TemplateField HeaderText="Estado">
+                                                    <ItemTemplate>
+                                                        <itemstyle width="10px" />
+                                                        <label class="switch ">
+                                                            <input runat="server" id="chkEstado" type="checkbox" class="default" />
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+                                                <asp:BoundField DataField="opcionPadre" HeaderText="Padre" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="hijos" HeaderText="Hijo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            </Columns>
+                                        </asp:GridView>
 
-
-
-                                <!--Modal-->
-                                <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
-                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">¿Esta seguro de crear esta Carpeta de Arranque?</div>
-
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-
-                                                <%--                                                <asp:Button ID="btnPedirDocumento" class="btn btn-success btn-user" runat="server" Text="Aceptar" />--%>
-                                                <asp:Button ID="btnCrearCarpeta" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
-                                            </div>
+                                        <div runat="server" id="sinPermisos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Usuario sin permisos en el sistema</h1>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-4"></div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Cambiar estado de los Permisos" data-toggle="modal"
+                                                        data-target="#modalConfirmacion" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4"></div>
+                                        </div>
+
                                     </div>
                                 </div>
-
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
+                        <!--Modal-->
+                        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">¿Desea confirmar el acceso a los permisos seleccionados?</div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+
+                                        <asp:Button ID="btnPermisos" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

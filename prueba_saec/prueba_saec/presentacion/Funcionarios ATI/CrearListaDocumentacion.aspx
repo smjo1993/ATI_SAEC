@@ -164,7 +164,8 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Solicitar Documentos</h5>
+                            <h5 class="m-0 font-weight-bold text-primary">Solicitar Documentos:
+                                <asp:Label ID="lblNombreEmpresa" runat="server" Text=""></asp:Label></h5>
                         </div>
                         <div class="card-body">
 
@@ -279,12 +280,38 @@
                                     <div class="col-4"></div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <asp:Button ID="btnPedirDocumento" class="btn btn-primary btn-user btn-block" runat="server" Text="Pedir Documentos" />
+                                                                                        <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Pedir Documentos" data-toggle="modal"
+                                                data-target="#modalConfirmacion" />
+<%--                                            <asp:Button ID="btnPedirDocumento" class="btn btn-success btn-user" runat="server" Text="Pedir Documentos" />--%>
                                         </div>
                                     </div>
                                     <div class="col-4"></div>
                                 </div>
 
+
+
+
+                                <!--Modal-->
+                                                               <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">¿Desea confirmar la lista de Documento?</div>
+
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+     
+                                                <asp:Button ID="btnPedirDocumento" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
