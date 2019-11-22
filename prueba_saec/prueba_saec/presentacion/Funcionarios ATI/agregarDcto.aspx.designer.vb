@@ -23,7 +23,7 @@ Partial Public Class agregarDcto
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control txtNombreDocumento.
+    '''Control CardNuevoDocumento.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
