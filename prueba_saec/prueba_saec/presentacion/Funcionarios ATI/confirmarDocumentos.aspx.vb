@@ -104,4 +104,22 @@
 
         Next
     End Sub
+
+    Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarEmpresa.RowCommand
+
+        If (e.CommandName = "Ver") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = "confirmarDocumentos.aspx"
+            Response.Redirect("verComentarios.aspx")
+        End If
+
+
+    End Sub
 End Class
