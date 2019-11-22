@@ -8,6 +8,7 @@
         End If
 
         Dim rutContratista As String = "8660229"
+        Session("rutUsuario") = rutContratista
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
@@ -172,6 +173,24 @@
         '    End If
 
         'Next
+
+    End Sub
+
+    Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles documentosEmpresa.RowCommand
+
+        If (e.CommandName = "Ver") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = documentosEmpresa.Rows(pos).Cells(4).Text
+            Dim docuemntoId As String = documentosEmpresa.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = documentosEmpresa.Rows(pos).Cells(2).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = "revisarRequerimientos.aspx"
+            Response.Redirect("verComentarios.aspx")
+        End If
+
 
     End Sub
 

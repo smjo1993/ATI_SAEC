@@ -52,10 +52,11 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
+
                                             <asp:TemplateField HeaderText="COMENTARIOS">
 
                                                 <ItemTemplate>
-                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                                                    <asp:Button ID="btnComentario" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
                                                 </ItemTemplate>
 
                                             </asp:TemplateField>
