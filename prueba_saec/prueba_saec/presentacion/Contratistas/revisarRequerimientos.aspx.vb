@@ -6,9 +6,31 @@
         If IsPostBack Then
             Return
         End If
+        validarContratista()
+        cargarMenu()
+        cargarGrid()
+    End Sub
 
-        Dim rutContratista As String = "8660229"
-        Session("rutUsuario") = rutContratista
+    Protected Sub validarContratista()
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        End If
+    End Sub
+
+    Protected Sub cargarMenu()
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        Dim rutContratista As String = contratista.rutContratista
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioContratista(rutContratista)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
+
+    Protected Sub cargarGrid()
+
+        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)
@@ -40,12 +62,7 @@
         '    'chkDocumentos.Items.Add(item)
         '    '----
         'Next
-
-
-
-
     End Sub
-
     Public Function switchDocumentos(id As Integer) As String
 
         Dim seleccion As String = ""
@@ -70,7 +87,7 @@
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles confirmarPinponeo.Click
 
-        Dim contador As Integer = 0
+
         Dim dt As DataTable = New DataTable("CambioEstado")
 
         'Se recorre cada checkbox generado 
@@ -87,10 +104,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
 
         Next
@@ -108,10 +125,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
         Next
 
@@ -128,10 +145,10 @@
             'Si está check
             If check.Checked Then
                 'Cambia el estado del documento a "aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "aplica", Nothing)
             Else
                 'Cambia el estado del documento a "no aplica"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica")
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no aplica", Nothing)
             End If
 
         Next

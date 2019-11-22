@@ -136,7 +136,7 @@ Public Class Login
                                                                               contratista.Rows(0)("correo").ToString)
 
                                 Session("contratistaEntrante") = contratistaEntrante
-                                Response.Redirect("Contratistas/menuContratista.aspx")
+                                Response.Redirect("Contratistas/verCarpetas.aspx")
                                 txtUsuario.Text = ""
                             Else 'CONTRATISTA INACTIVO
                                 lblMensaje.Text = alerta.alerta("ALERTA", "CONTRATISTA INACTIVO EN EL SISTEMA")

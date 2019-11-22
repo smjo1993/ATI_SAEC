@@ -5,6 +5,7 @@
         If Not Page.IsPostBack Then
             lblMensaje.Text = ""
             validarUsuario()
+            cargarMenu()
             cargarDatos()
         End If
     End Sub
@@ -14,6 +15,17 @@
             Response.Redirect("../login.aspx")
         End If
     End Sub
+
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.rutUsuario
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
+
     Protected Sub cargarDatos()
         Dim newListItem = New ListItem("seleccione un item", "-1")
         dropEmpresas.Items.Add(newListItem)

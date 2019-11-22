@@ -2,15 +2,50 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If IsPostBack Then
-            Return
+        If Not IsPostBack Then
+            validarUsuario()
         End If
-        'If (Not clsUsuario.ValidaAccesoForm(Session("Usuario"), Request.Url.Segments(Request.Url.Segments.Length - 1))) Then
-        '    Response.Redirect("AccesoDenegado.aspx")
-        'End If
+
+    End Sub
+
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+
+        listaRoles = Session("roles")
+
+        If (usuario Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+
+            For Each rol As clsRol In listaRoles
+
+                If rol.descripcionRol.ToString <> "super-admin" Then
+
+                    Response.Redirect("../login.aspx")
+
+                Else
+
+                    cargarGrid()
+
+                End If
+
+            Next
+
+        End If
+        cargarMenu()
         cargarGrid()
     End Sub
 
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.rutUsuario
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
     Private Sub cargarGrid()
         Dim documento As New clsDocumento
         Try
