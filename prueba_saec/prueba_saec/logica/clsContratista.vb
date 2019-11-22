@@ -276,21 +276,6 @@ Public Class clsContratista
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
             Dim documentosPendientes As Integer = ds.Tables(0).Rows.Count
-            Dim totalDocumentos As Integer = ds.Tables(2).Rows(0).Item(0)
-            Dim tablaDocumentos As DataTable = ds.Tables(1)
-            Dim contadorInactivos As Integer
-
-            For Each fila As DataRow In tablaDocumentos.Rows
-                'cuenta los los documentos que estan inactivos
-                If fila("estado") = "inactivo" Then
-                    contadorInactivos += 1
-                End If
-            Next
-
-            'Si todos los documentos estan inactivos mostrar color rojo
-            If totalDocumentos <> 0 And contadorInactivos = totalDocumentos Then
-                Return True
-            End If
 
             'Si el revisor tiene un documento pendiente mostrar color rojo
             If documentosPendientes > 0 Then
