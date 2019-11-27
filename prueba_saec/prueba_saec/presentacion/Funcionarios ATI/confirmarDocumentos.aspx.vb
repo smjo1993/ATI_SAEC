@@ -6,6 +6,7 @@
             Return
         End If
         Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.rutUsuario
         Dim idCarpeta As Integer = decodificarId()
         'Dim areaRevisor = 2
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.areaUsuario)
@@ -58,7 +59,7 @@
                 actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente", Nothing)
             Else
                 'Cambia el estado del documento a "no solicitado"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "espera", Nothing)
             End If
 
         Next
@@ -79,7 +80,7 @@
                 actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente", Nothing)
             Else
                 'Cambia el estado del documento a "no solicitado"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "espera", Nothing)
             End If
         Next
 
@@ -99,7 +100,7 @@
                 actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "pendiente", Nothing)
             Else
                 'Cambia el estado del documento a "no solicitado"
-                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
+                actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "espera", Nothing)
             End If
 
         Next
@@ -107,19 +108,57 @@
 
     Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarEmpresa.RowCommand
 
-        If (e.CommandName = "Ver") Then
+        If (e.CommandName = "eliminar") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
-            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
-            Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
-            Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
-            Session("carpetaId") = carpetaId
-            Session("origen") = "confirmarDocumentos.aspx"
-            Response.Redirect("verComentarios.aspx")
+            Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Dim idDocumento As Integer = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim idArea As Integer = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim actualizarEstado = New clsDocumento()
+
+            actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
         End If
 
 
     End Sub
+
+
+    Protected Sub confirmarTrabajador_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarTrabajador.RowCommand
+
+        If (e.CommandName = "eliminar") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Dim idDocumento As Integer = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim idArea As Integer = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim actualizarEstado = New clsDocumento()
+
+            actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
+
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+        End If
+
+
+    End Sub
+    Protected Sub confirmarconfirmarVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarVehiculo.RowCommand
+
+        If (e.CommandName = "Ver") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Dim idDocumento As Integer = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim idArea As Integer = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim actualizarEstado = New clsDocumento()
+
+            actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
+
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+        End If
+
+
+    End Sub
+
 End Class
