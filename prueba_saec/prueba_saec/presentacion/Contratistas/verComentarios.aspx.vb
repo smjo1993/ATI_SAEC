@@ -144,7 +144,7 @@ Public Class verComentarios
             nombre = dr("nombre")
             Return nombre
         Else
-            dt = usuarioSaec.buscarUsuarioSAEC(rut)
+            dt = usuarioSaec.validarUsuarioSAEC(rut)
             If dt.Rows.Count > 0 Then
                 dr = dt.Rows.Item(0)
                 nombre = dr("nombre")
@@ -166,7 +166,7 @@ Public Class verComentarios
             rol = "Contratista"
             Return rol
         Else
-            dt = usuarioSaec.buscarUsuarioSAEC(rut)
+            dt = usuarioSaec.validarUsuarioSAEC(rut)
             If dt.Rows.Count > 0 Then
                 dt = usuarioSaec.obtenerNombreRol(rut)
                 dr = dt.Rows.Item(0)
