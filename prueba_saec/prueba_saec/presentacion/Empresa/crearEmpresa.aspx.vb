@@ -37,15 +37,24 @@ Public Class crearEmpresa
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim empresa As New clsEmpresa
         Dim insercion As New Boolean
-        If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "" Or dropContratistas.SelectedItem.Text.Trim() = "") Then
-            lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
+        Dim existe As DataTable
+        existe = empresa.obtenerEmpresa(TxtRut.Text.Trim())
+        If existe.Rows.Count > 0 Then
+            If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "" Or dropContratistas.SelectedItem.Text.Trim() = "") Then
+                lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
+            Else
+                insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
+                asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
+                lblAdvertencia.Text = "Empresa creada con éxito."
+                limpiarCampos()
+                cargarDatos()
+            End If
         Else
-            insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
-            asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
-            lblAdvertencia.Text = "Empresa creada con éxito."
-            limpiarCampos()
-            cargarDatos()
+            lblAdvertencia.Text = "Rut de Empresa ya ingresado. Por favor verifíquelo."
         End If
+
+
+
     End Sub
 
     Public Sub asignarContratista(rut As String)

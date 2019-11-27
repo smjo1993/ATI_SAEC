@@ -1,25 +1,9 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="crearContratista.aspx.vb" Inherits="prueba_saec.crearContratista" %>
 
-<%--<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>--%>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head runat="server">
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,12 +18,19 @@
 
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="../../css/checkbox.css" rel="stylesheet">
+    <style type="text/css">
+        .auto-style1 {
+            width: 984px;
+        }
+    </style>
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
+
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -54,14 +45,16 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
-                        <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
+
+            <!-- Divider -->
+
+            <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
 
         </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
 
@@ -232,21 +225,23 @@
                                                 <p>
                                                     <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
                                                 </p>
+                                            </div>
+
                                         </form>
                                     </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
 
                 </div>
+
                 <!-- /.container-fluid -->
             </div>
+
+            <!-- End of Main Content -->
         </div>
-        <!-- End of Main Content -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
+        <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
 

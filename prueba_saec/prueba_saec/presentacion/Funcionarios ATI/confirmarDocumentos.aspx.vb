@@ -119,7 +119,6 @@
             Session("carpetaId") = carpetaId
 
             Session("origen") = HttpContext.Current.Request.Url.ToString()
-            'Session("origen") = "../Funcionarios ATI/confirmarDocumentos.aspx"
             Response.Redirect("../Contratistas/verComentarios.aspx")
         End If
 
