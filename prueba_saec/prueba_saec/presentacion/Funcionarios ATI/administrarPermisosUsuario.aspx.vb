@@ -4,11 +4,12 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMenu.Visible = False
         sinPermisos.Visible = False
+        btnModalConfirmacion.Visible = False
         If Not Page.IsPostBack Then
 
             validarUsuario()
             cargarMenu()
-            cargarGrid()
+            cargarPermisos()
         End If
     End Sub
     Protected Sub validarUsuario()
@@ -29,7 +30,7 @@
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
-    Protected Sub cargarGrid()
+    Protected Sub cargarPermisos()
         Dim menu As New clsUsuarioSAEC
         Dim rutUsuario As String = Session("rutUsuario")
         Dim permisos As DataTable = menu.obtenerPermisos(rutUsuario)
@@ -38,6 +39,7 @@
             sinPermisos.Visible = True
         Else
             If (permisos.Rows.Count > 0) Then
+                btnModalConfirmacion.Visible = True
                 Me.gridPermisos.DataSource = permisos
                 Me.gridPermisos.DataBind()
                 Dim chk As HtmlInputCheckBox
@@ -52,5 +54,20 @@
             End If
         End If
 
+    End Sub
+
+    Protected Sub btnPermisos_Click(sender As Object, e As EventArgs) Handles btnPermisos.Click
+        Dim menu As New clsMenu
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim chk As HtmlInputCheckBox
+        For Each rowUsuario As GridViewRow In gridPermisos.Rows
+            chk = rowUsuario.FindControl("chkEstado")
+            If chk.Checked = True Then
+                menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, usuario.rutUsuario, rowUsuario.Cells(4).Text, "A")
+            Else
+                menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, usuario.rutUsuario, rowUsuario.Cells(4).Text, "I")
+            End If
+        Next
+        Response.Redirect("administrarPermisosUsuario.aspx")
     End Sub
 End Class

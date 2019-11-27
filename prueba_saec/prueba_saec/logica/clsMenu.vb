@@ -16,7 +16,7 @@ Public Class clsMenu
 
             Dim opcionesMenu As DataTable = ds.Tables(0)
 
-            Dim menu As String = generarMenu(opcionesMenu, 0)
+            Dim menu As String = generarMenu(opcionesMenu, 0, "")
             Return menu
         Catch ex As Exception
             Dim menu As String = ""
@@ -26,7 +26,7 @@ Public Class clsMenu
             con.Dispose()
         End Try
     End Function
-    Public Function menuUsuarioAtiCarpeta(rut As String, idCarpeta As Integer) As String
+    Public Function menuUsuarioAtiCarpeta(rut As String, idCarpeta As Integer, nombreCarpeta As String) As String
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
@@ -40,7 +40,7 @@ Public Class clsMenu
 
             Dim opcionesMenu As DataTable = ds.Tables(0)
 
-            Dim menu As String = generarMenu(opcionesMenu, idCarpeta)
+            Dim menu As String = generarMenu(opcionesMenu, idCarpeta, nombreCarpeta)
             Return menu
         Catch ex As Exception
             Dim menu As String = ""
@@ -50,7 +50,7 @@ Public Class clsMenu
             con.Dispose()
         End Try
     End Function
-    Public Function generarMenu(menu As DataTable, idcarpeta As Integer) As String
+    Public Function generarMenu(menu As DataTable, idcarpeta As Integer, nombreCarpeta As String) As String
         Dim stringMenu As String = ""
         Dim contadorOpcion As Integer = 0
         If (menu.Rows.Count > 0) Then
@@ -75,7 +75,9 @@ Public Class clsMenu
                     If (tipo = "C") Then
                         Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idcarpeta)
                         Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
-                        stringMenu = stringMenu & "                        <a  style=""text-align: center;""  class=""collapse-item"" href= """ + opcion("link") + "?i=" + idCodificada + """> " + opcion("nombre") + "</a>"
+                        Dim razonCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(nombreCarpeta)
+                        Dim razonCodificada As String = System.Convert.ToBase64String(razonCodificadaBase64)
+                        stringMenu = stringMenu & "                        <a  style=""text-align: center;""  class=""collapse-item"" href= """ + opcion("link") + "?i=" + idCodificada + "&n=" + razonCodificada + """> " + opcion("nombre") + "</a>"
                     Else
                         stringMenu = stringMenu & "                        <a  style=""text-align: center;"" Class=""collapse-item"" href= """ + opcion("link") + """> " + opcion("nombre") + "</a>"
                     End If
@@ -104,7 +106,7 @@ Public Class clsMenu
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
 
-            Dim menu As String = generarMenu(ds.Tables(0), 0)
+            Dim menu As String = generarMenu(ds.Tables(0), 0, "")
             Return menu
         Catch ex As Exception
             Dim menu As String = ""
@@ -114,5 +116,45 @@ Public Class clsMenu
             con.Dispose()
         End Try
     End Function
+    Public Function actualizarEstadoOpcion(opcion As String, rut As String, opcionPadre As String, estado As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
 
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ActualizarEstadoOpcionMenu '" & opcion & "','" & rut & "','" & opcionPadre & "','" & estado & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+
+            Return True
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function opcionesCarpeta(rut As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_OpcionesCarpeta '" & rut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class

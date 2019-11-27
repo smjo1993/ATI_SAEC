@@ -60,6 +60,21 @@
 
                                             </asp:TemplateField>
 
+                                            <asp:TemplateField HeaderText="ELIMINAR">
+
+                                                <ItemTemplate>
+                                                    <asp:ImageButton
+                                                        ID="btnEliminarDocumento"
+                                                        ImageUrl="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/32x32/delete.png"
+                                                        CommandName="eliminar"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
+                                                        />
+                                                </ItemTemplate>
+
+                                             </asp:TemplateField>
+
+
                                         </Columns>
 
                                     </asp:GridView>
@@ -111,6 +126,20 @@
                                                 </ItemTemplate>
 
                                             </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="ELIMINAR">
+
+                                                <ItemTemplate>
+                                                    <asp:ImageButton
+                                                        ID="btnEliminarDocumento"
+                                                        ImageUrl="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/32x32/delete.png"
+                                                        CommandName="eliminar"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
+                                                        />
+                                                </ItemTemplate>
+
+                                             </asp:TemplateField>
 
                                         </Columns>
 
@@ -164,8 +193,22 @@
 
                                             </asp:TemplateField>
 
-                                        </Columns>
+                                             <asp:TemplateField HeaderText="ELIMINAR">
 
+                                                <ItemTemplate>
+                                                    <asp:ImageButton
+                                                        ID="btnEliminarDocumento"
+                                                        ImageUrl="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/32x32/delete.png"
+                                                        CommandName="eliminar"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
+                                                        />
+                                                </ItemTemplate>
+
+                                             </asp:TemplateField>
+
+                                        </Columns>
+                                       
                                     </asp:GridView>
 
                                 </td>
