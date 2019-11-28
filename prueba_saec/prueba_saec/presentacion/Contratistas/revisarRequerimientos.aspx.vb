@@ -204,7 +204,7 @@
             Session("areaId") = areaId
             Session("docuemntoId") = docuemntoId
             Session("carpetaId") = carpetaId
-            Session("origen") = "revisarRequerimientos.aspx"
+            Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("verComentarios.aspx")
         End If
 
