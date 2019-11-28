@@ -65,7 +65,7 @@
             tarjeta = tarjeta & "              </div> "
 
             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-comments fa-2x text- " + color + """></a>"
             tarjeta = tarjeta & "              </div> "
             tarjeta = tarjeta & "              <div Class=""col-1""> "
             tarjeta = tarjeta & "              </div> "
