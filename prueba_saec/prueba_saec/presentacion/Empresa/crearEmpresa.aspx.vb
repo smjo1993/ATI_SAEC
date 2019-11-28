@@ -7,9 +7,9 @@ Imports System.Windows
 Public Class crearEmpresa
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        cargarMenu()
         If Not Page.IsPostBack Then
             cargarDatos()
-            cargarMenu()
         End If
     End Sub
     Public Sub cargarDatos()
