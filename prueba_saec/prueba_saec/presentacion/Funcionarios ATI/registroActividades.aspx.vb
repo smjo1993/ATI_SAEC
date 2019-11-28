@@ -83,6 +83,16 @@ Public Class registroActividades
 
     End Sub
 
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.getRut
+        'Dim idCarpeta As Integer = decodificarId()
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
+
     'Protected Sub txtBuscar_TextChanged(sender As Object, e As EventArgs)
 
     '    Dim log As New clsLog
