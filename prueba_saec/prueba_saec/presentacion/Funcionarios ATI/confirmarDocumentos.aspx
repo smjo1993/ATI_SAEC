@@ -28,7 +28,7 @@
                     <div class="table-responsive">
 
 
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                        <table class="table table-bordered dataTable" id="tablaDocEmpresa" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <tr class="align-left">
                                 <td class="auto-style1">
 
@@ -96,7 +96,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                        <table class="table table-bordered dataTable" id="tablaDocTrabajador" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <tr class="align-left">
                                 <td class="auto-style1">
 
@@ -163,7 +163,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                        <table class="table table-bordered dataTable" id="tablaDocVehiculo" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <tr class="align-left">
                                 <td class="auto-style1">
 
