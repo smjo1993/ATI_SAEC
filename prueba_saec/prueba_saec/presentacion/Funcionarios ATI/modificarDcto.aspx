@@ -238,7 +238,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>
+                   <%-- <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>--%>
 
                     <form runat="server">
 
@@ -300,20 +300,21 @@
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3" id="CardEdicionDocumento" runat="server">
                                     <h4 class="m-0 font-weight text-primary">
-                                        <asp:Label ID="lblHeadEdicion" runat="server" Text="Edición"></asp:Label>
+                                        <asp:Label ID="lblHeadEdicion" runat="server" Text=""></asp:Label>
 
                                     </h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label id="lblNombreDocumentoEdicion" class="col-12">Nombre:</label>
+                                            <label id="lblNombreDocumentoEdicion" class="col-12">Nuevo nombre:</label>
                                         </div>
                                         <div class="col-6">
 
                                             <asp:TextBox ID="TxtNombreDocumentoEdicion"
                                                 runat="server"
                                                 Style="height: 30px"
+                                                placeholder=""
                                                 Class="form-control bg-light small col-12">
                                             </asp:TextBox>
 
@@ -323,7 +324,7 @@
                                     <br />
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label id="lblTipoDocumento" class="col-12">Tipo:</label>
+                                            <label id="lblTipoDocumento" class="col-12">Nuevo tipo:</label>
                                         </div>
                                         <div class="col-6">
 
@@ -375,9 +376,11 @@
 
                                 <div class="card-footer">
 
-                                    <div class="col-10">
+                                    <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver</a>
+                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver </a>
+
+                                        &nbsp;
 
                                         <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
                                             data-target="#modalConfirmacion" />

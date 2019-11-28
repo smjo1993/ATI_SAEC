@@ -383,17 +383,17 @@
                                         Nuevo Documento
                                                         
                                                     </a>--%>
-                                        <div class="input-group">
-                                            <%--<input type="text" class="form-control border-0 small" style="float: right;" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2" />--%>
+                                        <%--<div class="input-group">  
 
-                                            <asp:TextBox ID="txtBuscar" class="form-control border-0 small" style="float: right;" runat="server" AutoPostBack="true" placeholder="Buscar..."></asp:TextBox>
+                                            <asp:TextBox ID="txtBuscar" class="form-control border-0 small" style="float: right;" runat="server" AutoPostBack="true" placeholder="Buscar..." OnTextChanged="txtBuscar_TextChanged"></asp:TextBox>
 
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary" type="button">
                                                     <i class="fas fa-search fa-sm"></i>
                                                 </button>
                                             </div>
-                                        </div>
+                                        </div>--%>
+
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +409,7 @@
                                         AutoGenerateColumns="False"
                                         AllowPaging="true"
                                         OnPageIndexChanging="gridRegistros_PageIndexChanging"
-                                        class="table table-bordered dataTable"
+                                        class="table table-bordered dataTable table-hover table-striped tablesorter"
                                         Width="100%"
                                         CellSpacing="0"
                                         role="grid"
@@ -420,7 +420,7 @@
                                             <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                                             <asp:BoundField DataField="Actividad" HeaderText="Actividad" />
                                             <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
-                                            <asp:BoundField DataField="Rol" HeaderText="Rol" />
+                                            <%--<asp:BoundField DataField="Rol" HeaderText="Rol" />--%>
                                         </Columns>
                                     </asp:GridView>
 

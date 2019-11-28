@@ -318,7 +318,9 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver</a>
+                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver </a>
+
+                                        &nbsp;
 
                                         <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Agregar" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
