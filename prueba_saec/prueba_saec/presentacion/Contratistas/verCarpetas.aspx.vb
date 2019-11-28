@@ -30,7 +30,7 @@
         Dim tarjeta As String = ""
         Dim color As String
         ' definir por session el rut
-        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
+        Dim rutContratista As String = Session("contratistaEntrante").getRut()
         Dim carpetaContratista As Object = New clsContratista()
         'Dim menu As New clsMenu
         'Dim opcionesCarpeta As DataTable = menu.menuContratistaCarpeta(rutContratista, 0, "")

@@ -8,7 +8,8 @@
             'bloquearCampos()
             validarUsuario()
             cargarMenu()
-            lblHeadEdicion.Text = "Edición: " & Session("nombreDocumento")
+            lblHeadEdicion.Text = Session("nombreDocumento")
+            TxtNombreDocumentoEdicion.Attributes.Add("placeholder", lblHeadEdicion.Text)
 
         End If
     End Sub
@@ -157,6 +158,7 @@
         Dim idDocumento As Integer = Session("idDocumento")
         Dim task As Boolean
         lblAdvertencia.Text = ""
+        TxtNombreDocumentoEdicion.Attributes.Add("placeholder", "")
 
         'If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
 
