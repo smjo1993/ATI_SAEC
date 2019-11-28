@@ -2,15 +2,15 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        validarUsuario()
+        lblMenu.Visible = False
+        cargarMenu()
         If Not IsPostBack Then
-
-            'cargarAreas()
-            'bloquearCampos()
-            validarUsuario()
-            cargarMenu()
-            lblHeadEdicion.Text = "Edición: " & Session("nombreDocumento")
-
+            Return
         End If
+        'cargarAreas()
+        'bloquearCampos()
+        lblHeadEdicion.Text = "Edición: " & Session("nombreDocumento")
     End Sub
 
     Protected Sub validarUsuario()

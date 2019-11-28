@@ -2,13 +2,15 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        validarUsuario()
         lblMenu.Visible = False
         sinUsuarios.Visible = False
-        If Not Page.IsPostBack Then
-            validarUsuario()
-            cargarMenu()
-            cargarGrid()
+        cargarMenu()
+        If Page.IsPostBack Then
+            Return
         End If
+
+        cargarGrid()
     End Sub
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -72,6 +74,5 @@
                 usuario.cambiarEstadoCuentaUsuario(rowUsuario.Cells(0).Text, "I")
             End If
         Next
-        Response.Redirect("administrarUsuarios.aspx")
     End Sub
 End Class
