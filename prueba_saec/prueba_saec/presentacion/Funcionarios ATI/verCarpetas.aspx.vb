@@ -20,7 +20,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
@@ -34,14 +34,14 @@
 
         listaRoles = Session("roles")
 
-        If listaRoles.Item(0).getIdRol() = 1 Or listaRoles.Item(0).getIdRol() = 2 Or listaRoles.Item(0).getIdRol() = 3 Then
+        If listaRoles.Item(0).getId() = 1 Or listaRoles.Item(0).getId() = 2 Or listaRoles.Item(0).getId() = 3 Then
             Dim tarjeta As String = ""
             Dim color As String
             Dim empresas As Object = New clsEmpresa()
             Dim listaEmpresas As DataTable = empresas.obtenerCarpetas()
             Dim usuario As clsUsuarioSAEC = Session("usuario")
             Dim menu As New clsMenu
-            Dim opcionesCarpeta As DataTable = menu.opcionesCarpeta(usuario.rutUsuario)
+            Dim opcionesCarpeta As DataTable = menu.opcionesCarpeta(usuario.getRut)
 
             ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
             For Each fila As DataRow In listaEmpresas.Rows

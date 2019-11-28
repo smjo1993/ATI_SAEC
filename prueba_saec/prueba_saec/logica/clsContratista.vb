@@ -24,7 +24,7 @@ Public Class clsContratista
         Me.Correo = correo
     End Sub
 
-    Public Property nombreContratista() As String
+    Public Property getNombre() As String
         Get
             Return Me.Nombre
         End Get
@@ -33,7 +33,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property loginContratista() As String
+    Public Property getLogin() As String
         Get
             Return Me.Login
         End Get
@@ -42,7 +42,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property claveContratista() As String
+    Public Property getClave() As String
         Get
             Return Me.Clave
         End Get
@@ -51,7 +51,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property rutContratista() As String
+    Public Property getRut() As String
         Get
             Return Me.Rut
         End Get
@@ -60,7 +60,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property estadoContratista() As Char
+    Public Property getEstado() As Char
         Get
             Return Me.Estado
         End Get
@@ -69,7 +69,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property fonoContratista() As Integer
+    Public Property getFono() As Integer
         Get
             Return Me.Fono
         End Get
@@ -78,7 +78,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property correoContratista() As String
+    Public Property getCorreo() As String
         Get
             Return Me.Correo
         End Get

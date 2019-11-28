@@ -17,7 +17,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)

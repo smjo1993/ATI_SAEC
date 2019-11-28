@@ -23,7 +23,7 @@ Public Class CrearListaDocumentacion
     End Sub
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         Dim idCarpeta As Integer = decodificarId()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
         Dim data() As Byte = System.Convert.FromBase64String(nombreCodificado)
@@ -51,7 +51,7 @@ Public Class CrearListaDocumentacion
         Dim idCarpeta As Integer = decodificarId()
         Dim chk As HtmlInputCheckBox
 
-        Dim documentosEmpresa As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "empresa", idCarpeta)
+        Dim documentosEmpresa As DataTable = documento.buscarDocumentoPorArea(usuario.getArea, "empresa", idCarpeta)
         If (documentosEmpresa Is Nothing) Then
             sinDocEmpresa.Visible = True
         Else
@@ -69,7 +69,7 @@ Public Class CrearListaDocumentacion
             End If
         End If
 
-        Dim documentosTrabajador As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "trabajador", idCarpeta)
+        Dim documentosTrabajador As DataTable = documento.buscarDocumentoPorArea(usuario.getArea, "trabajador", idCarpeta)
         If (documentosTrabajador Is Nothing) Then
             sinDocTrabajador.Visible = True
         Else
@@ -87,7 +87,7 @@ Public Class CrearListaDocumentacion
             End If
         End If
 
-        Dim documentosVehiculo As DataTable = documento.buscarDocumentoPorArea(usuario.areaUsuario, "vehiculo", idCarpeta)
+        Dim documentosVehiculo As DataTable = documento.buscarDocumentoPorArea(usuario.getArea, "vehiculo", idCarpeta)
         If (documentosVehiculo Is Nothing) Then
             sinDocVehiculo.Visible = True
         Else
@@ -114,27 +114,27 @@ Public Class CrearListaDocumentacion
         For Each documentoEmpresa As GridViewRow In gridDocumentosEmpresa.Rows
             chk = documentoEmpresa.FindControl("chkDocEmpresa")
             If chk.Checked = True Then 'pasan a espera
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoEmpresa.Cells(0).Text, "espera", Nothing)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "espera", Nothing)
             Else 'sino quedan no solicitados
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoEmpresa.Cells(0).Text, "no solicitado", Nothing)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
 
         For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajador.Rows
             chk = documentoTrabajador.FindControl("chkDocTrabajador")
             If chk.Checked = True Then
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoTrabajador.Cells(0).Text, "espera", Nothing)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, "espera", Nothing)
             Else
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoTrabajador.Cells(0).Text, "no solicitado", Nothing)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
 
         For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculo.Rows
             chk = documentoVehiculo.FindControl("chkDocVehiculo")
             If chk.Checked = True Then
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "espera", Nothing)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, "espera", Nothing)
             Else
-                documento.cambiarEstadoDocumento(idCarpeta, usuario.areaUsuario, documentoVehiculo.Cells(0).Text, "no solicitado", Nothing)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, "no solicitado", Nothing)
             End If
         Next
         'Response.Redirect(Page.Request.Url.AbsoluteUri)

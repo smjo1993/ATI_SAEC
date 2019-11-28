@@ -25,7 +25,7 @@ Public Class clsUsuarioSAEC
         Me.correo = correo
         Me.area = area
     End Sub
-    Public Property rutUsuario() As String
+    Public Property getRut() As String
         Get
             Return Me.rut
         End Get
@@ -33,7 +33,7 @@ Public Class clsUsuarioSAEC
             Me.rut = Value
         End Set
     End Property
-    Public Property nombreUsuario() As String
+    Public Property getNombre() As String
         Get
             Return Me.nombre
         End Get
@@ -41,7 +41,7 @@ Public Class clsUsuarioSAEC
             Me.nombre = Value
         End Set
     End Property
-    Public Property loginUsuario() As String
+    Public Property getLogin() As String
         Get
             Return Me.login
         End Get
@@ -49,7 +49,7 @@ Public Class clsUsuarioSAEC
             Me.login = Value
         End Set
     End Property
-    Public Property claveUsuario() As String
+    Public Property getClave() As String
         Get
             Return Me.clave
         End Get
@@ -57,7 +57,7 @@ Public Class clsUsuarioSAEC
             Me.clave = Value
         End Set
     End Property
-    Public Property fonoUsuario() As Integer
+    Public Property getFono() As Integer
         Get
             Return Me.fono
         End Get
@@ -65,7 +65,7 @@ Public Class clsUsuarioSAEC
             Me.fono = Value
         End Set
     End Property
-    Public Property estadoUsuario() As Char
+    Public Property getEstado() As Char
         Get
             Return Me.estado
         End Get
@@ -73,7 +73,7 @@ Public Class clsUsuarioSAEC
             Me.estado = Value
         End Set
     End Property
-    Public Property correoUsuario() As String
+    Public Property getCorrep() As String
         Get
             Return Me.correo
         End Get
@@ -82,7 +82,7 @@ Public Class clsUsuarioSAEC
         End Set
     End Property
 
-    Public Property areaUsuario() As Integer
+    Public Property getArea() As Integer
         Get
             Return Me.area
         End Get

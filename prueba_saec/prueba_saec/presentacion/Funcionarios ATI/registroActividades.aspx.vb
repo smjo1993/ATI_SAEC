@@ -22,7 +22,7 @@
 
             For Each rol As clsRol In listaRoles
 
-                If rol.descripcionRol.ToString <> "super-admin" Then
+                If rol.getDescripcion.ToString <> "super-admin" Then
 
                     Response.Redirect("../login.aspx")
 
