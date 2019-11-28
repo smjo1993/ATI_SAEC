@@ -2,15 +2,15 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        validarUsuario()
+
         lblMenu.Visible = False
         sinPermisos.Visible = False
         btnModalConfirmacion.Visible = False
-        cargarMenu()
-        If Page.IsPostBack Then
-            Return
+        If Not Page.IsPostBack Then
+            validarUsuario()
+            cargarMenu()
+            cargarPermisos()
         End If
-        cargarPermisos()
     End Sub
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -68,6 +68,6 @@
                 menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, rutUsuario, rowUsuario.Cells(4).Text, "I")
             End If
         Next
-        'Response.Redirect("administrarPermisosUsuario.aspx")
+        Response.Redirect("administrarPermisosUsuario.aspx")
     End Sub
 End Class

@@ -1,19 +1,23 @@
 ﻿Public Class iniciarCarpetaArranque
     Inherits System.Web.UI.Page
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        lblMenu.Visible = False
         validarUsuario()
-        lblMensaje.Text = ""
         cargarMenu()
-        If Page.IsPostBack Then
-            lblMensaje.Text = ""
+        lblMensaje.Text = ""
+        If Not Page.IsPostBack Then
+            validarUsuario()
+            cargarMenu()
+            cargarDatos()
         End If
-        cargarDatos()
+
     End Sub
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
             Response.Redirect("../login.aspx")
         End If
+
     End Sub
 
     Protected Sub cargarMenu()

@@ -4,17 +4,19 @@ Public Class CrearListaDocumentacion
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        validarUsuario()
+
         sinDocEmpresa.Visible = False
         sinDocTrabajador.Visible = False
         sinDocVehiculo.Visible = False
         lblMenu.Visible = False
         lblNombreEmpresa.Visible = False
-        cargarMenu()
-        If Page.IsPostBack Then
-            Return
+
+        If Not Page.IsPostBack Then
+            validarUsuario()
+            cargarMenu()
+            cargarDatos()
         End If
-        cargarDatos()
+
     End Sub
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")

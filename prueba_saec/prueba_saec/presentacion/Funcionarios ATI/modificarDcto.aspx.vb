@@ -2,11 +2,12 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        validarUsuario()
+
         lblMenu.Visible = False
-        cargarMenu()
-        If Not IsPostBack Then
-            Return
+
+        If Not Page.IsPostBack Then
+            validarUsuario()
+            cargarMenu()
         End If
         'cargarAreas()
         'bloquearCampos()
