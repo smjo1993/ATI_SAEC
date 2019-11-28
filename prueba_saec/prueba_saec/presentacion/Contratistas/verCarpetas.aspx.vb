@@ -2,13 +2,12 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        validarContratista()
         lblMenu.Visible = False
-        If Not Page.IsPostBack Then
-            validarContratista()
-            cargarMenu()
-            cargarTarjeta()
+        cargarMenu()
+        If Page.IsPostBack Then
         End If
-
+        cargarTarjeta()
     End Sub
     Protected Sub validarContratista()
         Dim contratista As clsContratista = Session("contratistaEntrante")

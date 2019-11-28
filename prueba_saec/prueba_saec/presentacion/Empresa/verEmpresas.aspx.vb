@@ -7,6 +7,7 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMenu.Visible = False
+        cargarMenu()
         If IsPostBack Then
             Return
         End If
@@ -14,7 +15,6 @@
         '    Response.Redirect("AccesoDenegado.aspx")
         'End If
         cargarGrid()
-        cargarMenu()
     End Sub
 
     Protected Sub cargarMenu()

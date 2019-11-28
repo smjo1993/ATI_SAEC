@@ -2,12 +2,11 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        validarContratista()
+        cargarMenu()
         If IsPostBack Then
             Return
         End If
-        validarContratista()
-        cargarMenu()
         cargarGrid()
     End Sub
 
