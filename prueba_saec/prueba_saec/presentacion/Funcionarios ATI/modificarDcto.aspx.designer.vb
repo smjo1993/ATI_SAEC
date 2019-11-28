@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class modificarDcto
-    
+
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class modificarDcto
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control CardEdicionDocumento.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class modificarDcto
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents CardEdicionDocumento As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control lblHeadEdicion.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class modificarDcto
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblHeadEdicion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control TxtNombreDocumentoEdicion.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class modificarDcto
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtNombreDocumentoEdicion As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Control dropTipoNuevoDocumento.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class modificarDcto
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents dropTipoNuevoDocumento As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''Control lblAdvertencia.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class modificarDcto
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblAdvertencia As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control btnRealizarCambios.
     '''</summary>

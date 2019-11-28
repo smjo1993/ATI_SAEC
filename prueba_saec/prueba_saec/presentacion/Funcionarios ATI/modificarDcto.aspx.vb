@@ -2,16 +2,15 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        validarUsuario()
+        lblMenu.Visible = False
+        cargarMenu()
         If Not IsPostBack Then
-
-            'cargarAreas()
-            'bloquearCampos()
-            validarUsuario()
-            cargarMenu()
-            lblHeadEdicion.Text = Session("nombreDocumento")
-            TxtNombreDocumentoEdicion.Attributes.Add("placeholder", lblHeadEdicion.Text)
-
+            Return
         End If
+        'cargarAreas()
+        'bloquearCampos()
+        lblHeadEdicion.Text = "Edición: " & Session("nombreDocumento")
     End Sub
 
     Protected Sub validarUsuario()
@@ -158,7 +157,6 @@
         Dim idDocumento As Integer = Session("idDocumento")
         Dim task As Boolean
         lblAdvertencia.Text = ""
-        TxtNombreDocumentoEdicion.Attributes.Add("placeholder", "")
 
         'If TxtNombreDocumentoEdicion.Text.ToString = "" Or dropTipoNuevoDocumento.SelectedItem.Text.ToString = "" Or dropDocumentos.SelectedItem.Text.ToString = "" Or dropAreas.SelectedItem.Text.ToString = "" Then
 
