@@ -1,4 +1,8 @@
-﻿Public Class registroActividades
+﻿Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+
+Public Class registroActividades
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -70,10 +74,35 @@
 
     Protected Sub gridRegistros_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs) Handles gridRegistros.PageIndexChanging
 
+        'Me.txtBuscar_TextChanged(sender, e)
+
         cargarGrid()
         gridRegistros.PageIndex = e.NewPageIndex
         gridRegistros.DataBind()
 
     End Sub
 
+    'Protected Sub txtBuscar_TextChanged(sender As Object, e As EventArgs)
+
+    '    Dim log As New clsLog
+
+    '    If Not String.IsNullOrEmpty(txtBuscar.Text.Trim()) Then
+
+    '        Dim dt As Data.DataTable = log.buscarRegistros(txtBuscar.Text.Trim())
+
+    '        If dt.Rows.Count > 0 Then
+
+    '            Me.gridRegistros.DataSource = dt
+    '            Me.gridRegistros.DataBind()
+
+    '        Else
+
+    '            'Return
+    '            cargarGrid()
+
+    '        End If
+
+    '    End If
+
+    'End Sub
 End Class
