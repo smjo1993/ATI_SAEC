@@ -20,18 +20,18 @@
 
     Protected Sub cargarMenu()
         Dim contratista As clsContratista = Session("contratistaEntrante")
-        Dim rutContratista As String = contratista.rutContratista
+        Dim rutContratista As String = contratista.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
-        Dim stringMenu As String = menu.menuUsuarioContratista(rutContratista)
+        Dim stringMenu As String = menu.menuContratistaCarpeta(rutContratista, 0, "")
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
 
     Protected Sub cargarGrid()
 
-        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
-        Session("rutUsuario") = Session("contratistaEntrante").rutContratista()
+        Dim rutContratista As String = Session("contratistaEntrante").getRut()
+        Session("rutUsuario") = Session("contratistaEntrante").getRut()
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaTrabajador(rutContratista)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaVehiculo(rutContratista)

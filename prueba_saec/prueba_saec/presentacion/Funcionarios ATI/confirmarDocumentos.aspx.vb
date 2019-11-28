@@ -6,12 +6,12 @@
             Return
         End If
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Session("rutUsuario") = usuario.rutUsuario
+        Session("rutUsuario") = usuario.getRut
         Dim idCarpeta As Integer = decodificarId()
         'Dim areaRevisor = 2
-        Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.areaUsuario)
-        Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaTrabajador(idCarpeta, usuario.areaUsuario)
-        Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaVehiculo(idCarpeta, usuario.areaUsuario)
+        Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.getArea)
+        Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaTrabajador(idCarpeta, usuario.getArea)
+        Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaVehiculo(idCarpeta, usuario.getArea)
 
         confirmarEmpresa.DataSource = TablaDocumentosEsperaEmpresa
         confirmarTrabajador.DataSource = TablaDocumentosEsperaTrabajador
@@ -144,7 +144,7 @@
     End Sub
     Protected Sub confirmarconfirmarVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarVehiculo.RowCommand
 
-        If (e.CommandName = "Ver") Then
+        If (e.CommandName = "elimnar") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text

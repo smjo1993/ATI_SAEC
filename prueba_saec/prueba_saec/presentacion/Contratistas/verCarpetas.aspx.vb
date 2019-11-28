@@ -19,10 +19,10 @@
 
     Protected Sub cargarMenu()
         Dim contratista As clsContratista = Session("contratistaEntrante")
-        Dim rutContratista As String = contratista.rutContratista
+        Dim rutContratista As String = contratista.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
-        Dim stringMenu As String = menu.menuUsuarioContratista(rutContratista)
+        Dim stringMenu As String = menu.menuInicioContratista(rutContratista)
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
@@ -30,9 +30,10 @@
         Dim tarjeta As String = ""
         Dim color As String
         ' definir por session el rut
-        Dim rutContratista As String = Session("contratistaEntrante").rutContratista()
+        Dim rutContratista As String = Session("contratistaEntrante").getRut()
         Dim carpetaContratista As Object = New clsContratista()
-
+        'Dim menu As New clsMenu
+        'Dim opcionesCarpeta As DataTable = menu.menuContratistaCarpeta(rutContratista, 0, "")
         For Each fila As DataRow In carpetaContratista.obtenerCarpetas(rutContratista).Rows
 
             Dim Empresas As Object = New clsEmpresa()
@@ -63,9 +64,17 @@
             tarjeta = tarjeta & "                  </div> "
             tarjeta = tarjeta & "                </div> "
             tarjeta = tarjeta & "              </div> "
+
             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx?I="" class=""btn btn-" + color + """>Ver</a>"
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
             tarjeta = tarjeta & "              </div> "
+            tarjeta = tarjeta & "              <div Class=""col-1""> "
+            tarjeta = tarjeta & "              </div> "
+
+            tarjeta = tarjeta & "              <div Class=""col-auto""> "
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+            tarjeta = tarjeta & "              </div> "
+
             tarjeta = tarjeta & "            </div> "
             tarjeta = tarjeta & "          </div> "
             tarjeta = tarjeta & "        </div> "

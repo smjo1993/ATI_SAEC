@@ -182,9 +182,9 @@
                                             aria-describedby="dataTable_info"
                                             Style="width: 100%;">
                                             <Columns>
-                                                <asp:BoundField DataField="opcion" HeaderText="Opcion" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="opcion" HeaderText="Opcion" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"  />
                                                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                                <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="estado" HeaderText="Estado"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                                 <asp:TemplateField HeaderText="Estado">
                                                     <ItemTemplate>
                                                         <itemstyle width="10px" />
@@ -196,8 +196,8 @@
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
-                                                <asp:BoundField DataField="opcionPadre" HeaderText="Padre" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="hijos" HeaderText="Hijo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="opcionPadre" HeaderText="Padre"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
+                                                <asp:BoundField DataField="hijos" HeaderText="Hijo"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             </Columns>
                                         </asp:GridView>
 
@@ -209,7 +209,7 @@
                                             <div class="col-4"></div>
                                             <div class="col-4">
                                                 <div class="form-group">
-                                                    <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Cambiar estado de los Permisos" data-toggle="modal"
+                                                    <input id="btnModalConfirmacion" runat="server" type="button" class="btn btn-primary btn-user btn-block" value="Cambiar estado de los Permisos" data-toggle="modal"
                                                         data-target="#modalConfirmacion" />
                                                 </div>
                                             </div>

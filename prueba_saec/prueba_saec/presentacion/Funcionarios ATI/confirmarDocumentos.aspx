@@ -41,6 +41,7 @@
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
                                             <asp:TemplateField HeaderText="CONFIRMAR">
 
                                                 <ItemTemplate>
@@ -108,6 +109,7 @@
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
+                                            <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
                                             <asp:TemplateField HeaderText="CONFIRMAR">
 
                                                 <ItemTemplate>
@@ -174,6 +176,7 @@
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
                                             <asp:TemplateField HeaderText="CONFIRMAR">
 
                                                 <ItemTemplate>

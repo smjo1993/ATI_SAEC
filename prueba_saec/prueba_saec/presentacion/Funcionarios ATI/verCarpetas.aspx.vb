@@ -20,7 +20,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
@@ -34,19 +34,21 @@
 
         listaRoles = Session("roles")
 
-        If listaRoles.Item(0).getIdRol() = 1 Or listaRoles.Item(0).getIdRol() = 2 Or listaRoles.Item(0).getIdRol() = 3 Then
+        If listaRoles.Item(0).getId() = 1 Or listaRoles.Item(0).getId() = 2 Or listaRoles.Item(0).getId() = 3 Then
             Dim tarjeta As String = ""
             Dim color As String
             Dim empresas As Object = New clsEmpresa()
             Dim listaEmpresas As DataTable = empresas.obtenerCarpetas()
-
+            Dim usuario As clsUsuarioSAEC = Session("usuario")
+            Dim menu As New clsMenu
+            Dim opcionesCarpeta As DataTable = menu.opcionesCarpeta(usuario.getRut)
 
             ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
             For Each fila As DataRow In listaEmpresas.Rows
 
 
-                Dim porcentaje As String = Empresas.calcularPorcentaje(fila("rut"))
-                Dim estado As Boolean = Empresas.ObtenerEstado(Session("usuario").areaUsuario(), fila("rut"))
+                Dim porcentaje As String = empresas.calcularPorcentaje(fila("rut"))
+                Dim estado As Boolean = empresas.ObtenerEstado(Session("usuario").getArea(), fila("rut"))
                 color = obtenerColor(estado, porcentaje)
                 Dim idCarpeta As String = fila("id")
                 Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))
@@ -73,19 +75,26 @@
                 tarjeta = tarjeta & "                </div> "
                 tarjeta = tarjeta & "              </div> "
                 tarjeta = tarjeta & "             &nbsp;"
-                tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
-                tarjeta = tarjeta & "              </div> "
-                tarjeta = tarjeta & "              <div Class=""col-1""> "
-                tarjeta = tarjeta & "              </div> "
-                tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/confirmarDocumentos.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-comments fa-2x text-" + color + """></a>"
-                tarjeta = tarjeta & "              </div> "
-                tarjeta = tarjeta & "              <div Class=""col-1""> "
-                tarjeta = tarjeta & "              </div> "
-                tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                tarjeta = tarjeta & "              <a href=""#" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
-                tarjeta = tarjeta & "              </div> "
+
+                If (opcionesCarpeta.Rows(0)("estado") = "A") Then
+                    tarjeta = tarjeta & "              <div Class=""col-auto""> "
+                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
+                    tarjeta = tarjeta & "              </div> "
+                    tarjeta = tarjeta & "              <div Class=""col-1""> "
+                    tarjeta = tarjeta & "              </div> "
+                End If
+                If (opcionesCarpeta.Rows(1)("estado") = "A") Then
+                    tarjeta = tarjeta & "              <div Class=""col-auto""> "
+                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/confirmarDocumentos.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-comments fa-2x text-" + color + """></a>"
+                    tarjeta = tarjeta & "              </div> "
+                    tarjeta = tarjeta & "              <div Class=""col-1""> "
+                    tarjeta = tarjeta & "              </div> "
+                End If
+                If (opcionesCarpeta.Rows(2)("estado") = "A") Then
+                    tarjeta = tarjeta & "              <div Class=""col-auto""> "
+                    tarjeta = tarjeta & "              <a href=""#" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+                    tarjeta = tarjeta & "              </div> "
+                End If
                 tarjeta = tarjeta & "            </div> "
                 tarjeta = tarjeta & "          </div> "
                 tarjeta = tarjeta & "        </div> "

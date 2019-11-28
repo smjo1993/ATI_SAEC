@@ -20,7 +20,7 @@
 
             For Each rol As clsRol In listaRoles
 
-                If rol.descripcionRol.ToString <> "super-admin" Then
+                If rol.getDescripcion.ToString <> "super-admin" Then
 
                     Response.Redirect("../login.aspx")
 
@@ -39,7 +39,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
