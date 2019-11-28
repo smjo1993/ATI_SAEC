@@ -3,11 +3,12 @@ Public Class agregarDcto
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        validarUsuario()
-        cargarMenu()
-        If Not IsPostBack Then
+
+        If IsPostBack Then
             Return
         End If
+        validarUsuario()
+        cargarMenu()
         cargarAreas()
     End Sub
 

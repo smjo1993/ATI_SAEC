@@ -2,9 +2,10 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        validarUsuario()
-        If IsPostBack Then
-            Return
+
+
+        If Not IsPostBack Then
+            validarUsuario()
         End If
 
     End Sub
