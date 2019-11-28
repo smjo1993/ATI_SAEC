@@ -144,7 +144,7 @@
     End Sub
     Protected Sub confirmarconfirmarVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarVehiculo.RowCommand
 
-        If (e.CommandName = "Ver") Then
+        If (e.CommandName = "elimnar") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text
