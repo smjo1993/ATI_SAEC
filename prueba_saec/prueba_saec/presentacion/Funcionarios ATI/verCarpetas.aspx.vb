@@ -48,7 +48,7 @@
 
 
                 Dim porcentaje As String = empresas.calcularPorcentaje(fila("rut"))
-                Dim estado As Boolean = empresas.ObtenerEstado(Session("usuario").areaUsuario(), fila("rut"))
+                Dim estado As Boolean = empresas.ObtenerEstado(Session("usuario").getArea(), fila("rut"))
                 color = obtenerColor(estado, porcentaje)
                 Dim idCarpeta As String = fila("id")
                 Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))

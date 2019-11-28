@@ -40,6 +40,8 @@ Public Class crearEmpresa
         Dim existe As DataTable
         existe = empresa.obtenerEmpresa(TxtRut.Text.Trim())
         If existe.Rows.Count > 0 Then
+            lblAdvertencia.Text = "Rut de Empresa ya ingresado. Por favor verifíquelo."
+        Else
             If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "" Or dropContratistas.SelectedItem.Text.Trim() = "") Then
                 lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
             Else
@@ -49,8 +51,6 @@ Public Class crearEmpresa
                 limpiarCampos()
                 cargarDatos()
             End If
-        Else
-            lblAdvertencia.Text = "Rut de Empresa ya ingresado. Por favor verifíquelo."
         End If
 
 

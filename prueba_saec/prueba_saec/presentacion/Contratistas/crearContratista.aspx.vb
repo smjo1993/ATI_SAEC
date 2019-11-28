@@ -32,11 +32,13 @@
         Dim existe As DataTable
         existe = contratista.obtenerContratista(txtRut.Text.Trim())
         If existe.Rows.Count > 0 Then
+            lblAdvertencia.Text = "Rut del Contratista ya ingresado. Por favor verifíquelo."
+        Else
             If (txtNombre.Text.Trim() = "" Or txtNombreUsuario.Text.Trim() = "" Or txtPassword.Text.Trim() = "" Or txtRut.Text.Trim() = "" Or txtFono.Text.Trim() = "" Or txtCorreo.Text.Trim() = "") Then
                 lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
             Else
                 insercion = contratista.insertarContratista(txtNombre.Text.Trim(), txtNombreUsuario.Text.Trim(), txtPassword.Text.Trim(), txtRut.Text.Trim(), "I", txtFono.Text.Trim(), txtCorreo.Text.Trim())
-                registro = log.insertarRegistro("Se ha creado al contratista de rut: " + txtRut.Text.Trim(), Session("usuario").rutUsuario)
+                registro = log.insertarRegistro("Se ha creado al contratista de rut: " + txtRut.Text.Trim(), Session("usuario").getRut)
 
                 If (insercion) Then
                     lblAdvertencia.Text = "Contratista ingresado con éxito."
@@ -50,8 +52,6 @@
                     lblAdvertencia.Text = "La acción no se pudo realizar. Pof favor inténtelo de nuevo."
                 End If
             End If
-        Else
-            lblAdvertencia.Text = "Rut del Contratista ya ingresado. Por favor verifíquelo."
         End If
 
 
