@@ -6,7 +6,7 @@ Public Class agregarDcto
         validarUsuario()
         cargarMenu()
         If Not IsPostBack Then
-            retuen
+            Return
         End If
         cargarAreas()
     End Sub
