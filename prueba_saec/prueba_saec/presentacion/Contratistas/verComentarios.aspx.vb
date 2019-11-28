@@ -96,13 +96,24 @@ Public Class verComentarios
     End Function
 
     Protected Sub cargarMenu()
-        Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.getRut
-        'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
-        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
-        lblMenu.Text = stringMenu
-        lblMenu.Visible = True
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If usuario Is Nothing Then
+            Dim contratista As clsContratista = Session("contratistaEntrante")
+            Dim rutContratista As String = contratista.getRut()
+            'Dim idCarpeta As Integer = decodificarId()
+            Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutContratista)
+            lblMenu.Text = stringMenu
+            lblMenu.Visible = True
+        Else
+            Dim rutUsuario As String = usuario.getRut()
+            'Dim idCarpeta As Integer = decodificarId()
+
+            Dim stringMenu As String = Menu.menuUsuarioAtiInicio(rutUsuario)
+            lblMenu.Text = stringMenu
+            lblMenu.Visible = True
+        End If
+
     End Sub
 
     'genera el string para la generación de cards de comentarios
