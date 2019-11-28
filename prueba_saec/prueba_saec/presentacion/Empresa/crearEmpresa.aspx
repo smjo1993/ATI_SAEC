@@ -1,66 +1,5 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="crearEmpresa.aspx.vb" Inherits="prueba_saec.crearEmpresa" %>
 
-<%--<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-
-
-
-        <div style="margin-top: 0px">
-            <label id="lblRazonSocial">Razón Social:</label>
-            <asp:TextBox ID="TxtRazonSocial" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblRut">Rut:</label>
-            <asp:TextBox ID="TxtRut" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblGiro">Giro:</label>
-            <asp:TextBox ID="TxtGiro" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblDireccion">Dirección:</label>
-            <asp:TextBox ID="TxtDireccion" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblCiudad">Ciudad:</label>
-            <asp:TextBox ID="TxtCiudad" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblFono">Fono:</label>
-            <asp:TextBox ID="TxtFono" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblCelular">Celular:</label>
-            <asp:TextBox ID="TxtCelular" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label id="lblCorreo">Correo:</label>
-            <asp:TextBox ID="TxtCorreo" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <label>Encargado:</label>
-            <asp:DropDownList ID="dropContratistas" runat="server"></asp:DropDownList>
-
-
-        </div>
-
-        <asp:Button ID="Button1" runat="server" Text="Agregar" />
-
-        <p>
-            <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-        </p>
-
-    </form>
-</body>
-</html>--%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,19 +19,27 @@
 
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="../../css/checkbox.css" rel="stylesheet">
+    <style type="text/css">
+        .auto-style1 {
+            width: 984px;
+        }
+    </style>
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
 
+
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar  BARRA LATERAL DEL DASHBOARD-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                        <!-- Sidebar - Brand -->
+
+            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
@@ -109,7 +56,6 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
 
@@ -222,153 +168,151 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Crear Empresa</h6>
                             </div>
                             <div class="card-body">
-                                    <table class="table table-bordered" id="dataTable" cellspacing="0">
-                                        <thead runat="server">
-                                            <form id="form1" runat="server">
-                                                <div class="row">
-                                                    <div style="margin-top: 0px" class="col-4">
-                                                        <label id="lblRazonSocial" class="col-12">Razón Social:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtRazonSocial" runat="server" Class="col-12"></asp:TextBox>
-                                                    </div>
+                                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                                    <thead runat="server">
+                                        <form id="form1" runat="server">
+                                            <div class="row">
+                                                <div style="margin-top: 0px" class="col-4">
+                                                    <label id="lblRazonSocial" class="col-12">Razón Social:</label>
+                                                </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtRazonSocial" runat="server" Class="col-12"></asp:TextBox>
+                                                </div>
 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblRut" class="col-12">Rut:</label>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblRut" class="col-12">Rut:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtRut" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtRut" runat="server" class="col-12"></asp:TextBox>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblGiro" class="col-12">Giro:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtGiro" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblGiro" class="col-12">Giro:</label>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblDireccion" class="col-12">Dirección:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtDireccion" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtGiro" runat="server" class="col-12"></asp:TextBox>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblCiudad" class="col-12">Ciudad:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtCiudad" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblDireccion" class="col-12">Dirección:</label>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblFono" class="col-12">Fono:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtFono" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtDireccion" runat="server" class="col-12"></asp:TextBox>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblCelular" class="col-12">Celular:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtCelular" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblCiudad" class="col-12">Ciudad:</label>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lblCorreo" class="col-12">Correo:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:TextBox ID="TxtCorreo" runat="server" class="col-12"></asp:TextBox>
-                                                    </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtCiudad" runat="server" class="col-12"></asp:TextBox>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <label id="lvlEncargado" class="col-12">Encargado:</label>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <asp:DropDownList ID="dropContratistas" runat="server" class="col-12"></asp:DropDownList>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblFono" class="col-12">Fono:</label>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-10 d-flex">
-                                                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="ml-auto" />
-                                                    </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtFono" runat="server" class="col-12"></asp:TextBox>
                                                 </div>
-                                                <div class="row">
-                                                    <div>
-                                                        <p>
-                                                            <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                                                        </p>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblCelular" class="col-12">Celular:</label>
                                                 </div>
-                                            </form>
-                                        </thead>
-                                </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtCelular" runat="server" class="col-12"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lblCorreo" class="col-12">Correo:</label>
+                                                </div>
+                                                <div class="col-6">
+                                                    <asp:TextBox ID="TxtCorreo" runat="server" class="col-12"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label id="lvlEncargado" class="col-12">Encargado:</label>
+                                                </div>
+                                                <div class="col-6">
+                                                    <asp:DropDownList ID="dropContratistas" runat="server" class="col-12"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-10 d-flex">
+                                                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="ml-auto" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <p>
+                                                        <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
 
                     </div>
                     <!-- /.container-fluid -->
                 </div>
-            </div>
-            <!-- End of Main Content -->
 
+            </div>
         </div>
         <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+        <!-- End of Page Wrapper -->
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../../vendor/jquery/jquery.min.js"></script>
+        <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../../js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../../js/demo/datatables-demo.js"></script>
-
+        <!-- Page level custom scripts -->
+        <script src="../../js/demo/datatables-demo.js"></script>
 </body>
 
 </html>
