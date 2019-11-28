@@ -94,7 +94,30 @@ Public Class clsMenu
         Return stringMenu
     End Function
 
-    Public Function menuUsuarioContratista(rut As String) As String
+    Public Function menuInicioContratista(rut As String) As String
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ObtenerOpcionesMenuInicioContratista '" & rut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+
+            Dim menu As String = generarMenu(ds.Tables(0), 0, "")
+            Return menu
+        Catch ex As Exception
+            Dim menu As String = ""
+            Return menu
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function menuContratistaCarpeta(rut As String, idCarpeta As Integer, nombreCarpeta As String) As String
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
@@ -106,7 +129,9 @@ Public Class clsMenu
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
 
-            Dim menu As String = generarMenu(ds.Tables(0), 0, "")
+            Dim opcionesMenu As DataTable = ds.Tables(0)
+
+            Dim menu As String = generarMenu(opcionesMenu, idCarpeta, nombreCarpeta)
             Return menu
         Catch ex As Exception
             Dim menu As String = ""

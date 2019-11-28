@@ -20,10 +20,10 @@
 
     Protected Sub cargarMenu()
         Dim contratista As clsContratista = Session("contratistaEntrante")
-        Dim rutContratista As String = contratista.rutContratista
+        Dim rutContratista As String = contratista.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
-        Dim stringMenu As String = menu.menuUsuarioContratista(rutContratista)
+        Dim stringMenu As String = menu.menuContratistaCarpeta(rutContratista, 0, "")
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub

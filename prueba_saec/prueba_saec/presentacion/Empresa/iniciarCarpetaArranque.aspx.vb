@@ -18,7 +18,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
@@ -79,10 +79,11 @@
                     End If
 
                     'fechaExpiracion = DateAdd("m", 12, Today)
-                    If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.rutUsuario) = True) Then
-                            Response.Redirect("iniciarCarpetaArranque.aspx")
-                        Else
-                            Response.Redirect("iniciarCarpetaArranque.aspx")
+                    If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.getRut) = True) Then
+                        My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa))
+                        Response.Redirect("iniciarCarpetaArranque.aspx")
+                    Else
+                        Response.Redirect("iniciarCarpetaArranque.aspx")
                         End If
                     Else
                         fechaCreacion = Today
@@ -91,7 +92,8 @@
                         lblMensaje.Text = alerta.alerta("ALERTA", "fecha erronea")
                     Else
                         Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
-                        If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.rutUsuario) = True) Then
+                        If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.getRut) = True) Then
+                            My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa))
                             Response.Redirect("iniciarCarpetaArranque.aspx")
                         Else
                             Response.Redirect("iniciarCarpetaArranque.aspx")

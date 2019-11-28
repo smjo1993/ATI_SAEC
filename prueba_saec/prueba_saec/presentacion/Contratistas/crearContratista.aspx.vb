@@ -17,7 +17,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
@@ -26,23 +26,35 @@
     End Sub
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim contratista As New clsContratista
+        Dim log As New clsLog
         Dim insercion As New Boolean
-        If (txtNombre.Text.Trim() = "" Or txtNombreUsuario.Text.Trim() = "" Or txtPassword.Text.Trim() = "" Or txtRut.Text.Trim() = "" Or txtFono.Text.Trim() = "" Or txtCorreo.Text.Trim() = "") Then
-            lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
-        Else
-            insercion = contratista.insertarContratista(txtNombre.Text.Trim(), txtNombreUsuario.Text.Trim(), txtPassword.Text.Trim(), txtRut.Text.Trim(), "I", txtFono.Text.Trim(), txtCorreo.Text.Trim())
-            If (insercion) Then
-                lblAdvertencia.Text = "Contratista ingresado con éxito."
-                txtNombre.Text = ""
-                txtNombreUsuario.Text = ""
-                txtPassword.Text = ""
-                txtRut.Text = ""
-                txtFono.Text = ""
-                txtCorreo.Text = ""
+        Dim registro As New Boolean
+        Dim existe As DataTable
+        existe = contratista.obtenerContratista(txtRut.Text.Trim())
+        If existe.Rows.Count > 0 Then
+            If (txtNombre.Text.Trim() = "" Or txtNombreUsuario.Text.Trim() = "" Or txtPassword.Text.Trim() = "" Or txtRut.Text.Trim() = "" Or txtFono.Text.Trim() = "" Or txtCorreo.Text.Trim() = "") Then
+                lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
             Else
-                lblAdvertencia.Text = "La acción no se pudo realizar. Pof favor inténtelo de nuevo."
+                insercion = contratista.insertarContratista(txtNombre.Text.Trim(), txtNombreUsuario.Text.Trim(), txtPassword.Text.Trim(), txtRut.Text.Trim(), "I", txtFono.Text.Trim(), txtCorreo.Text.Trim())
+                registro = log.insertarRegistro("Se ha creado al contratista de rut: " + txtRut.Text.Trim(), Session("usuario").rutUsuario)
+
+                If (insercion) Then
+                    lblAdvertencia.Text = "Contratista ingresado con éxito."
+                    txtNombre.Text = ""
+                    txtNombreUsuario.Text = ""
+                    txtPassword.Text = ""
+                    txtRut.Text = ""
+                    txtFono.Text = ""
+                    txtCorreo.Text = ""
+                Else
+                    lblAdvertencia.Text = "La acción no se pudo realizar. Pof favor inténtelo de nuevo."
+                End If
             End If
+        Else
+            lblAdvertencia.Text = "Rut del Contratista ya ingresado. Por favor verifíquelo."
         End If
+
+
     End Sub
 
 End Class

@@ -23,7 +23,7 @@
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.rutUsuario
+        Dim rutUsuario As String = usuario.getRut
         'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
@@ -58,14 +58,14 @@
 
     Protected Sub btnPermisos_Click(sender As Object, e As EventArgs) Handles btnPermisos.Click
         Dim menu As New clsMenu
-        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = Session("rutUsuario")
         Dim chk As HtmlInputCheckBox
         For Each rowUsuario As GridViewRow In gridPermisos.Rows
             chk = rowUsuario.FindControl("chkEstado")
             If chk.Checked = True Then
-                menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, usuario.rutUsuario, rowUsuario.Cells(4).Text, "A")
+                menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, rutUsuario, rowUsuario.Cells(4).Text, "A")
             Else
-                menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, usuario.rutUsuario, rowUsuario.Cells(4).Text, "I")
+                menu.actualizarEstadoOpcion(rowUsuario.Cells(0).Text, rutUsuario, rowUsuario.Cells(4).Text, "I")
             End If
         Next
         Response.Redirect("administrarPermisosUsuario.aspx")
