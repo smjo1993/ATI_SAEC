@@ -26,7 +26,9 @@
     End Sub
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim contratista As New clsContratista
+        Dim log As New clsLog
         Dim insercion As New Boolean
+        Dim registro As New Boolean
         Dim existe As DataTable
         existe = contratista.obtenerContratista(txtRut.Text.Trim())
         If existe.Rows.Count > 0 Then
@@ -34,6 +36,8 @@
                 lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
             Else
                 insercion = contratista.insertarContratista(txtNombre.Text.Trim(), txtNombreUsuario.Text.Trim(), txtPassword.Text.Trim(), txtRut.Text.Trim(), "I", txtFono.Text.Trim(), txtCorreo.Text.Trim())
+                registro = log.insertarRegistro("Se ha creado al contratista de rut: " + txtRut.Text.Trim(), Session("usuario").rutUsuario)
+
                 If (insercion) Then
                     lblAdvertencia.Text = "Contratista ingresado con éxito."
                     txtNombre.Text = ""
