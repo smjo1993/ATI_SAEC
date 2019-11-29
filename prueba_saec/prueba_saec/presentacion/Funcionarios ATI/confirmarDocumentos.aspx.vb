@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        cargarMenu()
         If IsPostBack Then
             Return
         End If
@@ -20,6 +21,18 @@
         confirmarEmpresa.DataBind()
         confirmarTrabajador.DataBind()
         confirmarVehiculo.DataBind()
+    End Sub
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.getRut
+        Dim idCarpeta As Integer = decodificarId()
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(nombreCodificado)
+        Dim nombreDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiCarpeta(rutUsuario, idCarpeta, nombreDecodificado)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
     End Sub
     Protected Function decodificarId() As Integer
         Dim idCodificada As String = Request.QueryString("i").ToString()
