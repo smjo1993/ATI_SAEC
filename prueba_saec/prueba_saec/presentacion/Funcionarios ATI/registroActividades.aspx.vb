@@ -7,6 +7,7 @@ Public Class registroActividades
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         validarUsuario()
+        cargarMenu()
         If IsPostBack Then
             Return
         End If
