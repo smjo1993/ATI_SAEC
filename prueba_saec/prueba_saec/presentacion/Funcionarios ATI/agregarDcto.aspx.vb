@@ -61,13 +61,11 @@ Public Class agregarDcto
         Return Documentos.obtenerDocumento()
     End Function
 
-    'Protected Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-    '    Response.Redirect("../login.aspx")
-    'End Sub
-
     Protected Sub btnCrearDocumento_Click(sender As Object, e As EventArgs) Handles btnCrearDocumento.Click
 
         Dim nuevoDocumento As New clsDocumento
+
+        Dim log As New clsLog
 
         Dim insercion As New Boolean
 
@@ -81,7 +79,8 @@ Public Class agregarDcto
 
                     insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text,
                                                              dropTipoDocumento.SelectedItem.Value,
-                                                             item.Value)
+                                                            item.Value)
+                    log.insertarRegistro("Se ha creado el Requerimiento Documental: " + txtNombreDocumento.Text.Trim() + ", Área: " + item.ToString(), Session("usuario").getRut)
 
                 End If
 
