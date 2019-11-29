@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         validarUsuario()
         lblMenu.Visible = False
         cargarMenu()
@@ -9,32 +10,36 @@
             Return
         End If
         CargarTarjetas()
+
     End Sub
 
     Protected Sub validarUsuario()
+
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
             Response.Redirect("../login.aspx")
         End If
+
     End Sub
 
     Protected Sub cargarMenu()
+
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim rutUsuario As String = usuario.getRut
-        'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
+
     End Sub
 
     Protected Sub CargarTarjetas()
 
         Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
-
         listaRoles = Session("roles")
 
         If listaRoles.Item(0).getId() = 1 Or listaRoles.Item(0).getId() = 2 Or listaRoles.Item(0).getId() = 3 Then
+
             Dim tarjeta As String = ""
             Dim color As String
             Dim empresas As Object = New clsEmpresa()
@@ -45,7 +50,6 @@
 
             ' Ciclo for que recorre la lista de empresas con carpetas de arranque del sistema
             For Each fila As DataRow In listaEmpresas.Rows
-
 
                 Dim porcentaje As String = empresas.calcularPorcentaje(fila("rut"))
                 Dim estado As Boolean = empresas.ObtenerEstado(Session("usuario").getArea(), fila("rut"))
@@ -99,24 +103,13 @@
                 tarjeta = tarjeta & "          </div> "
                 tarjeta = tarjeta & "        </div> "
                 tarjeta = tarjeta & "      </div> "
-                tarjeta = tarjeta & "            </div>"
+                tarjeta = tarjeta & "  </div>"
 
                 lblTarjetaEmpresa.Text = tarjeta
 
             Next
         End If
 
-        'For Each rol In Session("roles")
-
-
-        'si tiene rol revisor que muestre la vista correspondiente
-        'f rol.getIdRol() = 3 Then
-
-
-
-        'End If
-
-        'Next
     End Sub
 
 

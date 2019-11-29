@@ -2,18 +2,22 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         validarContratista()
         lblMenu.Visible = False
         cargarMenu()
         If Page.IsPostBack Then
         End If
         cargarTarjeta()
+
     End Sub
     Protected Sub validarContratista()
+
         Dim contratista As clsContratista = Session("contratistaEntrante")
         If (contratista Is Nothing) Then
             Response.Redirect("../login.aspx")
         End If
+
     End Sub
 
     Protected Sub cargarMenu()
@@ -26,20 +30,18 @@
         lblMenu.Visible = True
     End Sub
     Protected Sub cargarTarjeta()
+
         Dim tarjeta As String = ""
         Dim color As String
-        ' definir por session el rut
         Dim rutContratista As String = Session("contratistaEntrante").getRut()
         Dim carpetaContratista As Object = New clsContratista()
-        'Dim menu As New clsMenu
-        'Dim opcionesCarpeta As DataTable = menu.menuContratistaCarpeta(rutContratista, 0, "")
+
         For Each fila As DataRow In carpetaContratista.obtenerCarpetas(rutContratista).Rows
 
             Dim Empresas As Object = New clsEmpresa()
             Dim porcentaje As String = Empresas.calcularPorcentaje(fila("TB_SAEC_Empresarut"))
             Dim estado As Boolean = carpetaContratista.ObtenerEstado(fila("TB_SAEC_Empresarut"))
             color = obtenerColor(estado, porcentaje)
-            'Dim idCarpeta As String = fila("id")
             Dim idCarpeta As String = fila("id")
             Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))
             Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
@@ -65,7 +67,7 @@
             tarjeta = tarjeta & "              </div> "
 
             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-comments fa-2x text- " + color + """></a>"
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-comments fa-2x text-" + color + """></a>"
             tarjeta = tarjeta & "              </div> "
             tarjeta = tarjeta & "              <div Class=""col-1""> "
             tarjeta = tarjeta & "              </div> "
@@ -91,7 +93,6 @@
         If EstadoRojo = True Then
 
             Return "danger"
-
 
         ElseIf EstadoRojo = False Then
 
