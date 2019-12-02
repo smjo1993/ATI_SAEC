@@ -16,13 +16,20 @@
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
             Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "3,1", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../404.aspx")
+            End If
+
         End If
     End Sub
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim rutUsuario As String = usuario.getRut
-        'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
         lblMenu.Text = stringMenu

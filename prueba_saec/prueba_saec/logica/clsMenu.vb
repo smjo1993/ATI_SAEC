@@ -182,4 +182,33 @@ Public Class clsMenu
             con.Dispose()
         End Try
     End Function
+    Public Function validarAcceso(rut As String, opcion As String, perfil As String) As String
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Dim acceso As String
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ValidarAcceso '" & rut & "','" & opcion & "','" & perfil & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+
+            If ds.Tables(0) Is Nothing Then
+                Return "I"
+            Else
+                If ds.Tables(0).Rows.Count > 0 Then
+                    acceso = ds.Tables(0).Rows(0).Item(0)
+                    Return acceso
+                End If
+            End If
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class
