@@ -37,7 +37,9 @@ Public Class crearEmpresa
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim empresa As New clsEmpresa
         Dim insercion As New Boolean
+        Dim log As New clsLog
         Dim existe As DataTable
+        Dim registro As Boolean
         existe = empresa.obtenerEmpresa(TxtRut.Text.Trim())
         If existe.Rows.Count > 0 Then
             lblAdvertencia.Text = "Rut de Empresa ya ingresado. Por favor verifíquelo."
@@ -48,6 +50,7 @@ Public Class crearEmpresa
                 insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
                 asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
                 lblAdvertencia.Text = "Empresa creada con éxito."
+                registro = log.insertarRegistro("Se ha creado a la empresa de rut: " + TxtRut.Text.Trim(), Session("usuario").getRut)
                 limpiarCampos()
                 cargarDatos()
             End If
