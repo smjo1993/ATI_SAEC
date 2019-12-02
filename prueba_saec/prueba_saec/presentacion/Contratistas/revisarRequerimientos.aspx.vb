@@ -2,29 +2,34 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         validarContratista()
         cargarMenu()
         If IsPostBack Then
             Return
         End If
         cargarGrid()
+
     End Sub
 
     Protected Sub validarContratista()
+
         Dim contratista As clsContratista = Session("contratistaEntrante")
         If (contratista Is Nothing) Then
             Response.Redirect("../login.aspx")
         End If
+
     End Sub
 
     Protected Sub cargarMenu()
+
         Dim contratista As clsContratista = Session("contratistaEntrante")
         Dim rutContratista As String = contratista.getRut
-        'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuContratistaCarpeta(rutContratista, 0, "")
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
+
     End Sub
 
     Protected Sub cargarGrid()
@@ -43,39 +48,8 @@
         documentosTrabajador.DataBind()
         documentosVehiculo.DataBind()
 
-        'For Each fila As DataRow In listaDocumentosEspera.Rows
-
-
-        '    documento = documento & "    <tr> "
-        '    documento = documento & "        <td> " + fila("nombre") + "</td> "
-        '    documento = documento & "        <td> " + fila("nombre") + "</td> "
-        '    documento = documento & "        <td> " + switchDocumentos(idChk) + "</td> "
-        '    documento = documento & "        <td> Edinburgh</td> "
-        '    documento = documento & "    </tr> "
-
-        '    idChk = idChk + 1
-
-        '    'prueba
-        '    'Dim item As New ListItem()
-        '    'item.Text = fila("nombre").ToString()
-        '    'item.Value = primaryKeys
-        '    'chkDocumentos.Items.Add(item)
-        '    '----
-        'Next
     End Sub
-    Public Function switchDocumentos(id As Integer) As String
 
-        Dim seleccion As String = ""
-        ' seleccion = seleccion & "    <label class=""switch"">"
-        seleccion = seleccion & "       < asp : CheckBox id = chk" + id.ToString + " runat=""server"" />"
-
-        'seleccion = seleccion & "        <input runat=""server"" type=""checkbox"" class=""default"" id =chk" + id.ToString + ">"
-        'seleccion = seleccion & "        <span class=""slider round""></span>"
-        'seleccion = seleccion & "     </label>"
-
-        Return seleccion
-
-    End Function
 
     Public Function crearDocumentos() As Object
 
@@ -86,7 +60,6 @@
     End Function
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles confirmarPinponeo.Click
-
 
         Dim dt As DataTable = New DataTable("CambioEstado")
 
@@ -152,44 +125,6 @@
             End If
 
         Next
-        'idChk = 0
-        'Dim chek As GridView
-        'Dim idCheckbox As String = "gridDocumentos_chk_" + idChk.ToString
-        'chek = Page.FindControl(idcheckbox)
-
-        '    If (chek.Checked) Then
-        '        Dim asd As String
-        '    End If
-
-
-
-
-
-        '    idChk = 0
-
-
-
-
-
-
-
-
-
-
-        'Dim idChk As Integer = 1
-        'Dim chek As checkbox
-
-
-
-        'For Each fila As DataRow In listaDocumentosEspera.Rows
-
-        '    chek = Page.FindControl("chk" + idChk.ToString)
-
-        '    If (chek.Checked) Then
-        '        Dim asd As String
-        '    End If
-
-        'Next
 
     End Sub
 
@@ -206,6 +141,7 @@
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("verComentarios.aspx")
+
         End If
 
 

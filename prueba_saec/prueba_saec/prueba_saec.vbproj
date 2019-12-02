@@ -152,7 +152,6 @@
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
-    <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos.aspx" />
@@ -1847,13 +1846,6 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\crearContratista.aspx.vb">
       <DependentUpon>crearContratista.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.designer.vb">
-      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.vb">
-      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
