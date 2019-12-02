@@ -166,6 +166,19 @@
 
         End If
 
+        If (e.CommandName = "Ver") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../Contratistas/verComentarios.aspx")
+        End If
+
 
     End Sub
     Protected Sub confirmarconfirmarVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarVehiculo.RowCommand
@@ -182,6 +195,19 @@
 
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
+        End If
+
+        If (e.CommandName = "Ver") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../Contratistas/verComentarios.aspx")
         End If
 
 
