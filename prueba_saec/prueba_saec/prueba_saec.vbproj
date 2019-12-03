@@ -167,7 +167,9 @@
     <Content Include="presentacion\Funcionarios ATI\administrarUsuarios.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx" />
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
@@ -196,7 +198,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="presentacion\404.aspx" />
+    <Content Include="presentacion\401.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -1953,11 +1955,25 @@
       <DependentUpon>confirmarDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx.designer.vb">
+      <DependentUpon>crearCuentaSAEC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx.vb">
+      <DependentUpon>crearCuentaSAEC.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.designer.vb">
       <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.vb">
       <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.designer.vb">
+      <DependentUpon>iniciarCuentasUsuarioATI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.vb">
+      <DependentUpon>iniciarCuentasUsuarioATI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\modificarDcto.aspx.designer.vb">
@@ -2009,11 +2025,11 @@
       <DependentUpon>panel.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentacion\404.aspx.designer.vb">
-      <DependentUpon>404.aspx</DependentUpon>
+    <Compile Include="presentacion\401.aspx.designer.vb">
+      <DependentUpon>401.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\404.aspx.vb">
-      <DependentUpon>404.aspx</DependentUpon>
+    <Compile Include="presentacion\401.aspx.vb">
+      <DependentUpon>401.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
