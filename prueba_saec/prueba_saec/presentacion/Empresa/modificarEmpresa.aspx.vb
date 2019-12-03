@@ -172,9 +172,11 @@
     Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
         Dim empresa As New clsEmpresa
         Dim contratista As New clsContratista
+        Dim log As New clsLog
         Dim accion As Boolean
         Dim accion2 As Boolean
         Dim accion3 As Boolean
+        Dim registro As Boolean
         LblAdvertencia.Text = ""
         If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "") Then
             LblAdvertencia.Text = "Ha ocurrido un error. Uno de los campos se encuentra en blanco."
@@ -187,6 +189,7 @@
                 LblAdvertencia.Text = "Ha ocurrido un error en la conexión. Favor inténtelo nuevamente."
             Else
                 LblAdvertencia.Text = "Se ha modificado la empresa con éxito."
+                registro = log.insertarRegistro("Se ha modificado a la empresa de rut: " + TxtRut.Text.Trim(), Session("usuario").getRut)
                 bloquearCampos()
                 BtnAceptar.Visible = False
                 btnModificar.Visible = True

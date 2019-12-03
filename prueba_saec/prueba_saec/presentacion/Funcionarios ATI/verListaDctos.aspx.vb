@@ -104,6 +104,7 @@
         Dim task As Boolean
         Dim idDocumento As Integer
         Dim estadoDocumento As String
+        Dim log As New clsLog
 
         For Each documentoMaestro As GridViewRow In gridRequisitos.Rows
             chk = documentoMaestro.FindControl("chkDocumento")
@@ -119,6 +120,8 @@
 
             task = documento.actualizarEstadoRequerimiento(idDocumento, estadoDocumento)
 
+            'log.insertarRegistro("Actualización ESTADO de Requerimiento Documental: " + documentoMaestro.Cells(1).Text.Trim(), Session("usuario").getRut)
+
             If task = False Then
                 'lblAdvertencia.Text = "Error de procedimiento almc."
             Else
@@ -128,6 +131,8 @@
             End If
 
         Next
+
+        log.insertarRegistro("Actualización ESTADO de Lista de Requerimientos Documentales", Session("usuario").getRut)
 
         Response.Redirect("verListaDctos.aspx")
 

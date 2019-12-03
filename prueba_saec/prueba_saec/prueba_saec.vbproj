@@ -153,7 +153,6 @@
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
-    <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx" />
@@ -202,6 +201,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="presentacion\404.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -1853,13 +1853,6 @@
       <DependentUpon>crearContratista.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.designer.vb">
-      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="presentacion\Contratistas\crearContratistaOriginal.aspx.vb">
-      <DependentUpon>crearContratistaOriginal.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
     </Compile>
@@ -2048,6 +2041,13 @@
     <Compile Include="presentacion\panel.Master.vb">
       <DependentUpon>panel.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\404.aspx.designer.vb">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\404.aspx.vb">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -48,35 +48,39 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       
+
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            
+
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+
+                    <%--<i class="fas fa-laugh-wink"></i>--%>
+
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
 
             <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
         </ul>
-        
 
-        
+
+
         <div id="content-wrapper" class="d-flex flex-column">
 
-            
+
             <div id="content">
 
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    
+
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
                     <%--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -88,7 +92,7 @@
                         </div>
                     </form>--%>
 
-                    
+
                     <%--<ul class="navbar-nav ml-auto">
 
                         
@@ -251,7 +255,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>
+                   <%-- <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>--%>
 
                     <form runat="server">
                         <div class="card shadow mb-4">
@@ -262,25 +266,27 @@
                                     <div class="col-6">
 
 
-                                    <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
+                                        <h4 class="m-0 font-weight text-primary">Requerimientos Documentales /  <span id="datetime"></span></h4>
 
-                                    <script>var dt = new Date();
-                                        document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
-                                    </script>
-                                 </div>
-                                <div class="col-6 ">
-                                    <%--<asp:Button
+                                        <script>var dt = new Date();
+                                            document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+                                        </script>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <%--<asp:Button
                                         ID="Button1"
                                         runat="server"
-                                        class="btn btn-success btn-user"
+                                        class="btn shadow-sm btn-success btn-user"
                                         style="float: right;"
                                         Text="Nuevo Documento" />--%>
 
-                                    <a href="agregarDcto.aspx" class="btn btn-success btn-user" style="float: right;">
-                                        Nuevo Documento
-                                                        <%--<i class="far fa-edit"></i>--%>
-                                                    </a>
-                                </div>
+                                        <a href="agregarDcto.aspx" class="btn shadow-sm btn-success" style="float: right;">
+
+                                            <i class="far fa-plus-square"></i>
+                                            Nuevo Documento
+                                                        
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -322,8 +328,7 @@
                                                         ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
                                                         CommandName="editar"
                                                         CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                        runat="server"
-                                                        />
+                                                        runat="server" />
 
                                                 </ItemTemplate>
 
@@ -342,14 +347,14 @@
 
                             <div class="card-footer">
 
-                                    <div class="row" style="float: right;">
+                                <div class="row" style="float: right;">
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                    <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
                                         data-target="#modalConfirmacion" />
 
-                                    </div>
-
                                 </div>
+
+                            </div>
                         </div>
                         <%--card shadow--%>
 
@@ -368,11 +373,11 @@
                                     <div class="modal-body">¿Desea confirmar los cambios a la lista de Documentos?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn shadow-sm btn-success btn-user"
                                             Text="Aceptar" />
                                     </div>
                                 </div>
@@ -386,13 +391,13 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <%--<footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; SAEC, CAPSTONE 2019</span>
                     </div>
                 </div>
-            </footer>
+            </footer>--%>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->

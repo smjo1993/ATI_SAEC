@@ -165,6 +165,7 @@
 
     Protected Sub btnRealizarCambios_Click(sender As Object, e As EventArgs) Handles btnRealizarCambios.Click
         Dim documento As New clsDocumento
+        Dim log As New clsLog
         Dim nombreDocumento As String = Session("nombreDocumento")
         Dim idDocumento As Integer = Session("idDocumento")
         Dim task As Boolean
@@ -183,6 +184,7 @@
 
             'task = documento.actualizarDocumento(dropDocumentos.SelectedItem.Text, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text.Trim())
             task = documento.actualizarDocumento(nombreDocumento, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text.Trim(), idDocumento)
+            Log.insertarRegistro("Se ha editado el Requerimiento Documental: " + TxtNombreDocumentoEdicion.Text.Trim(), Session("usuario").getRut)
 
             If task = False Then
                 lblAdvertencia.Text = "Error de procedimiento almc."
