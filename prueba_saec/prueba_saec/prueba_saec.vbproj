@@ -144,6 +144,7 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\checkbox.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="img\carpeta.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
@@ -155,7 +156,11 @@
     <Content Include="presentacion\Contratistas\crearContratistaOriginal.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
-    <Content Include="presentacion\Contratistas\subirDocumentos.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Contratistas\verComentarios.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
@@ -1820,8 +1825,8 @@
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
-    <Compile Include="logica\Trabajador.vb" />
-    <Compile Include="logica\Vehiculo.vb" />
+    <Compile Include="logica\clsTrabajador.vb" />
+    <Compile Include="logica\clsVehiculo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1869,11 +1874,39 @@
       <DependentUpon>revisarRequerimientos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="presentacion\Contratistas\subirDocumentos.aspx.designer.vb">
-      <DependentUpon>subirDocumentos.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx.designer.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\Contratistas\subirDocumentos.aspx.vb">
-      <DependentUpon>subirDocumentos.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx.designer.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx.designer.vb">
+      <DependentUpon>subirDocumentosEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx.vb">
+      <DependentUpon>subirDocumentosEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx.designer.vb">
+      <DependentUpon>subirDocumentosTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx.vb">
+      <DependentUpon>subirDocumentosTrabajador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.designer.vb">
+      <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.vb">
+      <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
