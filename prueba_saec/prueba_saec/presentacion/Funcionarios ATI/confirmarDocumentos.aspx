@@ -511,7 +511,7 @@
                                                                     <asp:TemplateField HeaderText="COMENTARIOS">
 
                                                                         <ItemTemplate>
-                                                                            <asp:Button ID="Button2" runat="server" Text="Button" />
+                                                                            <asp:Button ID="BtnComentariosTrabajador" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
                                                                         </ItemTemplate>
 
                                                                     </asp:TemplateField>
@@ -577,7 +577,7 @@
                                                                     <asp:TemplateField HeaderText="COMENTARIOS">
 
                                                                         <ItemTemplate>
-                                                                            <asp:Button ID="Button5" runat="server" Text="Button" />
+                                                                            <asp:Button ID="BtnComentariosVehiculo" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
                                                                         </ItemTemplate>
 
                                                                     </asp:TemplateField>
