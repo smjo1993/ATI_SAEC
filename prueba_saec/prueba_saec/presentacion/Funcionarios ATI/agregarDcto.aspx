@@ -39,8 +39,8 @@
 
             
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -272,7 +272,7 @@
                                         </div>
                                         <div class="col-6">
                                             <asp:DropDownList
-                                                class="btn bg-light dropdown-toggle col-12"
+                                                class="form-control bg-light dropdown-toggle col-12"
                                                 Style="height: 30px; padding: 0px"
                                                 ID="dropTipoDocumento"
                                                 runat="server">
@@ -317,11 +317,11 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver </a>
+                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver </a>
 
                                         &nbsp;
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Agregar" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Agregar" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
@@ -399,11 +399,11 @@
                                     <div class="modal-body">¿Desea confirmar el Documento?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnCrearDocumento"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn shadow-sm btn-success btn-user"
                                             Text="Aceptar" />
 
                                         

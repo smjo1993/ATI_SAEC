@@ -39,8 +39,8 @@
 
             
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; ></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -292,9 +292,6 @@
                         </div>--%>
 
 
-
-
-
                         <div>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3" id="CardEdicionDocumento" runat="server">
@@ -328,7 +325,7 @@
                                         <div class="col-6">
 
                                             <asp:DropDownList
-                                                class="btn bg-light dropdown-toggle col-12"
+                                                class="form-control bg-light dropdown-toggle col-12"
                                                 ID="dropTipoNuevoDocumento"
                                                 Style="height: 30px; padding: 0px"
                                                 runat="server">
@@ -377,11 +374,11 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="verListaDctos.aspx">Volver </a>
+                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver </a>
 
                                         &nbsp;
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
@@ -405,11 +402,11 @@
                                     <div class="modal-body">¿Desea confirmar los cambios al Documento?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn shadow-sm btn-success btn-user"
                                             data-toggle="modal"
                                             data-target="#modalConfirmacion"
                                             Text="Aceptar" />
