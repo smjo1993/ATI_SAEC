@@ -20,6 +20,8 @@
             Response.Redirect("../login.aspx")
         Else
 
+            LblNombreUsuario.Text = usuario.getNombre().Trim()
+
             For Each rol As clsRol In listaRoles
 
                 If rol.getDescripcion.ToString <> "super-admin" Then
@@ -37,6 +39,7 @@
         End If
         cargarMenu()
         cargarGrid()
+
     End Sub
 
     Protected Sub cargarMenu()
