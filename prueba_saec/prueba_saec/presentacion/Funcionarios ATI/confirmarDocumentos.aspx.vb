@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         cargarMenu()
         If IsPostBack Then
             Return
@@ -10,7 +11,6 @@
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Session("rutUsuario") = usuario.getRut
         Dim idCarpeta As Integer = decodificarId()
-        'Dim areaRevisor = 2
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.getArea)
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaTrabajador(idCarpeta, usuario.getArea)
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaVehiculo(idCarpeta, usuario.getArea)
@@ -38,7 +38,7 @@
     End Sub
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.getRut
+        Dim rutUsuario As String = usuario.getRut()
         Dim idCarpeta As Integer = decodificarId()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
         Dim data() As Byte = System.Convert.FromBase64String(nombreCodificado)
@@ -63,7 +63,6 @@
         Return documentosEspera
 
     End Function
-
 
     Protected Sub btnConfirmarDocumentos_Click(sender As Object, e As EventArgs) Handles btnConfirmarDocumentos.Click
         Dim contador As Integer = 0
@@ -131,6 +130,7 @@
             End If
 
         Next
+        Response.Redirect("verCarpetas.aspx")
     End Sub
 
     Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarEmpresa.RowCommand
@@ -145,6 +145,7 @@
 
             actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
         End If
 
         If (e.CommandName = "Ver") Then
@@ -158,6 +159,7 @@
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("../Contratistas/verComentarios.aspx")
+
         End If
 
 
@@ -169,13 +171,12 @@
         If (e.CommandName = "eliminar") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text
-            Dim idDocumento As Integer = confirmarEmpresa.Rows(pos).Cells(3).Text
-            Dim idArea As Integer = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim idCarpeta As Integer = confirmarTrabajador.Rows(pos).Cells(2).Text
+            Dim idDocumento As Integer = confirmarTrabajador.Rows(pos).Cells(3).Text
+            Dim idArea As Integer = confirmarTrabajador.Rows(pos).Cells(4).Text
             Dim actualizarEstado = New clsDocumento()
 
             actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
-
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
@@ -195,18 +196,17 @@
 
 
     End Sub
-    Protected Sub confirmarconfirmarVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarVehiculo.RowCommand
+    Protected Sub confirmarVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles confirmarVehiculo.RowCommand
 
-        If (e.CommandName = "elimnar") Then
+        If (e.CommandName = "eliminar") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim idCarpeta As Integer = confirmarEmpresa.Rows(pos).Cells(2).Text
-            Dim idDocumento As Integer = confirmarEmpresa.Rows(pos).Cells(3).Text
-            Dim idArea As Integer = confirmarEmpresa.Rows(pos).Cells(4).Text
+            Dim idCarpeta As Integer = confirmarVehiculo.Rows(pos).Cells(2).Text
+            Dim idDocumento As Integer = confirmarVehiculo.Rows(pos).Cells(3).Text
+            Dim idArea As Integer = confirmarVehiculo.Rows(pos).Cells(4).Text
             Dim actualizarEstado = New clsDocumento()
 
             actualizarEstado.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "no solicitado", Nothing)
-
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
