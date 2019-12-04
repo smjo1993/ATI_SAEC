@@ -48,35 +48,39 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       
+
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            
+
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+
+                    <%--<i class="fas fa-laugh-wink"></i>--%>
+
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
 
             <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
         </ul>
-        
 
-        
+
+
         <div id="content-wrapper" class="d-flex flex-column">
 
-            
+
             <div id="content">
 
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    
+
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
                     <%--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -88,8 +92,8 @@
                         </div>
                     </form>--%>
 
-                    
-                    <%--<ul class="navbar-nav ml-auto">
+
+                    <ul class="navbar-nav ml-auto">
 
                         
                         <li class="nav-item dropdown no-arrow d-sm-none">
@@ -116,7 +120,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 
-                                <span class="badge badge-danger badge-counter">3+</span>
+                                <span class="badge badge-danger badge-counter">2+</span>
                             </a>
                             
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -159,28 +163,32 @@
                             </div>
                         </li>
 
-                        
+                       <%-- LISTA DE COMENTARIOS--%>
                         <li class="nav-item dropdown no-arrow mx-1">
+
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                                 <i class="fas fa-envelope fa-fw"></i>
                                 
-                                <span class="badge badge-danger badge-counter">7</span>
+                               <%-- <span class="badge badge-danger badge-counter">7</span>--%>
+
+                                <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
                             </a>
                             
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">Message Center
+                                <h6 class="dropdown-header">Comentarios
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <a class="dropdown-item d-flex align-items-center" href="../Contratistas/verComentarios.aspx">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                                        <div class="status-indicator bg-success"></div>
+                                        <%--<div class="status-indicator bg-success"></div>--%>
                                     </div>
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <%--<a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
                                         <div class="status-indicator"></div>
@@ -209,22 +217,28 @@
                                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                </a>--%>
+                                <%--<a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>--%>
                             </div>
                         </li>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
 
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
                         
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+
+                                <%--<span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>--%>
+
+                                <asp:Label ID="LblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
+
+                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
                             </a>
                             
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+
+                                <%--<a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -236,14 +250,14 @@
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
                                 </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalConfirmacion">
+                                <div class="dropdown-divider"></div>--%>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Cerrar Sesión
                                 </a>
                             </div>
                         </li>
-                    </ul>--%>
+                    </ul>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -251,7 +265,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>
+                   <%-- <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>--%>
 
                     <form runat="server">
                         <div class="card shadow mb-4">
@@ -262,25 +276,27 @@
                                     <div class="col-6">
 
 
-                                    <h4 class="m-0 font-weight text-primary">Listado al <span id="datetime"></span></h4>
+                                        <h4 class="m-0 font-weight text-primary">Requerimientos Documentales /  <span id="datetime"></span></h4>
 
-                                    <script>var dt = new Date();
-                                        document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
-                                    </script>
-                                 </div>
-                                <div class="col-6 ">
-                                    <%--<asp:Button
+                                        <script>var dt = new Date();
+                                            document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+                                        </script>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <%--<asp:Button
                                         ID="Button1"
                                         runat="server"
-                                        class="btn btn-success btn-user"
+                                        class="btn shadow-sm btn-success btn-user"
                                         style="float: right;"
                                         Text="Nuevo Documento" />--%>
 
-                                    <a href="agregarDcto.aspx" class="btn btn-success btn-user" style="float: right;">
-                                        Nuevo Documento
-                                                        <%--<i class="far fa-edit"></i>--%>
-                                                    </a>
-                                </div>
+                                        <a href="agregarDcto.aspx" class="btn shadow-sm btn-success" style="float: right;">
+
+                                            <i class="far fa-plus-square"></i>
+                                            Nuevo Documento
+                                                        
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -322,8 +338,7 @@
                                                         ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
                                                         CommandName="editar"
                                                         CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                        runat="server"
-                                                        />
+                                                        runat="server" />
 
                                                 </ItemTemplate>
 
@@ -342,14 +357,14 @@
 
                             <div class="card-footer">
 
-                                    <div class="row" style="float: right;">
+                                <div class="row" style="float: right;">
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                    <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
                                         data-target="#modalConfirmacion" />
 
-                                    </div>
-
                                 </div>
+
+                            </div>
                         </div>
                         <%--card shadow--%>
 
@@ -368,12 +383,38 @@
                                     <div class="modal-body">¿Desea confirmar los cambios a la lista de Documentos?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn shadow-sm btn-success btn-user"
                                             Text="Aceptar" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Logout-->
+                        <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="lblModalLogout">Confirmación</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">¿Desea cerrar sesión?</div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <%--<asp:Button
+                                            ID="Button1"
+                                            runat="server"
+                                            class="btn shadow-sm btn-success btn-user"
+                                            Text="Aceptar" />--%>
+
+                                        <a href="login.aspx" class="btn shadow-sm btn-success">Aceptar</a>
                                     </div>
                                 </div>
                             </div>
@@ -386,13 +427,13 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <%--<footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; SAEC, CAPSTONE 2019</span>
                     </div>
                 </div>
-            </footer>
+            </footer>--%>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->

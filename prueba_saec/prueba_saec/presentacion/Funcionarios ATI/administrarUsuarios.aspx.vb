@@ -21,7 +21,7 @@
             Dim acceso As String = menu.validarAcceso(usuario.getRut, "3,1", "A")
 
             If acceso = "I" Or acceso Is Nothing Then
-                Response.Redirect("../404.aspx")
+                Response.Redirect("../401.aspx")
             End If
 
         End If

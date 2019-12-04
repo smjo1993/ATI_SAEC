@@ -73,7 +73,7 @@ Public Class clsUsuarioSAEC
             Me.estado = Value
         End Set
     End Property
-    Public Property getCorrep() As String
+    Public Property getCorreo() As String
         Get
             Return Me.correo
         End Get
@@ -222,6 +222,27 @@ Public Class clsUsuarioSAEC
             Return ds.Tables(0)
         Catch ex As Exception
             Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function insertarUsuario(nombre As String, login As String, clave As String, rut As String, estado As Char, fono As Integer, correo As String, area As Integer) As String
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Console.WriteLine(con.ToString())
+        Try
+
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarUsuario '" & nombre & "','" & login & "','" & clave & "','" & rut & "','" & estado & "','" & fono & "','" & correo & "','" & area & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return "Creacion de cuenta exitoso de " + nombre + ""
+        Catch ex As Exception
+            Return "Error al  crear la cuenta"
         Finally
             con.Close()
             con.Dispose()
