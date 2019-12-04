@@ -5,6 +5,7 @@
         lblMenu.Visible = False
         sinUsuarios.Visible = False
         lblMensaje.Visible = False
+        sinCoincidencia.Visible = False
         If Not Page.IsPostBack Then
             validarUsuario()
             cargarMenu()
@@ -15,6 +16,13 @@
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
             Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "3,3", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
         End If
         Dim mensaje As String = Session("mensaje")
         If mensaje <> Nothing Then
@@ -49,14 +57,6 @@
         End If
 
     End Sub
-    Protected Sub gridUsuariosATI_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs) Handles gridUsuariosATI.PageIndexChanging
-
-        cargarMenu()
-        cargarUsuarios()
-        gridUsuariosATI.PageIndex = e.NewPageIndex
-        gridUsuariosATI.DataBind()
-
-    End Sub
 
     Protected Sub gridUsuariosATI_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridUsuariosATI.RowCommand
 
@@ -87,14 +87,50 @@
             Response.Redirect("crearCuentaSAEC.aspx")
         End If
     End Sub
-    Private Sub txtBuscarNombre_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarNombre.TextChanged
-        Dim usuariosFiltradosNombre As New DataView(usuariosATI)
-        'usuariosFiltradosNombre.RowFilter = String.Format("Nombre like '%{0}%'", txtBuscarNombre.Text)
-        'gridUsuariosATI.DataSource = usuariosFiltradosNombre
-        'Dim filtro As String = "Nombre LIKE '%" + txtBuscarNombre.Text.Trim + "%'"
-        'usuariosFiltradosNombre.RowFilter = filtro
-        usuariosFiltradosNombre.RowFilter = "Emp_FName LIKE '*" & txtBuscarNombre.Text.Trim & "*'"
-        gridUsuariosATI.DataSource = usuariosFiltradosNombre
-
+    Private Sub lnkBuscarNombre_Click(sender As Object, e As EventArgs) Handles lnkBuscarNombre.Click
+        Dim nombreFiltro As String = txtBuscarNombre.Text.Trim
+        If nombreFiltro = "" Then
+            cargarMenu()
+            cargarUsuarios()
+        Else
+            Dim usuario As New clsUsuario
+            usuariosATI = usuario.usuariosFiltrados(nombreFiltro, "")
+            If usuariosATI.Rows.Count > 0 Then
+                Me.gridUsuariosATI.DataSource = usuariosATI
+                Me.gridUsuariosATI.DataBind()
+                txtBuscarNombre.Text = ""
+                cargarMenu()
+            Else
+                Dim d As New DataTable
+                Me.gridUsuariosATI.DataSource = d
+                Me.gridUsuariosATI.DataBind()
+                sinCoincidencia.Visible = True
+                txtBuscarNombre.Text = ""
+                cargarMenu()
+            End If
+        End If
+    End Sub
+    Private Sub lnkBuscarUsuario_Click(sender As Object, e As EventArgs) Handles lnkBuscarUsuario.Click
+        Dim usuarioFiltro As String = txtBuscarUsuario.Text.Trim
+        If usuarioFiltro = "" Then
+            cargarMenu()
+            cargarUsuarios()
+        Else
+            Dim usuario As New clsUsuario
+            usuariosATI = usuario.usuariosFiltrados("", usuarioFiltro)
+            If usuariosATI.Rows.Count > 0 Then
+                Me.gridUsuariosATI.DataSource = usuariosATI
+                Me.gridUsuariosATI.DataBind()
+                txtBuscarUsuario.Text = ""
+                cargarMenu()
+            Else
+                Dim d As New DataTable
+                Me.gridUsuariosATI.DataSource = d
+                Me.gridUsuariosATI.DataBind()
+                sinCoincidencia.Visible = True
+                txtBuscarUsuario.Text = ""
+                cargarMenu()
+            End If
+        End If
     End Sub
 End Class

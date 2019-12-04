@@ -1,41 +1,19 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verEmpresas.aspx.vb" Inherits="prueba_saec.WebForm1" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="subirDocumentosTrabajador.aspx.vb" Inherits="prueba_saec.subirDocumentosTrabajador" %>
 
 <!DOCTYPE html>
 
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Subir Documentación - SAEC</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Empresas - SAEC</title>
-
-    <!-- Custom fonts for this template -->
-    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../../css/checkbox.css" rel="stylesheet">
-    <style type="text/css">
-        .auto-style1 {
-            width: 984px;
-        }
-    </style>
-    <!-- Custom styles for this page -->
-    <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../../css/checkbox.css" rel="stylesheet">
 </head>
-
-<body id="page-top">
-
-
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+<body>
+     <div id="wrapper">
 
         <!-- Sidebar  BARRA LATERAL DEL DASHBOARD-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -65,18 +43,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>
+          </button>--%>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>--%>
+                            </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -160,121 +138,113 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+    <form id="form15" runat="server" class="md-form">
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">Empresas</h5>
-                        </div>
-                        <div class="card-body">
+        <div class="container-fluid">
 
-                            <form id="documentos" runat="server">
 
-                                                    <div>
-                        <table class="table table-bordered dataTable" id="tablaEmpresa" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <%--<caption class="auto-style2">
-                                                <strong>Empresas</strong></caption>--%>
-                            <%--<tr>
-                                <td class="auto-style1">&nbsp;</td>
-                            </tr>--%>
+            <%-- TRABAJADOR --%>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
+                    <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <tr class="align-left">
                                 <td class="auto-style1">
-                                    <%--<asp:GridView ID="gridEmpresas" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" Width="100%" Visible="true" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" Style="text-align: Center">--%>
-                                    <asp:GridView ID="gridEmpresas" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+
+                                    <asp:GridView ID="gridListarDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                        
                                         <Columns>
-                                            <asp:BoundField DataField="razonSocial" HeaderText="Razón Social" />
-                                            <asp:BoundField DataField="rut" HeaderText="Rut" />
-                                            <asp:BoundField DataField="giro" HeaderText="Giro" />
-                                            <asp:BoundField DataField="personaContacto" HeaderText="Contacto" />
-                                            <asp:BoundField DataField="correo" HeaderText="Correo" />
-                                            <asp:BoundField DataField="celular" HeaderText="Celular" />
 
+                                            <asp:BoundField DataField="rutTrabajador" HeaderText="RUT" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="nombreTrabajador"  HeaderText="NOMBRE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />                                  
+                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                            <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                            <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
-                                            <asp:TemplateField HeaderText="Ver">
+                                            <asp:TemplateField HeaderText="SUBIR">
+
                                                 <ItemTemplate>
-                                                    <asp:Button ID="btVer" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />
+
+                                                    <div class="form-group">         
+                                                        <input type="file" class="form-control-file" id="fileArchivo" runat="server"/>                                          
+                                                    </div>
+                                                    
+
                                                 </ItemTemplate>
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="COMENTARIOS">
+
+                                                <ItemTemplate>
+                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                                                </ItemTemplate>
+
+                                            </asp:TemplateField>
+
+                                             <asp:TemplateField HeaderText="CONFIRMAR">
+
+                                                <ItemTemplate>
+
+                                                    <asp:Button ID="btnSubir" 
+                                                        CssClass="button primary" CommandName="subir"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' 
+                                                        runat="server" 
+                                                        Text="Subir" />
+
+                                                </ItemTemplate>
+
+
                                             </asp:TemplateField>
 
                                         </Columns>
-                                        <%--<FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                                                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />--%>
+
                                     </asp:GridView>
 
-
-                                    <%--<br />
-                    <br />
-                    <br />
-
-
-                    <asp:Button ID="btCrearMenu" runat="server" Text="Crear Nuevo Menú" CssClass="button primary" />--%>
                                 </td>
                             </tr>
+
                         </table>
                     </div>
-
-                            </form>
-                        </div>
-                    </div>
-
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
+
+
+
+
 
         </div>
-        <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+       
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </form>
+                  <!-- Bootstrap core JavaScript-->
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
+    <script src="../../../../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../../js/demo/datatables-demo.js"></script>
-
+    <script src="../../../../js/demo/datatables-demo.js"></script>
 </body>
+
 
 </html>

@@ -18,6 +18,13 @@
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
             Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,2", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
         End If
 
     End Sub
@@ -66,7 +73,7 @@
                 tarjeta = tarjeta & "           <div Class=""card-body""> "
                 tarjeta = tarjeta & "             <div Class=""row no-gutters align-items-center""> "
                 tarjeta = tarjeta & "               <div Class=""col mr-2""> "
-                tarjeta = tarjeta & "                 <div Class=""text-l font-weight-bold text-" + color + " text-uppercase mb-1"">" + fila("razonSocial") + "</div> "
+                tarjeta = tarjeta & "                 <div Class=""text-l font-weight-bold text-" + color + " text-uppercase mb-1"">" + fila("razonSocial") + " - " + fila("fechaDeExpiracion").Year.ToString + "</div> "
                 tarjeta = tarjeta & "                 <div Class=""row no-gutters align-items-center""> "
                 tarjeta = tarjeta & "                   <div Class=""col-auto""> "
                 tarjeta = tarjeta & "                     <div Class=""h5 mb-0 mr-3 font-weight-bold text-gray-800"">" + porcentaje + "%" + "</div> "
