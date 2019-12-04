@@ -32,15 +32,6 @@ Partial Public Class iniciarCuentasUsuarioATI
     Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblBuscarNombre.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblBuscarNombre As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Control txtBuscarNombre.
     '''</summary>
     '''<remarks>
@@ -50,13 +41,13 @@ Partial Public Class iniciarCuentasUsuarioATI
     Protected WithEvents txtBuscarNombre As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control lblBuscarUsuario.
+    '''Control lnkBuscarNombre.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblBuscarUsuario As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lnkBuscarNombre As Global.System.Web.UI.WebControls.LinkButton
     
     '''<summary>
     '''Control txtBuscarUsuario.
@@ -66,6 +57,15 @@ Partial Public Class iniciarCuentasUsuarioATI
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents txtBuscarUsuario As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Control lnkBuscarUsuario.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lnkBuscarUsuario As Global.System.Web.UI.WebControls.LinkButton
     
     '''<summary>
     '''Control Div1.
@@ -93,6 +93,15 @@ Partial Public Class iniciarCuentasUsuarioATI
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridUsuariosATI As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinCoincidencia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinCoincidencia As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control sinUsuarios.

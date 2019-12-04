@@ -95,6 +95,33 @@ Partial Public Class crearCuentaSAEC
     Protected WithEvents txtFono As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''Control dropRol.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dropRol As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''Control errorNumero.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents errorNumero As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control lblMensaje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control btnCrearCuenta.
     '''</summary>
     '''<remarks>

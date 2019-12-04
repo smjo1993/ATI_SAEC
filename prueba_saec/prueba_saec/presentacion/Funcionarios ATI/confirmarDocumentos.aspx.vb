@@ -6,6 +6,7 @@
         If IsPostBack Then
             Return
         End If
+        validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Session("rutUsuario") = usuario.getRut
         Dim idCarpeta As Integer = decodificarId()
@@ -21,6 +22,19 @@
         confirmarEmpresa.DataBind()
         confirmarTrabajador.DataBind()
         confirmarVehiculo.DataBind()
+    End Sub
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "6,2", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
     End Sub
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
