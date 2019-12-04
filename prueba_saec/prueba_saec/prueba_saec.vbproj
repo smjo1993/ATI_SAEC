@@ -152,6 +152,7 @@
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
+    <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos.aspx" />
@@ -1820,8 +1821,8 @@
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
-    <Compile Include="logica\Trabajador.vb" />
-    <Compile Include="logica\Vehiculo.vb" />
+    <Compile Include="logica\clsTrabajador.vb" />
+    <Compile Include="logica\clsVehiculo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1846,6 +1847,13 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\crearContratista.aspx.vb">
       <DependentUpon>crearContratista.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearTrabajador.aspx.designer.vb">
+      <DependentUpon>crearTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearTrabajador.aspx.vb">
+      <DependentUpon>crearTrabajador.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
