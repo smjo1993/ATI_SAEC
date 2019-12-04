@@ -17,17 +17,17 @@ Public Class clsTrabajador
     Public Sub New()
     End Sub
 
-    Public Function listarTrabajadores(idCarpeta As Integer) As DataTable
+    Public Function listarTrabajadores(rutContratista As Integer) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarTrabajadores '" & idCarpeta & "'"
+            Dim sql As String = "SP_SAEC_ListarTrabajadores '" & rutContratista & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
-            dbDataAdapter.Fill(ds, "ListarDocumentosArea")
+            dbDataAdapter.Fill(ds)
 
             Return ds.Tables(0)
 
@@ -40,17 +40,40 @@ Public Class clsTrabajador
 
     End Function
 
-    Public Function listarDocumentosTrabajador(idCarpeta As Integer, rutTrabajador As String) As DataTable
+    Public Function obtenerRutEmpresa(rutContratista As Integer) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarDocumentosTrabajador'" & idCarpeta & "','" & rutTrabajador & "'"
+            Dim sql As String = "SP_SAEC_ListarTrabajadores '" & rutContratista & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
-            dbDataAdapter.Fill(ds, "ListarDocumentosArea")
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(1)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function listarDocumentosTrabajador(idTrabajador As Integer, rutContratista As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosTrabajador'" & idTrabajador & "','" & rutContratista & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
 
             Return ds.Tables(0)
 
@@ -62,6 +85,8 @@ Public Class clsTrabajador
         End Try
 
     End Function
+
+
 
 
 

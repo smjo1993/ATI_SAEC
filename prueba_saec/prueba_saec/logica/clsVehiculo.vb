@@ -13,12 +13,12 @@ Public Class clsVehiculo
     End Sub
 
 
-    Public Function listarVehiculos(idCarpeta As Integer) As DataTable
+    Public Function listarVehiculos(rutContratista As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarVehiculos '" & idCarpeta & "'"
+            Dim sql As String = "SP_SAEC_ListarVehiculos '" & rutContratista & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -36,12 +36,37 @@ Public Class clsVehiculo
 
     End Function
 
-    Public Function listarDocumentosVehiculo(idCarpeta As Integer, patente As String) As DataTable
+    Public Function obtenerRutEmpresa(rutContratista As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ListarDocumentosVehiculo'" & idCarpeta & "','" & patente & "'"
+            Dim sql As String = "SP_SAEC_ListarVehiculos '" & rutContratista & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(1)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+
+
+    Public Function listarDocumentosVehiculo(idVehiculo As Integer, rutContratista As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosVehiculo'" & idVehiculo & "','" & rutContratista & "'"
             con.Open()
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
@@ -58,5 +83,7 @@ Public Class clsVehiculo
         End Try
 
     End Function
+
+
 
 End Class
