@@ -60,9 +60,9 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -89,81 +89,80 @@
                     <form id="usuarios" runat="server">
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
-
-
-
                             <div>
                                 <div class="card-header py-3">
                                     <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">Usuarios ATI</h5>
                                 </div>
-                                <p>
-                                </p>
-                                <div class="row">
-                                    <div class="col-2"></div>
-                                    <div class="col-1">
-                                        <asp:Label ID="lblBuscarNombre" runat="server" Text="Buscar por Nombre:"></asp:Label>
-                                    </div>
-                                    <div class="col-3">
-                                        <asp:TextBox ID="txtBuscarNombre" runat="server" Class="col-12  form-control form-control-user"></asp:TextBox>
-                                    </div>
-                                    <div class="col-1">
-                                        <asp:Label ID="lblBuscarUsuario" runat="server" Text="Buscar por Usuario:" ></asp:Label>
-                                    </div>
-                                    <div class="col-3">
-                                        <asp:TextBox ID="txtBuscarUsuario" runat="server" Class="col-12  form-control form-control-user"></asp:TextBox>
-                                    </div>
-                                    <div class="col-2"></div>
-                                    <%--                                    <div class="col-2">
-                                        <asp:Label ID="lblBuscar" runat="server" Text="Buscar por Rut:"></asp:Label>
-                                    </div>
-                                    <div class="col-2">
-                                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                                    </div>--%>
-                                </div>
                                 <div class="card-body">
-                                    <div>
-                                        <div runat="server" id="Div1">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">
-                                                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label></h1>
-                                        </div>
-                                        <asp:GridView ID="gridUsuariosATI" runat="server"
-                                            AutoGenerateColumns="False"
-                                            AllowPaging="true"
-                                            OnPageIndexChanging="gridUsuariosATI_PageIndexChanging"
-                                            class="table table-bordered dataTable"
-                                            Width="100%"
-                                            CellSpacing="0"
-                                            role="grid"
-                                            aria-describedby="dataTable_info"
-                                            Style="width: 100%;">
-                                            <Columns>
-                                                <asp:BoundField DataField="NOMBRE_USUARIO" HeaderText="Nombre" />
-                                                <asp:BoundField DataField="LOGIN_USUARIO" HeaderText="Usuario" />
-                                                <asp:BoundField DataField="CLAVE_USUARIO" HeaderText="Estado" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="RUT_USUARIO" HeaderText="Rut" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="MAIL" HeaderText="E-mail" />
-                                                <asp:BoundField DataField="FONO" HeaderText="Fono de Contacto" />
-                                                <asp:BoundField DataField="AREA" HeaderText="Area" />
-                                                <asp:TemplateField HeaderText="CrearCuenta">
-                                                    <ItemTemplate>
-                                                        <asp:ImageButton
-                                                            ID="btnCrearCuenta"
-                                                            ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
-                                                            CommandName="crearCuenta"
-                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            runat="server" />
+                                    <div class="table-responsive">
+                                        <div class="dataTables_wrapper dt-bootstrap4">
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input-group">
+                                                            <asp:TextBox ID="txtBuscarNombre" runat="server" Class="col-12  form-control form-control-user" placeholder="Buscar  por Nombre"></asp:TextBox>
+                                                            <div class="input-group-append">
+                                                                <asp:LinkButton ID="lnkBuscarNombre" runat="server" class="btn btn-primary">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </asp:LinkButton>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input-group">
+                                                            <asp:TextBox ID="txtBuscarUsuario" runat="server" Class="col-12  form-control form-control-user" placeholder="Buscar por Usuario"></asp:TextBox>
+                                                            <div class="input-group-append">
+                                                                <asp:LinkButton ID="lnkBuscarUsuario" runat="server" class="btn btn-primary">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </asp:LinkButton>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div runat="server" id="Div1">
+                                                    <h1 class="h3 mb-4 text-gray-800 text-center">
+                                                        <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label></h1>
+                                                </div>
+                                                <asp:GridView ID="gridUsuariosATI" runat="server"
+                                                    AutoGenerateColumns="False"
+                                                    class="table table-bordered dataTable"
+                                                    Width="100%"
+                                                    CellSpacing="0"
+                                                    role="grid"
+                                                    aria-describedby="dataTable_info"
+                                                    Style="width: 100%;">
+                                                    <Columns>
+                                                        <asp:BoundField DataField="NOMBRE_USUARIO" HeaderText="Nombre" />
+                                                        <asp:BoundField DataField="LOGIN_USUARIO" HeaderText="Usuario" />
+                                                        <asp:BoundField DataField="CLAVE_USUARIO" HeaderText="Estado" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="RUT_USUARIO" HeaderText="Rut" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="MAIL" HeaderText="E-mail" />
+                                                        <asp:BoundField DataField="FONO" HeaderText="Fono de Contacto" />
+                                                        <asp:BoundField DataField="AREA" HeaderText="Area" />
+                                                        <asp:TemplateField HeaderText="CrearCuenta">
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    ID="btnCrearCuenta"
+                                                                    ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
+                                                                    CommandName="crearCuenta"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
 
-                                                    </ItemTemplate>
+                                                            </ItemTemplate>
 
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
 
-                                                </asp:TemplateField>
-                                            </Columns>
-                                        </asp:GridView>
-
-                                        <div runat="server" id="sinUsuarios">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">No hay usuarios en el sistema</h1>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                                <div runat="server" id="sinCoincidencia">
+                                                    <h1 class="h3 mb-4 text-gray-800 text-center">No se encontraron coincidencias</h1>
+                                                </div>
+                                                <div runat="server" id="sinUsuarios">
+                                                    <h1 class="h3 mb-4 text-gray-800 text-center">No hay usuarios en el sistema</h1>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

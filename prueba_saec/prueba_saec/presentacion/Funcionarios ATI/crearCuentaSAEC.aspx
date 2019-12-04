@@ -62,9 +62,9 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                           <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -137,7 +137,7 @@
                                             <label id="lblEmail" class="col-12">E-mail:</label>
                                         </div>
                                         <div class="col-6">
-                                            <asp:TextBox ID="txtEmail" runat="server" Class="col-12 form-control bg-light border-0 small"></asp:TextBox>
+                                            <asp:TextBox ID="txtEmail" runat="server" Class="col-12 form-control form-control-user" TextMode="Email" required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -145,9 +145,27 @@
                                             <label id="lblFono" class="col-12">Telefono:</label>
                                         </div>
                                         <div class="col-6">
-                                            <asp:TextBox ID="txtFono" runat="server" Class="col-12 form-control bg-light border-0 small"></asp:TextBox>
+                                            <asp:TextBox ID="txtFono" runat="server" Class="col-12 form-control form-control-user" required TextMode="Phone"></asp:TextBox>
                                         </div>
                                     </div>
+                                    <div class="row form-group">
+                                        <div style="margin-top: 0px" class="col-4">
+                                            <label id="lblRol" class="col-12">Rol:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:DropDownList ID="dropRol" runat="server" class="form-control form-control-user"></asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+                                        <div runat="server" id="errorNumero">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">
+                                                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label></h1>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-4"></div>

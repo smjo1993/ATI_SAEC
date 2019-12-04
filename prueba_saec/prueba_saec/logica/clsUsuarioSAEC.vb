@@ -228,14 +228,14 @@ Public Class clsUsuarioSAEC
         End Try
     End Function
 
-    Public Function insertarUsuario(nombre As String, login As String, clave As String, rut As String, estado As Char, fono As Integer, correo As String, area As Integer) As String
+    Public Function insertarUsuario(nombre As String, login As String, clave As String, rut As String, estado As Char, fono As Integer, correo As String, area As Integer, rol As Integer) As String
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Console.WriteLine(con.ToString())
         Try
 
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_InsertarUsuario '" & nombre & "','" & login & "','" & clave & "','" & rut & "','" & estado & "','" & fono & "','" & correo & "','" & area & "'"
+            Dim sql As String = "SP_SAEC_InsertarUsuario '" & nombre & "','" & login & "','" & clave & "','" & rut & "','" & estado & "','" & fono & "','" & correo & "','" & area & "','" & rol & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

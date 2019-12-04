@@ -10,6 +10,7 @@ Public Class crearEmpresa
         cargarMenu()
         If Not Page.IsPostBack Then
             cargarDatos()
+            validarUsuario()
         End If
     End Sub
     Public Sub cargarDatos()
@@ -24,6 +25,20 @@ Public Class crearEmpresa
             item.Value = row("rut").ToString()
             dropContratistas.Items.Add(item)
         Next
+    End Sub
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "2,1", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
+
     End Sub
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")

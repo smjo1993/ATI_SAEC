@@ -171,7 +171,7 @@
                                         <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></h5>
                                 </div>
                                 <div class="card-body">
-                                    <div>
+                                    <div class="table-responsive">
 
                                         <asp:GridView ID="gridPermisos" runat="server"
                                             AutoGenerateColumns="False"
