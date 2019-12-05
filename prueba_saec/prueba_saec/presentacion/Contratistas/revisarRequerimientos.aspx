@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Revisión de Requerimientos - SAEC</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,18 +65,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -209,11 +209,11 @@
                                                                     </asp:TemplateField>
 
 
-                                            <asp:TemplateField HeaderText="COMENTARIOS">
+                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
 
-                                                <ItemTemplate>
-                                                    <asp:Button ID="btnComentario" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
-                                                </ItemTemplate>
+                                                                        <ItemTemplate>
+                                                                            <asp:Button ID="btnComentario" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
+                                                                        </ItemTemplate>
 
                                                                     </asp:TemplateField>
 
@@ -333,10 +333,43 @@
                                         </div>
 
                                     </div>
-                                    <asp:Button ID="confirmarPinponeo" runat="server" Text="Confirmar solicitud" />
 
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Confirmar" data-toggle="modal"
+                                                    data-target="#modalConfirmacion" />
+                                            </div>
+                                        </div>
+                                        <div class="col-4"></div>
+
+                                    </div>
 
                                 </div>
+
+                                <!--Modal-->
+                                <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">¿Desea confirmar la lista de Documento?</div>
+
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+
+                                                <asp:Button ID="confirmarPinponeo" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </form>
                         </div>
                     </div>

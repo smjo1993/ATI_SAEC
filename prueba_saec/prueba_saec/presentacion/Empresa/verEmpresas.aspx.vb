@@ -14,6 +14,7 @@
         'If (Not clsUsuario.ValidaAccesoForm(Session("Usuario"), Request.Url.Segments(Request.Url.Segments.Length - 1))) Then
         '    Response.Redirect("AccesoDenegado.aspx")
         'End If
+        validarUsuario()
         cargarGrid()
     End Sub
 
@@ -26,7 +27,19 @@
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "2,2", "A")
 
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
+    End Sub
     Private Sub cargarGrid()
         Dim empresa As New clsEmpresa
         Try

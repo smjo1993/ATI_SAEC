@@ -144,6 +144,7 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\checkbox.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="img\carpeta.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
@@ -154,7 +155,11 @@
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
-    <Content Include="presentacion\Contratistas\subirDocumentos.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx" />
+    <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Contratistas\verComentarios.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
@@ -167,10 +172,13 @@
     <Content Include="presentacion\Funcionarios ATI\administrarUsuarios.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx" />
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\verDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
@@ -196,7 +204,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="presentacion\404.aspx" />
+    <Content Include="presentacion\401.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -1821,8 +1829,8 @@
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
     <Compile Include="logica\Conexion.vb" />
-    <Compile Include="logica\Trabajador.vb" />
-    <Compile Include="logica\Vehiculo.vb" />
+    <Compile Include="logica\clsTrabajador.vb" />
+    <Compile Include="logica\clsVehiculo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1863,12 +1871,35 @@
       <DependentUpon>revisarRequerimientos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="presentacion\Contratistas\subirDocumentos.aspx.designer.vb">
-      <DependentUpon>subirDocumentos.aspx</DependentUpon>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx.designer.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\Contratistas\subirDocumentos.aspx.vb">
-      <DependentUpon>subirDocumentos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx.designer.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx.designer.vb">
+      <DependentUpon>subirDocumentosEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx.vb">
+      <DependentUpon>subirDocumentosEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx.designer.vb">
+      <DependentUpon>subirDocumentosTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx.vb">
+      <DependentUpon>subirDocumentosTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.designer.vb">
+      <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.vb">
+      <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
@@ -1954,11 +1985,25 @@
       <DependentUpon>confirmarDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx.designer.vb">
+      <DependentUpon>crearCuentaSAEC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx.vb">
+      <DependentUpon>crearCuentaSAEC.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.designer.vb">
       <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.vb">
       <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.designer.vb">
+      <DependentUpon>iniciarCuentasUsuarioATI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.vb">
+      <DependentUpon>iniciarCuentasUsuarioATI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\modificarDcto.aspx.designer.vb">
@@ -1980,6 +2025,13 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verCarpetas.aspx.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.designer.vb">
+      <DependentUpon>verDocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.vb">
+      <DependentUpon>verDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.designer.vb">
@@ -2010,11 +2062,11 @@
       <DependentUpon>panel.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="presentacion\404.aspx.designer.vb">
-      <DependentUpon>404.aspx</DependentUpon>
+    <Compile Include="presentacion\401.aspx.designer.vb">
+      <DependentUpon>401.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\404.aspx.vb">
-      <DependentUpon>404.aspx</DependentUpon>
+    <Compile Include="presentacion\401.aspx.vb">
+      <DependentUpon>401.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

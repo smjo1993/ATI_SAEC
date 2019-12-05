@@ -21,21 +21,27 @@
             Response.Redirect("../login.aspx")
         Else
 
-            LblNombreUsuario.Text = usuario.getNombre().Trim()
+            'LblNombreUsuario.Text = usuario.getNombre().Trim()
 
-            For Each rol As clsRol In listaRoles
+            'For Each rol As clsRol In listaRoles
 
-                If rol.getDescripcion.ToString <> "super-admin" Then
+            '    If rol.getDescripcion.ToString <> "super-admin" Then
 
-                    Response.Redirect("../login.aspx")
+            '        Response.Redirect("../login.aspx")
 
-                Else
+            '    Else
 
-                    cargarGrid()
+            '        cargarGrid()
 
-                End If
+            '    End If
 
-            Next
+            'Next
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "4,2", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
 
         End If
         cargarMenu()

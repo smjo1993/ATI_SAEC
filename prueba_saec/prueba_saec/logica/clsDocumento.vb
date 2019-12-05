@@ -240,12 +240,12 @@ Public Class clsDocumento
     End Function
 
     Public Function cambiarEstadoDocumentoTrabajador(idCarpeta As Integer, idArea As Integer,
-                                           idDocumento As Integer, rutTrabajador As String, estado As String, ruta As String)
+                                           idDocumento As Integer, idTrabajador As Integer, estado As String, ruta As String)
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_CambiarEstadoDocumentoTrabajador'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & rutTrabajador & "','" & estado & "','" & ruta & "'"
+            Dim sql As String = "SP_SAEC_CambiarEstadoDocumentoTrabajador'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & idTrabajador & "','" & estado & "','" & ruta & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
@@ -260,12 +260,12 @@ Public Class clsDocumento
     End Function
 
     Public Function cambiarEstadoDocumentoVehiculo(idCarpeta As Integer, idArea As Integer,
-                                           idDocumento As Integer, patente As String, estado As String, ruta As String)
+                                           idDocumento As Integer, idVehiculo As Integer, estado As String, ruta As String)
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_CambiarEstadoDocumentoVehiculo'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & patente & "','" & estado & "','" & ruta & "'"
+            Dim sql As String = "SP_SAEC_CambiarEstadoDocumentoVehiculo'" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & idVehiculo & "','" & estado & "','" & ruta & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
