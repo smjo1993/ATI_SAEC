@@ -6,6 +6,7 @@
 
         If Not IsPostBack Then
             validarUsuario()
+            cargarNotificacionesComentarios()
         End If
 
     End Sub
@@ -138,6 +139,55 @@
         log.insertarRegistro("Actualización ESTADO de Lista de Requerimientos Documentales", Session("usuario").getRut)
 
         Response.Redirect("verListaDctos.aspx")
+
+    End Sub
+
+    'Protected Function obtenerResumen(rut As String) As String
+    '    Dim comentario As New clsComentario
+    '    Dim usuarioSaec As New clsUsuarioSAEC
+    '    Dim resumen As String
+    '    Dim dt As DataTable
+    '    Dim dr As DataRow
+    '    dt = contratista.obtenerContratista(rut)
+
+    '    If dt.Rows.Count > 0 Then
+    '        dr = dt.Rows.Item(0)
+    '        resumen = dr("nombre")
+    '        Return resumen
+
+    '    Else
+    '        Return "Usuario no encontrado"
+    '    End If
+    'End Function
+
+    Private Sub cargarNotificacionesComentarios()
+        Dim comentario As New clsComentario
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.getRut
+        Dim tarjeta As String = ""
+
+        Dim listaNotificaciones As Data.DataTable = comentario.obtenerComentariosRespuesta(rutUsuario)
+
+        For Each fila As DataRow In listaNotificaciones.Rows
+            Dim resumenComentario As String = fila("Comentario")
+            Dim nombreUsuarioRespuesta As String = fila("autor")
+            Dim carpetaArranque As String = fila("CA")
+
+            tarjeta = tarjeta & "  <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
+            tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
+            tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+            tarjeta = tarjeta & "    </div> "
+            tarjeta = tarjeta & "    <div class=""font-weight-bold""> "
+            tarjeta = tarjeta & "    <div class=""text-truncate"">" + resumenComentario + "</div> "
+            tarjeta = tarjeta & "    <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
+            tarjeta = tarjeta & "    <div class=""small text-gray-500"">" + carpetaArranque + "</div> "
+            tarjeta = tarjeta & "    </div> "
+            tarjeta = tarjeta & "    </a> "
+
+
+            LblNotificacion.Text = tarjeta
+
+        Next
 
     End Sub
 

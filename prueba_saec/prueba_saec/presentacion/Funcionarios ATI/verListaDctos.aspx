@@ -93,10 +93,12 @@
                     </form>--%>
 
 
+                    <%--BARRA NAVEGACION--%>
                     <ul class="navbar-nav ml-auto">
 
                         
-                        <li class="nav-item dropdown no-arrow d-sm-none">
+                        <%--<li class="nav-item dropdown no-arrow d-sm-none">
+
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
@@ -113,9 +115,10 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li>--%>
 
                         
+                        <%--NOTIFICACIONES ALARMAS--%>
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
@@ -163,6 +166,7 @@
                             </div>
                         </li>
 
+
                        <%-- LISTA DE COMENTARIOS--%>
                         <li class="nav-item dropdown no-arrow mx-1">
 
@@ -178,16 +182,20 @@
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">Comentarios
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="../Contratistas/verComentarios.aspx">
+
+                                <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
+
+                                <%--<a class="dropdown-item d-flex align-items-center" href="../Contratistas/verComentarios.aspx">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                                        <%--<div class="status-indicator bg-success"></div>--%>
+                                       <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
                                     </div>
                                     <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                        <asp:Label ID="LblResumenComentario" class="text-truncate" runat="server" Text=""></asp:Label>
+                                        <asp:Label ID="LblNombreUsuarioRespuesta" class="small text-gray-500" runat="server" Text=""></asp:Label>
+                                        <asp:Label ID="LblCarpetaArranque" class="small text-gray-500" runat="server" Text=""></asp:Label>
                                     </div>
-                                </a>
+                                </a>--%>
+
                                 <%--<a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
@@ -414,7 +422,7 @@
                                             class="btn shadow-sm btn-success btn-user"
                                             Text="Aceptar" />--%>
 
-                                        <a href="login.aspx" class="btn shadow-sm btn-success">Aceptar</a>
+                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>
                                     </div>
                                 </div>
                             </div>

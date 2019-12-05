@@ -1816,6 +1816,7 @@
     <Compile Include="logica\clsDocumento.vb" />
     <Compile Include="logica\clsLog.vb" />
     <Compile Include="logica\clsMenu.vb" />
+    <Compile Include="logica\clsNotificacion.vb" />
     <Compile Include="logica\clsRol.vb" />
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
