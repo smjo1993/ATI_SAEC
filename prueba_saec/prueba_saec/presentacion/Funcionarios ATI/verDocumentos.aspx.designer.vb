@@ -11,8 +11,8 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verListaDctos
-
+Partial Public Class verDocumentos
+    
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,49 +21,49 @@ Partial Public Class verListaDctos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
-    '''Control LblNotificacionComentarios.
+    '''Control usuarios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
+    
     '''<summary>
-    '''Control LblNotificacion.
+    '''Control lblNombreEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
-    '''Control LblNombreUsuario.
+    '''Control sinPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents sinPermisos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
     '''<summary>
-    '''Control gridRequisitos.
+    '''Control btnModalConfirmacion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridRequisitos As Global.System.Web.UI.WebControls.GridView
-
+    Protected WithEvents btnModalConfirmacion As Global.System.Web.UI.HtmlControls.HtmlInputButton
+    
     '''<summary>
-    '''Control btnRealizarCambios.
+    '''Control btnPermisos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnRealizarCambios As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnPermisos As Global.System.Web.UI.WebControls.Button
 End Class

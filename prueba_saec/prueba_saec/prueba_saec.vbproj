@@ -182,6 +182,7 @@
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\verDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
@@ -1827,6 +1828,7 @@
     <Compile Include="logica\clsDocumento.vb" />
     <Compile Include="logica\clsLog.vb" />
     <Compile Include="logica\clsMenu.vb" />
+    <Compile Include="logica\clsNotificacion.vb" />
     <Compile Include="logica\clsRol.vb" />
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
@@ -2055,6 +2057,13 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verCarpetas.aspx.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.designer.vb">
+      <DependentUpon>verDocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.vb">
+      <DependentUpon>verDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.designer.vb">
