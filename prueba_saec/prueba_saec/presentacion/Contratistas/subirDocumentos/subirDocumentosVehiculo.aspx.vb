@@ -14,7 +14,9 @@
 
     Function cargarGrid()
         'Se pobla la grilla con los datos obtenidos anteriormente
-        gridListarDocumentosVehiculo.DataSource = Session("documentosVehiculo")
+        Dim vehiculo = New clsVehiculo()
+        Dim listaDocumentosVehiculo As DataTable = vehiculo.listarDocumentosVehiculo(Session("idVehiculo"), Session("rutContratista"))
+        gridListarDocumentosVehiculo.DataSource = listaDocumentosVehiculo
         gridListarDocumentosVehiculo.DataBind()
         lblVehiculo.Text = Session("patente")
     End Function

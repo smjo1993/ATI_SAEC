@@ -25,10 +25,10 @@
             Dim rutTrabajador As Integer = gridListarTrabajadores.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarTrabajadores.Rows(pos).Cells(2).Text
             Dim idTrabajador As Integer = gridListarTrabajadores.Rows(pos).Cells(3).Text
-            Dim trabajador = New clsTrabajador()
             Dim rutContratista As String = "8660229"
             Session("rutTrabajador") = rutTrabajador
-            Session("documentosTrabajador") = trabajador.listarDocumentosTrabajador(idTrabajador, rutContratista)
+            Session("idTrabajador") = idTrabajador
+            Session("rutContratista") = rutContratista
             Response.Redirect("SubirDocumentosTrabajador.aspx")
 
         End If

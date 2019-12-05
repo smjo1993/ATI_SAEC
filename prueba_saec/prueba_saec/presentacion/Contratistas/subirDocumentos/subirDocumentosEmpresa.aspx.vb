@@ -38,40 +38,40 @@
         lblMenu.Visible = True
 
     End Sub
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    'Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
-        'Se recorre la grilla para subirlos documentos del cliente EMPRESA
-        For Each fila As GridViewRow In gridSubirDocumentosEmpresa.Rows
+    '    'Se recorre la grilla para subirlos documentos del cliente EMPRESA
+    '    For Each fila As GridViewRow In gridSubirDocumentosEmpresa.Rows
 
-            'Variables para identificar las propiedades del documento y el archivo
-            Dim idCarpeta As Integer = fila.Cells(3).Text
-            Dim idDocumento As Integer = fila.Cells(4).Text
-            Dim idArea As Integer = fila.Cells(5).Text
-            Dim nombreArchivo As String = fila.Cells(0).Text
-            Dim rutEmpresa As String = fila.Cells(7).Text
-            Dim archivo As HtmlInputFile
+    '        'Variables para identificar las propiedades del documento y el archivo
+    '        Dim idCarpeta As Integer = fila.Cells(3).Text
+    '        Dim idDocumento As Integer = fila.Cells(4).Text
+    '        Dim idArea As Integer = fila.Cells(5).Text
+    '        Dim nombreArchivo As String = fila.Cells(0).Text
+    '        Dim rutEmpresa As String = fila.Cells(7).Text
+    '        Dim archivo As HtmlInputFile
 
-            archivo = fila.FindControl("fileArchivo")
+    '        archivo = fila.FindControl("fileArchivo")
 
-            'Si encuentra el archivo subido lo guarda en la ruta especifica
-            If archivo.PostedFile.FileName <> "" Then
+    '        'Si encuentra el archivo subido lo guarda en la ruta especifica
+    '        If archivo.PostedFile.FileName <> "" Then
 
-                My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/"))
-                Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
-                archivo.PostedFile.SaveAs(ruta)
-                Dim documento = New clsDocumento()
-                documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
+    '            My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/"))
+    '            Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+    '            archivo.PostedFile.SaveAs(ruta)
+    '            Dim documento = New clsDocumento()
+    '            documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
 
-            End If
-
-
-        Next
+    '        End If
 
 
+    '    Next
 
 
-    End Sub
+
+
+    'End Sub
 
     Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridSubirDocumentosEmpresa.RowCommand
 
