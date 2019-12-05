@@ -9,7 +9,7 @@
         cargarMenu()
 
         Dim trabajadores = New clsTrabajador()
-        Dim rutContratista As String = "8660229"
+        Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadores(rutContratista)
         Session("rutEmpresa") = trabajadores.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
         gridListarTrabajadores.DataSource = TablaTrabajadores
@@ -22,11 +22,11 @@
         If (e.CommandName = "ir") Then
             'Se obtienen los datos de la columna de la grid para mandar el datatable a la otra vista
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim rutTrabajador As Integer = gridListarTrabajadores.Rows(pos).Cells(0).Text
+            Dim rutTrabajador As String = gridListarTrabajadores.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarTrabajadores.Rows(pos).Cells(2).Text
             Dim idTrabajador As Integer = gridListarTrabajadores.Rows(pos).Cells(3).Text
             Dim trabajador = New clsTrabajador()
-            Dim rutContratista As String = "8660229"
+            Dim rutContratista As String = Session("contratistaEntrante").getRut
             Session("rutTrabajador") = rutTrabajador
             Session("documentosTrabajador") = trabajador.listarDocumentosTrabajador(idTrabajador, rutContratista)
             Response.Redirect("SubirDocumentosTrabajador.aspx")

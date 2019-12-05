@@ -89,11 +89,12 @@ Public Class clsTrabajador
     Public Function insertarTrabajador(rut As String,
                                        nombre As String,
                                        fono As String,
-                                       correo As String) As Boolean
+                                       correo As String,
+                                       contratistaRut As String) As Boolean
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_InsertarTrabajador '" & rut & "' , '" & nombre & "', '" & fono & "', '" & correo & "'"
+            Dim sql As String = "SP_SAEC_InsertarTrabajador '" & rut & "' , '" & nombre & "', '" & fono & "', '" & correo & "' , '" & contratistaRut & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

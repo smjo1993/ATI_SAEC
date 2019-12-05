@@ -7,11 +7,10 @@
     End Sub
 
     Protected Sub cargarMenu()
-        Dim usuario As clsUsuarioSAEC = Session("usuario")
-        Dim rutUsuario As String = usuario.getRut
-        'Dim idCarpeta As Integer = decodificarId()
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        Dim rutContratista As String = contratista.getRut
         Dim menu As New clsMenu
-        Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+        Dim stringMenu As String = menu.menuContratistaCarpeta(rutContratista, 0, "")
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
