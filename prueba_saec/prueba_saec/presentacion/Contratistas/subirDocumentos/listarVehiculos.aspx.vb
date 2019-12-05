@@ -23,10 +23,10 @@
             Dim patente As String = gridListarVehiculos.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarVehiculos.Rows(pos).Cells(2).Text
             Dim idVehiculo As Integer = gridListarVehiculos.Rows(pos).Cells(3).Text
-            Dim vehiculo = New clsVehiculo()
             Dim rutContratista As String = "8660229"
             Session("patente") = patente
-            Session("documentosVehiculo") = vehiculo.listarDocumentosVehiculo(idVehiculo, rutContratista)
+            Session("idVehiculo") = idVehiculo
+            Session("rutContratista") = rutContratista
             Response.Redirect("SubirDocumentosVehiculo.aspx")
 
         End If

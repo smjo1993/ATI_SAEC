@@ -120,7 +120,7 @@ Partial Public Class crearCuentaSAEC
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control btnCrearCuenta.
     '''</summary>

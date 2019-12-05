@@ -28,6 +28,8 @@
             Dim trabajador = New clsTrabajador()
             Dim rutContratista As String = Session("contratistaEntrante").getRut
             Session("rutTrabajador") = rutTrabajador
+            Session("idTrabajador") = idTrabajador
+            Session("rutContratista") = rutContratista
             Session("documentosTrabajador") = trabajador.listarDocumentosTrabajador(idTrabajador, rutContratista)
             Response.Redirect("SubirDocumentosTrabajador.aspx")
 

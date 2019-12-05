@@ -175,10 +175,15 @@
     <Content Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx" />
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosTrabajador.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\verDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
@@ -1824,6 +1829,7 @@
     <Compile Include="logica\clsDocumento.vb" />
     <Compile Include="logica\clsLog.vb" />
     <Compile Include="logica\clsMenu.vb" />
+    <Compile Include="logica\clsNotificacion.vb" />
     <Compile Include="logica\clsRol.vb" />
     <Compile Include="logica\clsUsuario.vb" />
     <Compile Include="logica\clsUsuarioSAEC.vb" />
@@ -2005,6 +2011,34 @@
       <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosTrabajador.aspx.designer.vb">
+      <DependentUpon>evaluarDocumentosTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosTrabajador.aspx.vb">
+      <DependentUpon>evaluarDocumentosTrabajador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx.designer.vb">
+      <DependentUpon>evaluarDocumentosVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx.vb">
+      <DependentUpon>evaluarDocumentosVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx.designer.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx.designer.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.designer.vb">
       <DependentUpon>iniciarCuentasUsuarioATI.aspx</DependentUpon>
     </Compile>
@@ -2031,6 +2065,13 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verCarpetas.aspx.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.designer.vb">
+      <DependentUpon>verDocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.vb">
+      <DependentUpon>verDocumentos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.designer.vb">

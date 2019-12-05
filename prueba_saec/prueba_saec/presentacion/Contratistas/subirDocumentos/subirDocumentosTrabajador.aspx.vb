@@ -9,8 +9,10 @@
             Return
         End If
 
-        'Se pobla la grilla con los datos obtenidos en la vista anterior
-        gridListarDocumentosTrabajador.DataSource = Session("documentosTrabajador")
+        'Se pobla la grilla con los datos obtenidos en listarTrabajadores
+        Dim trabajador = New clsTrabajador()
+        Dim listaDocumentosTrabajador As DataTable = trabajador.listarDocumentosTrabajador(Session("idTrabajador"), Session("rutContratista"))
+        gridListarDocumentosTrabajador.DataSource = listaDocumentosTrabajador
         gridListarDocumentosTrabajador.DataBind()
         lblTrabajador.Text = Session("rutTrabajador")
 
@@ -31,6 +33,7 @@
 
         If (e.CommandName = "subir") Then
 
+            'Se recuperan los datos del datagrid 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim idCarpeta As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(5).Text
             Dim idDocumento As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(6).Text
