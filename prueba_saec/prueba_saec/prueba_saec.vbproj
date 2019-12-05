@@ -1874,35 +1874,30 @@
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx.vb">
       <DependentUpon>listarTrabajadores.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx.designer.vb">
       <DependentUpon>listarVehiculos.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx.vb">
       <DependentUpon>listarVehiculos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx.designer.vb">
       <DependentUpon>subirDocumentosEmpresa.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx.vb">
       <DependentUpon>subirDocumentosEmpresa.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx.designer.vb">
       <DependentUpon>subirDocumentosTrabajador.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx.vb">
       <DependentUpon>subirDocumentosTrabajador.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.designer.vb">
       <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.vb">
       <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
