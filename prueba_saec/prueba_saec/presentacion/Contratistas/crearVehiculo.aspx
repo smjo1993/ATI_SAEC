@@ -129,7 +129,7 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="listarVehiculos.aspx">Volver </a>
+                                        <a class="btn btn-secondary" href="subirDocumentos/listarVehiculos.aspx">Volver</a>
 
                                         &nbsp;
 
@@ -162,8 +162,6 @@
                                             ID="btnRealizarRegistro"
                                             runat="server"
                                             class="btn btn-success btn-user"
-                                            data-toggle="modal"
-                                            data-target="#modalConfirmacion"
                                             Text="Aceptar" />
 
 
