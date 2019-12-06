@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class crearVehiculo
+Partial Public Class crearTrabajador
     
     '''<summary>
     '''Control lblMenu.
@@ -32,22 +32,40 @@ Partial Public Class crearVehiculo
     Protected WithEvents lblHeadEdicion As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control TxtPatente.
+    '''Control TxtRut.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TxtPatente As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TxtRut As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''Control TxtMarca.
+    '''Control TxtNombre.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TxtMarca As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TxtNombre As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Control TxtFono.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TxtFono As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Control TxtCorreo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TxtCorreo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Control lblAdvertencia.

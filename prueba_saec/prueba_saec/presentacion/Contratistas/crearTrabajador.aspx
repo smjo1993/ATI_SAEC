@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="crearVehiculo.aspx.vb" Inherits="prueba_saec.crearVehiculo" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="crearTrabajador.aspx.vb" Inherits="prueba_saec.crearTrabajador" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Registro de Vehículos - SAEC</title>
+    <title>Registro de Trabajadores - SAEC</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -66,7 +66,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                     <h1 class="h3 mb-4 text-gray-800">Registro de Vehículos</h1>
+                     <h1 class="h3 mb-4 text-gray-800">Registro de Trabajadores</h1>
 
                     <form runat="server">
                         <div>
@@ -80,11 +80,11 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label id="lblPatente" class="col-12">Patente:</label>
+                                            <label id="lblRut" class="col-12">Rut:</label>
                                         </div>
                                         <div class="col-6">
 
-                                            <asp:TextBox ID="TxtPatente"
+                                            <asp:TextBox ID="TxtRut"
                                                 runat="server"
                                                 Style="height: 30px"
                                                 placeholder=""
@@ -94,15 +94,14 @@
 
                                         </div>
                                     </div>
-                                    <br />
                                     <br />
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label id="lblMarca" class="col-12">Marca:</label>
+                                            <label id="lblNombre" class="col-12">Nombre:</label>
                                         </div>
                                         <div class="col-6">
 
-                                            <asp:TextBox ID="TxtMarca"
+                                            <asp:TextBox ID="TxtNombre"
                                                 runat="server"
                                                 Style="height: 30px"
                                                 placeholder=""
@@ -113,6 +112,40 @@
                                         </div>
                                     </div>
                                     <br />
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblFono" class="col-12">Teléfono:</label>
+                                        </div>
+                                        <div class="col-6">
+
+                                            <asp:TextBox ID="TxtFono"
+                                                runat="server"
+                                                Style="height: 30px"
+                                                placeholder=""
+                                                required
+                                                Class="form-control bg-light small col-12">
+                                            </asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label id="lblCorreo" class="col-12">Correo:</label>
+                                        </div>
+                                        <div class="col-6">
+
+                                            <asp:TextBox ID="TxtCorreo"
+                                                runat="server"
+                                                Style="height: 30px"
+                                                placeholder=""
+                                                required
+                                                TextMode="Email"
+                                                Class="form-control bg-light small col-12">
+                                            </asp:TextBox>
+
+                                        </div>
+                                    </div>
                                     <br />
 
 
@@ -129,7 +162,7 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="listarVehiculos.aspx">Volver </a>
+                                        <a class="btn btn-secondary" href="subirDocumentos/listarTrabajadores.aspx">Volver </a>
 
                                         &nbsp;
 
@@ -162,8 +195,6 @@
                                             ID="btnRealizarRegistro"
                                             runat="server"
                                             class="btn btn-success btn-user"
-                                            data-toggle="modal"
-                                            data-target="#modalConfirmacion"
                                             Text="Aceptar" />
 
 

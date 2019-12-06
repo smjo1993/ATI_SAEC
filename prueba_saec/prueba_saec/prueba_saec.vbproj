@@ -153,6 +153,7 @@
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
+    <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx" />
@@ -174,6 +175,10 @@
     <Content Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx" />
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosTrabajador.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
@@ -1857,6 +1862,13 @@
       <DependentUpon>crearContratista.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Contratistas\crearTrabajador.aspx.designer.vb">
+      <DependentUpon>crearTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\crearTrabajador.aspx.vb">
+      <DependentUpon>crearTrabajador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Contratistas\crearVehiculo.aspx.designer.vb">
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
     </Compile>
@@ -2002,6 +2014,34 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx.vb">
       <DependentUpon>CrearListaDocumentacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosTrabajador.aspx.designer.vb">
+      <DependentUpon>evaluarDocumentosTrabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosTrabajador.aspx.vb">
+      <DependentUpon>evaluarDocumentosTrabajador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx.designer.vb">
+      <DependentUpon>evaluarDocumentosVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx.vb">
+      <DependentUpon>evaluarDocumentosVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx.designer.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx.vb">
+      <DependentUpon>listarTrabajadores.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx.designer.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx.vb">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.designer.vb">
