@@ -85,11 +85,12 @@ Public Class clsVehiculo
     End Function
 
     Public Function insertarVehiculo(patente As String,
-                                    marca As String) As Boolean
+                                    marca As String,
+                                    contratistaRut As String) As Boolean
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_InsertarVehiculo '" & patente & "' , '" & marca & "'"
+            Dim sql As String = "SP_SAEC_InsertarVehiculo '" & patente & "' , '" & marca & "' , '" & contratistaRut & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)

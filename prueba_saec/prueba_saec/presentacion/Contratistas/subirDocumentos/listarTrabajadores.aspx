@@ -150,7 +150,7 @@
                             <div class="card-header py-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADORES</h6>
                                     </div>
                                     <div class="col-6">
                                         <a href="../../Contratistas/crearTrabajador.aspx" class="btn shadow-sm btn-success" style="float: right;">

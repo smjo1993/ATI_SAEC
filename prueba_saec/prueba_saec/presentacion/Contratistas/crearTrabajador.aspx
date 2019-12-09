@@ -162,7 +162,7 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="subirDocumentos/listarTrabajadores.aspx">Volver </a>
+                                        <a class="btn btn-secondary" href="subirDocumentos/listarTrabajadores.aspx">Volver</a>
 
                                         &nbsp;
 
