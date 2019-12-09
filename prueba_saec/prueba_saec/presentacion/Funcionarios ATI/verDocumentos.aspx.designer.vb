@@ -41,29 +41,38 @@ Partial Public Class verDocumentos
     Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control sinPermisos.
+    '''Control gridDocumentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinPermisos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents gridDocumentos As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control btnModalConfirmacion.
+    '''Control sinDocumentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnModalConfirmacion As Global.System.Web.UI.HtmlControls.HtmlInputButton
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control btnPermisos.
+    '''Control btnAprobar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnPermisos As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnAprobar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control btnDesaprobar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnDesaprobar As Global.System.Web.UI.WebControls.Button
 End Class

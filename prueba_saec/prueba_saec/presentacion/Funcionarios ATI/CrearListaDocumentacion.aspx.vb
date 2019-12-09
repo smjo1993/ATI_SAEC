@@ -102,7 +102,7 @@ Public Class CrearListaDocumentacion
             sinDocVehiculo.Visible = True
         Else
             If (documentosVehiculo.Rows.Count > 0) Then
-                Me.gridDocumentosVehiculo.DataSource = documentosEmpresa
+                Me.gridDocumentosVehiculo.DataSource = documentosVehiculo
                 Me.gridDocumentosVehiculo.DataBind()
                 For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculo.Rows
                     chk = documentoVehiculo.FindControl("chkDocVehiculo")
