@@ -12,7 +12,7 @@
     <link href="../../../css/checkbox.css" rel="stylesheet">
 </head>
 
-    <body id="page-top">
+<body id="page-top">
 
 
 
@@ -144,51 +144,63 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                     <form id="form15" runat="server" class="md-form">
+                    <form id="form15" runat="server" class="md-form">
 
-                 <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <tr class="align-left">
-                                <td class="auto-style1">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADORES</h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="../../Contratistas/crearTrabajador.aspx" class="btn shadow-sm btn-success" style="float: right;">
 
-                                    <asp:GridView ID="gridListarTrabajadores" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                        
-                                        <Columns>
-                                            <asp:BoundField DataField="rut" HeaderText="RUT" />
-                                            <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
-                                            <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="IR">
+                                            <i class="far fa-plus-square"></i>
+                                            Nuevo Trabajador
+                                                        
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    
+                                        <tr class="align-left">
+                                            <td class="auto-style1">
 
-                                                <ItemTemplate>
-                                                    <asp:ImageButton
-                                                        ID="btnIrTrabajador"
-                                                        ImageUrl="../../../img/carpeta.png"
-                                                        CommandName="ir"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                        runat="server" />
-                                                </ItemTemplate>
+                                                <asp:GridView ID="gridListarTrabajadores" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
-                                            </asp:TemplateField>
+                                                    <Columns>
+                                                        <asp:BoundField DataField="rut" HeaderText="RUT" />
+                                                        <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
+                                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:TemplateField HeaderText="IR">
 
-                                        </Columns>
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    ID="btnIrTrabajador"
+                                                                    ImageUrl="../../../img/carpeta.png"
+                                                                    CommandName="ir"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
 
-                                    </asp:GridView>
+                                                        </asp:TemplateField>
 
-                                </td>
-                            </tr>
+                                                    </Columns>
 
-                        </table>
-                    </div>
-                </div>
+                                                </asp:GridView>
 
-            </div>
-</form>
+                                            </td>
+                                        </tr>
+
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -224,7 +236,7 @@
             </div>
         </div>
     </div>
-        
+
     <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

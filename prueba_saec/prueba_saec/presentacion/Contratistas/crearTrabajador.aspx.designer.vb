@@ -11,8 +11,8 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verListaDctos
-
+Partial Public Class crearTrabajador
+    
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,49 +21,67 @@ Partial Public Class verListaDctos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
-    '''Control LblNotificacionComentarios.
+    '''Control lblHeadEdicion.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents lblHeadEdicion As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
-    '''Control LblNotificacion.
+    '''Control TxtRut.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents TxtRut As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control LblNombreUsuario.
+    '''Control TxtNombre.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents TxtNombre As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control gridRequisitos.
+    '''Control TxtFono.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridRequisitos As Global.System.Web.UI.WebControls.GridView
-
+    Protected WithEvents TxtFono As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''Control btnRealizarCambios.
+    '''Control TxtCorreo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnRealizarCambios As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents TxtCorreo As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Control lblAdvertencia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblAdvertencia As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control btnRealizarRegistro.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnRealizarRegistro As Global.System.Web.UI.WebControls.Button
 End Class

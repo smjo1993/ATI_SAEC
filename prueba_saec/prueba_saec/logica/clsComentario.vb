@@ -85,12 +85,13 @@ Public Class clsComentario
         End Try
     End Function
 
-    Public Function obtenerComentariosRespuesta(documentoId As Integer, rutConsultante As String) As DataTable
+    Public Function obtenerComentariosRespuesta(rutConsultante As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_ObtenerComentariosRespuesta '" & documentoId & "' , '" & rutConsultante & "'"
+            'Dim sql As String = "SP_SAEC_ObtenerComentariosRespuesta '" & documentoId & "' , '" & rutConsultante & "'"
+            Dim sql As String = "SP_SAEC_ObtenerComentariosRespuesta '" & rutConsultante & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
