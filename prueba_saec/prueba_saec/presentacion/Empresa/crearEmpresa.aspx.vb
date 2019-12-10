@@ -59,16 +59,16 @@ Public Class crearEmpresa
         If existe.Rows.Count > 0 Then
             lblAdvertencia.Text = "Rut de Empresa ya ingresado. Por favor verifíquelo."
         Else
-            If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "" Or dropContratistas.SelectedItem.Text.Trim() = "") Then
-                lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
-            Else
-                insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
-                asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
-                lblAdvertencia.Text = "Empresa creada con éxito."
-                registro = log.insertarRegistro("Se ha creado a la empresa de rut: " + TxtRut.Text.Trim(), Session("usuario").getRut)
-                limpiarCampos()
-                cargarDatos()
-            End If
+            'If (TxtRazonSocial.Text.Trim() = "" Or TxtRut.Text.Trim() = "" Or TxtGiro.Text.Trim() = "" Or TxtDireccion.Text.Trim() = "" Or TxtCiudad.Text.Trim() = "" Or TxtFono.Text.Trim() = "" Or TxtCelular.Text.Trim() = "" Or TxtCorreo.Text.Trim() = "" Or dropContratistas.SelectedItem.Text.Trim() = "") Then
+            '    lblAdvertencia.Text = "Uno de los campos necesarios se encuentra en blanco"
+            'Else
+            insercion = empresa.insertarEmpresa(TxtRazonSocial.Text.Trim(), TxtRut.Text.Trim(), TxtGiro.Text.Trim(), TxtDireccion.Text.Trim(), TxtCiudad.Text.Trim(), dropContratistas.SelectedItem.Text.Trim(), TxtFono.Text.Trim(), TxtCelular.Text.Trim(), TxtCorreo.Text.Trim(), dropContratistas.SelectedItem.Value.ToString.Trim())
+            asignarContratista(dropContratistas.SelectedItem.Value.ToString.Trim())
+            lblAdvertencia.Text = "Empresa creada con éxito."
+            registro = log.insertarRegistro("Se ha creado a la empresa de rut: " + TxtRut.Text.Trim(), Session("usuario").getRut)
+            limpiarCampos()
+            cargarDatos()
+            'End If
         End If
 
 
