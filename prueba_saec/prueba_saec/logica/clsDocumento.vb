@@ -144,7 +144,7 @@ Public Class clsDocumento
 
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
 
-            dbDataAdapter.Fill(ds, "ListarDocumentoArea")
+            dbDataAdapter.Fill(ds)
 
             Return ds.Tables(0)
 
@@ -418,7 +418,24 @@ Public Class clsDocumento
         End Try
     End Function
 
+    Public Function documentosEmpresaParaRevisar(idCarpeta As Integer, area As Integer)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "TB_SAEC_ListarDocumentosEmpresaParaRevisar '" & idCarpeta & "','" & area & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
 
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 
 
 End Class

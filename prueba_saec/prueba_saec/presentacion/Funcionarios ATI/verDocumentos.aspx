@@ -63,11 +63,11 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-            <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-                   <%--          <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <%--          <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -128,7 +128,7 @@
                         <!-- Nav Item - Messages -->
                         <%--
                         <div class="topbar-divider d-none d-sm-block"></div>--%>
-                              <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <!-- Dropdown - User Information -->
@@ -153,7 +153,7 @@
                             </div>
                         </li>
 
-                  </ul>
+                    </ul>
 
                 </nav>
                 <!-- End of Topbar -->
@@ -166,34 +166,96 @@
 
 
                             <div>
-                        <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary">Revisar Documentos:
+                                <div class="card-header py-3">
+                                    <h5 class="m-0 font-weight-bold text-primary">Revisar Documentos:
                                 <asp:Label ID="lblNombreEmpresa" runat="server" Text=""></asp:Label></h5>
-                        </div>
+                                </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
 
-                                        <div runat="server" id="sinPermisos">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">Usuario sin permisos en el sistema</h1>
-                                        </div>
+                                        <!-- tabla con los documentos -->
 
-                                        <div class="row">
-                                            <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <input id="btnModalConfirmacion" runat="server" type="button" class="btn btn-primary btn-user btn-block" value="Cambiar estado de los Permisos" data-toggle="modal"
-                                                        data-target="#modalConfirmacion" />
-                                                </div>
-                                            </div>
-                                            <div class="col-4"></div>
-                                        </div>
+                                        <asp:GridView ID="gridDocumentos" runat="server"
+                                            AutoGenerateColumns="False"
+                                            class="table table-bordered dataTable"
+                                            Width="100%"
+                                            CellSpacing="0"
+                                            role="grid"
+                                            aria-describedby="dataTable_info"
+                                            Style="width: 100%;">
+                                            <Columns>
+                                                <asp:BoundField DataField="idCarpeta" HeaderText="Id Carpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idDocumento" HeaderText="Id Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idArea" HeaderText="id Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Nombre Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
+                                                <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
+                                                <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
+                                                <asp:TemplateField HeaderText="Descargar">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnDascargar"
+                                                            ImageUrl=""
+                                                            CommandName="Descargar"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Aprobar">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnAprobar"
+                                                            ImageUrl=""
+                                                            CommandName="Aprobar"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Desaprobar">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnDesaprobar"
+                                                            ImageUrl=""
+                                                            CommandName="btnDesaprobar"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+<%--                                                <asp:TemplateField HeaderText="fechaExpiracion">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnDesaprobar"
+                                                            ImageUrl=""
+                                                            CommandName="btnDesaprobar"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>--%>
+                                            </Columns>
+                                        </asp:GridView>
+
+                                        <!-- seccion que muestra si no hay documentos en estado enviado -->
+                                        <div runat="server" id="sinDocumentos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Empresa sin Documentos para revisar</h1>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--Modal-->
+                        <!--Modal aprobacion-->
                         <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -203,12 +265,33 @@
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">¿Desea confirmar el acceso a los permisos seleccionados?</div>
+                                    <div class="modal-body">¿Desea aprobar este documento?</div>
 
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 
-                                        <asp:Button ID="btnPermisos" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+                                        <asp:Button ID="btnAprobar" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Modal desaprobacion-->
+                        <div class="modal fade" id="modalEliminacion" tabindex="-1" role="dialog" aria-labelledby="lblModalEliminacion" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="lblModalEliminacion">Eliminacion</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">¿Desea reprobar este documento?</div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+
+                                        <asp:Button ID="btnDesaprobar" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
 
                                     </div>
                                 </div>

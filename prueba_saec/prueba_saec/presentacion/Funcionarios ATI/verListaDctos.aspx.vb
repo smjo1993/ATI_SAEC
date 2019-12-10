@@ -167,31 +167,42 @@
     'End Function
 
     Private Sub cargarNotificacionesComentarios()
-        Dim comentario As New clsComentario
+        'Dim comentario As New clsComentario
+        Dim notificacion As New clsNotificacion
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim rutUsuario As String = usuario.getRut
         Dim tarjeta As String = ""
-
-        Dim listaNotificaciones As Data.DataTable = comentario.obtenerComentariosRespuesta(rutUsuario)
+        Dim listaNotificaciones As Data.DataTable = notificacion.obtenerNotificaciones(rutUsuario)
 
         For Each fila As DataRow In listaNotificaciones.Rows
-            Dim resumenComentario As String = fila("Comentario")
+            Dim resumenComentario As String = fila("texto")
             Dim nombreUsuarioRespuesta As String = fila("autor")
-            Dim carpetaArranque As String = fila("CA")
-
-            tarjeta = tarjeta & "  <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
-            tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
-            tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
-            tarjeta = tarjeta & "    </div> "
-            tarjeta = tarjeta & "    <div class=""font-weight-bold""> "
-            tarjeta = tarjeta & "    <div class=""text-truncate"">" + resumenComentario + "</div> "
-            tarjeta = tarjeta & "    <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
-            tarjeta = tarjeta & "    <div class=""small text-gray-500"">" + carpetaArranque + "</div> "
-            tarjeta = tarjeta & "    </div> "
-            tarjeta = tarjeta & "    </a> "
+            Dim carpetaArranque As Integer = fila("idItem1")
+            Dim estadoComentario As String = fila("estado")
+            Dim nombreDocumento As String = fila("nombreItem")
+            Dim contNoLeidos As Integer
 
 
-            LblNotificacion.Text = tarjeta
+            If estadoComentario = "NL" Then
+
+
+                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
+                tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
+                tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+                tarjeta = tarjeta & "   </div> "
+                tarjeta = tarjeta & "   <div class=""font-weight-bold""> "
+                tarjeta = tarjeta & "   <div class=""text-truncate"">" + resumenComentario + "</div> "
+                tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
+                tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
+                tarjeta = tarjeta & "   </div> "
+                tarjeta = tarjeta & "   </a> "
+
+                contNoLeidos = contNoLeidos + 1
+
+                LblNotificacion.Text = tarjeta
+                LblNotificacionComentarios.Text = contNoLeidos.ToString()
+
+            End If
 
         Next
 
