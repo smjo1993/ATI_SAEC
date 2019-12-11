@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verDocumentos.aspx.vb" Inherits="prueba_saec.verDocumentos" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="evaluarDocumentosEmpresa.aspx.vb" Inherits="prueba_saec.verDocumentos" %>
 
 <!DOCTYPE html>
 
@@ -201,16 +201,16 @@
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
                                                 <asp:TemplateField HeaderText="Descargar">
-                                                    <%--                                                    <ItemTemplate>
+                                                    <ItemTemplate>
                                                         <asp:ImageButton
-                                                            ID="btnDascargar"
-                                                            ImageUrl=""
-                                                            CommandName="Descargar"
+                                                            ID="btnDescargar"
+                                                            ImageUrl="../../../img/file.png"
+                                                            CommandName="Ver"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
                                                     </ItemTemplate>
                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />--%>
+                                                    <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
 

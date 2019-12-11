@@ -71,6 +71,28 @@
     End Sub
     Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
 
+        If (e.CommandName = "ver") Then
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim ruta As String = gridDocumentos.Rows(pos).Cells(6).Text
+            Dim nombreArchivo As String = gridDocumentos.Rows(pos).Cells(4).Text
+            Dim extension As String = ExtraerExtension(ruta, ".")
+            If extension = "pdf" Then
+                'Se codifica la ruta del archivo para pasarlo por URl
+                Dim rutaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(ruta)
+                Dim rutaCodificada As String = System.Convert.ToBase64String(rutaBase64)
+                'Response.Clear()
+                'Response.ContentType = "application/pdf"
+                Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
+                'Response.WriteFile(ruta)
+            Else
+
+                Response.Clear()
+                Response.AddHeader("content-disposition", String.Format("attachment;filename={0}", ruta))
+                Response.WriteFile(ruta)
+                Response.End()
+            End If
+        End If
+
         If (e.CommandName = "Aprobar") Then
             Dim carpeta As New clsCarpetaArranque
             Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
@@ -97,7 +119,7 @@
 
 
 
-            End If
+        End If
 
         If (e.CommandName = "Reprobar") Then
 
@@ -110,4 +132,13 @@
         Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
     End Sub
+
+    Function ExtraerExtension(Path As String, Caracter As String) As String
+
+        Dim ret As String
+        If Caracter = "." And InStr(Path, Caracter) = 0 Then Exit Function
+        ret = Right(Path, Len(Path) - InStrRev(Path, Caracter))
+        ExtraerExtension = ret
+
+    End Function
 End Class

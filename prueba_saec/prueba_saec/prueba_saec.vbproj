@@ -185,7 +185,7 @@
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
-    <Content Include="presentacion\Funcionarios ATI\verDocumentos.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verListaDctos.aspx" />
     <Content Include="presentacion\login.aspx" />
     <Content Include="presentacion\recuperarContrasenia.aspx" />
@@ -2081,11 +2081,11 @@
       <DependentUpon>verCarpetas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.designer.vb">
-      <DependentUpon>verDocumentos.aspx</DependentUpon>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosEmpresa.aspx.designer.vb">
+      <DependentUpon>evaluarDocumentosEmpresa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="presentacion\Funcionarios ATI\verDocumentos.aspx.vb">
-      <DependentUpon>verDocumentos.aspx</DependentUpon>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosEmpresa.aspx.vb">
+      <DependentUpon>evaluarDocumentosEmpresa.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verListaDctos.aspx.designer.vb">
