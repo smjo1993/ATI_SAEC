@@ -9,7 +9,7 @@
             Return
         End If
 
-        Dim rutContratista As String = "8660229"
+        Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaDocumentosPendienteEmpresa As DataTable = crearDocumentos().obtenerDocumentosEstadoPendienteEmpresa(rutContratista)
 
 

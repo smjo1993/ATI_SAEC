@@ -63,16 +63,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -160,87 +160,91 @@
                 <!-- Begin Page Content -->
                 <div>
                     <div class="container-fluid">
+                        <form id="form1" runat="server">
+                            <!-- DataTales Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight text-primary">Crear Contratista</h4>
+                                </div>
+                                <div class="card-body">
+                                    <%--<thead runat="server">--%>
 
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Crear Contratista</h6>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <div style="margin-top: 0px" class="col-4">
+                                            <label class="col-12">Nombre:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="txtNombre" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <div class="col-4">
+                                            <label class="col-12">Nombre de Usuario:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="txtNombreUsuario" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <div class="col-4">
+                                            <label class="col-12">Contraseña:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="txtPassword" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <div class="col-4">
+                                            <label class="col-12">Rut:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="txtRut" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <div class="col-4">
+                                            <label class="col-12">Fono:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="txtFono" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <div class="col-4">
+                                            <label class="col-12">Correo:</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="txtCorreo" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom:8px" class="row">
+                                        <p>
+                                            <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
+                                        </p>
+                                    </div>
+                                    <%--</thead>--%>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row" style="float: right;">
+                                        <a class="btn btn-secondary" href="../Empresa/verContratistas.aspx">Volver</a>
+                                        &nbsp;
+                                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="btn shadow-sm btn-success" Style="float: right;" />
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                                    <thead runat="server">
-                                        <form id="form1" runat="server">
-                                            <div class="row">
-                                                <div style="margin-top: 0px" class="col-4">
-                                                    <label class="col-12">Nombre:</label>
-                                                </div>
-                                                <div class="col-6">
-                                                    <asp:TextBox ID="txtNombre" runat="server" class="col-12"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="col-12">Nombre de Usuario:</label>
-                                                </div>
-                                                <div class="col-6">
-                                                    <asp:TextBox ID="txtNombreUsuario" runat="server" class="col-12"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="col-12">Contraseña:</label>
-                                                </div>
-                                                <div class="col-6">
-                                                    <asp:TextBox ID="txtPassword" runat="server" class="col-12"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="col-12">Rut:</label>
-                                                </div>
-                                                <div class="col-6">
-                                                    <asp:TextBox ID="txtRut" runat="server" class="col-12"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="col-12">Fono:</label>
-                                                </div>
-                                                <div class="col-6">
-                                                    <asp:TextBox ID="txtFono" runat="server" class="col-12"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="col-12">Correo:</label>
-                                                </div>
-                                                <div class="col-6">
-                                                    <asp:TextBox ID="txtCorreo" runat="server" class="col-12"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-10 d-flex">
-                                                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Class="ml-auto" />
-                                                </div>
-                                                <p>
-                                                    <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                                                </p>
-                                            </div>
-
-                                        </form>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
+                        </form>
                     </div>
 
                 </div>
-
-                <!-- /.container-fluid -->
             </div>
 
-            <!-- End of Main Content -->
         </div>
+
+        <!-- /.container-fluid -->
+    </div>
+
+    <!-- End of Main Content -->
+    </div>
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
