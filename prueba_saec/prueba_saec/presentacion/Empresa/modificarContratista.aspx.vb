@@ -104,7 +104,7 @@
 
     'End Sub
 
-    Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         Dim contratista As New clsContratista
         Dim log As New clsLog
         Dim accion As Boolean
@@ -120,7 +120,7 @@
                 LblAdvertencia.Text = "Se ha modificado al Contratista con éxito."
                 registro = log.insertarRegistro("Se ha modificado al contratista de rut: " + TxtRut.Text.Trim(), Session("usuario").getRut)
                 bloquearCampos()
-                BtnAceptar.Visible = False
+                btnAceptar.Visible = False
                 btnModificar.Visible = True
                 'DropEncargados.Items.Clear()
                 'cargarEncargadoEmpresa(TxtRut.Text)
@@ -136,10 +136,6 @@
         'cargarOtrosContratistasDisponibles()
         btnModificar.Visible = False
         BtnAceptar.Visible = True
-    End Sub
-
-    Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Response.Redirect("verContratistas.aspx")
     End Sub
 
 End Class
