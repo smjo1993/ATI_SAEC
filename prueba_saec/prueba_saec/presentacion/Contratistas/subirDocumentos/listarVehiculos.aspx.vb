@@ -5,7 +5,7 @@
         If IsPostBack Then
             Return
         End If
-        cargarMenu()
+        'cargarMenu()
         Dim vehiculos = New clsVehiculo()
         Dim rutContratista As Integer = "8660229"
         Dim TablaVehiculos As DataTable = vehiculos.listarVehiculos(rutContratista)
@@ -20,7 +20,7 @@
         If (e.CommandName = "ir") Then
             'Se obtienen los datos de la columna de la grid para mandar el datatable a la otra vista
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim patente As Integer = gridListarVehiculos.Rows(pos).Cells(0).Text
+            Dim patente As String = gridListarVehiculos.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarVehiculos.Rows(pos).Cells(2).Text
             Dim idVehiculo As Integer = gridListarVehiculos.Rows(pos).Cells(3).Text
             Dim rutContratista As String = "8660229"

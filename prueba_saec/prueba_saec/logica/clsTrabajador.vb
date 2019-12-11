@@ -88,6 +88,50 @@ Public Class clsTrabajador
 
 
 
+    Public Function listarTrabajadoresParaEvaluar(idCarpeta As Integer, idArea As Integer) As DataTable
 
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarTrabajadoresParaEvaluar'" & idCarpeta & "','" & idArea & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function listarDocumentosTrabajadorParaRevisar(idCarpeta As Integer, idArea As Integer, idTrabajador As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosTrabajadorParaRevisar'" & idCarpeta & "','" & idArea & "','" & idTrabajador & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
 
 End Class

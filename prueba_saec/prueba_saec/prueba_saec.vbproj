@@ -145,6 +145,7 @@
     <Content Include="css\checkbox.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\carpeta.png" />
+    <Content Include="img\file.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
@@ -178,6 +179,7 @@
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosVehiculo.aspx" />
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx" />
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\verDocumento.aspx" />
     <Content Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
@@ -2029,6 +2031,13 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx.vb">
       <DependentUpon>listarVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\verDocumento.aspx.designer.vb">
+      <DependentUpon>verDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\evaluarDocumentos\verDocumento.aspx.vb">
+      <DependentUpon>verDocumento.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.designer.vb">
