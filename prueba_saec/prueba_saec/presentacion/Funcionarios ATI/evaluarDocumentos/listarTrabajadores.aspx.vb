@@ -5,11 +5,11 @@
         If IsPostBack Then
             Return
         End If
-        'cargarMenu()
+        cargarMenu()
 
         Dim trabajadores = New clsTrabajador()
-        Dim idCarpeta As Integer = 113
-        Dim idArea As Integer = 2
+        Dim idCarpeta As Integer = decodificarId()
+        Dim idArea As Integer = Session("usuario").getArea()
         Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadoresParaEvaluar(idCarpeta, idArea)
         gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
         gridListarTrabajadoresParaEvaluar.DataBind()
@@ -42,12 +42,16 @@
             Dim rutTrabajador As String = gridListarTrabajadoresParaEvaluar.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarTrabajadoresParaEvaluar.Rows(pos).Cells(2).Text
             Dim idTrabajador As Integer = gridListarTrabajadoresParaEvaluar.Rows(pos).Cells(3).Text
-            'Dim rutContratista As String = "8660229"
+
             Session("rutTrabajador") = rutTrabajador
             Session("idTrabajador") = idTrabajador
             Session("idCarpeta") = idCarpeta
-            'Session("rutContratista") = rutContratista
-            Response.Redirect("evaluarDocumentosTrabajador.aspx")
+
+            'Se codifica idCarpeta para enviarlo por URL
+            Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idCarpeta)
+            Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
+
+            Response.Redirect("evaluarDocumentosTrabajador.aspx?i=" + idCodificada + "")
 
         End If
 
