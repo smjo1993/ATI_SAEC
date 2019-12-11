@@ -21,6 +21,7 @@
     Protected Sub btnIrVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarVehiculos.RowCommand
 
         If (e.CommandName = "ir") Then
+
             'Se obtienen los datos de la columna de la grid para mandar el datatable a la otra vista
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim patente As String = gridListarVehiculos.Rows(pos).Cells(0).Text
@@ -31,6 +32,17 @@
             Session("idVehiculo") = idVehiculo
             Session("rutContratista") = rutContratista
             Response.Redirect("SubirDocumentosVehiculo.aspx")
+
+        End If
+
+        If (e.CommandName = "eliminar") Then
+
+            'Se obtienen los datos de la columna de la grid para mandar el datatable a la otra vista   
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idVehiculo As Integer = gridListarVehiculos.Rows(pos).Cells(3).Text
+            Dim vehiculo = New clsVehiculo()
+            vehiculo.eliminarVehiculo(idVehiculo)
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
 

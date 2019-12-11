@@ -16,7 +16,26 @@
         lblVehiculo.Text = Session("patente")
 
     End Sub
+    Protected Sub cargarMenu()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Dim rutUsuario As String = usuario.getRut
+        Dim idCarpeta As Integer = decodificarId()
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(nombreCodificado)
+        Dim nombreDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim menu As New clsMenu
+        Dim stringMenu As String = menu.menuUsuarioAtiCarpeta(rutUsuario, idCarpeta, nombreDecodificado)
+        lblMenu.Text = stringMenu
+        lblMenu.Visible = True
+    End Sub
 
+    Protected Function decodificarId() As Integer
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(idCodificada)
+        Dim idDecodificada As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim idCarpeta As Integer = Convert.ToInt32(idDecodificada)
+        Return idCarpeta
+    End Function
     Protected Sub btnVerDocumento_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarDocumentosVehiculo.RowCommand
 
         Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
