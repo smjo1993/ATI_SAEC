@@ -185,6 +185,20 @@
 
                                                         </asp:TemplateField>
 
+                                                           <asp:TemplateField HeaderText="ELIMINAR" ItemStyle-HorizontalAlign="Center">
+
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    onclientclick="return confirm('¿estas seguro?');" 
+                                                                    ID="btnEliminarTrabajador"
+                                                                    ImageUrl="../../../img/delete.png"
+                                                                    CommandName="eliminar"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+
+                                                        </asp:TemplateField>
+
                                                     </Columns>
 
                                                 </asp:GridView>
