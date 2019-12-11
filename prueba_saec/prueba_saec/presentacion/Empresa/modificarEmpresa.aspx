@@ -189,89 +189,80 @@
                                 </div>--%>
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Modificar Empresa Contratista</h6>
+                                        <h4 class="m-0 font-weight text-primary">Empresa Contratista</h4>
                                     </div>
                                     <div class="card-body">
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblRazonSocial" class="col-12">Razón Social:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtRazonSocial" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtRazonSocial" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblRut" class="col-12">Rut:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtRut" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtRut" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblGiro" class="col-12">Giro:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtGiro" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtGiro" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblDireccion" class="col-12">Dirección:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtDireccion" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtDireccion" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblCiudad" class="col-12">Ciudad:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCiudad" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCiudad" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblFono" class="col-12">Fono:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtFono" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtFono" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblCelular" class="col-12">Celular:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCelular" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCelular" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblCorreo" class="col-12">Correo:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCorreo" runat="server" Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCorreo" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div style="margin-bottom: 8px" class="row">
                                             <div class="col-sm-4">
                                                 <label id="lblEncargado" class="col-12">Encargado:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:DropDownList ID="DropEncargados" runat="server" class="btn btn-light bg-light dropdown-toggle col-12"></asp:DropDownList>
+                                                <asp:DropDownList ID="DropEncargados" runat="server" required class="btn btn-light bg-light dropdown-toggle col-12"></asp:DropDownList>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-10 d-flex justify-content-end">
-                                                <div class="col-11"></div>
-                                                <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="btn btn-success btn-user ml-auto" />
-                                                <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="btn btn-success btn-user ml-auto" />
-                                                <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-success btn-user ml-auto" Style="width: 82.11px" />
-                                            </div>
-
                                         </div>
                                         <div class="row">
                                             <div>
@@ -281,8 +272,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="card-footer">
+                                        <div class="row" style="float: right;">
+                                            <a ID="btnVolver" class="btn shadow-sm btn-success" style="float: right;" href="verEmpresas.aspx">Volver</a>
+                                            &nbsp;
+                                            <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="btn shadow-sm btn-success" style="float: right;" />
+                                            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" class="btn shadow-sm btn-success" style="float: right;" />
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
                         </form>
                     </div>
