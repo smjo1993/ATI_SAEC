@@ -14,7 +14,7 @@
 </head>
 <body>
 
-     <div id="wrapper">
+    <div id="wrapper">
 
         <!-- Sidebar  BARRA LATERAL DEL DASHBOARD-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -139,92 +139,98 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-    <form id="form15" runat="server" class="md-form">
+                <form id="form15" runat="server" class="md-form">
 
-        <div class="container-fluid">
+                    <div class="container-fluid">
 
 
-            <%-- VEHICULOS --%>
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <div class="row">
+                        <%-- VEHICULOS --%>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <div class="row">
                                     <div class="col-6">
                                         <h6 class="m-0 font-weight-bold text-primary">VEHÍCULOS</h6>
                                     </div>
                                     <div class="col-6">
                                         <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
-
                                             <i class="far fa-plus-square"></i>
                                             Nuevo Vehículo
-                                                        
                                         </a>
                                     </div>
                                 </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <tr class="align-left">
-                                <td class="auto-style1">
+                            </div>
+                            <div class="card-body">
+                                
 
-                                    <asp:GridView ID="gridListarVehiculos" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                        
-                                        <Columns>
-                                            <asp:BoundField DataField="patente" HeaderText="PATENTE" />
-                                            <asp:BoundField DataField="marca" HeaderText="MARCA" />
-                                            <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                           <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="IR">
+                                                <asp:GridView ID="gridListarVehiculos" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
-                                                <ItemTemplate>
-                                                    <asp:ImageButton
-                                                        ID="btnIrVehiculo"
-                                                        ImageUrl="../../../img/carpeta.png"
-                                                        CommandName="ir"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                        runat="server" />
-                                                </ItemTemplate>
+                                                    <Columns>
+                                                        <asp:BoundField DataField="patente" HeaderText="PATENTE" />
+                                                        <asp:BoundField DataField="marca" HeaderText="MARCA" />
+                                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:TemplateField HeaderText="IR">
 
-                                            </asp:TemplateField>
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    ID="btnIrVehiculo"
+                                                                    ImageUrl="../../../img/carpeta.png"
+                                                                    CommandName="ir"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
 
-                                        </Columns>
+                                                        </asp:TemplateField>
 
-                                    </asp:GridView>
+                                                         <asp:TemplateField HeaderText="ELIMINAR" ItemStyle-HorizontalAlign="Center">
 
-                                </td>
-                            </tr>
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    onclientclick="return confirm('¿estas seguro?');" 
+                                                                    ID="btnEliminarVehiculo"
+                                                                    ImageUrl="../../../img/delete.png"
+                                                                    CommandName="eliminar"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+                                                                
+                                                            </ItemTemplate>
+                                                             
+                                                        </asp:TemplateField>
 
-                        </table>
+                                                    </Columns>
+
+                                                </asp:GridView>
+
+                                            
+                            </div>
+
+                        </div>
+
+
+
+
+
                     </div>
-                </div>
-
-            </div>
 
 
 
+                </form>
+                <!-- Bootstrap core JavaScript-->
+                <script src="../../../../vendor/jquery/jquery.min.js"></script>
+                <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+                <!-- Core plugin JavaScript-->
+                <script src="../../../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        </div>
+                <!-- Custom scripts for all pages-->
+                <script src="../../../../js/sb-admin-2.min.js"></script>
 
-       
+                <!-- Page level plugins -->
+                <script src="../../../../vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="../../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    </form>
-                  <!-- Bootstrap core JavaScript-->
-    <script src="../../../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../../../js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../../../../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../../../../js/demo/datatables-demo.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="../../../../js/demo/datatables-demo.js"></script>
 </body>
 
 

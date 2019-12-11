@@ -58,16 +58,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -156,90 +156,93 @@
                 <div class="container-fluid">
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Iniciar Carpeta de Arranque</h6>
-                        </div>
-                        <div class="card-body">
-                            <form runat="server">
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-4">
-                                        <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
-                                    </div>
-                                    <div class="col-4">
-                                        <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
-                                    </div>
-                                    <div class="col-1"></div>
-                                </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-4">
-                                        <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
-                                    </div>
-                                    <div class="col-4">
-                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
-                                    </div>
-                                    <div class="col-1"></div>
-                                </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-lg-2"></div>
-                                    <div class="col-lg-3">
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-primary col-lg btn-user btn-block" value="Crear Carpeta" data-toggle="modal"
-                                            data-target="#modalConfirmacion" />
-                                        <%--                                        <asp:Button ID="btnCrearCarpeta" class="btn btn-primary col-lg btn-user btn-block" runat="server" Text="Crear Carpeta" />--%>
-                                    </div>
-                                    <p class="col-1"></p>
-                                    <div class="col-lg-3">
-                                        <asp:Button ID="btnCrearEmpresa" class="btn btn-primary col-lg  btn-user btn-block" runat="server" Text="Crear Empresa" />
-                                    </div>
-                                    <div class="col-lg-3"></div>
-                                </div>
-                                <p></p>
-                                <div class="row">
-                                    <div class="col-lg-4"></div>
-                                    <div class="col-lg-4">
-                                        <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
-                                    </div>
-                                    <div class="col-lg-4"></div>
+
+                    <form runat="server">
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight text-primary">Iniciar Carpeta de Arranque</h4>
                                 </div>
 
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col-4">
+                                            <asp:Label ID="lblEmpresa" class=" font-weight-bold" runat="server" Text="Empresas :"></asp:Label>
+                                        </div>
+                                        <div class="col-4">
+                                            <asp:DropDownList ID="dropEmpresas" class="form-control form-control-user" runat="server"></asp:DropDownList>
+                                        </div>
+                                        <div class="col-1"></div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-1"></div>
+                                        <div class="col-4">
+                                            <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
+                                        </div>
+                                        <div class="col-4">
+                                            <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+                                        </div>
+                                        <div class="col-1"></div>
+                                    </div>
+                                    <p></p>
 
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-lg-4">
+                                            <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>
 
+                                    <!--Modal-->
+                                    <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">¿Esta seguro de crear esta Carpeta de Arranque?</div>
 
-                                <!--Modal-->
-                                <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
-                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">¿Esta seguro de crear esta Carpeta de Arranque?</div>
-
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-
-                                                <%--                                                <asp:Button ID="btnPedirDocumento" class="btn btn-success btn-user" runat="server" Text="Aceptar" />--%>
-                                                <asp:Button ID="btnCrearCarpeta" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                    <asp:Button ID="btnCrearCarpeta" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                            </form>
+                                <div class="card-footer">
+                                    <div class="row" style="float: right;">
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Crear Carpeta" data-toggle="modal"
+                                            data-target="#modalConfirmacion" />
+                                        &nbsp;
+                                        <asp:Button ID="btnCrearEmpresa" class="btn shadow-sm btn-success btn-user" runat="server" Text="Crear Empresa" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>
+
 
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
 
         </div>
         <!-- End of Content Wrapper -->

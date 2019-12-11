@@ -20,7 +20,7 @@
             Response.Redirect("../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,2", "A")
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "3,1", "A")
 
             If acceso = "I" Or acceso Is Nothing Then
                 Response.Redirect("../401.aspx")
@@ -103,7 +103,7 @@
                 End If
                 If (opcionesCarpeta.Rows(2)("estado") = "A") Then
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/verDocumentos.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
                     tarjeta = tarjeta & "              </div> "
                 End If
                 tarjeta = tarjeta & "            </div> "

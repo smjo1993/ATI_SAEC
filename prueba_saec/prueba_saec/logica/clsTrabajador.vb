@@ -95,13 +95,9 @@ Public Class clsTrabajador
         Try
             Dim ds As New DataSet()
             Dim sql As String = "SP_SAEC_InsertarTrabajador '" & rut & "' , '" & nombre & "', '" & fono & "', '" & correo & "' , '" & contratistaRut & "'"
-
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds, "InsertarTrabajador")
-
-            Return True
-
         Catch ex As Exception
             Return False
         Finally
@@ -109,4 +105,94 @@ Public Class clsTrabajador
             con.Dispose()
         End Try
     End Function
+
+    Public Function listarTrabajadoresParaEvaluar(idCarpeta As Integer, idArea As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarTrabajadoresParaEvaluar'" & idCarpeta & "','" & idArea & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+
+    Public Function listarDocumentosTrabajadorParaRevisar(idCarpeta As Integer, idArea As Integer, idTrabajador As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosTrabajadorParaRevisar'" & idCarpeta & "','" & idArea & "','" & idTrabajador & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function eliminarTrabajador(idTrabajador As Integer) As Boolean
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_EliminarTrabajador'" & idTrabajador & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return True
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+    Public Function fechaExpiracionDocumentoTrabajador(idCarpeta As Integer,
+                                       idArea As Integer,
+                                       idDocumento As Integer,
+                                       idTrabajador As Integer,
+                                       fecha As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "TB_SAEC_FechaExpiracionDocumentoTrabajador'" & idCarpeta & "' , '" & idArea & "', '" & idDocumento & "', '" & idTrabajador & "' , '" & fecha & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return True
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
 End Class

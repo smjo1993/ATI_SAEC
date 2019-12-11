@@ -152,11 +152,7 @@
                    
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <tr class="align-left">
-                                <td class="auto-style1">
-
+                    
                                     <asp:GridView ID="gridListarDocumentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         
                                         <Columns>
@@ -211,11 +207,6 @@
 
                                     </asp:GridView>
 
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
                 </div>
 
             </div>

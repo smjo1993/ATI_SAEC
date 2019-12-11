@@ -35,6 +35,18 @@
 
         End If
 
+
+        If (e.CommandName = "eliminar") Then
+
+            'Se obtienen los datos de la columna de la grid para mandar el datatable a la otra vista   
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idTrabajador As Integer = gridListarTrabajadores.Rows(pos).Cells(3).Text
+            Dim trabajador = New clsTrabajador()
+            trabajador.eliminarTrabajador(idTrabajador)
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+        End If
+
     End Sub
 
     Protected Sub cargarMenu()

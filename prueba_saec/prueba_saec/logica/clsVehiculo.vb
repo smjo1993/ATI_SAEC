@@ -77,6 +77,54 @@ Public Class clsVehiculo
 
         Catch ex As Exception
             Return Nothing
+
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+
+    Public Function listarVehiculosParaEvaluar(idCarpeta As Integer, idArea As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarVehiculosParaEvaluar'" & idCarpeta & "','" & idArea & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function listarDocumentosVehiculoParaRevisar(idCarpeta As Integer, idArea As Integer, idVehiculo As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosVehiculoParaRevisar'" & idCarpeta & "','" & idArea & "','" & idVehiculo & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
         Finally
             con.Close()
             con.Dispose()
@@ -85,8 +133,8 @@ Public Class clsVehiculo
     End Function
 
     Public Function insertarVehiculo(patente As String,
-                                    marca As String,
-                                    contratistaRut As String) As Boolean
+                                   marca As String,
+                                   contratistaRut As String) As Boolean
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
@@ -105,4 +153,48 @@ Public Class clsVehiculo
             con.Dispose()
         End Try
     End Function
+
+    Public Function eliminarVehiculo(idVehiculo As Integer) As Boolean
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_EliminarVehiculo'" & idVehiculo & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return True
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function fechaExpiracionDocumentoVehiculo(idCarpeta As Integer,
+                                       idArea As Integer,
+                                       idDocumento As Integer,
+                                       idVehiculo As Integer,
+                                       fecha As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "TB_SAEC_FechaExpiracionDocumentoVehiculo'" & idCarpeta & "' , '" & idArea & "', '" & idDocumento & "', '" & idVehiculo & "' , '" & fecha & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return True
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
 End Class

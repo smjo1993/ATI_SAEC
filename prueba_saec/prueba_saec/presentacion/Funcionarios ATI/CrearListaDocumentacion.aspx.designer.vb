@@ -23,15 +23,6 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblNombreEmpresa.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Control documentos.
     '''</summary>
     '''<remarks>
@@ -39,6 +30,15 @@ Partial Public Class CrearListaDocumentacion
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
+    
+    '''<summary>
+    '''Control lblNombreEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control seccionEmpresa.

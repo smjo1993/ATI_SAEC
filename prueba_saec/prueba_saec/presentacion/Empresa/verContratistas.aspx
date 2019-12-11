@@ -65,16 +65,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -165,16 +165,21 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary"  style="text-align: center;">Contratistas</h5>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="m-0 font-weight text-primary">Contratistas</h4>
+                                </div>
+                                <div class="col-6">
+                                    <a href="../Contratistas/crearContratista.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                        <i class="far fa-plus-square"></i>
+                                        Nuevo Contratista
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
-
                             <form id="documentos" runat="server">
-
-                                                    <div>
-                        <table class="table table-bordered dataTable" id="tablaEmpresa" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <tr class="align-left">
-                                <td class="auto-style1">
+                                <div>
                                     <asp:GridView ID="gridContratistas" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         <Columns>
                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
@@ -182,27 +187,24 @@
                                             <asp:BoundField DataField="fono" HeaderText="Fono" />
                                             <asp:BoundField DataField="correo" HeaderText="Correo" />
                                             <asp:BoundField DataField="estado" HeaderText="Estado" />
-
-
-                                            <asp:TemplateField HeaderText="Ver">
+                                            <asp:TemplateField HeaderText="Edición">
                                                 <ItemTemplate>
-                                                    <asp:Button ID="btVer" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />
+                                                    <asp:ImageButton
+                                                        ID="btnVer"
+                                                        ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
+                                                        CommandName="Ver"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server" />
                                                 </ItemTemplate>
                                                 <HeaderStyle HorizontalAlign="Center" />
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-
+                                </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 

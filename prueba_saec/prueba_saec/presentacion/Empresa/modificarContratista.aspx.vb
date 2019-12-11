@@ -30,7 +30,7 @@
             Response.Redirect("../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(usuario.getRut, "1,2", "A")
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "2,2", "A")
 
             If acceso = "I" Or acceso Is Nothing Then
                 Response.Redirect("../401.aspx")
@@ -104,7 +104,7 @@
 
     'End Sub
 
-    Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
+    Protected Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         Dim contratista As New clsContratista
         Dim log As New clsLog
         Dim accion As Boolean
@@ -120,7 +120,7 @@
                 LblAdvertencia.Text = "Se ha modificado al Contratista con éxito."
                 registro = log.insertarRegistro("Se ha modificado al contratista de rut: " + TxtRut.Text.Trim(), Session("usuario").getRut)
                 bloquearCampos()
-                BtnAceptar.Visible = False
+                btnAceptar.Visible = False
                 btnModificar.Visible = True
                 'DropEncargados.Items.Clear()
                 'cargarEncargadoEmpresa(TxtRut.Text)
@@ -136,10 +136,6 @@
         'cargarOtrosContratistasDisponibles()
         btnModificar.Visible = False
         BtnAceptar.Visible = True
-    End Sub
-
-    Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-        Response.Redirect("verContratistas.aspx")
     End Sub
 
 End Class

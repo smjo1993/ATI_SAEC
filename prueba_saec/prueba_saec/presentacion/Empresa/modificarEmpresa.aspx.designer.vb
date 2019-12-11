@@ -104,13 +104,13 @@ Partial Public Class modificarEmpresa
     Protected WithEvents DropEncargados As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''Control BtnVolver.
+    '''Control LblAdvertencia.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control btnModificar.
@@ -122,20 +122,11 @@ Partial Public Class modificarEmpresa
     Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Control BtnAceptar.
+    '''Control btnAceptar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents BtnAceptar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''Control LblAdvertencia.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents LblAdvertencia As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnAceptar As Global.System.Web.UI.WebControls.Button
 End Class
