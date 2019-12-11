@@ -150,10 +150,7 @@
                     <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <tr class="align-left">
-                                <td class="auto-style1">
+                  
 
                                     <asp:GridView ID="gridListarDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         
@@ -210,11 +207,7 @@
 
                                     </asp:GridView>
 
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
+                                
                 </div>
 
             </div>

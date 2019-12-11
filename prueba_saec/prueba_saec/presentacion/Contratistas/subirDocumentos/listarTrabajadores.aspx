@@ -163,10 +163,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    
-                                        <tr class="align-left">
-                                            <td class="auto-style1">
+                               
 
                                                 <asp:GridView ID="gridListarTrabajadores" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
@@ -192,11 +189,7 @@
 
                                                 </asp:GridView>
 
-                                            </td>
-                                        </tr>
-
-                                    
-                                </div>
+                                          
                             </div>
 
                         </div>

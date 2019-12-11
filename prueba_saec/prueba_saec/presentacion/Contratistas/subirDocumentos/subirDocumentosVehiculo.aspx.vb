@@ -58,6 +58,7 @@
                 Dim documento = New clsDocumento()
                 documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "enviado", ruta)
                 Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
             End If
 
         End If
