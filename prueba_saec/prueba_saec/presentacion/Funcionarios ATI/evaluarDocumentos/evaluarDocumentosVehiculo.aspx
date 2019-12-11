@@ -192,20 +192,42 @@
                                                 </ItemTemplate>
 
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="CONFIRMAR">
+ <asp:TemplateField HeaderText="Aprobar">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnAprobar"
+                                                            ImageUrl=""
+                                                            CommandName="Aprobar"
+                                                            OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
 
-                                                <ItemTemplate>
 
-                                                    <asp:Button ID="btnSubir" 
-                                                        CssClass="button primary" CommandName="subir"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' 
-                                                        runat="server" 
-                                                        Text="Subir" />
+                                                <asp:TemplateField HeaderText="Desaprobar">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnReprobar"
+                                                            ImageUrl=""
+                                                            CommandName="Reprobar"
+                                                            OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
 
-                                                </ItemTemplate>
-
-
-                                            </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Fecha de Expiracion">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemTemplate>
+                                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
 
                                         </Columns>
 
