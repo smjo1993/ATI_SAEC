@@ -3,8 +3,8 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMenu.Visible = False
-        sinPermisos.Visible = False
-        btnModalConfirmacion.Visible = False
+        sinDocumentos.Visible = False
+        'btnModalConfirmacion.Visible = False
         If Not Page.IsPostBack Then
             validarUsuario()
             cargarMenu()
@@ -52,5 +52,36 @@
         Dim nombreDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
         lblNombreEmpresa.Text = nombreDecodificado
         Dim idCarpeta As Integer = decodificarId()
+
+        Dim documento As New clsDocumento
+        Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisar(idCarpeta, Session("usuario").getArea())
+
+        If documentosEmpresa Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If documentosEmpresa.Rows.Count > 0 Then
+                gridDocumentos.DataSource = documentosEmpresa
+                gridDocumentos.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
     End Sub
+    Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
+
+        If (e.CommandName = "Desaprobar") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            'Dim nombreDocumento As String = gridDocumentos.Rows(pos).Cells(1).Text
+            'Dim areaDocumento As String = gridDocumentos.Rows(pos).Cells(3).Text
+
+            'Session("nombreDocumento") = nombreDocumento
+            'Session("idDocumento") = Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text)
+
+            'Response.Redirect("modificarDcto.aspx")
+        End If
+
+
+    End Sub
+
 End Class

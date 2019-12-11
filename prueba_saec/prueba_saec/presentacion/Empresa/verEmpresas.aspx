@@ -65,16 +65,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -165,22 +165,21 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">Empresas</h5>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="m-0 font-weight text-primary">Empresas</h4>
+                                </div>
+                                <div class="col-6">
+                                    <a href="crearEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                        <i class="far fa-plus-square"></i>
+                                        Nueva Empresa
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
-
                             <form id="documentos" runat="server">
-
-                                                    <div>
-                        <table class="table table-bordered dataTable" id="tablaEmpresa" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <%--<caption class="auto-style2">
-                                                <strong>Empresas</strong></caption>--%>
-                            <%--<tr>
-                                <td class="auto-style1">&nbsp;</td>
-                            </tr>--%>
-                            <tr class="align-left">
-                                <td class="auto-style1">
-                                    <%--<asp:GridView ID="gridEmpresas" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Horizontal" Width="100%" Visible="true" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" Style="text-align: Center">--%>
+                                <div>
                                     <asp:GridView ID="gridEmpresas" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         <Columns>
                                             <asp:BoundField DataField="razonSocial" HeaderText="Razón Social" />
@@ -189,8 +188,6 @@
                                             <asp:BoundField DataField="personaContacto" HeaderText="Contacto" />
                                             <asp:BoundField DataField="correo" HeaderText="Correo" />
                                             <asp:BoundField DataField="celular" HeaderText="Celular" />
-
-
                                             <asp:TemplateField HeaderText="Ver">
                                                 <ItemTemplate>
                                                     <asp:Button ID="btVer" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />
@@ -198,26 +195,9 @@
                                                 <HeaderStyle HorizontalAlign="Center" />
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:TemplateField>
-
                                         </Columns>
-                                        <%--<FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                                                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />--%>
                                     </asp:GridView>
-
-
-                                    <%--<br />
-                    <br />
-                    <br />
-
-
-                    <asp:Button ID="btCrearMenu" runat="server" Text="Crear Nuevo Menú" CssClass="button primary" />--%>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
+                                </div>
                             </form>
                         </div>
                     </div>

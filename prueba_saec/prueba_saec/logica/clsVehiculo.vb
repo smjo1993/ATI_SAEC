@@ -132,4 +132,25 @@ Public Class clsVehiculo
 
     End Function
 
+    Public Function insertarVehiculo(patente As String,
+                                   marca As String,
+                                   contratistaRut As String) As Boolean
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarVehiculo '" & patente & "' , '" & marca & "' , '" & contratistaRut & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "InsertarVehiculo")
+
+            Return True
+
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class
