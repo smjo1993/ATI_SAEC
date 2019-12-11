@@ -253,7 +253,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="row" style="float: right;">
-                                        <a class="btn btn-secondary" href="verEmpresas.aspx">Volver</a>
+                                        <a class="btn shadow-sm btn-success" href="verEmpresas.aspx">Volver</a>
                                         &nbsp;
                                         <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="btn shadow-sm btn-success" Style="float: right;" />
                                     </div>

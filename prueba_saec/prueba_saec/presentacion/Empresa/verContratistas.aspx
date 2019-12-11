@@ -187,9 +187,14 @@
                                             <asp:BoundField DataField="fono" HeaderText="Fono" />
                                             <asp:BoundField DataField="correo" HeaderText="Correo" />
                                             <asp:BoundField DataField="estado" HeaderText="Estado" />
-                                            <asp:TemplateField HeaderText="Ver">
+                                            <asp:TemplateField HeaderText="Edición">
                                                 <ItemTemplate>
-                                                    <asp:Button ID="btVer" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Ver" />
+                                                    <asp:ImageButton
+                                                        ID="btnVer"
+                                                        ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
+                                                        CommandName="Ver"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server" />
                                                 </ItemTemplate>
                                                 <HeaderStyle HorizontalAlign="Center" />
                                                 <ItemStyle HorizontalAlign="Center" />
