@@ -88,10 +88,11 @@
 
                     <form id="usuarios" runat="server">
                         <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div>
+                        <div>
+                            <div class="card shadow mb-4">
+
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">Usuarios ATI</h5>
+                                    <h5 class="m-0 font-weight text-primary" style="text-align: center;">Usuarios ATI</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -198,7 +199,13 @@
 
             </div>
             <!-- End of Main Content -->
-
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Content Wrapper -->
 
