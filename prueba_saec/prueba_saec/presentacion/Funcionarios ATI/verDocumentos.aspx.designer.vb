@@ -41,6 +41,15 @@ Partial Public Class verDocumentos
     Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control lblMensaje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control gridDocumentos.
     '''</summary>
     '''<remarks>
@@ -57,22 +66,4 @@ Partial Public Class verDocumentos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
-    '''<summary>
-    '''Control btnAprobar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnAprobar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''Control btnDesaprobar.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnDesaprobar As Global.System.Web.UI.WebControls.Button
 End Class

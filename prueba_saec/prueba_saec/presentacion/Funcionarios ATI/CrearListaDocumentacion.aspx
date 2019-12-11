@@ -280,7 +280,7 @@
                                     <div class="col-4"></div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                                                                        <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Pedir Documentos" data-toggle="modal"
+                                                <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Pedir Documentos" data-toggle="modal"
                                                 data-target="#modalConfirmacion" />
 <%--                                            <asp:Button ID="btnPedirDocumento" class="btn btn-success btn-user" runat="server" Text="Pedir Documentos" />--%>
                                         </div>

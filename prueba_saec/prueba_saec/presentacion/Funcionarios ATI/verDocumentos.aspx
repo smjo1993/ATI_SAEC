@@ -175,6 +175,14 @@
 
                                         <!-- tabla con los documentos -->
 
+                                        <div class="row">
+                                            <div class="col-lg-4"></div>
+                                            <div class="col-lg-4">
+                                                <asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label>
+                                            </div>
+                                            <div class="col-lg-4"></div>
+                                        </div>
+
                                         <asp:GridView ID="gridDocumentos" runat="server"
                                             AutoGenerateColumns="False"
                                             class="table table-bordered dataTable"
@@ -193,7 +201,7 @@
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
                                                 <asp:TemplateField HeaderText="Descargar">
-                                                    <ItemTemplate>
+                                                    <%--                                                    <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnDascargar"
                                                             ImageUrl=""
@@ -202,8 +210,9 @@
                                                             runat="server" />
                                                     </ItemTemplate>
                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />--%>
                                                 </asp:TemplateField>
+
 
                                                 <asp:TemplateField HeaderText="Aprobar">
                                                     <ItemTemplate>
@@ -211,38 +220,37 @@
                                                             ID="btnAprobar"
                                                             ImageUrl=""
                                                             CommandName="Aprobar"
+                                                            OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
                                                     </ItemTemplate>
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
+
 
                                                 <asp:TemplateField HeaderText="Desaprobar">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
                                                     <ItemTemplate>
                                                         <asp:ImageButton
-                                                            ID="btnDesaprobar"
+                                                            ID="btnReprobar"
                                                             ImageUrl=""
-                                                            CommandName="btnDesaprobar"
+                                                            CommandName="Reprobar"
+                                                            OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
                                                     </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
-<%--                                                <asp:TemplateField HeaderText="fechaExpiracion">
-                                                    <ItemTemplate>
-                                                        <asp:ImageButton
-                                                            ID="btnDesaprobar"
-                                                            ImageUrl=""
-                                                            CommandName="btnDesaprobar"
-                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            runat="server" />
-                                                    </ItemTemplate>
+                                                <asp:TemplateField HeaderText="Fecha de Expiracion">
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
-                                                </asp:TemplateField>--%>
+                                                    <ItemTemplate>
+                                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
                                             </Columns>
                                         </asp:GridView>
 
@@ -256,7 +264,7 @@
                         </div>
 
                         <!--Modal aprobacion-->
-                        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                        <%--                        <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true" runat="server">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -265,19 +273,21 @@
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">¿Desea aprobar este documento?</div>
+                                    <div class="modal-body">
+                                        ¿Desea aprobar este documento?
+                                    </div>
 
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 
-                                        <asp:Button ID="btnAprobar" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        <%--                                        <asp:Button ID="btnAprobar" class="btn btn-success btn-user" runat="server" Text="Aceptar" />--%>
+                </div>
+            </div>
+        </div>
+    </div>
+    --%>
                         <!--Modal desaprobacion-->
-                        <div class="modal fade" id="modalEliminacion" tabindex="-1" role="dialog" aria-labelledby="lblModalEliminacion" aria-hidden="true">
+    <%--                        <div class="modal fade" id="modalEliminacion" tabindex="-1" role="dialog" aria-labelledby="lblModalEliminacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -286,7 +296,9 @@
                                             <span aria-hidden="true">×</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">¿Desea reprobar este documento?</div>
+                                    <div class="modal-body">
+                                        ¿Desea reprobar este documento?
+                                    </div>
 
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -296,7 +308,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
                     </form>
                 </div>
@@ -304,7 +316,7 @@
             </div>
             <!-- /.container-fluid -->
 
-        </div>
+    </div>
         <!-- End of Main Content -->
 
     </div>
