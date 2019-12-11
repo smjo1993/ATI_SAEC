@@ -191,7 +191,7 @@
                                                 <ItemTemplate>
                                                     <asp:ImageButton
                                                         ID="btnVer"
-                                                        ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
+                                                        ImageUrl="../../img/file.png"
                                                         CommandName="Ver"
                                                         CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                         runat="server" />
