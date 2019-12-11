@@ -38,4 +38,22 @@ Public Class clsCarpetaArranque
         End Try
     End Function
 
+    Public Function obtenerFechaExpiracion(idCarpeta As Integer) As Date
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ObtenerFechaExpiracion '" & idCarpeta & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return Convert.ToDateTime(ds.Tables(0).Rows(0)(0))
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
 End Class

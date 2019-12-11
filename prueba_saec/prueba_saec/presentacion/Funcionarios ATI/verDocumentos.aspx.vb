@@ -3,8 +3,10 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMenu.Visible = False
+        'lblFilaAprobar.Visible = False
         sinDocumentos.Visible = False
         'btnModalConfirmacion.Visible = False
+        lblMensaje.Text = ""
         If Not Page.IsPostBack Then
             validarUsuario()
             cargarMenu()
@@ -69,19 +71,43 @@
     End Sub
     Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
 
-        If (e.CommandName = "Desaprobar") Then
+        If (e.CommandName = "Aprobar") Then
+            Dim carpeta As New clsCarpetaArranque
+            Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim txtFecha As TextBox = Me.gridDocumentos.Rows(pos).Cells(10).Controls(1)
+            'txtFecha = Me.gridDocumentos.Rows(pos).Cells(10).Controls(1)
+            If txtFecha.Text = "" Then
+                Dim documento As New clsDocumento
+                documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", "")
+                documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracionCarpeta)
+            Else
+                Dim alerta As New clsAlertas
+                Dim fechaExpiracion As Date = Convert.ToDateTime(txtFecha.Text)
+                Dim documento As New clsDocumento
+                Dim hoy As Date = Today
+                If (DateTime.Compare(fechaExpiracion, hoy) < 0 Or DateTime.Compare(fechaExpiracion, fechaExpiracionCarpeta) > 0 Or DateTime.Compare(hoy, fechaExpiracion) = 0) Then
+                    lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
+                Else
+                    documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", "")
+                    documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracion)
+                End If
+
+            End If
+
+
+
+            End If
+
+        If (e.CommandName = "Reprobar") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            'Dim nombreDocumento As String = gridDocumentos.Rows(pos).Cells(1).Text
-            'Dim areaDocumento As String = gridDocumentos.Rows(pos).Cells(3).Text
+            My.Computer.FileSystem.DeleteFile(gridDocumentos.Rows(pos).Cells(6).Text)
+            Dim documento As New clsDocumento
+            documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "pendiente", "")
 
-            'Session("nombreDocumento") = nombreDocumento
-            'Session("idDocumento") = Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text)
-
-            'Response.Redirect("modificarDcto.aspx")
         End If
-
+        Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
     End Sub
-
 End Class
