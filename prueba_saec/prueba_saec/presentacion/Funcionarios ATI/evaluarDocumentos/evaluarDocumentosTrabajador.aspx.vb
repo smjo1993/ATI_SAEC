@@ -3,6 +3,8 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        cargarMenu()
+
         If IsPostBack Then
             Return
         End If
@@ -126,9 +128,11 @@
 
         If (e.CommandName = "reprobar") Then
 
+            Dim Trabajador As New clsTrabajador
             My.Computer.FileSystem.DeleteFile(ruta)
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "pendiente", Nothing)
+            Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, Nothing)
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
