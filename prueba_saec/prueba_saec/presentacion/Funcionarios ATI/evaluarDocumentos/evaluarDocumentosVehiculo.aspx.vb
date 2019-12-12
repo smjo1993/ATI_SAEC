@@ -66,7 +66,7 @@
         Dim idDocumento As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(5).Text
         Dim idArea As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(6).Text
         Dim idVehiculo As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(8).Text
-        Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(14).Controls(1)
+        Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(11).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
         If (e.CommandName = "ver") Then
@@ -92,7 +92,7 @@
 
         End If
 
-        If (e.CommandName = "aprobar") Then
+        If (e.CommandName = "Aprobar") Then
 
             Dim vehiculo As New clsVehiculo
             Dim documento As New clsDocumento
@@ -127,7 +127,7 @@
 
         End If
 
-        If (e.CommandName = "reprobar") Then
+        If (e.CommandName = "Reprobar") Then
 
             Dim documento As New clsDocumento
             Dim vehiculo As New clsVehiculo
