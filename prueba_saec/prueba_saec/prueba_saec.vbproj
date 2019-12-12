@@ -145,11 +145,12 @@
     <Content Include="css\checkbox.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\carpeta.png" />
+    <Content Include="img\chat.png" />
     <Content Include="img\check.png" />
+    <Content Include="img\download.png" />
     <Content Include="img\file.png" />
     <Content Include="img\remove.png" />
     <Content Include="img\undraw_posting_photo.svg" />
-    <Content Include="img\wechat.png" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />
