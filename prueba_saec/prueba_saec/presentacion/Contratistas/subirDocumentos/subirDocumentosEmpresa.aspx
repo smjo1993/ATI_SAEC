@@ -13,7 +13,7 @@
     <link href="../../../css/checkbox.css" rel="stylesheet">
 </head>
 <body>
-     <div id="wrapper">
+    <div id="wrapper">
 
         <!-- Sidebar  BARRA LATERAL DEL DASHBOARD-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -140,98 +140,67 @@
 
                 </nav>
                 <!-- End of Topbar -->
-    <form id="form15" runat="server" class="md-form">
-         
-        <div class="container-fluid">
+                <form id="form15" runat="server" class="md-form">
+
+                    <div class="container-fluid">
 
 
-            <%-- EMPRESA --%>
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
+                        <%-- EMPRESA --%>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
+                            </div>
+                            <div class="card-body">
+                                <asp:GridView ID="gridSubirDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                    <Columns>
+
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+
+                                        <asp:TemplateField HeaderText="Buscar">
+
+                                            <ItemTemplate>
+
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control-file" id="fileArchivo" runat="server" />
+                                                </div>
 
 
-                        <table class="table table-bordered dataTable" id="tablaDoc" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <tr class="align-left">
-                                <td class="auto-style1">
-
-                                    <asp:GridView ID="gridSubirDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                        <Columns>
-
-                                            <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" /> 
-                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                            <asp:BoundField DataField="estado" HeaderText="ESTADO" />
-                                            <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
-                                            <asp:TemplateField HeaderText="Buscar">
-
-                                                <ItemTemplate>
-
-                                                    <div class="form-group">         
-                                                        <input type="file" class="form-control-file" id="fileArchivo" runat="server"/>                                          
-                                                    </div>
-                                                    
-
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-
-                                            <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
-                                                </ItemTemplate>
-
-                                            </asp:TemplateField>
-                                            
-                                            <asp:TemplateField HeaderText="CONFIRMAR">
-
-                                                <ItemTemplate>
-
-                                                    <asp:Button ID="btnSubir" 
-                                                        CssClass="button primary" CommandName="subir"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' 
-                                                        runat="server" 
-                                                        Text="Subir" />
-
-                                                </ItemTemplate>
-
-
-                                            </asp:TemplateField>
-                                        </Columns>
-
-                                    </asp:GridView>
-                                     
-                                </td>
-                            </tr>
-
-                        </table>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="COMENTARIOS">
+                                            <ItemTemplate>
+                                                <asp:Button ID="Button1" runat="server" Text="Button" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="CONFIRMAR">
+                                            <ItemTemplate>
+                                                <asp:Button ID="btnSubir"
+                                                    CssClass="button primary" CommandName="subir"
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server"
+                                                    Text="Subir" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
+                </form>
             </div>
-
-            
-                    </div>
-
-         </form>
-                </div>
-             
-            </div>
-
-       
-
         </div>
+    </div>
 
-      
-          
-   
+
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

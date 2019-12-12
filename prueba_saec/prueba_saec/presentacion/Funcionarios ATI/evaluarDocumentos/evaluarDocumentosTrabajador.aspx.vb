@@ -8,8 +8,8 @@
         End If
 
         Dim trabajador = New clsTrabajador()
-        Dim idCarpeta As Integer = 113
-        Dim idArea As Integer = 2
+        Dim idCarpeta As Integer = decodificarId()
+        Dim idArea As Integer = Session("usuario").getArea()
         Dim idTrabajador As Integer = Session("idTrabajador")
         Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
         gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador

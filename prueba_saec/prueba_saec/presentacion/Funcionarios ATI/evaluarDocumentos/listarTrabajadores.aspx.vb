@@ -5,11 +5,11 @@
         If IsPostBack Then
             Return
         End If
-        'cargarMenu()
+        cargarMenu()
 
         Dim trabajadores = New clsTrabajador()
-        Dim idCarpeta As Integer = 113
-        Dim idArea As Integer = 2
+        Dim idCarpeta As Integer = decodificarId()
+        Dim idArea As Integer = Session("usuario").getArea()
         Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadoresParaEvaluar(idCarpeta, idArea)
         gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
         gridListarTrabajadoresParaEvaluar.DataBind()

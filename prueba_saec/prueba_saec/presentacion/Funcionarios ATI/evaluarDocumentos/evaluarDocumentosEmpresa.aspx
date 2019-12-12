@@ -212,47 +212,46 @@
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
-                                                <asp:TemplateField HeaderText="Descargar">
+                                                <asp:TemplateField HeaderText="Opciones">
                                                     <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnDescargar"
                                                             ImageUrl="../../../img/file.png"
+                                                            ToolTip="Ver"
                                                             CommandName="Ver"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
-                                                    </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:TemplateField>
 
-
-                                                <asp:TemplateField HeaderText="Aprobar">
-                                                    <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnAprobar"
-                                                            ImageUrl=""
+                                                            ImageUrl="../../../img/check.png"
+                                                            ToolTip="Aprobar"
                                                             CommandName="Aprobar"
                                                             OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
-                                                    </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:TemplateField>
 
-
-                                                <asp:TemplateField HeaderText="Desaprobar">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                    <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnReprobar"
-                                                            ImageUrl=""
+                                                            ImageUrl="../../../img/remove.png"
+                                                            ToolTip="Rechazar"
                                                             CommandName="Reprobar"
                                                             OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
+
+                                                        <asp:ImageButton
+                                                            ID="btnVerComentarios"
+                                                            ImageUrl="../../../img/wechat.png"
+                                                            ToolTip="Ver Comentarios"
+                                                            CommandName="verComentarios"
+                                                            OnClientClick=""
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+
                                                     </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
                                                 <asp:TemplateField HeaderText="Fecha de Expiracion">
