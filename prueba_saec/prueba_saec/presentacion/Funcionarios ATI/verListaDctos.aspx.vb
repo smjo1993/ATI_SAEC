@@ -144,45 +144,58 @@
 
         Dim listaNotificaciones As Data.DataTable = notificacion.obtenerNotificaciones(rutUsuario)
 
-        For Each fila As DataRow In listaNotificaciones.Rows
+        If listaNotificaciones.Rows.Count > 0 Then
 
-            Dim resumenComentario As String = fila("texto")
-            Dim nombreUsuarioRespuesta As String = fila("autor")
-            Dim areaDocumento As Integer = fila("area")
-            Dim idDocumento As Integer = fila("idDocumento")
-            Dim carpetaArranque As Integer = fila("carpetaArranque")
-            Dim estadoComentario As String = fila("estado")
-            Dim nombreDocumento As String = fila("documento")
-            Dim contNoLeidos As Integer
+            For Each fila As DataRow In listaNotificaciones.Rows
+
+                Dim resumenComentario As String = fila("texto")
+                Dim nombreUsuarioRespuesta As String = fila("autor")
+                Dim areaDocumento As Integer = fila("area")
+                Dim idDocumento As Integer = fila("idDocumento")
+                Dim carpetaArranque As Integer = fila("carpetaArranque")
+                Dim estadoComentario As String = fila("estado")
+                Dim nombreDocumento As String = fila("documento")
+                Dim contNoLeidos As Integer
 
 
-            If estadoComentario = "no leido" Then
+                If estadoComentario = "no leido" Then
 
-                Session("areaId") = areaDocumento
-                Session("docuemntoId") = idDocumento
-                Session("carpetaId") = carpetaArranque
-                Session("origen") = HttpContext.Current.Request.Url.ToString
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
+                    tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
+                    tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+                    tarjeta = tarjeta & "   </div> "
+                    tarjeta = tarjeta & "   <div class=""font-weight-bold""> "
+                    tarjeta = tarjeta & "   <div class=""text-truncate"">" + resumenComentario + "</div> "
+                    tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
+                    tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
+                    tarjeta = tarjeta & "   </div> "
+                    tarjeta = tarjeta & "   </a> "
 
-                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
-                tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
-                tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
-                tarjeta = tarjeta & "   </div> "
-                tarjeta = tarjeta & "   <div class=""font-weight-bold""> "
-                tarjeta = tarjeta & "   <div class=""text-truncate"">" + resumenComentario + "</div> "
-                tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
-                tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
-                tarjeta = tarjeta & "   </div> "
-                tarjeta = tarjeta & "   </a> "
+                    'contNoLeidos = contNoLeidos + 1
+                    'LblNotificacionComentarios.Text = contNoLeidos.ToString()
 
-                contNoLeidos = contNoLeidos + 1
+                    LblNotificacion.Text = tarjeta
 
-                LblNotificacion.Text = tarjeta
-                'LblNotificacionComentarios.Text = contNoLeidos.ToString()
-                LblNotificacionComentarios.Text = "nuevo"
+                    LblNotificacionComentarios.Text = "!"
 
-            End If
+                    Session("areaId") = areaDocumento
+                    Session("docuemntoId") = idDocumento
+                    Session("carpetaId") = carpetaArranque
+                    Session("origen") = HttpContext.Current.Request.Url.ToString
 
-        Next
+                End If
+
+            Next
+
+        ElseIf listaNotificaciones Is Nothing Then
+
+            tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href="""">"
+            tarjeta = tarjeta & "   <div class=""font-weight""> "
+            tarjeta = tarjeta & "   <div class=""text""> No tienes notificaciones pendientes </div> "
+            tarjeta = tarjeta & "   </div> "
+            tarjeta = tarjeta & "   </a> "
+
+        End If
 
     End Sub
 
