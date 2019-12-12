@@ -48,10 +48,10 @@
             Session("idCarpeta") = idCarpeta
 
             'Se codifica idCarpeta para enviarlo por URL
-            Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idCarpeta)
-            Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
 
-            Response.Redirect("evaluarDocumentosTrabajador.aspx?i=" + idCodificada + "")
+            Dim idCarpetaURL As String = Request.QueryString("i").ToString()
+            Dim nombreCarpetaURL As String = Request.QueryString("n").ToString()
+            Response.Redirect("evaluarDocumentosTrabajador.aspx?i=" + idCarpetaURL + "&n=" + nombreCarpetaURL + " ")
 
         End If
 

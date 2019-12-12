@@ -180,7 +180,7 @@ Public Class clsVehiculo
                                        idArea As Integer,
                                        idDocumento As Integer,
                                        idVehiculo As Integer,
-                                       fecha As String) As Boolean
+                                       fecha As Date) As Boolean
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()

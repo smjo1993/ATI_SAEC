@@ -178,7 +178,7 @@ Public Class clsTrabajador
                                        idArea As Integer,
                                        idDocumento As Integer,
                                        idTrabajador As Integer,
-                                       fecha As String) As Boolean
+                                       fecha As Date) As Boolean
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
