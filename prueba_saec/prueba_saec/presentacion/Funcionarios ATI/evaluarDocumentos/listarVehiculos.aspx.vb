@@ -52,9 +52,6 @@
             Dim idCarpetaURL As String = Request.QueryString("i").ToString()
             Dim nombreCarpetaURL As String = Request.QueryString("n").ToString()
             Response.Redirect("evaluarDocumentosVehiculo.aspx?i=" + idCarpetaURL + "&n=" + nombreCarpetaURL + " ")
-            Session("idCodificada") = idCodificada
-            Session("nombreCodificado") = nombreCodificado
-            Response.Redirect("evaluarDocumentosVehiculo.aspx")
 
         End If
 

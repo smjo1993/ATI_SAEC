@@ -46,15 +46,16 @@
             Session("rutTrabajador") = rutTrabajador
             Session("idTrabajador") = idTrabajador
             Session("idCarpeta") = idCarpeta
-            Session("idCodificada") = idCodificada
-            Session("nombreCodificado") = nombreCodificado
+
             'Session("rutContratista") = rutContratista
-            Response.Redirect("evaluarDocumentosTrabajador.aspx")
+            'Response.Redirect("evaluarDocumentosTrabajador.aspx")
 
             'Se codifica idCarpeta para enviarlo por URL
 
             Dim idCarpetaURL As String = Request.QueryString("i").ToString()
             Dim nombreCarpetaURL As String = Request.QueryString("n").ToString()
+            'Session("idCodificada") = idCarpetaURL
+            'Session("nombreCodificado") = nombreCarpetaURL
             Response.Redirect("evaluarDocumentosTrabajador.aspx?i=" + idCarpetaURL + "&n=" + nombreCarpetaURL + " ")
 
         End If
