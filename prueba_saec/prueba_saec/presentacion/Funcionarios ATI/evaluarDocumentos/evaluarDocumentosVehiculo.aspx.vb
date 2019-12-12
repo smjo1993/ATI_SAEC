@@ -11,8 +11,13 @@
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idVehiculo As Integer = Session("idVehiculo")
         Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
+        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
         gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+        gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+
         gridListarDocumentosVehiculo.DataBind()
+        gridDocumentosPendientes.DataBind()
+
         lblVehiculo.Text = Session("patente")
         cargarBotones()
     End Sub
@@ -108,7 +113,7 @@
 
                 If (DateTime.Compare(fechaExpiracion, hoy) < 0 Or DateTime.Compare(fechaExpiracion, fechaExpiracionCarpeta) > 0 Or DateTime.Compare(hoy, fechaExpiracion) = 0) Then
 
-                    lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
+                    'lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
 
                 Else
 

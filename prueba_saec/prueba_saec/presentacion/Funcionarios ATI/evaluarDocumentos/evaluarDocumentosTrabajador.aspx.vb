@@ -14,7 +14,12 @@
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idTrabajador As Integer = Session("idTrabajador")
         Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
+        Dim tablaDocumentosTrabajadorPentdientes = trabajador.ListarDocumentosPendientesTrabajadorRevisor(idCarpeta, idArea, idTrabajador)
+
         gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
+        gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
+
+        gridDocumentosPendiente.DataBind()
         gridListarDocumentosTrabajador.DataBind()
         lblTrabajador.Text = Session("rutTrabajador")
         cargarBotones()

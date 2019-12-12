@@ -203,7 +203,7 @@
                                             </ItemTemplate>
 
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Aprobar">
+                                        <asp:TemplateField HeaderText="aprobar">
                                             <ItemTemplate>
                                                 <asp:ImageButton
                                                     ID="btnAprobar"
@@ -225,7 +225,7 @@
                                                 <asp:ImageButton
                                                     ID="btnReprobar"
                                                     ImageUrl=""
-                                                    CommandName="Reprobar"
+                                                    CommandName="reprobar"
                                                     OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                     runat="server" />
@@ -249,6 +249,64 @@
 
                         </div>
 
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h6 class="m-0 font-weight-bold text-primary">PATENTE:</h6>
+                                        <asp:Label ID="Label1" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                    </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+
+
+
+                                <asp:GridView ID="gridDocumentosPendientes" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+
+                                    <Columns>
+
+                                        <asp:BoundField DataField="patenteVehiculo" HeaderText="PATENTE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+
+
+                                        <asp:TemplateField HeaderText="COMENTARIOS">
+
+                                            <ItemTemplate>
+                                                <asp:ImageButton
+                                                    ID="btnVerComentarios"
+                                                    ImageUrl="../../../img/chat.png"
+                                                    ToolTip="Ver Comentarios"
+                                                    CommandName="verComentarios"
+                                                    OnClientClick=""
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                    </Columns>
+                                </asp:GridView>
+
+
+                            </div>
+
+                        </div>
 
 
 
