@@ -14,7 +14,7 @@
 </head>
 <body>
 
-     <div id="wrapper">
+    <div id="wrapper">
 
         <!-- Sidebar  BARRA LATERAL DEL DASHBOARD-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -139,130 +139,141 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-    <form id="form15" runat="server" class="md-form">
+                <form id="form15" runat="server" class="md-form">
 
-        <div class="container-fluid">
-
-
-            <%-- Vehiculo --%>
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">PATENTE:</h6>
-                    <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
-                   
-                </div>
-                <div class="card-body">
-
-                    
-
-                                    <asp:GridView ID="gridListarDocumentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                        
-                                        <Columns>
-
-                                            <asp:BoundField DataField="patenteVehiculo" HeaderText="PATENTE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"  />
-                                            <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                            <asp:BoundField DataField="estado" HeaderText="ESTADO" />
-                                            <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
-                                            <asp:TemplateField HeaderText="VER">
-                                                <ItemTemplate>
-
-                                                     <asp:ImageButton
-                                                        ID="btnVerDocumento"
-                                                        ImageUrl="../../../img/file.png"
-                                                        CommandName="ver"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                        runat="server" />                              
-
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-
-                                            
-
-                                            <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
-                                                </ItemTemplate>
-
-                                            </asp:TemplateField>
- <asp:TemplateField HeaderText="Aprobar">
-                                                    <ItemTemplate>
-                                                        <asp:ImageButton
-                                                            ID="btnAprobar"
-                                                            ImageUrl=""
-                                                            CommandName="Aprobar"
-                                                            OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
-                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            runat="server" />
-                                                    </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:TemplateField>
+                    <div class="container-fluid">
 
 
-                                                <asp:TemplateField HeaderText="Desaprobar">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                    <ItemTemplate>
-                                                        <asp:ImageButton
-                                                            ID="btnReprobar"
-                                                            ImageUrl=""
-                                                            CommandName="Reprobar"
-                                                            OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
-                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                            runat="server" />
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
+                        <%-- Vehiculo --%>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
 
-                                                <asp:TemplateField HeaderText="Fecha de Expiracion">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                    <ItemTemplate>
-                                                        <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
 
-                                        </Columns>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h6 class="m-0 font-weight-bold text-primary">PATENTE:</h6>
+                                        <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                    </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="lblDocumentosEmpresa" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text="Label"></asp:Label>
+                                    </div>
+                                </div>
 
-                                    </asp:GridView>
-
-                              
-                </div>
-
-            </div>
+                            </div>
+                            <div class="card-body">
 
 
 
+                                <asp:GridView ID="gridListarDocumentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+
+                                    <Columns>
+
+                                        <asp:BoundField DataField="patenteVehiculo" HeaderText="PATENTE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+
+                                        <asp:TemplateField HeaderText="VER">
+                                            <ItemTemplate>
+
+                                                <asp:ImageButton
+                                                    ID="btnVerDocumento"
+                                                    ImageUrl="../../../img/file.png"
+                                                    CommandName="ver"
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
+
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
 
-        </div>
 
-       
+                                        <asp:TemplateField HeaderText="COMENTARIOS">
 
-    </form>
-                  <!-- Bootstrap core JavaScript-->
-    <script src="../../../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                                            <ItemTemplate>
+                                                <asp:Button ID="Button1" runat="server" Text="Button" />
+                                            </ItemTemplate>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../../../../vendor/jquery-easing/jquery.easing.min.js"></script>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Aprobar">
+                                            <ItemTemplate>
+                                                <asp:ImageButton
+                                                    ID="btnAprobar"
+                                                    ImageUrl=""
+                                                    CommandName="Aprobar"
+                                                    OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../../../../js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../../../../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+                                        <asp:TemplateField HeaderText="Desaprobar">
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                            <ItemTemplate>
+                                                <asp:ImageButton
+                                                    ID="btnReprobar"
+                                                    ImageUrl=""
+                                                    CommandName="Reprobar"
+                                                    OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
 
-    <!-- Page level custom scripts -->
-    <script src="../../../../js/demo/datatables-demo.js"></script>
+                                        <asp:TemplateField HeaderText="Fecha de Expiracion">
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                            <ItemTemplate>
+                                                <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                    </Columns>
+
+                                </asp:GridView>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+                </form>
+                <!-- Bootstrap core JavaScript-->
+                <script src="../../../../vendor/jquery/jquery.min.js"></script>
+                <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                <!-- Core plugin JavaScript-->
+                <script src="../../../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                <!-- Custom scripts for all pages-->
+                <script src="../../../../js/sb-admin-2.min.js"></script>
+
+                <!-- Page level plugins -->
+                <script src="../../../../vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="../../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+                <!-- Page level custom scripts -->
+                <script src="../../../../js/demo/datatables-demo.js"></script>
 </body>
 
 

@@ -15,7 +15,22 @@
         gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
         gridListarDocumentosTrabajador.DataBind()
         lblTrabajador.Text = Session("rutTrabajador")
+        cargarBotones()
+    End Sub
 
+    Protected Sub cargarBotones()
+        Dim boton As String
+        Dim texto As String = "Documentos Empresa"
+        Dim idCodificada As String = Session("idCodificada").ToString
+        Dim nombreCodificado As String = Session("nombreCodificado").ToString()
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosEmpresa.Text = boton
+        texto = "Documentos Vehiculo"
+        boton = ""
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosVehiculo.Text = boton
     End Sub
 
     Protected Sub cargarMenu()

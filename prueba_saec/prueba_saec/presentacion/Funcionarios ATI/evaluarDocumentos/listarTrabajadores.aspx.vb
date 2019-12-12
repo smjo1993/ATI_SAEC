@@ -42,10 +42,14 @@
             Dim rutTrabajador As String = gridListarTrabajadoresParaEvaluar.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarTrabajadoresParaEvaluar.Rows(pos).Cells(2).Text
             Dim idTrabajador As Integer = gridListarTrabajadoresParaEvaluar.Rows(pos).Cells(3).Text
+            Dim idCodificada As String = Request.QueryString("i").ToString()
+            Dim nombreCodificado As String = Request.QueryString("n").ToString()
             'Dim rutContratista As String = "8660229"
             Session("rutTrabajador") = rutTrabajador
             Session("idTrabajador") = idTrabajador
             Session("idCarpeta") = idCarpeta
+            Session("idCodificada") = idCodificada
+            Session("nombreCodificado") = nombreCodificado
             'Session("rutContratista") = rutContratista
             Response.Redirect("evaluarDocumentosTrabajador.aspx")
 
