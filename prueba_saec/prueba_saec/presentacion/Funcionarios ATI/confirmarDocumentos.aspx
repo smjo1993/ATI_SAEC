@@ -169,218 +169,188 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <form id="documentos" runat="server">
-                        <!-- DataTales Example -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">DOCUMENTOS</h5>
+                        </div>
+                        <div class="card-body">
 
+                            <form id="documentos" runat="server">
+
+                                <%--<div class="container-fluid">--%>
+
+
+                                <%-- EMPRESA --%>
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
+                                    </div>
+                                    <div class="card-body">
+
+
+                                        <asp:GridView ID="confirmarEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                            <Columns>
+
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
+                                                <asp:TemplateField HeaderText="CONFIRMAR">
+
+                                                    <ItemTemplate>
+                                                        <label class="switch ">
+                                                            <input id="chk" type="checkbox" runat="server" />
+                                                            <span class="slider round"></span>
+                                                        </label>
+
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField HeaderText="Opciones">
+
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnComentario"
+                                                            ImageUrl="../../img/chat.png"
+                                                            ToolTip="Ver Comentarios"
+                                                            CommandName="Ver"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+
+                                                        <asp:ImageButton
+                                                            ID="btnEliminarDocumento"
+                                                            ImageUrl="../../img/remove.png"
+                                                            ToolTip="Eliminar"
+                                                            CommandName="eliminar"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                    </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+
+                                            </Columns>
+
+                                        </asp:GridView>
+
+
+                                    </div>
+                        </div>
+
+                        <%-- TRABAJADOR --%>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">DOCUMENTOS</h4>
+                                <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
+                            </div>
+                            <div class="card-body">
+                                                <asp:GridView ID="confirmarTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                                    <Columns>
+
+                                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
+                                                        <asp:TemplateField HeaderText="CONFIRMAR">
+
+                                                            <ItemTemplate>
+                                                                <label class="switch ">
+                                                                    <input id="chk" type="checkbox" runat="server" />
+                                                                    <span class="slider round"></span>
+                                                                </label>
+
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+
+                                                        <asp:TemplateField HeaderText="Opciones">
+
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    ID="BtnComentariosTrabajador"
+                                                                    ImageUrl="../../img/chat.png"
+                                                                    ToolTip="Ver Comentarios"
+                                                                    CommandName="Ver"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+
+                                                                <asp:ImageButton
+                                                                    ID="btnEliminarDocumento"
+                                                                    ImageUrl="../../img/remove.png"
+                                                                    ToolTip="Eliminar"
+                                                                    CommandName="eliminar"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
                             </div>
 
+                        </div>
 
-                                <div class="card-body">
+                        <%-- VEHICULO --%>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">VEHICULO</h6>
+                            </div>
+                            <div class="card-body">
+                                                <asp:GridView ID="confirmarVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                                    <Columns>
 
+                                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
+                                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
+                                                        <asp:TemplateField HeaderText="CONFIRMAR">
 
-                                    <%-- EMPRESA --%>
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
+                                                            <ItemTemplate>
+                                                                <label class="switch ">
+                                                                    <input id="chk" type="checkbox" runat="server" />
+                                                                    <span class="slider round"></span>
+                                                                </label>
 
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-                                                <table class="table table-bordered dataTable" id="tablaDocEmpresa" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                                    <tr class="align-left">
-                                                        <td class="auto-style1">
+                                                        <asp:TemplateField HeaderText="COMENTARIOS">
 
-                                                            <asp:GridView ID="confirmarEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                                                <Columns>
+                                                            <ItemTemplate>
+                                                                <asp:ImageButton
+                                                                    ID="BtnComentariosVehiculo"
+                                                                    ImageUrl="../../img/chat.png"
+                                                                    ToolTip="Ver Comentarios"
+                                                                    CommandName="Ver"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
 
-                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                                    <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                                                    <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                                    <asp:TemplateField HeaderText="CONFIRMAR">
+                                                                <asp:ImageButton
+                                                                    ID="btnEliminarDocumento"
+                                                                    ImageUrl="../../img/remove.png"
+                                                                    ToolTip="Eliminar"
+                                                                    CommandName="eliminar"
+                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                    runat="server" />
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                            </div>
 
-                                                                        <ItemTemplate>
-                                                                            <label class="switch ">
-                                                                                <input id="chk" type="checkbox" runat="server" />
-                                                                                <span class="slider round"></span>
-                                                                            </label>
-
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-
-                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                                                        <ItemTemplate>
-                                                                            <asp:Button ID="btnComentario" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
-                                                                        </ItemTemplate>
-
-                                                                    </asp:TemplateField>
-
-                                                                    <asp:TemplateField HeaderText="ELIMINAR">
-
-                                                                        <ItemTemplate>
-                                                                            <asp:ImageButton
-                                                                                ID="btnEliminarDocumento"
-                                                                                ImageUrl="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/32x32/delete.png"
-                                                                                CommandName="eliminar"
-                                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                                                runat="server" />
-                                                                        </ItemTemplate>
-
-                                                                    </asp:TemplateField>
-
-
-                                                                </Columns>
-
-                                                            </asp:GridView>
-
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <%-- TRABAJADOR --%>
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered dataTable" id="tablaDocTrabajador" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                                    <tr class="align-left">
-                                                        <td class="auto-style1">
-
-                                                            <asp:GridView ID="confirmarTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                                                <Columns>
-
-                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                                    <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                                                    <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                                    <asp:TemplateField HeaderText="CONFIRMAR">
-
-                                                                        <ItemTemplate>
-                                                                            <label class="switch ">
-                                                                                <input id="chk" type="checkbox" runat="server" />
-                                                                                <span class="slider round"></span>
-                                                                            </label>
-
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-
-                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                                                        <ItemTemplate>
-                                                                            <asp:Button ID="BtnComentariosTrabajador" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
-                                                                        </ItemTemplate>
-
-                                                                    </asp:TemplateField>
-
-                                                                    <asp:TemplateField HeaderText="ELIMINAR">
-
-                                                                        <ItemTemplate>
-                                                                            <asp:ImageButton
-                                                                                ID="btnEliminarDocumento"
-                                                                                ImageUrl="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/32x32/delete.png"
-                                                                                CommandName="eliminar"
-                                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                                                runat="server" />
-                                                                        </ItemTemplate>
-
-                                                                    </asp:TemplateField>
-
-                                                                </Columns>
-
-                                                            </asp:GridView>
-
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <%-- VEHICULO --%>
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">VEHICULO</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered dataTable" id="tablaDocVehiculo" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                                    <tr class="align-left">
-                                                        <td class="auto-style1">
-
-                                                            <asp:GridView ID="confirmarVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                                                <Columns>
-
-                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                                    <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                                                    <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                                    <asp:TemplateField HeaderText="CONFIRMAR">
-
-                                                                        <ItemTemplate>
-                                                                            <label class="switch ">
-                                                                                <input id="chk" type="checkbox" runat="server" />
-                                                                                <span class="slider round"></span>
-                                                                            </label>
-
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-
-                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                                                        <ItemTemplate>
-                                                                            <asp:Button ID="BtnComentariosVehiculo" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
-                                                                        </ItemTemplate>
-
-                                                                    </asp:TemplateField>
-
-                                                                    <asp:TemplateField HeaderText="ELIMINAR">
-
-                                                                        <ItemTemplate>
-                                                                            <asp:ImageButton
-                                                                                ID="btnEliminarDocumento"
-                                                                                ImageUrl="http://files.softicons.com/download/toolbar-icons/flatastic-icons-part-1-by-custom-icon-design/png/32x32/delete.png"
-                                                                                CommandName="eliminar"
-                                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                                                runat="server" />
-                                                                        </ItemTemplate>
-
-                                                                    </asp:TemplateField>
-
-                                                                </Columns>
-
-                                                            </asp:GridView>
-
-                                                        </td>
-                                                    </tr>
-
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                        </div>
 
                                 </div>
 

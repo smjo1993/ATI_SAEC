@@ -21,21 +21,6 @@
             Response.Redirect("../login.aspx")
         Else
 
-            'LblNombreUsuario.Text = usuario.getNombre().Trim()
-
-            'For Each rol As clsRol In listaRoles
-
-            '    If rol.getDescripcion.ToString <> "super-admin" Then
-
-            '        Response.Redirect("../login.aspx")
-
-            '    Else
-
-            '        cargarGrid()
-
-            '    End If
-
-            'Next
             Dim menu As New clsMenu
             Dim acceso As String = menu.validarAcceso(usuario.getRut, "1,5", "A")
 
@@ -47,14 +32,16 @@
         cargarMenu()
         cargarGrid()
 
+        LblNombreUsuario.Text = usuario.getNombre().ToString()
+
     End Sub
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim rutUsuario As String = usuario.getRut
-        'Dim idCarpeta As Integer = decodificarId()
         Dim menu As New clsMenu
         Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
+
         lblMenu.Text = stringMenu
         lblMenu.Visible = True
     End Sub
@@ -148,64 +135,69 @@
 
     End Sub
 
-    'Protected Function obtenerResumen(rut As String) As String
-    '    Dim comentario As New clsComentario
-    '    Dim usuarioSaec As New clsUsuarioSAEC
-    '    Dim resumen As String
-    '    Dim dt As DataTable
-    '    Dim dr As DataRow
-    '    dt = contratista.obtenerContratista(rut)
-
-    '    If dt.Rows.Count > 0 Then
-    '        dr = dt.Rows.Item(0)
-    '        resumen = dr("nombre")
-    '        Return resumen
-
-    '    Else
-    '        Return "Usuario no encontrado"
-    '    End If
-    'End Function
-
     Private Sub cargarNotificacionesComentarios()
-        'Dim comentario As New clsComentario
+
         Dim notificacion As New clsNotificacion
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim rutUsuario As String = usuario.getRut
         Dim tarjeta As String = ""
+
         Dim listaNotificaciones As Data.DataTable = notificacion.obtenerNotificaciones(rutUsuario)
 
-        For Each fila As DataRow In listaNotificaciones.Rows
-            Dim resumenComentario As String = fila("texto")
-            Dim nombreUsuarioRespuesta As String = fila("autor")
-            Dim carpetaArranque As Integer = fila("idItem1")
-            Dim estadoComentario As String = fila("estado")
-            Dim nombreDocumento As String = fila("nombreItem")
-            Dim contNoLeidos As Integer
+        If listaNotificaciones.Rows.Count > 0 Then
+
+            For Each fila As DataRow In listaNotificaciones.Rows
+
+                Dim resumenComentario As String = fila("texto")
+                Dim nombreUsuarioRespuesta As String = fila("autor")
+                Dim areaDocumento As Integer = fila("area")
+                Dim idDocumento As Integer = fila("idDocumento")
+                Dim carpetaArranque As Integer = fila("carpetaArranque")
+                Dim estadoComentario As String = fila("estado")
+                Dim nombreDocumento As String = fila("documento")
+                Dim contNoLeidos As Integer
 
 
-            If estadoComentario = "NL" Then
+                If estadoComentario = "no leido" Then
 
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
+                    tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
+                    tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+                    tarjeta = tarjeta & "   </div> "
+                    tarjeta = tarjeta & "   <div class=""font-weight-bold""> "
+                    tarjeta = tarjeta & "   <div class=""text-truncate"">" + resumenComentario + "</div> "
+                    tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
+                    tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
+                    tarjeta = tarjeta & "   </div> "
+                    tarjeta = tarjeta & "   </a> "
 
-                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
-                tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
-                tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
-                tarjeta = tarjeta & "   </div> "
-                tarjeta = tarjeta & "   <div class=""font-weight-bold""> "
-                tarjeta = tarjeta & "   <div class=""text-truncate"">" + resumenComentario + "</div> "
-                tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
-                tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
-                tarjeta = tarjeta & "   </div> "
-                tarjeta = tarjeta & "   </a> "
+                    'contNoLeidos = contNoLeidos + 1
+                    'LblNotificacionComentarios.Text = contNoLeidos.ToString()
 
-                contNoLeidos = contNoLeidos + 1
+                    LblNotificacion.Text = tarjeta
 
-                LblNotificacion.Text = tarjeta
-                LblNotificacionComentarios.Text = contNoLeidos.ToString()
+                    LblNotificacionComentarios.Text = "!"
 
-            End If
+                    Session("areaId") = areaDocumento
+                    Session("docuemntoId") = idDocumento
+                    Session("carpetaId") = carpetaArranque
+                    Session("origen") = HttpContext.Current.Request.Url.ToString
 
-        Next
+                End If
+
+            Next
+
+        ElseIf listaNotificaciones Is Nothing Then
+
+            tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href="""">"
+            tarjeta = tarjeta & "   <div class=""font-weight""> "
+            tarjeta = tarjeta & "   <div class=""text""> No tienes notificaciones pendientes </div> "
+            tarjeta = tarjeta & "   </div> "
+            tarjeta = tarjeta & "   </a> "
+
+        End If
 
     End Sub
+
 
 End Class

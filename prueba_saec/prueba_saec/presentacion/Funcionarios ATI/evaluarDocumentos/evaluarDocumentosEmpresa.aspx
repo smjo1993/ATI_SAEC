@@ -216,7 +216,7 @@
                                                     <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnDescargar"
-                                                            ImageUrl="../../../img/file.png"
+                                                            ImageUrl="../../../img/download.png"
                                                             ToolTip="Ver"
                                                             CommandName="Ver"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
@@ -242,7 +242,7 @@
 
                                                         <asp:ImageButton
                                                             ID="btnVerComentarios"
-                                                            ImageUrl="../../../img/wechat.png"
+                                                            ImageUrl="../../../img/chat.png"
                                                             ToolTip="Ver Comentarios"
                                                             CommandName="verComentarios"
                                                             OnClientClick=""
