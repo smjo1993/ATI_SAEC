@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class evaluarDocumentosVehiculo
-    
+
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control form15.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control lblVehiculo.
     '''</summary>
@@ -39,7 +39,25 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblVehiculo As Global.System.Web.UI.WebControls.Label
-    
+
+    '''<summary>
+    '''Control lblDocumentosEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosEmpresa As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control lblDocumentosTrabajdor.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosTrabajdor As Global.System.Web.UI.WebControls.Label
+
     '''<summary>
     '''Control lblMensaje.
     '''</summary>
@@ -48,7 +66,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control gridListarDocumentosVehiculo.
     '''</summary>

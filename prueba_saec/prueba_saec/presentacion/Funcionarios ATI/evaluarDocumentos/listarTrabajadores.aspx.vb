@@ -46,6 +46,10 @@
             Session("rutTrabajador") = rutTrabajador
             Session("idTrabajador") = idTrabajador
             Session("idCarpeta") = idCarpeta
+            Session("idCodificada") = idCodificada
+            Session("nombreCodificado") = nombreCodificado
+            'Session("rutContratista") = rutContratista
+            Response.Redirect("evaluarDocumentosTrabajador.aspx")
 
             'Se codifica idCarpeta para enviarlo por URL
 

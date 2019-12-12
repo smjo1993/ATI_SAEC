@@ -11,7 +11,23 @@
             validarUsuario()
             cargarMenu()
             cargarDatos()
+            cargarBotones()
         End If
+    End Sub
+
+    Protected Sub cargarBotones()
+        Dim boton As String
+        Dim texto As String = "Documentos Trabajador"
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosTrabajdor.Text = boton
+        texto = "Documentos Vehiculo"
+        boton = ""
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosVehiculo.Text = boton
     End Sub
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -83,8 +99,8 @@
                 'Response.Clear()
                 'Response.ContentType = "application/pdf"
                 Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
-                'Response.WriteFile(ruta)
-            Else
+        'Response.WriteFile(ruta)
+        Else
 
                 Response.Clear()
                 Response.AddHeader("content-disposition", String.Format("attachment;filename={0}", ruta))
@@ -97,11 +113,11 @@
             Dim carpeta As New clsCarpetaArranque
             Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim txtFecha As TextBox = Me.gridDocumentos.Rows(pos).Cells(10).Controls(1)
+            Dim txtFecha As TextBox = Me.gridDocumentos.Rows(pos).Cells(8).Controls(1)
             'txtFecha = Me.gridDocumentos.Rows(pos).Cells(10).Controls(1)
             If txtFecha.Text = "" Then
                 Dim documento As New clsDocumento
-                documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", "")
+                documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", gridDocumentos.Rows(pos).Cells(6).Text)
                 documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracionCarpeta)
             Else
                 Dim alerta As New clsAlertas

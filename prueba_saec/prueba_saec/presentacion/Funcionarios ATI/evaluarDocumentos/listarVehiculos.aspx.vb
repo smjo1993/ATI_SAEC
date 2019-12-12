@@ -44,12 +44,17 @@
             Dim patente As String = gridListarVehiculosParaEvaluar.Rows(pos).Cells(0).Text
             Dim idCarpeta As Integer = gridListarVehiculosParaEvaluar.Rows(pos).Cells(2).Text
             Dim idVehiculo As Integer = gridListarVehiculosParaEvaluar.Rows(pos).Cells(3).Text
+            Dim idCodificada As String = Request.QueryString("i").ToString()
+            Dim nombreCodificado As String = Request.QueryString("n").ToString()
             Session("patente") = patente
             Session("idVehiculo") = idVehiculo
 
             Dim idCarpetaURL As String = Request.QueryString("i").ToString()
             Dim nombreCarpetaURL As String = Request.QueryString("n").ToString()
             Response.Redirect("evaluarDocumentosVehiculo.aspx?i=" + idCarpetaURL + "&n=" + nombreCarpetaURL + " ")
+            Session("idCodificada") = idCodificada
+            Session("nombreCodificado") = nombreCodificado
+            Response.Redirect("evaluarDocumentosVehiculo.aspx")
 
         End If
 

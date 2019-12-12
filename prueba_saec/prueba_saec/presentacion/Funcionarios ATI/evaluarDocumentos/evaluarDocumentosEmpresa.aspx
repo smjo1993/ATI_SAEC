@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Evaluar Documentos Empresa - SAEC</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,9 +41,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon">
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -167,8 +168,19 @@
                             <div class="card shadow mb-4">
 
                                 <div class="card-header py-3">
-                                    <h4 class="m-0 font-weight-bold text-primary">Revisar Documentos:
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h4 class="m-0 font-weight text-primary">Revisar Documentos:
                                 <asp:Label ID="lblNombreEmpresa" runat="server" Text=""></asp:Label></h4>
+                                        </div>
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-4">
+                                            <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -200,47 +212,46 @@
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
-                                                <asp:TemplateField HeaderText="Descargar">
+                                                <asp:TemplateField HeaderText="Opciones">
                                                     <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnDescargar"
-                                                            ImageUrl="../../../img/file.png"
+                                                            ImageUrl="../../../img/download.png"
+                                                            ToolTip="Ver"
                                                             CommandName="Ver"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
-                                                    </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:TemplateField>
 
-
-                                                <asp:TemplateField HeaderText="Aprobar">
-                                                    <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnAprobar"
-                                                            ImageUrl=""
+                                                            ImageUrl="../../../img/check.png"
+                                                            ToolTip="Aprobar"
                                                             CommandName="Aprobar"
                                                             OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
-                                                    </ItemTemplate>
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:TemplateField>
 
-
-                                                <asp:TemplateField HeaderText="Desaprobar">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                    <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnReprobar"
-                                                            ImageUrl=""
+                                                            ImageUrl="../../../img/remove.png"
+                                                            ToolTip="Rechazar"
                                                             CommandName="Reprobar"
                                                             OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
+
+                                                        <asp:ImageButton
+                                                            ID="btnVerComentarios"
+                                                            ImageUrl="../../../img/chat.png"
+                                                            ToolTip="Ver Comentarios"
+                                                            CommandName="verComentarios"
+                                                            OnClientClick=""
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+
                                                     </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
                                                 <asp:TemplateField HeaderText="Fecha de Expiracion">
@@ -250,7 +261,7 @@
                                                         <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-
+                                                <asp:BoundField DataField="fechaDeExpiracion" HeaderText="Fecha de Expiracion" />
                                             </Columns>
                                         </asp:GridView>
 

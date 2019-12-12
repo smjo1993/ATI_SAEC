@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Administrar Permisos - SAEC</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,9 +41,13 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon">
+
+                    <%--<i class="fas fa-laugh-wink"></i>--%>
+
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -64,7 +68,7 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -73,7 +77,7 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -165,9 +169,9 @@
 
 
 
-                            <div>
+
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">Usuarios</h5>
+                                    <h4 class="m-0 font-weight text-primary" style="text-align: center;">Usuarios</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -218,21 +222,19 @@
                                         <div runat="server" id="sinUsuarios">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Usuarios en el Sistema</h1>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Cambiar Estado de Cuenta" data-toggle="modal"
-                                                        data-target="#modalConfirmacion" />
-                                                </div>
-                                            </div>
-                                            <div class="col-4"></div>
-                                        </div>
-
                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="card-footer">
+
+                                    <div class="row" style="float: right;">
+                                                    <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Cambiar Estado de Cuenta" data-toggle="modal"
+                                                        data-target="#modalConfirmacion" />
+
+                                    </div>
+
+                                </div>
+
                         </div>
 
                         <!--Modal-->
@@ -262,7 +264,13 @@
 
             </div>
             <!-- /.container-fluid -->
-
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Main Content -->
 
