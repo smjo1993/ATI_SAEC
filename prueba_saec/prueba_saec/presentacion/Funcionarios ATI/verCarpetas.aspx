@@ -42,8 +42,12 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+
+                    <%--<i class="fas fa-laugh-wink"></i>--%>
+
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -194,6 +198,14 @@
 
             </div>
             <!-- End of Main Content -->
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span><%--Copyright &copy; SAEC, CAPSTONE 2019--%></span>
+                    </div>
+                </div>
+            </footer>
 
         </div>
         <!-- End of Content Wrapper -->

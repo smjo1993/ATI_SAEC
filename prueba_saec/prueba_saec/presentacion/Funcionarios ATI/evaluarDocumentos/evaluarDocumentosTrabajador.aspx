@@ -146,15 +146,25 @@
                         <%-- TRABAJADOR --%>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
-                                <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
+                                        <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                    </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <asp:Label ID="lblDocumentosEmpresa" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="Label"></asp:Label>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="card-body">
 
                                 <div class="row">
                                     <div class="col-lg-4"></div>
                                     <div class="col-lg-4">
-                                        <asp:Label ID="lblMensaje" runat="server" ></asp:Label>
+                                        <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                                     </div>
                                     <div class="col-lg-4"></div>
                                 </div>
@@ -174,7 +184,7 @@
                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                        
+
                                         <asp:TemplateField HeaderText="VER">
                                             <ItemTemplate>
 
@@ -244,9 +254,6 @@
 
                     </div>
             </div>
-
-
-
             </form>
                   <!-- Bootstrap core JavaScript-->
             <script src="../../../../vendor/jquery/jquery.min.js"></script>

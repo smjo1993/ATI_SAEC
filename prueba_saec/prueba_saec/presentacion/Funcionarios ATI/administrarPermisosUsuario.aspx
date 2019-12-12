@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Permisos Usuario - SAEC</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,9 +41,13 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon">
+
+                    <%--<i class="fas fa-laugh-wink"></i>--%>
+
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -63,11 +67,11 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-            <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-                   <%--          <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <%--          <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -128,7 +132,7 @@
                         <!-- Nav Item - Messages -->
                         <%--
                         <div class="topbar-divider d-none d-sm-block"></div>--%>
-                              <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <!-- Dropdown - User Information -->
@@ -153,12 +157,13 @@
                             </div>
                         </li>
 
-                  </ul>
+                    </ul>
 
                 </nav>
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+
                     <form id="usuarios" runat="server">
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
@@ -167,9 +172,10 @@
 
                             <div>
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary">
-                                        <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></h5>
+                                    <h4 class="m-0 font-weight text-primary">
+                                        <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></h4>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="table-responsive">
 
@@ -182,9 +188,9 @@
                                             aria-describedby="dataTable_info"
                                             Style="width: 100%;">
                                             <Columns>
-                                                <asp:BoundField DataField="opcion" HeaderText="Opcion" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"  />
+                                                <asp:BoundField DataField="opcion" HeaderText="Opcion" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                                <asp:BoundField DataField="estado" HeaderText="Estado"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
+                                                <asp:BoundField DataField="estado" HeaderText="Estado" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:TemplateField HeaderText="Estado">
                                                     <ItemTemplate>
                                                         <itemstyle width="10px" />
@@ -196,29 +202,31 @@
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
-                                                <asp:BoundField DataField="opcionPadre" HeaderText="Padre"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
-                                                <asp:BoundField DataField="hijos" HeaderText="Hijo"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
+                                                <asp:BoundField DataField="opcionPadre" HeaderText="Padre" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="hijos" HeaderText="Hijo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             </Columns>
                                         </asp:GridView>
 
                                         <div runat="server" id="sinPermisos">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Usuario sin permisos en el sistema</h1>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <input id="btnModalConfirmacion" runat="server" type="button" class="btn btn-primary btn-user btn-block" value="Cambiar estado de los Permisos" data-toggle="modal"
-                                                        data-target="#modalConfirmacion" />
-                                                </div>
-                                            </div>
-                                            <div class="col-4"></div>
-                                        </div>
-
                                     </div>
                                 </div>
+
+
                             </div>
+
+                            <div class="card-footer">
+
+                                <div class="row" style="float: right;">
+
+                                    <input id="btnModalConfirmacion" runat="server" type="button" class="btn shadow-sm btn-success btn-user" value="Cambiar estado de los Permisos" data-toggle="modal"
+                                        data-target="#modalConfirmacion" />
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                         <!--Modal-->
@@ -248,7 +256,13 @@
 
             </div>
             <!-- /.container-fluid -->
-
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Main Content -->
 
