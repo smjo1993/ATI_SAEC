@@ -108,7 +108,7 @@
 
                 If (DateTime.Compare(fechaExpiracion, hoy) < 0 Or DateTime.Compare(fechaExpiracion, fechaExpiracionCarpeta) > 0 Or DateTime.Compare(hoy, fechaExpiracion) = 0) Then
 
-                    lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
+                    'lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
 
                 Else
 
