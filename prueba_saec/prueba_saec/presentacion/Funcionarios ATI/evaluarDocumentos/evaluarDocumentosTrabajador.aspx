@@ -286,6 +286,8 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
+                                        <asp:BoundField DataField="fechaDeExpiracion" HeaderText="FECHA DE EXPIRACIÓN"  />
+                                         
                                     </Columns>
 
                                 </asp:GridView>
@@ -299,11 +301,11 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                       
+                                       <asp:Label ID="Label1" runat="server" text="Documentos no enviados por el Contratista" class="m-0 font-weight-bold text-primary"></asp:Label>
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
-                                        <asp:Label ID="Label2" runat="server" ></asp:Label>
+                                        
                                         <asp:Label ID="Label3" runat="server" ></asp:Label>
                                     </div>
                                 </div>

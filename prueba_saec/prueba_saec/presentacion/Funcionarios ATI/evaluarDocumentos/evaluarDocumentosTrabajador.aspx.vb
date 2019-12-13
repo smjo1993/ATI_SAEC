@@ -70,7 +70,7 @@
         Dim idArea As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(7).Text
         Dim idTrabajador As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(9).Text
         Dim nombreArchivo As String = gridListarDocumentosTrabajador.Rows(pos).Cells(2).Text
-        Dim txtFecha As TextBox = Me.gridListarDocumentosTrabajador.Rows(pos).Cells(13).Controls(1)
+        Dim txtFecha As TextBox = Me.gridListarDocumentosTrabajador.Rows(pos).Cells(12).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
         If (e.CommandName = "ver") Then
