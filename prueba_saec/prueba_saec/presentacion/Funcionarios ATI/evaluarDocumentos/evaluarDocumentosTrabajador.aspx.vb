@@ -3,6 +3,8 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        cargarMenu()
+
         If IsPostBack Then
             Return
         End If
@@ -12,7 +14,12 @@
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idTrabajador As Integer = Session("idTrabajador")
         Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
+        Dim tablaDocumentosTrabajadorPentdientes = trabajador.ListarDocumentosPendientesTrabajadorRevisor(idCarpeta, idArea, idTrabajador)
+
         gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
+        gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
+
+        gridDocumentosPendiente.DataBind()
         gridListarDocumentosTrabajador.DataBind()
         lblTrabajador.Text = Session("rutTrabajador")
         cargarBotones()
@@ -21,8 +28,8 @@
     Protected Sub cargarBotones()
         Dim boton As String
         Dim texto As String = "Documentos Empresa"
-        Dim idCodificada As String = Session("idCodificada").ToString
-        Dim nombreCodificado As String = Session("nombreCodificado").ToString()
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
         boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosEmpresa.Text = boton
@@ -63,7 +70,7 @@
         Dim idArea As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(7).Text
         Dim idTrabajador As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(9).Text
         Dim nombreArchivo As String = gridListarDocumentosTrabajador.Rows(pos).Cells(2).Text
-        Dim txtFecha As TextBox = Me.gridListarDocumentosTrabajador.Rows(pos).Cells(15).Controls(1)
+        Dim txtFecha As TextBox = Me.gridListarDocumentosTrabajador.Rows(pos).Cells(13).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
         If (e.CommandName = "ver") Then
@@ -89,7 +96,7 @@
 
         End If
 
-        If (e.CommandName = "aprobar") Then
+        If (e.CommandName = "Aprobar") Then
 
             Dim Trabajador As New clsTrabajador
             Dim documento As New clsDocumento
@@ -124,11 +131,13 @@
 
         End If
 
-        If (e.CommandName = "reprobar") Then
+        If (e.CommandName = "Reprobar") Then
 
+            Dim Trabajador As New clsTrabajador
             My.Computer.FileSystem.DeleteFile(ruta)
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "pendiente", Nothing)
+            Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, Nothing)
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If

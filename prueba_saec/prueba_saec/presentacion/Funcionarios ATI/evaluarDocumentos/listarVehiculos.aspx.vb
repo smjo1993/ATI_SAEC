@@ -5,10 +5,11 @@
         If IsPostBack Then
             Return
         End If
-        'cargarMenu()
+
+        cargarMenu()
         Dim vehiculos = New clsVehiculo()
-        Dim idCarpeta As Integer = 113
-        Dim idArea As Integer = 2
+        Dim idCarpeta As Integer = decodificarId()
+        Dim idArea As Integer = Session("usuario").getArea()
         Dim TablaVehiculos As DataTable = vehiculos.listarVehiculosParaEvaluar(idCarpeta, idArea)
         'Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
         gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
@@ -47,9 +48,10 @@
             Dim nombreCodificado As String = Request.QueryString("n").ToString()
             Session("patente") = patente
             Session("idVehiculo") = idVehiculo
-            Session("idCodificada") = idCodificada
-            Session("nombreCodificado") = nombreCodificado
-            Response.Redirect("evaluarDocumentosVehiculo.aspx")
+
+            Dim idCarpetaURL As String = Request.QueryString("i").ToString()
+            Dim nombreCarpetaURL As String = Request.QueryString("n").ToString()
+            Response.Redirect("evaluarDocumentosVehiculo.aspx?i=" + idCarpetaURL + "&n=" + nombreCarpetaURL + " ")
 
         End If
 

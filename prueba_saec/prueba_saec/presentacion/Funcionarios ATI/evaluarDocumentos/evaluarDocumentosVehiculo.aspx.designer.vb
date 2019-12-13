@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class evaluarDocumentosVehiculo
-    
+
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control form15.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control lblVehiculo.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblVehiculo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblDocumentosEmpresa.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDocumentosEmpresa As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblDocumentosTrabajdor.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDocumentosTrabajdor As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control gridListarDocumentosVehiculo.
     '''</summary>
@@ -66,4 +66,41 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridListarDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''Control Label1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Label2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control Label3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control gridDocumentosPendientes.
+    '''Control gridListarDocumentosVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gridDocumentosPendientes As Global.System.Web.UI.WebControls.GridView
 End Class

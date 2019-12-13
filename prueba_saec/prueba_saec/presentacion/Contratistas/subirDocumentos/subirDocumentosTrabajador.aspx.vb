@@ -49,12 +49,30 @@
             'Si encuentra el archivo subido lo guarda en la ruta especifica
             If archivo.PostedFile.FileName <> "" Then
 
-                My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador))
-                Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
-                archivo.PostedFile.SaveAs(ruta)
-                Dim documento = New clsDocumento()
-                documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "enviado", ruta)
-                Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                If gridListarDocumentosTrabajador.Rows(pos).Cells(11).Text = "" Or gridListarDocumentosTrabajador.Rows(pos).Cells(11).Text = "&nbsp;" Then
+
+                    'Si el contratista no ha subido un archivo anteriormente 
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    archivo.PostedFile.SaveAs(ruta)
+                    Dim documento = New clsDocumento()
+                    documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "enviado", ruta)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                Else
+                    'Si el contratista subio un documento previamente, se elimina y se sube el nuevo archivo.
+                    My.Computer.FileSystem.DeleteFile(gridListarDocumentosTrabajador.Rows(pos).Cells(11).Text)
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    archivo.PostedFile.SaveAs(ruta)
+                    Dim documento = New clsDocumento()
+                    documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "enviado", ruta)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                End If
+
+
 
             End If
 

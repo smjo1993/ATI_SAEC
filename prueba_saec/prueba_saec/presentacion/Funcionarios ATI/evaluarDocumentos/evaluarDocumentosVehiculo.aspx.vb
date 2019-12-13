@@ -5,14 +5,19 @@
         If IsPostBack Then
             Return
         End If
-
+        cargarMenu()
         Dim vehiculo = New clsVehiculo()
-        Dim idCarpeta As Integer = 113
-        Dim idArea As Integer = 2
+        Dim idCarpeta As Integer = decodificarId()
+        Dim idArea As Integer = Session("usuario").getArea()
         Dim idVehiculo As Integer = Session("idVehiculo")
         Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
+        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
         gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+        gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+
         gridListarDocumentosVehiculo.DataBind()
+        gridDocumentosPendientes.DataBind()
+
         lblVehiculo.Text = Session("patente")
         cargarBotones()
     End Sub
@@ -20,12 +25,12 @@
     Protected Sub cargarBotones()
         Dim boton As String
         Dim texto As String = "Documentos Trabajador"
-        Dim idCodificada As String = Session("idCodificada").ToString
-        Dim nombreCodificado As String = Session("nombreCodificado").ToString()
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
         boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosTrabajdor.Text = boton
-        texto = "Documentos Vehiculo"
+        texto = "Documentos Empresa"
         boton = ""
         boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
         boton = boton & "<i class=""""></i>" + texto + "</a>"
@@ -57,6 +62,11 @@
         Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
         Dim ruta As String = gridListarDocumentosVehiculo.Rows(pos).Cells(9).Text
         Dim nombreArchivo As String = gridListarDocumentosVehiculo.Rows(pos).Cells(1).Text
+        Dim idCarpeta As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(4).Text
+        Dim idDocumento As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(5).Text
+        Dim idArea As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(6).Text
+        Dim idVehiculo As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(8).Text
+        Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(11).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
         If (e.CommandName = "ver") Then
@@ -82,6 +92,52 @@
 
         End If
 
+        If (e.CommandName = "Aprobar") Then
+
+            Dim vehiculo As New clsVehiculo
+            Dim documento As New clsDocumento
+            Dim carpeta As New clsCarpetaArranque
+            Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
+
+            If txtFecha.Text = "" Then
+
+                documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "aprobado", ruta)
+                vehiculo.fechaExpiracionDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, fechaExpiracionCarpeta)
+                Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+            Else
+
+                Dim alerta As New clsAlertas
+                Dim fechaExpiracion As Date = Convert.ToDateTime(txtFecha.Text)
+                Dim hoy As Date = Today
+
+                If (DateTime.Compare(fechaExpiracion, hoy) < 0 Or DateTime.Compare(fechaExpiracion, fechaExpiracionCarpeta) > 0 Or DateTime.Compare(hoy, fechaExpiracion) = 0) Then
+
+                    'lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
+
+                Else
+
+                    documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "aprobado", ruta)
+                    vehiculo.fechaExpiracionDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, fechaExpiracion)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                End If
+
+            End If
+
+        End If
+
+        If (e.CommandName = "Reprobar") Then
+
+            Dim documento As New clsDocumento
+            Dim vehiculo As New clsVehiculo
+
+            My.Computer.FileSystem.DeleteFile(ruta)
+            documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "pendiente", Nothing)
+            vehiculo.fechaExpiracionDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, Nothing)
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+        End If
     End Sub
 
     'funcion que obtiene la extension del archivo
