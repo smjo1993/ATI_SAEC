@@ -191,22 +191,24 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                        <form id="documentos" runat="server">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h5>
+                            <h4 class="m-0 font-weight text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h4>
                         </div>
                         <div class="card-body">
 
-                            <form id="documentos" runat="server">
+                        
                                 <div>
                                     <asp:Label runat="server" ID="lblTarjetaCarpeta" Text=""></asp:Label>
                                 </div>
-                            </form>
+     
+                           
                         </div>
+                            <div class="card-footer"></div>    
                     </div>
-
+                     </form>
                 </div>
                 <!-- /.container-fluid -->
 

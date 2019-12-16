@@ -151,7 +151,7 @@
             <%-- Vehiculo --%>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">PATENTE:</h6>
+                    <h4 class="m-0 font-weight text-primary">PATENTE:</h4>
                     <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
                    
                 </div>
@@ -214,7 +214,7 @@
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para subir</h1>
                                         </div>
                 </div>
-
+                  <div class="card-footer"></div>    
             </div>
 
 

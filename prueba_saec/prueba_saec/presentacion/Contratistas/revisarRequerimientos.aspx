@@ -169,8 +169,8 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h3 class="m-0 font-weight text-primary" style="text-align: center;">
-                                <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h3>
+                            <h4 class="m-0 font-weight text-primary" style="text-align: center;">
+                                <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h4>
                         </div>
                         <div class="card-body">
 

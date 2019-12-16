@@ -154,7 +154,7 @@
                             <div class="card-header py-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <h6 class="m-0 font-weight-bold text-primary">VEHÍCULOS</h6>
+                                        <h4 class="m-0 font-weight text-primary">VEHÍCULOS</h4>
                                     </div>
                                     <div class="col-6">
                                         <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
@@ -209,6 +209,7 @@
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Vehiculos en el sistema</h1>
                                         </div>
                             </div>
+                              <div class="card-footer"></div>    
                         </div>
                 </form>
                     </div>
