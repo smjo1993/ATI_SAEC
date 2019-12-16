@@ -2,7 +2,8 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        sinTrabajadores.Visible = False
+        validarContratista()
         If IsPostBack Then
             Return
         End If
@@ -12,11 +13,34 @@
         Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadores(rutContratista)
         Session("rutEmpresa") = trabajadores.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
-        gridListarTrabajadores.DataSource = TablaTrabajadores
-        gridListarTrabajadores.DataBind()
+
+        If TablaTrabajadores Is Nothing Then
+            sinTrabajadores.Visible = True
+        Else
+            If TablaTrabajadores.Rows.Count > 0 Then
+                gridListarTrabajadores.DataSource = TablaTrabajadores
+                gridListarTrabajadores.DataBind()
+            Else
+                sinTrabajadores.Visible = True
+            End If
+        End If
 
     End Sub
+    Protected Sub validarContratista()
 
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,3", "C")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
+
+    End Sub
     Protected Sub btnIrTrabajador_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarTrabajadores.RowCommand
 
         If (e.CommandName = "ir") Then

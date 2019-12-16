@@ -1,8 +1,11 @@
-﻿Public Class SubirDocumentosTrabajador
+﻿Imports System.Drawing
+
+Public Class SubirDocumentosTrabajador
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        sinDocumentos.Visible = False
+        validarContratista()
         cargarMenu()
 
         If IsPostBack Then
@@ -12,12 +15,35 @@
         'Se pobla la grilla con los datos obtenidos en listarTrabajadores
         Dim trabajador = New clsTrabajador()
         Dim listaDocumentosTrabajador As DataTable = trabajador.listarDocumentosTrabajador(Session("idTrabajador"), Session("rutContratista"))
-        gridListarDocumentosTrabajador.DataSource = listaDocumentosTrabajador
-        gridListarDocumentosTrabajador.DataBind()
+        If listaDocumentosTrabajador Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If listaDocumentosTrabajador.Rows.Count > 0 Then
+                gridListarDocumentosTrabajador.DataSource = listaDocumentosTrabajador
+                gridListarDocumentosTrabajador.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
         lblTrabajador.Text = Session("rutTrabajador")
 
     End Sub
+    Protected Sub validarContratista()
 
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,3", "C")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
+
+    End Sub
     Protected Sub cargarMenu()
 
         Dim contratista As clsContratista = Session("contratistaEntrante")
@@ -80,4 +106,13 @@
 
     End Sub
 
+    Protected Sub gridListarDocumentosTrabajador_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridListarDocumentosTrabajador.RowDataBound
+
+        If e.Row.Cells(4).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
 End Class

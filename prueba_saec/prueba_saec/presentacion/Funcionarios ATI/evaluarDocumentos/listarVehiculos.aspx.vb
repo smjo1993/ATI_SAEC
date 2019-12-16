@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinVehiculos.Visible = False
         If IsPostBack Then
             Return
         End If
@@ -12,8 +13,18 @@
         Dim idArea As Integer = Session("usuario").getArea()
         Dim TablaVehiculos As DataTable = vehiculos.listarVehiculosParaEvaluar(idCarpeta, idArea)
         'Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
-        gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
-        gridListarVehiculosParaEvaluar.DataBind()
+
+
+        If TablaVehiculos Is Nothing Then
+            sinVehiculos.Visible = True
+        Else
+            If TablaVehiculos.Rows.Count > 0 Then
+                gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
+                gridListarVehiculosParaEvaluar.DataBind()
+            Else
+                sinVehiculos.Visible = True
+            End If
+        End If
 
     End Sub
     Protected Sub cargarMenu()

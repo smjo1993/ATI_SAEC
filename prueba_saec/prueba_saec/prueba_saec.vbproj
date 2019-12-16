@@ -168,6 +168,7 @@
     <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Contratistas\verComentarios.aspx" />
+    <Content Include="presentacion\Contratistas\verComentarios_.aspx" />
     <Content Include="presentacion\Empresa\crearEmpresa.aspx" />
     <Content Include="presentacion\Empresa\iniciarCarpetaArranque.aspx" />
     <Content Include="presentacion\Empresa\modificarContratista.aspx" />
@@ -1938,6 +1939,13 @@
     <Compile Include="presentacion\Contratistas\verComentarios.aspx.vb">
       <DependentUpon>verComentarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verComentarios_.aspx.designer.vb">
+      <DependentUpon>verComentarios_.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\verComentarios_.aspx.vb">
+      <DependentUpon>verComentarios_.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Empresa\crearEmpresa.aspx.designer.vb">
       <DependentUpon>crearEmpresa.aspx</DependentUpon>

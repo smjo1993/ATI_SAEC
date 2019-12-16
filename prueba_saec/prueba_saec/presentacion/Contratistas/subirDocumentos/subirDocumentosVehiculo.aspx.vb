@@ -1,8 +1,11 @@
-﻿Public Class subirDocumentosVehiculo
+﻿Imports System.Drawing
+
+Public Class subirDocumentosVehiculo
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        sinDocumentos.Visible = False
+        validarContratista()
         If IsPostBack Then
             Return
         End If
@@ -11,13 +14,38 @@
         cargarGrid()
 
     End Sub
+    Protected Sub validarContratista()
 
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,4", "C")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
+
+    End Sub
     Function cargarGrid()
         'Se pobla la grilla con los datos obtenidos anteriormente
         Dim vehiculo = New clsVehiculo()
         Dim listaDocumentosVehiculo As DataTable = vehiculo.listarDocumentosVehiculo(Session("idVehiculo"), Session("rutContratista"))
-        gridListarDocumentosVehiculo.DataSource = listaDocumentosVehiculo
-        gridListarDocumentosVehiculo.DataBind()
+
+        If listaDocumentosVehiculo Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If listaDocumentosVehiculo.Rows.Count > 0 Then
+                gridListarDocumentosVehiculo.DataSource = listaDocumentosVehiculo
+                gridListarDocumentosVehiculo.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
+
         lblVehiculo.Text = Session("patente")
     End Function
     Protected Sub cargarMenu()
@@ -80,6 +108,16 @@
 
 
             End If
+
+        End If
+
+    End Sub
+
+    Protected Sub gridListarDocumentosVehiculo_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridListarDocumentosVehiculo.RowDataBound
+
+        If e.Row.Cells(3).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
 
         End If
 

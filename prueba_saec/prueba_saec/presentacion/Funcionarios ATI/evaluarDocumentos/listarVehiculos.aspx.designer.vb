@@ -39,4 +39,13 @@ Partial Public Class listarVehiculos1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridListarVehiculosParaEvaluar As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinVehiculos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinVehiculos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

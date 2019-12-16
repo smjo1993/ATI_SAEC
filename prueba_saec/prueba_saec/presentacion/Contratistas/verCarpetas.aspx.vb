@@ -16,6 +16,13 @@
         Dim contratista As clsContratista = Session("contratistaEntrante")
         If (contratista Is Nothing) Then
             Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "60,1", "C")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
         End If
 
     End Sub
@@ -73,7 +80,7 @@
             tarjeta = tarjeta & "              </div> "
 
             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
             tarjeta = tarjeta & "              </div> "
 
             tarjeta = tarjeta & "            </div> "

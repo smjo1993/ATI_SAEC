@@ -25,7 +25,7 @@
 
                     <%--<i class="fas fa-laugh-wink"></i>--%>
 
-                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
@@ -143,10 +143,10 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-    <form id="form15" runat="server" class="md-form">
+
 
         <div class="container-fluid">
-
+                <form id="form15" runat="server" class="md-form">
 
             <%-- Vehiculo --%>
             <div class="card shadow mb-4">
@@ -210,20 +210,32 @@
                                         </Columns>
 
                                     </asp:GridView>
-
+                                                                                                        <div runat="server" id="sinDocumentos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para subir</h1>
+                                        </div>
                 </div>
 
             </div>
 
 
 
-
+                    
+    </form>
 
         </div>
-
-       
-
-    </form>
+                </div>
+                        <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
+            </div>
+       </div>
+       <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
                   <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

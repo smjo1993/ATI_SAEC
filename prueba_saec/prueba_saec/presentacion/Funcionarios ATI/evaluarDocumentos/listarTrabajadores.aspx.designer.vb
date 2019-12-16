@@ -39,4 +39,13 @@ Partial Public Class listarTrabajadores1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridListarTrabajadoresParaEvaluar As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinTrabajadores.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinTrabajadores As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

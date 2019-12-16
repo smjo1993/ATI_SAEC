@@ -176,7 +176,9 @@
                                         </Columns>
 
                                     </asp:GridView>
-
+                                                            <div runat="server" id="sinVehiculos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Vehiculos en el sistema</h1>
+                                        </div>
                                 
                 </div>
 
@@ -187,7 +189,13 @@
 
             </div>
             <!-- End of Main Content -->
-
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Content Wrapper -->
 

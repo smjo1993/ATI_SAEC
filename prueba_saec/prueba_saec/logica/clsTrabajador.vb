@@ -182,7 +182,7 @@ Public Class clsTrabajador
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "TB_SAEC_FechaExpiracionDocumentoTrabajador'" & idCarpeta & "' , '" & idArea & "', '" & idDocumento & "', '" & idTrabajador & "' , '" & fecha & "'"
+            Dim sql As String = "SP_SAEC_FechaExpiracionDocumentoTrabajador'" & idCarpeta & "' , '" & idArea & "', '" & idDocumento & "', '" & idTrabajador & "' , '" & fecha & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
