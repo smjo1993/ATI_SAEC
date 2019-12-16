@@ -1,4 +1,6 @@
-﻿Public Class evaluarDocumentosVehiculo
+﻿Imports System.Drawing
+
+Public Class evaluarDocumentosVehiculo
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -150,4 +152,13 @@
 
     End Function
 
+    Protected Sub gridListarDocumentosVehiculo_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridListarDocumentosVehiculo.RowDataBound
+
+        If e.Row.Cells(3).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
 End Class
