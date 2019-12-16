@@ -2,10 +2,26 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        cargarMenu()
+        If Not Page.IsPostBack Then
+            validarContratista()
+            cargarMenu()
+        End If
+    End Sub
+    Protected Sub validarContratista()
+
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "60,2", "C")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
 
     End Sub
-
     Protected Sub cargarMenu()
         Dim contratista As clsContratista = Session("contratistaEntrante")
         Dim rutContratista As String = contratista.getRut()

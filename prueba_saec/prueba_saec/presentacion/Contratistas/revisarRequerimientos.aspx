@@ -165,18 +165,18 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                                             <form id="documentos" runat="server">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h5 class="m-0 font-weight-bold text-primary" style="text-align: center;">
-                                <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h5>
+                            <h3 class="m-0 font-weight text-primary" style="text-align: center;">
+                                <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h3>
                         </div>
                         <div class="card-body">
 
-                            <form id="documentos" runat="server">
+   
 
-                                <div class="container-fluid">
+                                <div  class="container-fluid">
 
 
                                     <%-- EMPRESA --%>
@@ -229,6 +229,9 @@
                                                     </tr>
 
                                                 </table>
+                                                                                                                                                    <div runat="server" id="sinDocEmpresa">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                                             </div>
                                         </div>
 
@@ -281,6 +284,9 @@
                                                     </tr>
 
                                                 </table>
+                                                                                                                                                    <div runat="server" id="sinDocTrabajador">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                                             </div>
                                         </div>
 
@@ -333,23 +339,13 @@
                                                     </tr>
 
                                                 </table>
+                                                                                                    <div runat="server" id="sinDocVehiculo">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                                             </div>
                                         </div>
 
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-4"></div>
-                                        <div class="col-4">
-                                            <div class="form-group">
-                                                <input id="btnModalConfirmacion" type="button" class="btn btn-primary btn-user btn-block" value="Confirmar" data-toggle="modal"
-                                                    data-target="#modalConfirmacion" />
-                                            </div>
-                                        </div>
-                                        <div class="col-4"></div>
-
-                                    </div>
-
                                 </div>
 
                                 <!--Modal-->
@@ -374,16 +370,30 @@
                                     </div>
                                 </div>
 
-                            </form>
+                            
                         </div>
-                    </div>
+                                                                                <div class="card-footer">
 
+                                <div class="row" style="float: right;">
+                                                                                    <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Confirmar" data-toggle="modal"
+                                                    data-target="#modalConfirmacion" />
+                                </div>
+
+                            </div>
+                    </div>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
-
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Content Wrapper -->
 

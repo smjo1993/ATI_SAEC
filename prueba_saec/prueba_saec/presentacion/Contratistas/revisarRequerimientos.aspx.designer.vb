@@ -23,15 +23,6 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblNombreEmpresa.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Control documentos.
     '''</summary>
     '''<remarks>
@@ -39,6 +30,15 @@ Partial Public Class revisarRequerimientos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
+    
+    '''<summary>
+    '''Control lblNombreEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control documentosEmpresa.
@@ -50,6 +50,15 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents documentosEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control documentosTrabajador.
     '''</summary>
     '''<remarks>
@@ -59,6 +68,15 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents documentosTrabajador As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control documentosVehiculo.
     '''</summary>
     '''<remarks>
@@ -66,6 +84,15 @@ Partial Public Class revisarRequerimientos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents documentosVehiculo As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control confirmarPinponeo.
