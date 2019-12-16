@@ -4,6 +4,8 @@ Public Class evaluarDocumentosVehiculo
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinDocumentos.Visible = False
+        sinDocPendientes.Visible = False
         If IsPostBack Then
             Return
         End If
@@ -13,12 +15,34 @@ Public Class evaluarDocumentosVehiculo
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idVehiculo As Integer = Session("idVehiculo")
         Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
-        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
-        gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
-        gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
 
-        gridListarDocumentosVehiculo.DataBind()
-        gridDocumentosPendientes.DataBind()
+        If tablaDocumentosVehiculo Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If tablaDocumentosVehiculo.Rows.Count > 0 Then
+                gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+                gridListarDocumentosVehiculo.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
+        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
+
+
+        If tablaDocumentosPendientesVehiculo Is Nothing Then
+            sinDocPendientes.Visible = True
+        Else
+            If tablaDocumentosPendientesVehiculo.Rows.Count > 0 Then
+                gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+                gridDocumentosPendientes.DataBind()
+
+            Else
+                sinDocPendientes.Visible = True
+            End If
+        End If
+
+
 
         lblVehiculo.Text = Session("patente")
         cargarBotones()

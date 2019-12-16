@@ -4,7 +4,8 @@ Public Class evaluarDocumentosTrabajador
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        sinDocumentos.Visible = False
+        sinDocPendientes.Visible = False
         cargarMenu()
 
         If IsPostBack Then
@@ -16,13 +17,36 @@ Public Class evaluarDocumentosTrabajador
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idTrabajador As Integer = Session("idTrabajador")
         Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
+
+        If tablaDocumentosTrabajador Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If tablaDocumentosTrabajador.Rows.Count > 0 Then
+                gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
+                gridListarDocumentosTrabajador.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
         Dim tablaDocumentosTrabajadorPentdientes = trabajador.ListarDocumentosPendientesTrabajadorRevisor(idCarpeta, idArea, idTrabajador)
 
-        gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
-        gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
+        If tablaDocumentosTrabajadorPentdientes Is Nothing Then
+            sinDocPendientes.Visible = True
+        Else
+            If tablaDocumentosTrabajadorPentdientes.Rows.Count > 0 Then
+                gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
+                gridDocumentosPendiente.DataBind()
 
-        gridDocumentosPendiente.DataBind()
-        gridListarDocumentosTrabajador.DataBind()
+            Else
+                sinDocPendientes.Visible = True
+            End If
+        End If
+
+
+
+
+
         lblTrabajador.Text = Session("rutTrabajador")
         cargarBotones()
 

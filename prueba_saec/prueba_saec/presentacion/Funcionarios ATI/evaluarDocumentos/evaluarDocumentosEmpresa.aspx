@@ -267,11 +267,67 @@
 
                                         <!-- seccion que muestra si no hay documentos en estado enviado -->
                                         <div runat="server" id="sinDocumentos">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">Empresa sin Documentos para revisar</h1>
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+                         <div class="card shadow mb-4">
+
+                                <div class="card-header py-3">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h4 class="m-0 font-weight text-primary">Documentos Pendientes:
+                                <asp:Label ID="lblNombreEmpresa2" runat="server" Text=""></asp:Label></h4>
+                                        </div>
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-4">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+
+                                        <!-- tabla con los documentos -->
+
+                    
+
+                                        <asp:GridView ID="gridDocumentosPendientes" runat="server"
+                                            AutoGenerateColumns="False"
+                                            class="table table-bordered dataTable"
+                                            Width="100%"
+                                            CellSpacing="0"
+                                            role="grid"
+                                            aria-describedby="dataTable_info"
+                                            Style="width: 100%;">
+                                            <Columns>
+                                                <asp:BoundField DataField="idCarpeta" HeaderText="Id Carpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idDocumento" HeaderText="Id Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idArea" HeaderText="id Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Nombre Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
+                                                <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
+                                                <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                            </Columns>
+                                        </asp:GridView>
+
+                                        <!-- seccion que muestra si no hay documentos en estado enviado -->
+                                        <div runat="server" id="sinDocPendientes">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
                         </div>
                     </form>
                 </div>

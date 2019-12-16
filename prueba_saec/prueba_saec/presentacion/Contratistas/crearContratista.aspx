@@ -162,7 +162,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div>
+                
                     <div class="container-fluid">
                         <form id="form1" runat="server">
                             <!-- DataTales Example -->
@@ -239,18 +239,25 @@
                         </form>
                     </div>
 
-                </div>
-            </div>
 
+
+            </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
 
         <!-- /.container-fluid -->
     </div>
 
     <!-- End of Main Content -->
-    </div>
+
         <!-- End of Content Wrapper -->
-    </div>
+
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->

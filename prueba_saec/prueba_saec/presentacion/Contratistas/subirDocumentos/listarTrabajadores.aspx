@@ -206,7 +206,9 @@
                                                     </Columns>
 
                                                 </asp:GridView>
-
+                                                                                                                <div runat="server" id="sinTrabajadores">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Trabajadores en el sistema</h1>
+                                        </div>
                                           
                             </div>
 

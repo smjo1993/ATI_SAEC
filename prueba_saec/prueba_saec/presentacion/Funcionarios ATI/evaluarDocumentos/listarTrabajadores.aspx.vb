@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinTrabajadores.Visible = False
         If IsPostBack Then
             Return
         End If
@@ -11,8 +12,18 @@
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
         Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadoresParaEvaluar(idCarpeta, idArea)
-        gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
-        gridListarTrabajadoresParaEvaluar.DataBind()
+
+
+        If TablaTrabajadores Is Nothing Then
+            sinTrabajadores.Visible = True
+        Else
+            If TablaTrabajadores.Rows.Count > 0 Then
+                gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
+                gridListarTrabajadoresParaEvaluar.DataBind()
+            Else
+                sinTrabajadores.Visible = True
+            End If
+        End If
 
     End Sub
     Protected Sub cargarMenu()

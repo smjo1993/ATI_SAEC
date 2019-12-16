@@ -2,7 +2,9 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        sinDocEmpresa.Visible = False
+        sinDocTrabajador.Visible = False
+        sinDocVehiculo.Visible = False
         cargarMenu()
         If IsPostBack Then
             Return
@@ -12,16 +14,46 @@
         Session("rutUsuario") = usuario.getRut
         Dim idCarpeta As Integer = decodificarId()
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaEmpresa(idCarpeta, usuario.getArea)
+
+        If (TablaDocumentosEsperaEmpresa Is Nothing) Then
+            sinDocEmpresa.Visible = True
+        Else
+            If (TablaDocumentosEsperaEmpresa.Rows.Count > 0) Then
+                confirmarEmpresa.DataSource = TablaDocumentosEsperaEmpresa
+                confirmarEmpresa.DataBind()
+            Else
+                sinDocEmpresa.Visible = True
+            End If
+        End If
+
         Dim TablaDocumentosEsperaTrabajador As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaTrabajador(idCarpeta, usuario.getArea)
+
+        If (TablaDocumentosEsperaTrabajador Is Nothing) Then
+            sinDocTrabajador.Visible = True
+        Else
+            If (TablaDocumentosEsperaTrabajador.Rows.Count > 0) Then
+                confirmarTrabajador.DataSource = TablaDocumentosEsperaTrabajador
+                confirmarTrabajador.DataBind()
+            Else
+                sinDocTrabajador.Visible = True
+            End If
+        End If
+
         Dim TablaDocumentosEsperaVehiculo As DataTable = crearDocumentos().obtenerDocumentoEstadoAplicaVehiculo(idCarpeta, usuario.getArea)
 
-        confirmarEmpresa.DataSource = TablaDocumentosEsperaEmpresa
-        confirmarTrabajador.DataSource = TablaDocumentosEsperaTrabajador
-        confirmarVehiculo.DataSource = TablaDocumentosEsperaVehiculo
+        If (TablaDocumentosEsperaVehiculo Is Nothing) Then
+            sinDocVehiculo.Visible = True
+        Else
+            If (TablaDocumentosEsperaVehiculo.Rows.Count > 0) Then
+                confirmarVehiculo.DataSource = TablaDocumentosEsperaVehiculo
+                confirmarVehiculo.DataBind()
+            Else
+                sinDocVehiculo.Visible = True
+            End If
+        End If
 
-        confirmarEmpresa.DataBind()
-        confirmarTrabajador.DataBind()
-        confirmarVehiculo.DataBind()
+
+
     End Sub
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")

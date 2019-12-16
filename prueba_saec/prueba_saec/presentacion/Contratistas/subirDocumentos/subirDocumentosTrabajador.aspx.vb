@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
 
@@ -12,8 +13,17 @@
         'Se pobla la grilla con los datos obtenidos en listarTrabajadores
         Dim trabajador = New clsTrabajador()
         Dim listaDocumentosTrabajador As DataTable = trabajador.listarDocumentosTrabajador(Session("idTrabajador"), Session("rutContratista"))
-        gridListarDocumentosTrabajador.DataSource = listaDocumentosTrabajador
-        gridListarDocumentosTrabajador.DataBind()
+        If listaDocumentosTrabajador Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If listaDocumentosTrabajador.Rows.Count > 0 Then
+                gridListarDocumentosTrabajador.DataSource = listaDocumentosTrabajador
+                gridListarDocumentosTrabajador.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
         lblTrabajador.Text = Session("rutTrabajador")
 
     End Sub

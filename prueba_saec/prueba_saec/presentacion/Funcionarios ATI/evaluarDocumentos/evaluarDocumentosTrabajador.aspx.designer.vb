@@ -77,6 +77,15 @@ Partial Public Class evaluarDocumentosTrabajador
     Protected WithEvents gridListarDocumentosTrabajador As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocumentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control Label1.
     '''</summary>
     '''<remarks>
@@ -102,4 +111,13 @@ Partial Public Class evaluarDocumentosTrabajador
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridDocumentosPendiente As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocPendientes.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocPendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class
