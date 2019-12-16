@@ -238,7 +238,9 @@
 
                                         </asp:GridView>
 
-
+                                                                                            <div runat="server" id="sinDocEmpresa">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                                     </div>
                         </div>
 
@@ -293,6 +295,9 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                                                    <div runat="server" id="sinDocTrabajador">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                             </div>
 
                         </div>
@@ -348,6 +353,9 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                                                    <div runat="server" id="sinDocVehiculo">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                             </div>
 
                         </div>

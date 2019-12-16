@@ -138,10 +138,10 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <form id="form15" runat="server" class="md-form">
+
 
                     <div class="container-fluid">
-
+                                        <form id="form15" runat="server" class="md-form">
 
                         <%-- TRABAJADOR --%>
                         <div class="card shadow mb-4">
@@ -291,7 +291,9 @@
                                     </Columns>
 
                                 </asp:GridView>
-
+                                                                        <div runat="server" id="sinDocumentos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                        </div>
 
                             </div>
                         </div>
@@ -354,13 +356,25 @@
                                     </Columns>
 
                                 </asp:GridView>
-
+                                                                        <div runat="server" id="sinDocPendientes">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
+                                        </div>
 
                             </div>
                         </div>
+                                    </form>
                     </div>
             </div>
-            </form>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        </div>
+    
                   <!-- Bootstrap core JavaScript-->
             <script src="../../../../vendor/jquery/jquery.min.js"></script>
             <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

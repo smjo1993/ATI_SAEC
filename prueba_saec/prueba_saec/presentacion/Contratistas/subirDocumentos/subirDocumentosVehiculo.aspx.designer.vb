@@ -48,4 +48,13 @@ Partial Public Class subirDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridListarDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocumentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

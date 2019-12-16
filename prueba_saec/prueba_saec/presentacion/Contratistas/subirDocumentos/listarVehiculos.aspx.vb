@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinVehiculos.Visible = False
         validarContratista()
         If IsPostBack Then
             Return
@@ -12,8 +13,19 @@
         Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaVehiculos As DataTable = vehiculos.listarVehiculos(rutContratista)
         Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
-        gridListarVehiculos.DataSource = TablaVehiculos
-        gridListarVehiculos.DataBind()
+
+        If TablaVehiculos Is Nothing Then
+            sinVehiculos.Visible = True
+        Else
+            If TablaVehiculos.Rows.Count > 0 Then
+
+                gridListarVehiculos.DataSource = TablaVehiculos
+                gridListarVehiculos.DataBind()
+            Else
+                sinVehiculos.Visible = True
+            End If
+        End If
+
 
     End Sub
     Protected Sub validarContratista()

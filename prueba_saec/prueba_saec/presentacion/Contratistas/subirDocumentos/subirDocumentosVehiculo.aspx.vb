@@ -4,6 +4,7 @@ Public Class subirDocumentosVehiculo
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinDocumentos.Visible = False
         validarContratista()
         If IsPostBack Then
             Return
@@ -32,8 +33,19 @@ Public Class subirDocumentosVehiculo
         'Se pobla la grilla con los datos obtenidos anteriormente
         Dim vehiculo = New clsVehiculo()
         Dim listaDocumentosVehiculo As DataTable = vehiculo.listarDocumentosVehiculo(Session("idVehiculo"), Session("rutContratista"))
-        gridListarDocumentosVehiculo.DataSource = listaDocumentosVehiculo
-        gridListarDocumentosVehiculo.DataBind()
+
+        If listaDocumentosVehiculo Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If listaDocumentosVehiculo.Rows.Count > 0 Then
+                gridListarDocumentosVehiculo.DataSource = listaDocumentosVehiculo
+                gridListarDocumentosVehiculo.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
+
         lblVehiculo.Text = Session("patente")
     End Function
     Protected Sub cargarMenu()

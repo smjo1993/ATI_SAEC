@@ -204,7 +204,10 @@
 
                                                     </Columns>
 
-                                                </asp:GridView>      
+                                                </asp:GridView>    
+                                                                                            <div runat="server" id="sinVehiculos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Vehiculos en el sistema</h1>
+                                        </div>
                             </div>
                         </div>
                 </form>

@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
 
@@ -12,9 +13,20 @@
         Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaDocumentosPendienteEmpresa As DataTable = crearDocumentos().obtenerDocumentosEstadoPendienteEmpresa(rutContratista)
 
+        If TablaDocumentosPendienteEmpresa Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If TablaDocumentosPendienteEmpresa.Rows.Count > 0 Then
 
-        gridSubirDocumentosEmpresa.DataSource = TablaDocumentosPendienteEmpresa
-        gridSubirDocumentosEmpresa.DataBind()
+                gridSubirDocumentosEmpresa.DataSource = TablaDocumentosPendienteEmpresa
+                gridSubirDocumentosEmpresa.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
+
+
 
 
 
