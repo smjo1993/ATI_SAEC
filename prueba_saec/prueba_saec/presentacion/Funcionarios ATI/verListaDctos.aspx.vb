@@ -2,8 +2,6 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-
         If Not IsPostBack Then
             validarUsuario()
             cargarNotificacionesComentarios()
@@ -150,25 +148,46 @@
 
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("autor")
-                Dim areaDocumento As Integer = fila("area")
-                Dim idDocumento As Integer = fila("idDocumento")
-                Dim carpetaArranque As Integer = fila("carpetaArranque")
                 Dim estadoComentario As String = fila("estado")
                 Dim nombreDocumento As String = fila("documento")
                 Dim contNoLeidos As Integer
 
+                Dim areaDocumento As String = fila("area")
+                Dim idDocumento As Integer = fila("idDocumento")
+                Dim carpetaArranque As Integer = fila("carpetaArranque")
+                Dim rut As String = fila("rutUsuario")
 
                 If estadoComentario = "no leido" Then
 
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
-                    tarjeta = tarjeta & "   <div class=""dropdown-list-image mr-3"">"
-                    tarjeta = tarjeta & "   <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
-                    tarjeta = tarjeta & "   </div> "
-                    tarjeta = tarjeta & "   <div class=""font-weight-bold""> "
-                    tarjeta = tarjeta & "   <div class=""text-truncate"">" + resumenComentario + "</div> "
-                    tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "· 1d</div> "
-                    tarjeta = tarjeta & "   <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
-                    tarjeta = tarjeta & "   </div> "
+                    'Session("areaId") = areaDocumento
+                    'Session("docuemntoId") = idDocumento
+                    'Session("carpetaId") = carpetaArranque
+                    'Session("rutUsuario") = rut
+
+                    Session("origen") = HttpContext.Current.Request.Url.ToString
+
+                    Dim idDocCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idDocumento)
+                    Dim idDocCodificado As String = System.Convert.ToBase64String(idDocCodificadoBase64)
+
+                    Dim idAreaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(areaDocumento)
+                    Dim idAreaCodificada As String = System.Convert.ToBase64String(idAreaCodificadaBase64)
+
+                    Dim idCarpetaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(carpetaArranque)
+                    Dim idCarpetaCodificada As String = System.Convert.ToBase64String(idCarpetaCodificadaBase64)
+
+                    Dim RutCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(rut)
+                    Dim RutCodificado As String = System.Convert.ToBase64String(RutCodificadoBase64)
+
+                    'tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&o=" + idCarpetaCodificada + "&p=" + RutCodificado + """>"
+                    tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
+                    tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+                    tarjeta = tarjeta & "       </div> "
+                    tarjeta = tarjeta & "       <div class=""font-weight-bold""> "
+                    tarjeta = tarjeta & "           <div class=""text-truncate"">" + resumenComentario + "</div> "
+                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "</div> "
+                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
+                    tarjeta = tarjeta & "       </div> "
                     tarjeta = tarjeta & "   </a> "
 
                     'contNoLeidos = contNoLeidos + 1
@@ -176,12 +195,7 @@
 
                     LblNotificacion.Text = tarjeta
 
-                    LblNotificacionComentarios.Text = "!"
-
-                    Session("areaId") = areaDocumento
-                    Session("docuemntoId") = idDocumento
-                    Session("carpetaId") = carpetaArranque
-                    Session("origen") = HttpContext.Current.Request.Url.ToString
+                    LblNotificacionComentarios.Text = " ! "
 
                 End If
 
@@ -194,6 +208,8 @@
             tarjeta = tarjeta & "   <div class=""text""> No tienes notificaciones pendientes </div> "
             tarjeta = tarjeta & "   </div> "
             tarjeta = tarjeta & "   </a> "
+
+            LblNotificacion.Text = tarjeta
 
         End If
 
