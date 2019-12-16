@@ -16,6 +16,8 @@ Public Class evaluarDocumentosTrabajador
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idTrabajador As Integer = Session("idTrabajador")
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.getRut
         Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
 
         If tablaDocumentosTrabajador Is Nothing Then
@@ -166,6 +168,24 @@ Public Class evaluarDocumentosTrabajador
             documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "pendiente", Nothing)
             Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, Nothing)
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+        End If
+
+        If (e.CommandName = "verComentarios") Then
+
+            'Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            'Dim areaId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(7).Text
+            'Dim docuemntoId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(6).Text
+            'Dim carpetaId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(5).Text
+            'Dim trabajadorId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(9).Text
+
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("trabajadorId") = idTrabajador
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosTrabajador.aspx")
 
         End If
 
