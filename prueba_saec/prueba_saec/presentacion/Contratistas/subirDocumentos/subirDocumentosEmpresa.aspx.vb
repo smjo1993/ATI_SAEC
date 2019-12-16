@@ -2,7 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        validarContratista()
         cargarMenu()
 
         If IsPostBack Then
@@ -19,7 +19,21 @@
 
 
     End Sub
+    Protected Sub validarContratista()
 
+        Dim contratista As clsContratista = Session("contratistaEntrante")
+        If (contratista Is Nothing) Then
+            Response.Redirect("../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,2", "C")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../401.aspx")
+            End If
+        End If
+
+    End Sub
     Public Function crearDocumentos() As Object
 
         Dim documentosEspera = New clsDocumento()

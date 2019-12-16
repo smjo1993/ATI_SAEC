@@ -169,7 +169,7 @@
                                     <div class="col-lg-4"></div>
                                 </div>
 
-                                <asp:GridView ID="gridListarDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
+                                <asp:GridView ID="gridListarDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;" >
 
                                     <Columns>
 
@@ -301,7 +301,7 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                       <asp:Label ID="Label1" runat="server" text="Documentos no enviados por el Contratista" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                       <asp:Label ID="Label1" runat="server" text="Documentos pendientes del Contratista" class="m-0 font-weight-bold text-primary"></asp:Label>
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">

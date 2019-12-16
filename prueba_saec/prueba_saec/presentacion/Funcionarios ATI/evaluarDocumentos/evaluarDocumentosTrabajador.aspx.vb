@@ -1,4 +1,6 @@
-﻿Public Class evaluarDocumentosTrabajador
+﻿Imports System.Drawing
+
+Public Class evaluarDocumentosTrabajador
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -23,6 +25,7 @@
         gridListarDocumentosTrabajador.DataBind()
         lblTrabajador.Text = Session("rutTrabajador")
         cargarBotones()
+
     End Sub
 
     Protected Sub cargarBotones()
@@ -154,4 +157,13 @@
 
     End Function
 
+    Protected Sub gridListarDocumentosTrabajador_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridListarDocumentosTrabajador.RowDataBound
+
+        If e.Row.Cells(4).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
 End Class
