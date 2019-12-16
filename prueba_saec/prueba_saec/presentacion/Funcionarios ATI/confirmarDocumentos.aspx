@@ -357,7 +357,7 @@
                                 <div class="card-footer">
 
                                     <div class="row" style="float: right;">
-                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Confirmar Documentos" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-danger btn-user" value="Confirmar Documentos" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
