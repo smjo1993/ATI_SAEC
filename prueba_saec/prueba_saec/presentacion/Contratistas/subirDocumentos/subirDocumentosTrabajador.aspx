@@ -150,7 +150,7 @@
             <%-- TRABAJADOR --%>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
+                    <h4 class="m-0 font-weight text-primary">TRABAJADOR:</h4>
                     <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
                 </div>
                 <div class="card-body">
@@ -215,7 +215,7 @@
                                         </div>
                                 
                 </div>
-
+                  <div class="card-footer"></div>    
             </div>
 
 

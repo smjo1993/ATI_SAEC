@@ -160,6 +160,20 @@ Public Class verDocumentos
             documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "pendiente", "")
 
         End If
+
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = Session("usuario").getArea().ToString
+            Dim docuemntoId As String = gridDocumentos.Rows(pos).Cells(1).Text
+            Dim carpetaId As String = gridDocumentos.Rows(pos).Cells(0).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../../Contratistas/verComentarios.aspx")
+        End If
+
         Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
     End Sub
@@ -178,6 +192,23 @@ Public Class verDocumentos
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
 
+        End If
+
+    End Sub
+
+    Protected Sub gridDocumentosPendientes_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentosPendientes.RowCommand
+
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = Session("usuario").getArea().ToString
+            Dim docuemntoId As String = gridDocumentosPendientes.Rows(pos).Cells(1).Text
+            Dim carpetaId As String = gridDocumentosPendientes.Rows(pos).Cells(0).Text
+            Session("areaId") = areaId
+            Session("docuemntoId") = docuemntoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../../Contratistas/verComentarios.aspx")
         End If
 
     End Sub

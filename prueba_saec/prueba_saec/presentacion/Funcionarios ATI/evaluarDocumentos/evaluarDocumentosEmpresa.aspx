@@ -43,7 +43,7 @@
             <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
-                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
@@ -271,6 +271,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="card-footer"></div>    
                             </div>
 
 
@@ -314,7 +315,24 @@
                                                 <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:TemplateField HeaderText="Comentarios">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnVerComentarios"
+                                                            ImageUrl="../../../img/chat.png"
+                                                            ToolTip="Ver Comentarios"
+                                                            CommandName="verComentarios"
+                                                            OnClientClick=""
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                        </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+
                                             </Columns>
+
                                         </asp:GridView>
 
                                         <!-- seccion que muestra si no hay documentos en estado enviado -->
@@ -323,6 +341,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                 <div class="card-footer"></div>    
                             </div>
 
 

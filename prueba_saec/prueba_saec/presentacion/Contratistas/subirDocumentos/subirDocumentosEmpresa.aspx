@@ -148,7 +148,7 @@
                         <%-- EMPRESA --%>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
+                                <h4 class="m-0 font-weight text-primary">EMPRESA</h4>
                             </div>
                             <div class="card-body">
                                 <asp:GridView ID="gridSubirDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
@@ -194,6 +194,7 @@
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para subir</h1>
                                         </div>
                             </div>
+                              <div class="card-footer"></div>    
                         </div>
                                         </form>
                     </div>
