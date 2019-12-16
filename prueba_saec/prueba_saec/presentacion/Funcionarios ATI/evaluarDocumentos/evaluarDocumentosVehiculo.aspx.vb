@@ -1,4 +1,6 @@
-﻿Public Class evaluarDocumentosVehiculo
+﻿Imports System.Drawing
+
+Public Class evaluarDocumentosVehiculo
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -11,8 +13,13 @@
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idVehiculo As Integer = Session("idVehiculo")
         Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
+        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
         gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+        gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+
         gridListarDocumentosVehiculo.DataBind()
+        gridDocumentosPendientes.DataBind()
+
         lblVehiculo.Text = Session("patente")
         cargarBotones()
     End Sub
@@ -61,7 +68,7 @@
         Dim idDocumento As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(5).Text
         Dim idArea As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(6).Text
         Dim idVehiculo As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(8).Text
-        Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(14).Controls(1)
+        Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(11).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
         If (e.CommandName = "ver") Then
@@ -87,7 +94,7 @@
 
         End If
 
-        If (e.CommandName = "aprobar") Then
+        If (e.CommandName = "Aprobar") Then
 
             Dim vehiculo As New clsVehiculo
             Dim documento As New clsDocumento
@@ -108,7 +115,7 @@
 
                 If (DateTime.Compare(fechaExpiracion, hoy) < 0 Or DateTime.Compare(fechaExpiracion, fechaExpiracionCarpeta) > 0 Or DateTime.Compare(hoy, fechaExpiracion) = 0) Then
 
-                    lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
+                    'lblMensaje.Text = alerta.alerta("ALERTA", "error con la fecha")
 
                 Else
 
@@ -122,7 +129,7 @@
 
         End If
 
-        If (e.CommandName = "reprobar") Then
+        If (e.CommandName = "Reprobar") Then
 
             Dim documento As New clsDocumento
             Dim vehiculo As New clsVehiculo
@@ -145,4 +152,13 @@
 
     End Function
 
+    Protected Sub gridListarDocumentosVehiculo_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridListarDocumentosVehiculo.RowDataBound
+
+        If e.Row.Cells(3).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
 End Class

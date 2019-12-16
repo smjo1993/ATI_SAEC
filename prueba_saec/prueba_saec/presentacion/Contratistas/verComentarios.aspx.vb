@@ -8,6 +8,7 @@ Public Class verComentarios
             cargarComentarios()
             cargarMenu()
         End If
+
     End Sub
 
     Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
@@ -109,7 +110,7 @@ Public Class verComentarios
             Dim rutUsuario As String = usuario.getRut()
             'Dim idCarpeta As Integer = decodificarId()
 
-            Dim stringMenu As String = Menu.menuUsuarioAtiInicio(rutUsuario)
+            Dim stringMenu As String = menu.menuUsuarioAtiInicio(rutUsuario)
             lblMenu.Text = stringMenu
             lblMenu.Visible = True
         End If
@@ -118,6 +119,7 @@ Public Class verComentarios
 
     'genera el string para la generación de cards de comentarios
     Protected Sub cargarComentarios()
+
         Dim areaId As String = Session("areaId")
         Dim docuemntoId As String = Session("docuemntoId")
         Dim carpetaId As String = Session("carpetaId")
@@ -126,8 +128,6 @@ Public Class verComentarios
         'Falta sacar al contratista de Session. Por mientras trabajaremos con el usuario que es enviado por defecto
 
         'lblPrueba.InnerText = "Area: " & areaId & ", documento: " & docuemntoId & ", carpeta: " & carpetaId & ", rutAutor: " & rutUsuario
-
-
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
@@ -194,8 +194,6 @@ Public Class verComentarios
 
                 lblTarjetaComentario.Text = tarjeta
             End If
-
-
 
         Next
 
