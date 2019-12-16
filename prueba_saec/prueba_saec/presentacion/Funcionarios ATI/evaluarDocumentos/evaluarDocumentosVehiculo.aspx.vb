@@ -14,6 +14,8 @@ Public Class evaluarDocumentosVehiculo
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idVehiculo As Integer = Session("idVehiculo")
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.getRut
         Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
 
         If tablaDocumentosVehiculo Is Nothing Then
@@ -164,6 +166,17 @@ Public Class evaluarDocumentosVehiculo
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
+
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("vehiculoId") = idVehiculo
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosVehiculo.aspx")
+
+        End If
     End Sub
 
     'funcion que obtiene la extension del archivo
@@ -181,6 +194,27 @@ Public Class evaluarDocumentosVehiculo
         If e.Row.Cells(3).Text = "aprobado" Then
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
+
+    Protected Sub gridDocumentosPendientes_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentosPendientes.RowCommand
+
+        Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+        Dim idCarpeta As Integer = gridDocumentosPendientes.Rows(pos).Cells(3).Text
+        Dim idDocumento As Integer = gridDocumentosPendientes.Rows(pos).Cells(4).Text
+        Dim idArea As Integer = gridDocumentosPendientes.Rows(pos).Cells(5).Text
+        Dim idVehiculo As Integer = gridDocumentosPendientes.Rows(pos).Cells(7).Text
+
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("vehiculoId") = idVehiculo
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosVehiculo.aspx")
 
         End If
 

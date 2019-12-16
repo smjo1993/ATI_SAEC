@@ -173,13 +173,6 @@ Public Class evaluarDocumentosTrabajador
 
         If (e.CommandName = "verComentarios") Then
 
-            'Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            'Dim areaId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(7).Text
-            'Dim docuemntoId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(6).Text
-            'Dim carpetaId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(5).Text
-            'Dim trabajadorId As String = gridListarDocumentosTrabajador.Rows(pos).Cells(9).Text
-
-
             Session("areaId") = idArea
             Session("docuemntoId") = idDocumento
             Session("carpetaId") = idCarpeta
@@ -206,6 +199,27 @@ Public Class evaluarDocumentosTrabajador
         If e.Row.Cells(4).Text = "aprobado" Then
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
+
+    Protected Sub gridDocumentosPendientes_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentosPendiente.RowCommand
+
+        Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+        Dim idCarpeta As Integer = gridDocumentosPendiente.Rows(pos).Cells(4).Text
+        Dim idDocumento As Integer = gridDocumentosPendiente.Rows(pos).Cells(5).Text
+        Dim idArea As Integer = gridDocumentosPendiente.Rows(pos).Cells(6).Text
+        Dim idTrabajador As Integer = gridDocumentosPendiente.Rows(pos).Cells(8).Text
+
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("trabajadorId") = idTrabajador
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosTrabajador.aspx")
 
         End If
 
