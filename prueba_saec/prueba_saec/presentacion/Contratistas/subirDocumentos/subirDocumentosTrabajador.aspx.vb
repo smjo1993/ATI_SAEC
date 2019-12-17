@@ -123,7 +123,7 @@ Public Class SubirDocumentosTrabajador
             Dim idTrabajador As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(10).Text
 
             Session("areaId") = idArea
-            Session("docuemntoId") = idDocumento
+            Session("documentoId") = idDocumento
             Session("carpetaId") = idCarpeta
             Session("trabajadorId") = idTrabajador
             Session("rutUsuario") = Session("contratistaEntrante").getRut

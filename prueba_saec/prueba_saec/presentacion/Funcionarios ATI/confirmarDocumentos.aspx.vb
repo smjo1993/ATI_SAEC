@@ -184,10 +184,10 @@
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
-            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim documentoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
             Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
             Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
+            Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("../Contratistas/verComentarios.aspx")
@@ -217,10 +217,10 @@
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
-            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim documentoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
             Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
             Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
+            Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("../Contratistas/verComentarios.aspx")
@@ -247,10 +247,10 @@
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
-            Dim docuemntoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
+            Dim documentoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
             Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
             Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
+            Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("../Contratistas/verComentarios.aspx")

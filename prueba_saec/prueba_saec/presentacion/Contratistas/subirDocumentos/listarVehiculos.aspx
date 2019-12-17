@@ -170,36 +170,34 @@
                                                 <asp:GridView ID="gridListarVehiculos" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
                                                     <Columns>
-                                                        <asp:BoundField DataField="patente" HeaderText="PATENTE" />
-                                                        <asp:BoundField DataField="marca" HeaderText="MARCA" />
+                                                        <asp:BoundField DataField="patente" HeaderText="Patente" />
+                                                        <asp:BoundField DataField="marca" HeaderText="Marca" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:TemplateField HeaderText="IR">
+                                                        <asp:TemplateField HeaderText="Opciones">
 
                                                             <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     ID="btnIrVehiculo"
-                                                                    ImageUrl="../../../img/carpeta.png"
+                                                                    ImageUrl="../../../img/delivery-truck.png"
                                                                     CommandName="ir"
+                                                                    Tooltip="Ver Vehículo"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
-                                                            </ItemTemplate>
 
-                                                        </asp:TemplateField>
+                                                                &nbsp
 
-                                                         <asp:TemplateField HeaderText="ELIMINAR" ItemStyle-HorizontalAlign="Center">
-
-                                                            <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     onclientclick="return confirm('¿estas seguro?');" 
                                                                     ID="btnEliminarVehiculo"
-                                                                    ImageUrl="../../../img/delete.png"
+                                                                    ImageUrl="../../../img/remove.png"
                                                                     CommandName="eliminar"
+                                                                    Tooltip="Eliminar"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
-                                                                
                                                             </ItemTemplate>
-                                                             
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
                                                         </asp:TemplateField>
 
                                                     </Columns>

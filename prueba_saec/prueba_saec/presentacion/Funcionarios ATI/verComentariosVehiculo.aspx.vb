@@ -20,7 +20,7 @@ Public Class verComentariosVehiculo
         Dim accion As Boolean
         'Dim fecha As Date
         'fecha = DateTime.Now
-        accion = comentario.insertarComentarioVehiculo(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("docuemntoId")), Convert.ToInt32(Session("carpetaId")), Convert.ToInt32(Session("vehiculoId")))
+        accion = comentario.insertarComentarioVehiculo(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")), Convert.ToInt32(Session("vehiculoId")))
         If accion = True Then
             Response.Redirect("verComentariosVehiculo.aspx")
             lblPrueba.InnerText = "Inserción realizada con éxito"
@@ -118,7 +118,7 @@ Public Class verComentariosVehiculo
 
     Protected Sub cargarComentarios()
         Dim areaId As String = Session("areaId")
-        Dim docuemntoId As String = Session("docuemntoId")
+        Dim documentoId As String = Session("documentoId")
         Dim carpetaId As String = Session("carpetaId")
         Dim rutUsuario As String = Session("rutUsuario")
         Dim vehiculoId As String = Session("vehiculoId")
@@ -126,7 +126,7 @@ Public Class verComentariosVehiculo
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
         'Dim color As String
-        Dim listaComentariosVehiculo As DataTable = comentario.obtenerComentariosVehiculo(Session("areaId"), Session("docuemntoId"), Session("carpetaId"), Session("vehiculoId"))
+        Dim listaComentariosVehiculo As DataTable = comentario.obtenerComentariosVehiculo(Session("areaId"), Session("documentoId"), Session("carpetaId"), Session("vehiculoId"))
 
         'Ordenando la lista de comentarios por fecha
         Dim datav As New DataView

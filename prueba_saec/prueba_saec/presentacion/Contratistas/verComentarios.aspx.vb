@@ -21,7 +21,7 @@ Public Class verComentarios
         Dim accion As Boolean
         'Dim fecha As Date
         'fecha = DateTime.Now
-        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("docuemntoId")), Convert.ToInt32(Session("carpetaId")))
+        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")))
         If accion = True Then
             Response.Redirect("verComentarios.aspx")
             lblPrueba.InnerText = "Inserción realizada con éxito"
@@ -121,14 +121,14 @@ Public Class verComentarios
     Protected Sub cargarComentarios()
 
         Dim areaId As String = Session("areaId")
-        Dim docuemntoId As String = Session("docuemntoId")
+        Dim documentoId As String = Session("documentoId")
         Dim carpetaId As String = Session("carpetaId")
         Dim rutUsuario As String = Session("rutUsuario")
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
         'Dim color As String
-        Dim listaComentarios As DataTable = comentario.obtenerComentarios(Session("areaId"), Session("docuemntoId"), Session("carpetaId"))
+        Dim listaComentarios As DataTable = comentario.obtenerComentarios(Session("areaId"), Session("documentoId"), Session("carpetaId"))
 
         'Ordenando la lista de comentarios por fecha
         Dim datav As New DataView

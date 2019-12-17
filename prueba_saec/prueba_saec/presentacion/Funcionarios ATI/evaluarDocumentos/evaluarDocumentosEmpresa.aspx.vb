@@ -165,10 +165,10 @@ Public Class verDocumentos
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = Session("usuario").getArea().ToString
-            Dim docuemntoId As String = gridDocumentos.Rows(pos).Cells(1).Text
+            Dim documentoId As String = gridDocumentos.Rows(pos).Cells(1).Text
             Dim carpetaId As String = gridDocumentos.Rows(pos).Cells(0).Text
             Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
+            Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("../../Contratistas/verComentarios.aspx")
@@ -202,10 +202,10 @@ Public Class verDocumentos
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = Session("usuario").getArea().ToString
-            Dim docuemntoId As String = gridDocumentosPendientes.Rows(pos).Cells(1).Text
+            Dim documentoId As String = gridDocumentosPendientes.Rows(pos).Cells(1).Text
             Dim carpetaId As String = gridDocumentosPendientes.Rows(pos).Cells(0).Text
             Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
+            Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("../../Contratistas/verComentarios.aspx")

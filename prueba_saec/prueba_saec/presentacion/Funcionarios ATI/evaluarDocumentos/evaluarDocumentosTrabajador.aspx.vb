@@ -174,7 +174,7 @@ Public Class evaluarDocumentosTrabajador
         If (e.CommandName = "verComentarios") Then
 
             Session("areaId") = idArea
-            Session("docuemntoId") = idDocumento
+            Session("documentoId") = idDocumento
             Session("carpetaId") = idCarpeta
             Session("trabajadorId") = idTrabajador
             Session("origen") = HttpContext.Current.Request.Url.ToString
@@ -215,7 +215,7 @@ Public Class evaluarDocumentosTrabajador
         If (e.CommandName = "verComentarios") Then
 
             Session("areaId") = idArea
-            Session("docuemntoId") = idDocumento
+            Session("documentoId") = idDocumento
             Session("carpetaId") = idCarpeta
             Session("trabajadorId") = idTrabajador
             Session("origen") = HttpContext.Current.Request.Url.ToString

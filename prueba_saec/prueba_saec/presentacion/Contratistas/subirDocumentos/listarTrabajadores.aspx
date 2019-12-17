@@ -201,7 +201,7 @@
                                                                     runat="server" />
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
                                                         </asp:TemplateField>
 
                                                     </Columns>
