@@ -124,5 +124,17 @@ Public Class SubirDocumentosTrabajador
 
         End If
 
+        If e.Row.Cells(4).Text = "pendiente" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 240, 240)
+
+        End If
+
+        If e.Row.Cells(4).Text = "enviado" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 252, 231)
+
+        End If
+
     End Sub
 End Class

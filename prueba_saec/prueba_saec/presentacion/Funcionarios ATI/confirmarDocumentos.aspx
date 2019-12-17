@@ -192,14 +192,14 @@
                                         <asp:GridView ID="confirmarEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                             <Columns>
 
-                                                <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                 <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                <asp:TemplateField HeaderText="CONFIRMAR">
+                                                <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
+                                                <asp:TemplateField HeaderText="Confirmar">
 
                                                     <ItemTemplate>
                                                         <label class="switch ">
@@ -253,14 +253,14 @@
                                                 <asp:GridView ID="confirmarTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
 
-                                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                        <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                        <asp:TemplateField HeaderText="CONFIRMAR">
+                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
+                                                        <asp:TemplateField HeaderText="Confirmar">
 
                                                             <ItemTemplate>
                                                                 <label class="switch ">
@@ -311,14 +311,14 @@
                                                 <asp:GridView ID="confirmarVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
 
-                                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                        <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                        <asp:TemplateField HeaderText="CONFIRMAR">
+                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
+                                                        <asp:TemplateField HeaderText="Confirmar">
 
                                                             <ItemTemplate>
                                                                 <label class="switch ">
@@ -329,7 +329,7 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
 
-                                                        <asp:TemplateField HeaderText="COMENTARIOS">
+                                                        <asp:TemplateField HeaderText="Comentarios">
 
                                                             <ItemTemplate>
                                                                 <asp:ImageButton
