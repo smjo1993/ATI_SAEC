@@ -159,10 +159,12 @@
                                         </div>
                                                                                             <div class="col-4"></div>
                                         <div class="col-4" >
-                                                                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="" style="float: right;"></asp:Label>
-                                            <asp:Label ID="lblDocumentosTrabajador" runat="server" Text="" style="float: right;"></asp:Label>
+                                        <a href="subirDocumentosEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Empresa                                 
+                                        </a>
+                                       <a href="listarTrabajadores.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Trabajador                                                 
+                                        </a>
 
-                          
+
                                         </div>
                                     </div>
 
