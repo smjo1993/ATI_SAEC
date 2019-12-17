@@ -26,6 +26,7 @@
         End If
 
     End Sub
+
     Protected Sub validarContratista()
 
         Dim contratista As clsContratista = Session("contratistaEntrante")

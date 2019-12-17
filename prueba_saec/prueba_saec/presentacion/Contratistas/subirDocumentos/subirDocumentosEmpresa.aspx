@@ -158,9 +158,10 @@
                                                                             <h4 class="m-0 font-weight text-primary">EMPRESA</h4>
                                         </div>
                                                                                             <div class="col-4"></div>
-                                        <div class="col-4" style="float: right;">
-                                            <asp:Label ID="lblDocumentosTrabajador" runat="server" Text=""></asp:Label>
-                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
+                                        <div class="col-4" >
+                                                                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="" style="float: right;"></asp:Label>
+                                            <asp:Label ID="lblDocumentosTrabajador" runat="server" Text="" style="float: right;"></asp:Label>
+
                           
                                         </div>
                                     </div>

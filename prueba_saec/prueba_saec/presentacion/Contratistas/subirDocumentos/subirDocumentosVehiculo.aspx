@@ -158,11 +158,10 @@
                     <h4 class="m-0 font-weight text-primary">PATENTE:</h4>
                     <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
                                         </div>
-                                                                                                <div class="col-3">
+                                                                                                <div class="col-7">
                                         </div>
-                                        <div class="col-5" style="float: left;">
-                                            <asp:Label ID="lblDocumentosEmpresa" runat="server" Text=""></asp:Label>
-                                            <asp:Label ID="lblDocumentosTrabajador" runat="server" Text=""></asp:Label>
+                                        <div class="col-1" style="float: left;">
+
                                             <a class="btn btn-secondary" href="listarVehiculos.aspx">Volver</a>
                           
                                         </div>

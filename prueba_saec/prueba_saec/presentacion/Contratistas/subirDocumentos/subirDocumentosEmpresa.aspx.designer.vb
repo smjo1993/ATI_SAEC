@@ -32,15 +32,6 @@ Partial Public Class subirDocumentosEmpresa
     Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblDocumentosTrabajador.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblDocumentosTrabajador As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Control lblDocumentosVehiculo.
     '''</summary>
     '''<remarks>
@@ -48,6 +39,15 @@ Partial Public Class subirDocumentosEmpresa
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDocumentosVehiculo As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control lblDocumentosTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosTrabajador As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control gridSubirDocumentosEmpresa.

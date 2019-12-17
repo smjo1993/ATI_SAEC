@@ -152,15 +152,14 @@
                 <div class="card-header py-3">
 
                                                         <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                     <h4 class="m-0 font-weight text-primary">TRABAJADOR:</h4>
                     <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
                                         </div>
-                                                                                                <div class="col-1">
+                                                                                                <div class="col-7">
                                         </div>
-                                        <div class="col-5" style="float: right;">
-                                            <asp:Label ID="lblDocumentosEmpresa" runat="server" Text=""></asp:Label>
-                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
+                                        <div class="col-1" style="float: right;">
+
                                             <a class="btn btn-secondary" href="listarTrabajadores.aspx">Volver</a>
                           
                                         </div>

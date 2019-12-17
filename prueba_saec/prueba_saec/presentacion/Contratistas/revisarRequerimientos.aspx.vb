@@ -163,7 +163,7 @@
             End If
 
         Next
-
+        Response.Redirect(HttpContext.Current.Request.Url.ToString)
     End Sub
 
     Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles documentosEmpresa.RowCommand

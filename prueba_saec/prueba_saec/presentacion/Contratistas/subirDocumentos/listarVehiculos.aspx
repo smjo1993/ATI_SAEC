@@ -153,11 +153,20 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-2">
                                         <h4 class="m-0 font-weight text-primary">VEHÍCULOS</h4>
                                     </div>
-                                    <div class="col-6">
-                                        <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                    <div class="col-10">
+
+
+
+                                        <a href="listarTrabajadores.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Trabajador                                                 
+                                        </a>
+
+                                        <a href="subirDocumentosEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Empresa                                 
+                                        </a>
+               
+                                                                                 <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
                                             <i class="far fa-plus-square"></i>
                                             Nuevo Vehículo
                                         </a>

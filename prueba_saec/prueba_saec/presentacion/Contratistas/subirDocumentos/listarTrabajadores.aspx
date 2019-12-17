@@ -23,16 +23,16 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <%--            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
 
                     <%--<i class="fas fa-laugh-wink"></i>--%>
 
-                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+            <%--                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
-            </a>
+            </a>--%>--%>
 
             <!-- Divider -->
 
@@ -51,16 +51,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -156,9 +156,15 @@
                                     <div class="col-4">
                                         <h4 class="m-0 font-weight text-primary">TRABAJADORES</h4>
                                     </div>
-                                    <div class="col-4">
-                                        </div>
-                                    <div class="col-4">
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-6">
+
+                                        <a href="listarVehiculos.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Vehiculo                                                 
+                                        </a>
+
+                                        <a href="subirDocumentosEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Empresa                                 
+                                        </a>
                                         <a href="../../Contratistas/crearTrabajador.aspx" class="btn shadow-sm btn-success" style="float: right;">
 
                                             <i class="far fa-plus-square"></i>
@@ -169,50 +175,50 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                               
 
-                                                <asp:GridView ID="gridListarTrabajadores" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
-                                                    <Columns>
-                                                        <asp:BoundField DataField="rut" HeaderText="RUT" />
-                                                        <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
-                                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:TemplateField HeaderText="OPCIONES">
+                                <asp:GridView ID="gridListarTrabajadores" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
-                                                            <ItemTemplate>
+                                    <Columns>
+                                        <asp:BoundField DataField="rut" HeaderText="RUT" />
+                                        <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
+                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:TemplateField HeaderText="OPCIONES">
+
+                                            <ItemTemplate>
+                                                <asp:ImageButton
+                                                    ID="btnIrTrabajador"
+                                                    ImageUrl="../../../img/user.png"
+                                                    CommandName="ir"
+                                                    ToolTip="Ver Trabajador"
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
+
+                                                &nbsp
+
                                                                 <asp:ImageButton
-                                                                    ID="btnIrTrabajador"
-                                                                    ImageUrl="../../../img/user.png"
-                                                                    CommandName="ir"
-                                                                    Tooltip="Ver Trabajador"
-                                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                                    runat="server" />
-
-                                                                &nbsp
-
-                                                                <asp:ImageButton
-                                                                    onclientclick="return confirm('¿estas seguro?');" 
+                                                                    OnClientClick="return confirm('¿estas seguro?');"
                                                                     ID="btnEliminarTrabajador"
                                                                     ImageUrl="../../../img/remove.png"
                                                                     CommandName="eliminar"
-                                                                    Tooltip="Eliminar"
+                                                                    ToolTip="Eliminar"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
 
-                                                    </Columns>
+                                    </Columns>
 
-                                                </asp:GridView>
-                                                                                                                <div runat="server" id="sinTrabajadores">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Trabajadores en el sistema</h1>
-                                        </div>
-                                
+                                </asp:GridView>
+                                <div runat="server" id="sinTrabajadores">
+                                    <h1 class="h3 mb-4 text-gray-800 text-center">Sin Trabajadores en el sistema</h1>
+                                </div>
+
                             </div>
-                              <div class="card-footer"></div>    
+                            <div class="card-footer"></div>
                         </div>
                     </form>
                 </div>

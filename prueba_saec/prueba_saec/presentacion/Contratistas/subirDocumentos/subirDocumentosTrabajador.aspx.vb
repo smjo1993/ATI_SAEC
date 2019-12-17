@@ -7,7 +7,7 @@ Public Class SubirDocumentosTrabajador
         sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
-        cargarBotones()
+
         If IsPostBack Then
             Return
         End If
@@ -55,18 +55,7 @@ Public Class SubirDocumentosTrabajador
         lblMenu.Visible = True
 
     End Sub
-    Protected Sub cargarBotones()
-        Dim boton As String
-        Dim texto As String = "Documentos Empresa"
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx "" Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
-        boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosEmpresa.Text = boton
-        texto = "Documentos Vehiculo"
-        boton = ""
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/listarVehiculos.aspx"" Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
-        boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosVehiculo.Text = boton
-    End Sub
+
     Protected Sub documentosVehiculos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarDocumentosTrabajador.RowCommand
 
         If (e.CommandName = "subir") Then

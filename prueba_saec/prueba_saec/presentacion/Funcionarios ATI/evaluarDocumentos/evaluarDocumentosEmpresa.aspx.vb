@@ -102,7 +102,7 @@ Public Class verDocumentos
     End Sub
     Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
 
-        If (e.CommandName = "ver") Then
+        If (e.CommandName = "Ver") Then
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim ruta As String = gridDocumentos.Rows(pos).Cells(6).Text
             Dim nombreArchivo As String = gridDocumentos.Rows(pos).Cells(4).Text
