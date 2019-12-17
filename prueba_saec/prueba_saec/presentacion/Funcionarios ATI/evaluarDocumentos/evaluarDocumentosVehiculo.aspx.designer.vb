@@ -59,6 +59,15 @@ Partial Public Class evaluarDocumentosVehiculo
     Protected WithEvents lblDocumentosTrabajdor As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control lblVolver.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblVolver As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control gridListarDocumentosVehiculo.
     '''</summary>
     '''<remarks>

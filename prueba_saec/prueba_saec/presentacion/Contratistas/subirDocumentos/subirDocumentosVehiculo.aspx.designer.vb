@@ -41,6 +41,24 @@ Partial Public Class subirDocumentosVehiculo
     Protected WithEvents lblVehiculo As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control lblDocumentosEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosEmpresa As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control lblDocumentosTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosTrabajador As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control gridListarDocumentosVehiculo.
     '''</summary>
     '''<remarks>
