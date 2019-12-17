@@ -110,9 +110,25 @@ Public Class SubirDocumentosTrabajador
 
                 End If
 
-
-
             End If
+
+        End If
+
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idArea As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(7).Text
+            Dim idDocumento As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(6).Text
+            Dim idCarpeta As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(5).Text
+            Dim idTrabajador As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(10).Text
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("trabajadorId") = idTrabajador
+            Session("rutUsuario") = Session("contratistaEntrante").getRut
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../../Funcionarios ATI/verComentariosTrabajador.aspx")
 
         End If
 
@@ -123,6 +139,18 @@ Public Class SubirDocumentosTrabajador
         If e.Row.Cells(4).Text = "aprobado" Then
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+        If e.Row.Cells(4).Text = "pendiente" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 240, 240)
+
+        End If
+
+        If e.Row.Cells(4).Text = "enviado" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 252, 231)
 
         End If
 

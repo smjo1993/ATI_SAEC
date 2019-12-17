@@ -13,7 +13,7 @@
     <link href="../../../css/checkbox.css" rel="stylesheet">
 </head>
 <body>
-     <div id="wrapper">
+    <div id="wrapper">
 
         <!-- Sidebar  BARRA LATERAL DEL DASHBOARD-->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -22,9 +22,9 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
 
-                    <%--<i class="fas fa-laugh-wink"></i>--%>
+                    <i class="fas fa-laugh-wink"></i>
 
-                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+                <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; />
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
@@ -142,9 +142,9 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-    
 
-        <div class="container-fluid">
+
+                <div class="container-fluid">
 
             <form id="form15" runat="server" class="md-form">
             <%-- TRABAJADOR --%>
@@ -169,76 +169,82 @@
                 <div class="card-body">
                   
 
-                                    <asp:GridView ID="gridListarDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                        
-                                        <Columns>
+                                <asp:GridView ID="gridListarDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
-                                            <asp:BoundField DataField="rutTrabajador" HeaderText="RUT" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="nombreTrabajador"  HeaderText="NOMBRE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />                                  
-                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                            <asp:BoundField DataField="estado" HeaderText="ESTADO" />
-                                            <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="SUBIR">
+                                    <Columns>
 
-                                                <ItemTemplate>
+                                        <asp:BoundField DataField="rutTrabajador" HeaderText="RUT" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="nombreTrabajador" HeaderText="NOMBRE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
+                                        <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:TemplateField HeaderText="Subir Archivos">
 
-                                                    <div class="form-group">         
-                                                        <input type="file" class="form-control-file" id="fileArchivo" runat="server"/>                                          
+                                            <ItemTemplate>
+                                                    <div class="form-group">
+                                                        <input type="file" class="form-control-file" id="fileArchivo" runat="server" />
                                                     </div>
-                                                    
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
 
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Opciones">
 
-                                            <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
-                                                </ItemTemplate>
-
-                                            </asp:TemplateField>
-
-                                             <asp:TemplateField HeaderText="CONFIRMAR">
-
-                                                <ItemTemplate>
-
-                                                    <asp:Button ID="btnSubir" 
-                                                        CssClass="button primary" CommandName="subir"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' 
-                                                        runat="server" 
+                                            <ItemTemplate>
+                                                <asp:ImageButton
+                                                        ID="btnSubir"
+                                                        ImageUrl="../../../img/upload.png"
+                                                        ToolTip="Subir archivo"
+                                                        CommandName="subir"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
                                                         Text="Subir" />
+                                                &nbsp
+                                                <asp:ImageButton
+                                                    ID="btnVerComentarios"
+                                                    ImageUrl="../../../img/chat.png"
+                                                    ToolTip="Ver Comentarios"
+                                                    CommandName="verComentarios"
+                                                    OnClientClick=""
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
 
-                                                </ItemTemplate>
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
+
+                                        </asp:TemplateField>
+
+                                    </Columns>
+
+                                </asp:GridView>
+                                <div runat="server" id="sinDocumentos">
+                                    <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para subir</h1>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                    <div class="row" style="float: right;">
+                                        <%--<a class="btn shadow-sm btn-success" href="listarTrabajadores.aspx">Volver</a>--%>
+                                    </div>
+                                </div>
+                        </div>
 
 
-                                            </asp:TemplateField>
 
-                                        </Columns>
+                    </form>
 
-                                    </asp:GridView>
-                                                                                            <div runat="server" id="sinDocumentos">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para subir</h1>
-                                        </div>
-                                
+
                 </div>
-                  <div class="card-footer">
-                  </div>    
             </div>
-
-
-                
-    </form>
-
-
-        </div>
-                </div>
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -246,14 +252,14 @@
                     </div>
                 </div>
             </footer>
-            </div>
-         </div>
-        <a class="scroll-to-top rounded" href="#page-top">
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-       
 
-                  <!-- Bootstrap core JavaScript-->
+
+    <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
