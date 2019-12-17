@@ -233,7 +233,7 @@
                             </div>
                             <div class="card-footer">
                                     <div class="row" style="float: right;">
-                                        <a class="btn shadow-sm btn-success" href="listarTrabajadores.aspx">Volver</a>
+                                        <%--<a class="btn shadow-sm btn-success" href="listarTrabajadores.aspx">Volver</a>--%>
                                     </div>
                                 </div>
                         </div>
