@@ -175,9 +175,9 @@
                                         </div>
                                         <div class="col-4">
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-4" style="float: right;">
                                             <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text=""></asp:Label>
-                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>                         
                                         </div>
                                     </div>
 

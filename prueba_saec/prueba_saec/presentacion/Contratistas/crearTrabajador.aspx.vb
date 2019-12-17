@@ -14,7 +14,7 @@
             Response.Redirect("../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(contratista.getRut, "60,2", "C")
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,2", "C")
 
             If acceso = "I" Or acceso Is Nothing Then
                 Response.Redirect("../401.aspx")
