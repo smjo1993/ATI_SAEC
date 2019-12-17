@@ -166,7 +166,7 @@ Public Class evaluarDocumentosVehiculo
         If (e.CommandName = "verComentarios") Then
 
             Session("areaId") = idArea
-            Session("docuemntoId") = idDocumento
+            Session("documentoId") = idDocumento
             Session("carpetaId") = idCarpeta
             Session("vehiculoId") = idVehiculo
             Session("origen") = HttpContext.Current.Request.Url.ToString
@@ -206,7 +206,7 @@ Public Class evaluarDocumentosVehiculo
         If (e.CommandName = "verComentarios") Then
 
             Session("areaId") = idArea
-            Session("docuemntoId") = idDocumento
+            Session("documentoId") = idDocumento
             Session("carpetaId") = idCarpeta
             Session("vehiculoId") = idVehiculo
             Session("origen") = HttpContext.Current.Request.Url.ToString

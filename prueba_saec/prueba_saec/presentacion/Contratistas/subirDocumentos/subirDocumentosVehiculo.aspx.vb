@@ -112,6 +112,24 @@ Public Class subirDocumentosVehiculo
 
         End If
 
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idArea As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(6).Text
+            Dim idDocumento As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(5).Text
+            Dim idCarpeta As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(4).Text
+            Dim idVehiculo As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(9).Text
+
+            Session("areaId") = idArea
+            Session("documentoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("vehiculoId") = idVehiculo
+            Session("rutUsuario") = Session("contratistaEntrante").getRut
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../../Funcionarios ATI/verComentariosVehiculo.aspx")
+
+        End If
+
     End Sub
 
     Protected Sub gridListarDocumentosVehiculo_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridListarDocumentosVehiculo.RowDataBound

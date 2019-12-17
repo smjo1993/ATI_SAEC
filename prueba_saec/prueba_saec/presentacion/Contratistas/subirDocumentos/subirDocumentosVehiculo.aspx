@@ -174,9 +174,9 @@
                                         <Columns>
 
                                             <asp:BoundField DataField="patenteVehiculo" HeaderText="PATENTE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"  />
-                                            <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                            <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                            <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                            <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                            <asp:BoundField DataField="nombreArea" HeaderText="Área" />
+                                            <asp:BoundField DataField="estado" HeaderText="Estado" />
                                             <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
@@ -185,7 +185,7 @@
                                             <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
-                                            <asp:TemplateField HeaderText="SUBIR">
+                                            <asp:TemplateField HeaderText="Subir Archivo">
 
                                                 <ItemTemplate>
 
@@ -197,27 +197,32 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="COMENTARIOS">
+                                            <asp:TemplateField HeaderText="Opciones">
 
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button1" runat="server" Text="Button" />
-                                                </ItemTemplate>
-
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="CONFIRMAR">
-
-                                                <ItemTemplate>
-
-                                                    <asp:Button ID="btnSubir" 
-                                                        CssClass="button primary" CommandName="subir"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' 
-                                                        runat="server" 
+                                            <ItemTemplate>
+                                                <asp:ImageButton
+                                                        ID="btnSubir"
+                                                        ImageUrl="../../../img/upload.png"
+                                                        ToolTip="Subir archivo"
+                                                        CommandName="subir"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
                                                         Text="Subir" />
+                                                &nbsp
+                                                <asp:ImageButton
+                                                    ID="btnVerComentarios"
+                                                    ImageUrl="../../../img/chat.png"
+                                                    ToolTip="Ver Comentarios"
+                                                    CommandName="verComentarios"
+                                                    OnClientClick=""
+                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    runat="server" />
 
-                                                </ItemTemplate>
+                                            </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
 
-
-                                            </asp:TemplateField>
+                                        </asp:TemplateField>
 
                                         </Columns>
 

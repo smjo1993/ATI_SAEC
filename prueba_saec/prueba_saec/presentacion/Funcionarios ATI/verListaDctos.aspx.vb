@@ -160,7 +160,7 @@
                 If estadoComentario = "no leido" Then
 
                     'Session("areaId") = areaDocumento
-                    'Session("docuemntoId") = idDocumento
+                    'Session("documentoId") = idDocumento
                     'Session("carpetaId") = carpetaArranque
                     'Session("rutUsuario") = rut
 

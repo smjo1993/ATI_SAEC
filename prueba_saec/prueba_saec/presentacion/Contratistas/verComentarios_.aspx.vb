@@ -7,7 +7,7 @@ Public Class verComentarios_
 
         If Not Page.IsPostBack Then
             Session("areaId") = decodificarIdArea()
-            Session("docuemntoId") = decodificarIdDocumento()
+            Session("documentoId") = decodificarIdDocumento()
             Session("carpetaId") = decodificarIdCarpeta()
             Session("rutUsuario") = decodificarRut()
 
@@ -28,7 +28,7 @@ Public Class verComentarios_
         Dim accion As Boolean
         'Dim fecha As Date
         'fecha = DateTime.Now
-        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("docuemntoId")), Convert.ToInt32(Session("carpetaId")))
+        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")))
         If accion = True Then
             Response.Redirect("verComentarios_.aspx")
             lblPrueba.InnerText = "Inserción realizada con éxito"
@@ -128,8 +128,8 @@ Public Class verComentarios_
         Dim idDocCodificado As String = Request.QueryString("i").ToString()
         Dim data() As Byte = System.Convert.FromBase64String(idDocCodificado)
         Dim idDocDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
-        Dim docuemntoId As Integer = Convert.ToInt32(idDocDecodificado)
-        Return docuemntoId
+        Dim documentoId As Integer = Convert.ToInt32(idDocDecodificado)
+        Return documentoId
     End Function
 
     Protected Function decodificarIdArea() As Integer
@@ -233,12 +233,12 @@ Public Class verComentarios_
     Protected Sub cargarComentarios()
 
         'Dim areaId As String = Session("areaId")
-        'Dim docuemntoId As String = Session("docuemntoId")
+        'Dim documentoId As String = Session("documentoId")
         'Dim carpetaId As String = Session("carpetaId")
         'Dim rutUsuario As String = Session("rutUsuario")
 
         Dim areaId As String = decodificarIdArea()
-        Dim docuemntoId As String = decodificarIdDocumento()
+        Dim documentoId As String = decodificarIdDocumento()
         Dim carpetaId As String = decodificarIdCarpeta()
         Dim rutUsuario As String = decodificarRut()
 
@@ -246,13 +246,13 @@ Public Class verComentarios_
 
         'Falta sacar al contratista de Session. Por mientras trabajaremos con el usuario que es enviado por defecto
 
-        'lblPrueba.InnerText = "Area: " & areaId & ", documento: " & docuemntoId & ", carpeta: " & carpetaId & ", rutAutor: " & rutUsuario
+        'lblPrueba.InnerText = "Area: " & areaId & ", documento: " & documentoId & ", carpeta: " & carpetaId & ", rutAutor: " & rutUsuario
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
         'Dim color As String
-        'Dim listaComentarios As DataTable = comentario.obtenerComentarios(Session("areaId"), Session("docuemntoId"), Session("carpetaId"))
-        Dim listaComentarios As DataTable = comentario.obtenerComentarios(areaId, docuemntoId, carpetaId)
+        'Dim listaComentarios As DataTable = comentario.obtenerComentarios(Session("areaId"), Session("documentoId"), Session("carpetaId"))
+        Dim listaComentarios As DataTable = comentario.obtenerComentarios(areaId, documentoId, carpetaId)
 
         'Ordenando la lista de comentarios por fecha
         Dim datav As New DataView
