@@ -157,11 +157,11 @@
                                     <asp:GridView ID="gridListarTrabajadoresParaEvaluar" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         
                                         <Columns>
-                                            <asp:BoundField DataField="rut" HeaderText="RUT"  />
-                                            <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
+                                            <asp:BoundField DataField="rut" HeaderText="Rut"  />
+                                            <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                             <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="IR" HeaderStyle-HorizontalAlign="Center" >
+                                            <asp:TemplateField HeaderText="Ir" HeaderStyle-HorizontalAlign="Center" >
 
                                                 <ItemTemplate>
                                                     <asp:ImageButton

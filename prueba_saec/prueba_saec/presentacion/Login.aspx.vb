@@ -13,9 +13,9 @@ Public Class Login
         'txtUsuario.Text = ""
     End Sub
 
-    Protected Sub lbRecuperarContrasenia_Click(sender As Object, e As EventArgs) Handles lblRecuperarContrasenia.Click
-        Response.Redirect("recuperarContrasenia.aspx")
-    End Sub
+    'Protected Sub lbRecuperarContrasenia_Click(sender As Object, e As EventArgs) Handles lblRecuperarContrasenia.Click
+    '    Response.Redirect("recuperarContrasenia.aspx")
+    'End Sub
 
     Protected Sub btLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 

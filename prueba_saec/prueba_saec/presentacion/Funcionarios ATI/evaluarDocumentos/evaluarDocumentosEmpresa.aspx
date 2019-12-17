@@ -207,8 +207,8 @@
                                                 <asp:BoundField DataField="idCarpeta" HeaderText="Id Carpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idDocumento" HeaderText="Id Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idArea" HeaderText="id Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="nombreArea" HeaderText="Nombre Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Área" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
@@ -254,7 +254,7 @@
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
-                                                <asp:TemplateField HeaderText="Fecha de Expiracion">
+                                                <asp:TemplateField HeaderText="Fecha de expiracion">
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                     <ItemTemplate>

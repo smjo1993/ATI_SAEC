@@ -173,9 +173,9 @@
                                     <Columns>
 
                                         <asp:BoundField DataField="patenteVehiculo" HeaderText="PATENTE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
@@ -276,7 +276,7 @@
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Fecha de Expiracion">
+                                        <asp:TemplateField HeaderText="Fecha de Expiración">
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
@@ -324,8 +324,8 @@
                                     <Columns>
 
                                         <asp:BoundField DataField="patenteVehiculo" HeaderText="PATENTE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
@@ -334,7 +334,7 @@
                                         <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
 
-                                        <asp:TemplateField HeaderText="COMENTARIOS">
+                                        <asp:TemplateField HeaderText="Comentarios">
 
                                             <ItemTemplate>
                                                 <asp:ImageButton

@@ -33,13 +33,13 @@ Public Class SubirDocumentosTrabajador
 
         Dim contratista As clsContratista = Session("contratistaEntrante")
         If (contratista Is Nothing) Then
-            Response.Redirect("../login.aspx")
+            Response.Redirect("../../login.aspx")
         Else
             Dim menu As New clsMenu
             Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,2", "C")
 
             If acceso = "I" Or acceso Is Nothing Then
-                Response.Redirect("../401.aspx")
+                Response.Redirect("../../401.aspx")
             End If
         End If
 
@@ -139,6 +139,18 @@ Public Class SubirDocumentosTrabajador
         If e.Row.Cells(4).Text = "aprobado" Then
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+        If e.Row.Cells(4).Text = "pendiente" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 240, 240)
+
+        End If
+
+        If e.Row.Cells(4).Text = "enviado" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 252, 231)
 
         End If
 

@@ -55,9 +55,9 @@
                     <asp:Button ID="btnLogin" runat="server" class="btn btn-primary btn-user btn-block" Text="Inicia Sesion" />
                     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
                     </div>
-                    <div class="text-center">
+<%--                    <div class="text-center">
                     <asp:LinkButton ID="lblRecuperarContrasenia" runat="server">¿Olvido su contraseña? Click aqui para recuperarla</asp:LinkButton>
-                  </div>
+                  </div>--%>
                   </form>
                 </div>
               </div>

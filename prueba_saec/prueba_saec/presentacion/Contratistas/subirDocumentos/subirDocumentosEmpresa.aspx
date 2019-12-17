@@ -12,6 +12,8 @@
     <link href="../../../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../../../css/checkbox.css" rel="stylesheet">
 </head>
+
+  
 <body>
     <div id="wrapper">
 
@@ -178,14 +180,10 @@
                                         <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
                                         <asp:TemplateField HeaderText="Buscar">
-
                                             <ItemTemplate>
-
-                                                <div class="form-group">
-                                                    <input type="file" class="form-control-file" id="fileArchivo" runat="server" />
-                                                </div>
-
-
+                                                                                             
+                                                    <input type="file" class="form-control-file" id="fileArchivo" name="fileArchivo" runat="server" /> 
+                                                    
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="COMENTARIOS">
@@ -229,7 +227,8 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-
+    <script>
+</script>
     <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

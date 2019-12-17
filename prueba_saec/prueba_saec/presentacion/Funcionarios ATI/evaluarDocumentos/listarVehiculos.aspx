@@ -157,11 +157,11 @@
                                     <asp:GridView ID="gridListarVehiculosParaEvaluar" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         
                                         <Columns>
-                                            <asp:BoundField DataField="patente" HeaderText="PATENTE" />
-                                            <asp:BoundField DataField="marca" HeaderText="MARCA" />
+                                            <asp:BoundField DataField="patente" HeaderText="Patente" />
+                                            <asp:BoundField DataField="marca" HeaderText="Marca" />
                                             <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                            <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="IR">
+                                            <asp:TemplateField HeaderText="Ir">
 
                                                 <ItemTemplate>
                                                     <asp:ImageButton
