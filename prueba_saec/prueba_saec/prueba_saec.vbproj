@@ -151,6 +151,8 @@
     <Content Include="img\file.png" />
     <Content Include="img\remove.png" />
     <Content Include="img\undraw_posting_photo.svg" />
+    <Content Include="img\upload.png" />
+    <Content Include="img\user.png" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />

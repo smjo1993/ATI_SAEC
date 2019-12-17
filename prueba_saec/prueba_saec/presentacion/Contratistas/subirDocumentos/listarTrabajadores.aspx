@@ -176,31 +176,30 @@
                                                         <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:TemplateField HeaderText="IR">
+                                                        <asp:TemplateField HeaderText="OPCIONES">
 
                                                             <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     ID="btnIrTrabajador"
-                                                                    ImageUrl="../../../img/carpeta.png"
+                                                                    ImageUrl="../../../img/user.png"
                                                                     CommandName="ir"
+                                                                    Tooltip="Ver Trabajador"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
-                                                            </ItemTemplate>
 
-                                                        </asp:TemplateField>
+                                                                &nbsp
 
-                                                           <asp:TemplateField HeaderText="ELIMINAR" ItemStyle-HorizontalAlign="Center">
-
-                                                            <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     onclientclick="return confirm('¿estas seguro?');" 
                                                                     ID="btnEliminarTrabajador"
-                                                                    ImageUrl="../../../img/delete.png"
+                                                                    ImageUrl="../../../img/remove.png"
                                                                     CommandName="eliminar"
+                                                                    Tooltip="Eliminar"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
-
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
                                                         </asp:TemplateField>
 
                                                     </Columns>
