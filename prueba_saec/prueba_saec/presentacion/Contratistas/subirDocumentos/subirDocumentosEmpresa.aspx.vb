@@ -139,6 +139,22 @@ Public Class subirDocumentosEmpresa
 
         End If
 
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idArea As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(5).Text
+            Dim idDocumento As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(4).Text
+            Dim idCarpeta As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(3).Text
+
+            Session("areaId") = idArea
+            Session("documentoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("rutUsuario") = Session("contratistaEntrante").getRut
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentarios.aspx")
+
+        End If
+
     End Sub
 
     Protected Sub gridSubirDocumentosEmpresa_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridSubirDocumentosEmpresa.RowDataBound
