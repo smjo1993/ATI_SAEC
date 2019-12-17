@@ -7,7 +7,7 @@ Public Class subirDocumentosEmpresa
         sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
-        cargarBotones()
+
         If IsPostBack Then
             Return
         End If
