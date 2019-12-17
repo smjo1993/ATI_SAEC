@@ -106,4 +106,122 @@ Public Class clsComentario
         End Try
     End Function
 
+    Public Function insertarComentarioTrabajador(rutAutor As String,
+                                      texto As String,
+                                      areaId As Integer,
+                                      documentoId As Integer,
+                                      carpetaArranqueId As Integer,
+                                      trabajadorId As Integer)
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+
+        Console.WriteLine(con.ToString())
+
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarComentarioTrabajador '" & rutAutor & "' , '" & texto & "' , '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "' , '" & trabajadorId & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds, "InsertarComentarioTrabajador")
+
+            'Return ds.Tables(0)
+            Return True
+
+        Catch ex As Exception
+
+            Return False
+
+        Finally
+
+            con.Close()
+            con.Dispose()
+
+        End Try
+
+    End Function
+
+    Public Function obtenerComentariosTrabajador(areaId As Integer,
+                                      documentoId As Integer,
+                                      carpetaArranqueId As Integer,
+                                      trabajadorId As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarComentariosTrabajador '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "' , '" & trabajadorId & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarComentariosTrabajador")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function insertarComentarioVehiculo(rutAutor As String,
+                                      texto As String,
+                                      areaId As Integer,
+                                      documentoId As Integer,
+                                      carpetaArranqueId As Integer,
+                                      vehiculoId As Integer)
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+
+        Console.WriteLine(con.ToString())
+
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_InsertarComentarioVehiculo '" & rutAutor & "' , '" & texto & "' , '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "' , '" & vehiculoId & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds, "InsertarComentarioVehiculo")
+
+            'Return ds.Tables(0)
+            Return True
+
+        Catch ex As Exception
+
+            Return False
+
+        Finally
+
+            con.Close()
+            con.Dispose()
+
+        End Try
+
+    End Function
+
+    Public Function obtenerComentariosVehiculo(areaId As Integer,
+                                      documentoId As Integer,
+                                      carpetaArranqueId As Integer,
+                                      vehiculoId As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarComentariosVehiculo '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "' , '" & vehiculoId & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "ListarComentariosVehiculo")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
 End Class

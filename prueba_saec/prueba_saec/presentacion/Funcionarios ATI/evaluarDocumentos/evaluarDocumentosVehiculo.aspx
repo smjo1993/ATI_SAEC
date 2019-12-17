@@ -20,9 +20,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon">
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -44,18 +45,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -158,6 +159,7 @@
                                     <div class="col-4">
                                         <asp:Label ID="lblDocumentosEmpresa" runat="server" ></asp:Label>
                                         <asp:Label ID="lblDocumentosTrabajdor" runat="server" ></asp:Label>
+                                         <asp:Label ID="lblVolver" runat="server" ></asp:Label>
                                     </div>
                                 </div>
 
@@ -290,9 +292,9 @@
                                                                                                         <div runat="server" id="sinDocumentos">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                         </div>
-
+                               
                             </div>
-
+                                   <div class="card-footer"></div>  
                         </div>
 
 
@@ -353,7 +355,7 @@
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
                                         </div>
                             </div>
-
+                                <div class="card-footer"></div>    
                         </div>
 
 

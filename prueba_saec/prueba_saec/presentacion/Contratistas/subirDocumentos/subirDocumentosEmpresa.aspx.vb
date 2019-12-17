@@ -5,7 +5,7 @@
         sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
-
+        cargarBotones()
         If IsPostBack Then
             Return
         End If
@@ -25,12 +25,20 @@
             End If
         End If
 
-
-
-
-
-
     End Sub
+    Protected Sub cargarBotones()
+        Dim boton As String
+        Dim texto As String = "Documentos Trabajador"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/listarTrabajadores.aspx "" Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosTrabajador.Text = boton
+        texto = "Documentos Vehiculo"
+        boton = ""
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/listarVehiculos.aspx"" Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosVehiculo.Text = boton
+    End Sub
+
     Protected Sub validarContratista()
 
         Dim contratista As clsContratista = Session("contratistaEntrante")
@@ -38,7 +46,7 @@
             Response.Redirect("../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,2", "C")
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,1", "C")
 
             If acceso = "I" Or acceso Is Nothing Then
                 Response.Redirect("../401.aspx")

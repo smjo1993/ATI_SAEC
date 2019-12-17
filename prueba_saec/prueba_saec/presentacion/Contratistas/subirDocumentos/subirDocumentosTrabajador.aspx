@@ -47,18 +47,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -150,8 +150,21 @@
             <%-- TRABAJADOR --%>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
+
+                                                        <div class="row">
+                                        <div class="col-6">
+                    <h4 class="m-0 font-weight text-primary">TRABAJADOR:</h4>
                     <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                        </div>
+                                                                                                <div class="col-1">
+                                        </div>
+                                        <div class="col-5" style="float: right;">
+                                            <asp:Label ID="lblDocumentosEmpresa" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
+                                            <a class="btn btn-secondary" href="listarTrabajadores.aspx">Volver</a>
+                          
+                                        </div>
+                                    </div>
                 </div>
                 <div class="card-body">
                   
@@ -215,7 +228,8 @@
                                         </div>
                                 
                 </div>
-
+                  <div class="card-footer">
+                  </div>    
             </div>
 
 

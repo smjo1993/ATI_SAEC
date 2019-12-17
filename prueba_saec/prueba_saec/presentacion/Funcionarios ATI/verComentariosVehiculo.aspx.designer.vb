@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class subirDocumentosTrabajador
+Partial Public Class verComentariosVehiculo
     
     '''<summary>
     '''Control lblMenu.
@@ -23,56 +23,65 @@ Partial Public Class subirDocumentosTrabajador
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control form15.
+    '''Control lblTarjetaComentario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents lblTarjetaComentario As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblTrabajador.
+    '''Control lblPrueba.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblTrabajador As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblPrueba As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control lblDocumentosEmpresa.
+    '''Control documentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblDocumentosEmpresa As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblDocumentosVehiculo.
+    '''Control seccionIngresarComentario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblDocumentosVehiculo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents seccionIngresarComentario As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control gridListarDocumentosTrabajador.
+    '''Control TxtAreaNuevoComentario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gridListarDocumentosTrabajador As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents TxtAreaNuevoComentario As Global.System.Web.UI.HtmlControls.HtmlTextArea
     
     '''<summary>
-    '''Control sinDocumentos.
+    '''Control BtnVolver.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control BtnAceptar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnAceptar As Global.System.Web.UI.WebControls.Button
 End Class

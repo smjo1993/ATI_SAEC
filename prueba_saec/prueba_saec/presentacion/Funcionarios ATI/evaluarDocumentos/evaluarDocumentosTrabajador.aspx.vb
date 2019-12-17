@@ -16,6 +16,8 @@ Public Class evaluarDocumentosTrabajador
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idTrabajador As Integer = Session("idTrabajador")
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.getRut
         Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
 
         If tablaDocumentosTrabajador Is Nothing Then
@@ -169,6 +171,17 @@ Public Class evaluarDocumentosTrabajador
 
         End If
 
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("trabajadorId") = idTrabajador
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosTrabajador.aspx")
+
+        End If
+
     End Sub
 
     'funcion que obtiene la extension del archivo
@@ -186,6 +199,27 @@ Public Class evaluarDocumentosTrabajador
         If e.Row.Cells(4).Text = "aprobado" Then
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
+
+    Protected Sub gridDocumentosPendientes_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentosPendiente.RowCommand
+
+        Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+        Dim idCarpeta As Integer = gridDocumentosPendiente.Rows(pos).Cells(4).Text
+        Dim idDocumento As Integer = gridDocumentosPendiente.Rows(pos).Cells(5).Text
+        Dim idArea As Integer = gridDocumentosPendiente.Rows(pos).Cells(6).Text
+        Dim idTrabajador As Integer = gridDocumentosPendiente.Rows(pos).Cells(8).Text
+
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("docuemntoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("trabajadorId") = idTrabajador
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosTrabajador.aspx")
 
         End If
 
