@@ -99,7 +99,9 @@
                     Else
                         fechaCreacion = Today
                     fechaExpiracion = Convert.ToDateTime(txtFecha.Text)
-                    If (DateTime.Compare(fechaCreacion, fechaExpiracion) = 0 Or DateTime.Compare(fechaCreacion, fechaExpiracion) > 0) Then
+                    Dim fechaLimite As Date = calcularFechaExpiracion(fechaCreacion)
+                    fechaLimite = fechaLimite.AddYears(1)
+                    If (DateTime.Compare(fechaCreacion, fechaExpiracion) = 0 Or DateTime.Compare(fechaCreacion, fechaExpiracion) > 0 Or DateTime.Compare(fechaExpiracion, fechaLimite) > 0) Then
                         lblMensaje.Text = alerta.alerta("ALERTA", "fecha erronea")
                     Else
                         Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text

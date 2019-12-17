@@ -32,7 +32,7 @@ Public Class verDocumentos
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
-            Response.Redirect("../login.aspx")
+            Response.Redirect("../../login.aspx")
         Else
             Dim menu As New clsMenu
             Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,3", "A")

@@ -185,7 +185,6 @@
                                                     <input type="file" class="form-control-file" id="fileArchivo" runat="server" />
                                                 </div>
 
-
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="COMENTARIOS">
@@ -229,7 +228,8 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-
+    <script>
+</script>
     <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
