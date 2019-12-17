@@ -121,5 +121,17 @@ Public Class subirDocumentosVehiculo
 
         End If
 
+
+        If e.Row.Cells(3).Text = "pendiente" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 208, 208)
+
+        End If
+
+        If e.Row.Cells(3).Text = "enviado" Then
+
+            e.Row.BackColor = Color.FromArgb(244, 253, 219)
+
+        End If
     End Sub
 End Class
