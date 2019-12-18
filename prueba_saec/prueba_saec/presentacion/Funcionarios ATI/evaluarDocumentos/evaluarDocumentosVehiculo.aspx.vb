@@ -47,23 +47,19 @@ Public Class evaluarDocumentosVehiculo
 
 
         lblVehiculo.Text = Session("patente")
-        cargarBotones()
-    End Sub
+        cargarBotonVolver()
 
-    Protected Sub cargarBotones()
+    End Sub
+    Protected Sub cargarBotonVolver()
         Dim boton As String
-        Dim texto As String = "Documentos Trabajador"
+        Dim texto As String = "Volver"
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn btn-secondary"" style=""float: Right();"">"
         boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosTrabajdor.Text = boton
-        texto = "Documentos Empresa"
-        boton = ""
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
-        boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosEmpresa.Text = boton
+        lblVolver.Text = boton
     End Sub
+
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -97,7 +93,7 @@ Public Class evaluarDocumentosVehiculo
         Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(11).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
-        If (e.CommandName = "ver") Then
+        If (e.CommandName = "Ver") Then
 
             If extension = "pdf" Then
 

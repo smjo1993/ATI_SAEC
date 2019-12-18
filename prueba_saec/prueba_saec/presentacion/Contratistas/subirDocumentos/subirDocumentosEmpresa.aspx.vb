@@ -7,7 +7,7 @@ Public Class subirDocumentosEmpresa
         sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
-        cargarBotones()
+
         If IsPostBack Then
             Return
         End If
@@ -28,18 +28,7 @@ Public Class subirDocumentosEmpresa
         End If
 
     End Sub
-    Protected Sub cargarBotones()
-        Dim boton As String
-        Dim texto As String = "Documentos Trabajador"
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/listarTrabajadores.aspx "" Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
-        boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosTrabajador.Text = boton
-        texto = "Documentos Vehiculo"
-        boton = ""
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/listarVehiculos.aspx"" Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
-        boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosVehiculo.Text = boton
-    End Sub
+
 
     Protected Sub validarContratista()
 

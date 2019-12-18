@@ -32,6 +32,33 @@ Partial Public Class listarVehiculos1
     Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
+    '''Control lblDocumentosTrabajdor.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosTrabajdor As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control lblDocumentosEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumentosEmpresa As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control lblVolver.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblVolver As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control gridListarVehiculosParaEvaluar.
     '''</summary>
     '''<remarks>

@@ -157,9 +157,7 @@
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
-                                        <asp:Label ID="lblDocumentosEmpresa" runat="server" ></asp:Label>
-                                        <asp:Label ID="lblDocumentosTrabajdor" runat="server" ></asp:Label>
-                                         <asp:Label ID="lblVolver" runat="server" ></asp:Label>
+                                         <asp:Label ID="lblVolver" runat="server" style="float: right;"></asp:Label>
                                     </div>
                                 </div>
 

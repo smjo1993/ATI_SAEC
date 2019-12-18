@@ -149,7 +149,17 @@
 
                  <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
+                                                    <div class="row">
+                                    <div class="col-4">
+                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6> 
+                                    </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+
+                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="Label"  style="float: right;"></asp:Label>
+                                                                                <asp:Label ID="lblDocumentosEmpresa" runat="server" Text="Label"  style="float: right;"></asp:Label>
+                                    </div>
+                                </div>
                 </div>
                 <div class="card-body">
                     

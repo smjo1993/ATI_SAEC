@@ -154,9 +154,7 @@
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
-                                        <asp:Label ID="lblDocumentosEmpresa" runat="server" Text="Label"></asp:Label>
-                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="Label"></asp:Label>
-                                                                    <a class="btn btn-secondary" href="listarTrabajadores.aspx">Volver</a>
+<asp:Label ID="lblVolver" runat="server" Text="Label"  style="float: right;"></asp:Label>
                                     </div>
                                 </div>
 
