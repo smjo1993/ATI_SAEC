@@ -7,6 +7,7 @@ Public Class verComentariosVehiculo
         If Not Page.IsPostBack Then
             cargarComentarios()
             cargarMenu()
+            lblDocumento.Text = cargarNombreDocumento(Session("documentoId"))
         End If
     End Sub
 
@@ -191,5 +192,20 @@ Public Class verComentariosVehiculo
         Next
 
     End Sub
+
+    Protected Function cargarNombreDocumento(documentoId As Integer) As String
+        Dim documento As New clsDocumento
+        Dim nombre As String
+        Dim dt As DataTable
+        Dim dr As DataRow
+        dt = documento.obtenerNombreDocumento(documentoId)
+        If dt.Rows.Count > 0 Then
+            dr = dt.Rows.Item(0)
+            nombre = dr("nombre")
+            Return nombre
+        Else
+            Return "Documento no encontrado"
+        End If
+    End Function
 
 End Class

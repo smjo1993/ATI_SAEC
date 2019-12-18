@@ -23,6 +23,15 @@ Partial Public Class verComentariosTrabajador
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control lblDocumento.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblDocumento As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control lblTarjetaComentario.
     '''</summary>
     '''<remarks>

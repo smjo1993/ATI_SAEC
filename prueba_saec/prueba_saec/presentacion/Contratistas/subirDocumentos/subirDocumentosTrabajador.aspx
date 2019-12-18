@@ -161,7 +161,7 @@
                                         <div class="col-5" style="float: right;">
                                             <asp:Label ID="lblDocumentosEmpresa" runat="server" Text=""></asp:Label>
                                             <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
-                                            <a class="btn btn-secondary" href="listarTrabajadores.aspx">Volver</a>
+                                            <a class="btn shadow-sm btn-success" href="listarTrabajadores.aspx">Volver</a>
                           
                                         </div>
                                     </div>
