@@ -12,6 +12,8 @@ Public Class verDocumentos
             cargarMenu()
             cargarDatos()
             cargarBotones()
+            Dim usuario As clsUsuarioSAEC = Session("usuario")
+            Session("rutUsuario") = usuario.getRut
         End If
     End Sub
 
