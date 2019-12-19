@@ -108,6 +108,7 @@ Public Class subirDocumentosEmpresa
             Dim idArea As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(5).Text
             Dim nombreArchivo As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(0).Text
             Dim rutEmpresa As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(7).Text
+            Dim periodo As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(9).Text
 
             Dim archivo As HtmlInputFile
             archivo = gridSubirDocumentosEmpresa.Rows(pos).FindControl("fileArchivo")
@@ -115,13 +116,30 @@ Public Class subirDocumentosEmpresa
             'Si encuentra el archivo subido lo guarda en la ruta especifica
             If archivo.PostedFile.FileName <> "" Then
 
-                My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/"))
-                Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
-                archivo.PostedFile.SaveAs(ruta)
-                Dim documento = New clsDocumento()
+                If gridSubirDocumentosEmpresa.Rows(pos).Cells(8).Text = "" Or gridSubirDocumentosEmpresa.Rows(pos).Cells(8).Text = "&nbsp;" Then
 
-                documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
-                Response.Redirect(HttpContext.Current.Request.Url.ToString)
+                    'Si el contratista no ha subido un archivo anteriormente 
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/"))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    archivo.PostedFile.SaveAs(ruta)
+                    Dim documento = New clsDocumento()
+
+                    documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                Else
+                    'Si el contratista subio un documento previamente, se elimina y se sube el nuevo archivo.
+                    My.Computer.FileSystem.DeleteFile(gridSubirDocumentosEmpresa.Rows(pos).Cells(8).Text)
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/"))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    archivo.PostedFile.SaveAs(ruta)
+                    Dim documento = New clsDocumento()
+
+                    documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                End If
+
 
 
             End If
