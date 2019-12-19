@@ -57,4 +57,24 @@ Public Class clsNotificacion
         End Try
     End Function
 
+    Public Function actualizarEstado(idComentario As Integer, tipo As String) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_actualizarEstadoNotificacion '" & idComentario & "' , '" & tipo & "'"
+
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds, "actualizarEstado")
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
 End Class

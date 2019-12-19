@@ -5,11 +5,16 @@ Public Class verComentarios_
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        Dim notificacion As New clsNotificacion
+
         If Not Page.IsPostBack Then
-            Session("areaId") = decodificarIdArea()
-            Session("docuemntoId") = decodificarIdDocumento()
-            Session("carpetaId") = decodificarIdCarpeta()
-            Session("rutUsuario") = decodificarRut()
+            'Session("areaId") = decodificarIdArea()
+            'Session("docuemntoId") = decodificarIdDocumento()
+            'Session("carpetaId") = decodificarIdCarpeta()
+            'Session("rutUsuario") = decodificarRutAutor()
+
+            'notificacion.actualizarEstado(decodificarIdNotificacion())
+            notificacion.actualizarEstado(decodificarIdComentario(), decodificarTipo())
 
             cargarComentarios()
             cargarMenu()
@@ -148,110 +153,61 @@ Public Class verComentarios_
         Return carpetaId
     End Function
 
-    Protected Function decodificarRut() As Integer
-        Dim rutCodificado As String = Request.QueryString("p").ToString()
-        Dim data() As Byte = System.Convert.FromBase64String(rutCodificado)
-        Dim rutDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
-        Dim rutUsuario As Integer = Convert.ToInt32(rutDecodificado)
-        Return rutUsuario
+    Protected Function decodificarRutAutor() As Integer
+        Dim rutAutorCodificado As String = Request.QueryString("p").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(rutAutorCodificado)
+        Dim rutAutorDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim rutAutor As Integer = Convert.ToInt32(rutAutorDecodificado)
+        Return rutAutor
     End Function
 
-    'Protected Sub cargarComentariosNotificacion(idNotificacion As Integer)
+    Protected Function decodificarRutDestinatario() As Integer
+        Dim rutDestinatarioCodificado As String = Request.QueryString("y").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(rutDestinatarioCodificado)
+        Dim rutDestinatarioDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim rutDestinatario As Integer = Convert.ToInt32(rutDestinatarioDecodificado)
+        Return rutDestinatario
+    End Function
 
-    '    Dim rutUsuario = decodificarRut()
+    Protected Function decodificarIdNotificacion() As Integer
+        Dim idNotificacionCodificado As String = Request.QueryString("z").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(idNotificacionCodificado)
+        Dim idNotificacionDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim idNotificacion As Integer = Convert.ToInt32(idNotificacionDecodificado)
+        Return idNotificacion
+    End Function
 
-    '    Dim comentario As New clsComentario
-    '    Dim tarjeta As String = ""
-    '    Dim listaComentarios As DataTable = comentario.obtenerComentarios(decodificarIdArea(), decodificarIdDocumento(), decodificarIdCarpeta())
+    Protected Function decodificarIdComentario() As Integer
+        Dim idComentarioCodificado As String = Request.QueryString("q").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(idComentarioCodificado)
+        Dim idComentarioDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim idComentario As Integer = Convert.ToInt32(idComentarioDecodificado)
+        Return idComentario
+    End Function
 
-    '    'Ordenando la lista de comentarios por fecha
-    '    Dim datav As New DataView
-    '    datav = listaComentarios.DefaultView
-    '    datav.Sort = "fecha"
-    '    listaComentarios = datav.ToTable()
-
-
-    '    'Dim Empresas As Object = crearEmpresas()
-
-    '    ' Ciclo for que recorre la lista de comentarios 
-    '    For Each fila As DataRow In listaComentarios.Rows
-
-    '        If fila("rutAutor") = rutUsuario Then
-    '            tarjeta = tarjeta & "  <div class=""row"">"
-    '            tarjeta = tarjeta & "   <div class=""col-2""></div>"
-    '            tarjeta = tarjeta & "   <div class=""col-10"">"
-    '            tarjeta = tarjeta & "    <div Class=""card shadow mb-4""> "
-    '            Dim nombre As String
-    '            nombre = obtenerNombreAutor(fila("rutAutor"))
-    '            Dim rol As String
-    '            rol = obtenerRolAutor(fila("rutAutor"))
-    '            tarjeta = tarjeta & "         <div Class=""card-header"">"
-    '            tarjeta = tarjeta & "           <div class=""row"">"
-    '            tarjeta = tarjeta & "               <div class=""m-0 font-weight-bold text-primary col-6"" >" + nombre + "/" + rol + "</div>"
-    '            tarjeta = tarjeta & "               <p class=""d-none d-lg-inline text-grey-600 small col-6 text-right"" >" + fila("fecha") + "</p>"
-    '            tarjeta = tarjeta & "           </div>"
-    '            tarjeta = tarjeta & "         </div>"
-    '            tarjeta = tarjeta & "         <div Class=""card-body"">"
-    '            Dim mensaje As String
-    '            mensaje = fila("texto")
-    '            tarjeta = tarjeta & "           <div>" + mensaje + "</div>"
-    '            tarjeta = tarjeta & "         </div> "
-    '            tarjeta = tarjeta & "      </div> "
-    '            tarjeta = tarjeta & "     </div> "
-    '            tarjeta = tarjeta & "    </div> "
-
-    '            lblTarjetaComentario.Text = tarjeta
-    '        Else
-    '            tarjeta = tarjeta & "  <div class=""col-10"">"
-    '            tarjeta = tarjeta & "   <div Class=""card shadow mb-4""> "
-    '            Dim nombre As String
-    '            nombre = obtenerNombreAutor(fila("rutAutor"))
-    '            Dim rol As String
-    '            rol = obtenerRolAutor(fila("rutAutor"))
-    '            tarjeta = tarjeta & "         <div Class=""card-header"">"
-    '            tarjeta = tarjeta & "           <div class=""row"">"
-    '            tarjeta = tarjeta & "               <div class=""m-0 font-weight-bold text-primary col-6"" >" + nombre + "/" + rol + "</div>"
-    '            tarjeta = tarjeta & "               <p class=""d-none d-lg-inline text-grey-600 small col-6 text-right"" >" + fila("fecha") + "</p>"
-    '            tarjeta = tarjeta & "           </div>"
-    '            tarjeta = tarjeta & "         </div>"
-    '            tarjeta = tarjeta & "           <div Class=""card-body"">"
-    '            Dim mensaje As String
-    '            mensaje = fila("texto")
-    '            tarjeta = tarjeta & "                     <div>" + mensaje + "</div>"
-    '            tarjeta = tarjeta & "        </div> "
-    '            tarjeta = tarjeta & "      </div> "
-    '            tarjeta = tarjeta & "     </div> "
-
-    '            lblTarjetaComentario.Text = tarjeta
-    '        End If
-
-    '    Next
-
-    'End Sub
+    Protected Function decodificarTipo() As Integer
+        Dim tipoCodificado As String = Request.QueryString("x").ToString()
+        Dim data() As Byte = System.Convert.FromBase64String(tipoCodificado)
+        Dim tipoDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
+        Dim tipo As Integer = Convert.ToInt32(tipoDecodificado)
+        Return tipo
+    End Function
 
     'genera el string para la generación de cards de comentarios
     Protected Sub cargarComentarios()
 
-        'Dim areaId As String = Session("areaId")
-        'Dim docuemntoId As String = Session("docuemntoId")
-        'Dim carpetaId As String = Session("carpetaId")
-        'Dim rutUsuario As String = Session("rutUsuario")
-
         Dim areaId As String = decodificarIdArea()
         Dim docuemntoId As String = decodificarIdDocumento()
         Dim carpetaId As String = decodificarIdCarpeta()
-        Dim rutUsuario As String = decodificarRut()
+        Dim rutUsuario As String = decodificarRutAutor()
+        Dim tipo As String = decodificarTipo()
+        'Dim rutUsuario As String = decodificarRutDestinatario()
 
-        'actualizarNotificacion()
-
-        'Falta sacar al contratista de Session. Por mientras trabajaremos con el usuario que es enviado por defecto
-
-        'lblPrueba.InnerText = "Area: " & areaId & ", documento: " & docuemntoId & ", carpeta: " & carpetaId & ", rutAutor: " & rutUsuario
+        Dim idNotificacion As Integer = decodificarIdNotificacion()
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
-        'Dim color As String
-        'Dim listaComentarios As DataTable = comentario.obtenerComentarios(Session("areaId"), Session("docuemntoId"), Session("carpetaId"))
+
         Dim listaComentarios As DataTable = comentario.obtenerComentarios(areaId, docuemntoId, carpetaId)
 
         'Ordenando la lista de comentarios por fecha
@@ -266,14 +222,20 @@ Public Class verComentarios_
         For Each fila As DataRow In listaComentarios.Rows
 
             If fila("rutAutor") = rutUsuario Then
+                Dim nombre As String
+                Dim rol As String
+                Dim mensaje As String
+                'Dim idComentario As Integer
+
+                nombre = obtenerNombreAutor(fila("rutAutor"))
+                rol = obtenerRolAutor(fila("rutAutor"))
+                mensaje = fila("texto")
+                'idComentario = fila("id")
+
                 tarjeta = tarjeta & "  <div class=""row"">"
                 tarjeta = tarjeta & "   <div class=""col-2""></div>"
                 tarjeta = tarjeta & "   <div class=""col-10"">"
                 tarjeta = tarjeta & "    <div Class=""card shadow mb-4""> "
-                Dim nombre As String
-                nombre = obtenerNombreAutor(fila("rutAutor"))
-                Dim rol As String
-                rol = obtenerRolAutor(fila("rutAutor"))
                 tarjeta = tarjeta & "         <div Class=""card-header"">"
                 tarjeta = tarjeta & "           <div class=""row"">"
                 tarjeta = tarjeta & "               <div class=""m-0 font-weight-bold text-primary col-6"" >" + nombre + "/" + rol + "</div>"
@@ -281,8 +243,6 @@ Public Class verComentarios_
                 tarjeta = tarjeta & "           </div>"
                 tarjeta = tarjeta & "         </div>"
                 tarjeta = tarjeta & "         <div Class=""card-body"">"
-                Dim mensaje As String
-                mensaje = fila("texto")
                 tarjeta = tarjeta & "           <div>" + mensaje + "</div>"
                 tarjeta = tarjeta & "         </div> "
                 tarjeta = tarjeta & "      </div> "
@@ -290,6 +250,9 @@ Public Class verComentarios_
                 tarjeta = tarjeta & "    </div> "
 
                 lblTarjetaComentario.Text = tarjeta
+
+                'notificacion.actualizarEstado(fila("id"))
+
             Else
                 tarjeta = tarjeta & "  <div class=""col-10"">"
                 tarjeta = tarjeta & "   <div Class=""card shadow mb-4""> "
@@ -312,9 +275,14 @@ Public Class verComentarios_
                 tarjeta = tarjeta & "     </div> "
 
                 lblTarjetaComentario.Text = tarjeta
+
+                'notificacion.actualizarEstado(fila("id"))
+
             End If
 
         Next
+
+
 
     End Sub
 

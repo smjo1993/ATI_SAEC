@@ -5,8 +5,8 @@
         If Not IsPostBack Then
             validarUsuario()
             cargarNotificacionesComentarios()
-        End If
 
+        End If
     End Sub
 
     Protected Sub validarUsuario()
@@ -81,7 +81,7 @@
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim nombreDocumento As String = gridRequisitos.Rows(pos).Cells(1).Text
-            Dim areaDocumento As String = gridRequisitos.Rows(pos).Cells(3).Text
+            Dim areaComentario As String = gridRequisitos.Rows(pos).Cells(3).Text
 
             Session("nombreDocumento") = nombreDocumento
             Session("idDocumento") = Convert.ToInt32(gridRequisitos.Rows(pos).Cells(0).Text)
@@ -140,6 +140,7 @@
         Dim rutUsuario As String = usuario.getRut
         Dim tarjeta As String = ""
 
+
         Dim listaNotificaciones As Data.DataTable = notificacion.obtenerNotificaciones(rutUsuario)
 
         If listaNotificaciones.Rows.Count > 0 Then
@@ -147,63 +148,61 @@
             For Each fila As DataRow In listaNotificaciones.Rows
 
                 Dim resumenComentario As String = fila("texto")
-                Dim nombreUsuarioRespuesta As String = fila("autor")
-                Dim estadoComentario As String = fila("estado")
-                Dim nombreDocumento As String = fila("documento")
+                Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
+                Dim nombreDocumento As String = fila("nombreDocumento")
                 Dim contNoLeidos As Integer
-
-                Dim areaDocumento As String = fila("area")
+                Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
-                Dim carpetaArranque As Integer = fila("carpetaArranque")
-                Dim rut As String = fila("rutUsuario")
+                Dim idCarpeta As Integer = fila("idCarpeta")
+                Dim idNotificacion As Integer = fila("idNotificacion")
+                Dim idComentario As Integer = fila("idComentario")
+                Dim tipo As String = fila("tipo")
 
-                If estadoComentario = "no leido" Then
+                Dim rutAutor As String = fila("rutAutor")
 
-                    'Session("areaId") = areaDocumento
-                    'Session("docuemntoId") = idDocumento
-                    'Session("carpetaId") = carpetaArranque
-                    'Session("rutUsuario") = rut
+                Session("origen") = HttpContext.Current.Request.Url.ToString
 
-                    Session("origen") = HttpContext.Current.Request.Url.ToString
+                Dim idDocCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idDocumento)
+                Dim idDocCodificado As String = System.Convert.ToBase64String(idDocCodificadoBase64)
 
-                    Dim idDocCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idDocumento)
-                    Dim idDocCodificado As String = System.Convert.ToBase64String(idDocCodificadoBase64)
+                Dim idAreaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(areaComentario)
+                Dim idAreaCodificada As String = System.Convert.ToBase64String(idAreaCodificadaBase64)
 
-                    Dim idAreaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(areaDocumento)
-                    Dim idAreaCodificada As String = System.Convert.ToBase64String(idAreaCodificadaBase64)
+                Dim idCarpetaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idCarpeta)
+                Dim idCarpetaCodificada As String = System.Convert.ToBase64String(idCarpetaCodificadaBase64)
 
-                    Dim idCarpetaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(carpetaArranque)
-                    Dim idCarpetaCodificada As String = System.Convert.ToBase64String(idCarpetaCodificadaBase64)
+                Dim RutCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(rutAutor)
+                Dim RutCodificado As String = System.Convert.ToBase64String(RutCodificadoBase64)
 
-                    Dim RutCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(rut)
-                    Dim RutCodificado As String = System.Convert.ToBase64String(RutCodificadoBase64)
+                Dim idComentarioCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idComentario)
+                Dim idComentarioCodificado As String = System.Convert.ToBase64String(idComentarioCodificadoBase64)
 
-                    'tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios.aspx"">"
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&o=" + idCarpetaCodificada + "&p=" + RutCodificado + """>"
-                    tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
-                    tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
-                    tarjeta = tarjeta & "       </div> "
-                    tarjeta = tarjeta & "       <div class=""font-weight-bold""> "
-                    tarjeta = tarjeta & "           <div class=""text-truncate"">" + resumenComentario + "</div> "
-                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "</div> "
-                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
-                    tarjeta = tarjeta & "       </div> "
-                    tarjeta = tarjeta & "   </a> "
+                Dim tipoCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(tipo)
+                Dim tipoCodificado As String = System.Convert.ToBase64String(tipoCodificadoBase64)
 
-                    'contNoLeidos = contNoLeidos + 1
-                    'LblNotificacionComentarios.Text = contNoLeidos.ToString()
+                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&o=" + idCarpetaCodificada + "&p=" + RutCodificado + "&q=" + idComentarioCodificado + "&q=" + tipoCodificado + """>"
+                tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
+                tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+                tarjeta = tarjeta & "       </div> "
+                tarjeta = tarjeta & "       <div class=""font-weight-bold""> "
+                tarjeta = tarjeta & "           <div class=""text-truncate"">" + resumenComentario + "</div> "
+                tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "</div> "
+                tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
+                tarjeta = tarjeta & "       </div> "
+                tarjeta = tarjeta & "   </a> "
 
-                    LblNotificacion.Text = tarjeta
+                'contNoLeidos = contNoLeidos + 1
+                'LblNotificacionComentarios.Text = contNoLeidos.ToString()
 
-                    LblNotificacionComentarios.Text = " ! "
+                LblNotificacion.Text = tarjeta
 
-                End If
+                LblNotificacionComentarios.Text = " ! "
 
             Next
 
-        ElseIf listaNotificaciones Is Nothing Then
+        Else
 
-            tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href="""">"
+            tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"">"
             tarjeta = tarjeta & "   <div class=""font-weight""> "
             tarjeta = tarjeta & "   <div class=""text""> No tienes notificaciones pendientes </div> "
             tarjeta = tarjeta & "   </div> "
