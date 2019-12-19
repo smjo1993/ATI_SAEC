@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verComentarios
+Partial Public Class verComentariosVehiculo
     
     '''<summary>
     '''Control lblMenu.

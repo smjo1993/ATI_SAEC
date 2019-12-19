@@ -4,6 +4,8 @@ Public Class evaluarDocumentosVehiculo
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinDocumentos.Visible = False
+        sinDocPendientes.Visible = False
         If IsPostBack Then
             Return
         End If
@@ -12,32 +14,52 @@ Public Class evaluarDocumentosVehiculo
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
         Dim idVehiculo As Integer = Session("idVehiculo")
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        Session("rutUsuario") = usuario.getRut
         Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
-        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
-        gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
-        gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
 
-        gridListarDocumentosVehiculo.DataBind()
-        gridDocumentosPendientes.DataBind()
+        If tablaDocumentosVehiculo Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If tablaDocumentosVehiculo.Rows.Count > 0 Then
+                gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+                gridListarDocumentosVehiculo.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
+
+        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
+
+
+        If tablaDocumentosPendientesVehiculo Is Nothing Then
+            sinDocPendientes.Visible = True
+        Else
+            If tablaDocumentosPendientesVehiculo.Rows.Count > 0 Then
+                gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+                gridDocumentosPendientes.DataBind()
+
+            Else
+                sinDocPendientes.Visible = True
+            End If
+        End If
+
+
 
         lblVehiculo.Text = Session("patente")
-        cargarBotones()
-    End Sub
+        cargarBotonVolver()
 
-    Protected Sub cargarBotones()
+    End Sub
+    Protected Sub cargarBotonVolver()
         Dim boton As String
-        Dim texto As String = "Documentos Trabajador"
+        Dim texto As String = "Volver"
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn btn-secondary"" style=""float: Right();"">"
         boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosTrabajdor.Text = boton
-        texto = "Documentos Empresa"
-        boton = ""
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
-        boton = boton & "<i class=""""></i>" + texto + "</a>"
-        lblDocumentosEmpresa.Text = boton
+        lblVolver.Text = boton
     End Sub
+
 
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
@@ -71,7 +93,7 @@ Public Class evaluarDocumentosVehiculo
         Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(11).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
 
-        If (e.CommandName = "ver") Then
+        If (e.CommandName = "Ver") Then
 
             If extension = "pdf" Then
 
@@ -140,6 +162,17 @@ Public Class evaluarDocumentosVehiculo
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
+
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("documentoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("vehiculoId") = idVehiculo
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosVehiculo.aspx")
+
+        End If
     End Sub
 
     'funcion que obtiene la extension del archivo
@@ -157,6 +190,27 @@ Public Class evaluarDocumentosVehiculo
         If e.Row.Cells(3).Text = "aprobado" Then
 
             e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
+
+    Protected Sub gridDocumentosPendientes_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentosPendientes.RowCommand
+
+        Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+        Dim idCarpeta As Integer = gridDocumentosPendientes.Rows(pos).Cells(3).Text
+        Dim idDocumento As Integer = gridDocumentosPendientes.Rows(pos).Cells(4).Text
+        Dim idArea As Integer = gridDocumentosPendientes.Rows(pos).Cells(5).Text
+        Dim idVehiculo As Integer = gridDocumentosPendientes.Rows(pos).Cells(7).Text
+
+        If (e.CommandName = "verComentarios") Then
+
+            Session("areaId") = idArea
+            Session("documentoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("vehiculoId") = idVehiculo
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentariosVehiculo.aspx")
 
         End If
 

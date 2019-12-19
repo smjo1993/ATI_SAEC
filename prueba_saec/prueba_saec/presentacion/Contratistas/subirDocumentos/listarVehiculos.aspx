@@ -48,18 +48,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -153,11 +153,20 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <h6 class="m-0 font-weight-bold text-primary">VEHÍCULOS</h6>
+                                    <div class="col-2">
+                                        <h4 class="m-0 font-weight text-primary">VEHÍCULOS</h4>
                                     </div>
-                                    <div class="col-6">
-                                        <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                    <div class="col-10">
+
+
+
+                                        <a href="listarTrabajadores.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Trabajador                                                 
+                                        </a>
+
+                                        <a href="subirDocumentosEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Empresa                                 
+                                        </a>
+               
+                                                                                 <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
                                             <i class="far fa-plus-square"></i>
                                             Nuevo Vehículo
                                         </a>
@@ -170,42 +179,44 @@
                                                 <asp:GridView ID="gridListarVehiculos" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
 
                                                     <Columns>
-                                                        <asp:BoundField DataField="patente" HeaderText="PATENTE" />
-                                                        <asp:BoundField DataField="marca" HeaderText="MARCA" />
+                                                        <asp:BoundField DataField="patente" HeaderText="Patente" />
+                                                        <asp:BoundField DataField="marca" HeaderText="Marca" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:TemplateField HeaderText="IR">
+                                                        <asp:TemplateField HeaderText="Opciones">
 
                                                             <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     ID="btnIrVehiculo"
-                                                                    ImageUrl="../../../img/carpeta.png"
+                                                                    ImageUrl="../../../img/delivery-truck.png"
                                                                     CommandName="ir"
+                                                                    Tooltip="Ver Vehículo"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
-                                                            </ItemTemplate>
 
-                                                        </asp:TemplateField>
+                                                                &nbsp
 
-                                                         <asp:TemplateField HeaderText="ELIMINAR" ItemStyle-HorizontalAlign="Center">
-
-                                                            <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     onclientclick="return confirm('¿estas seguro?');" 
                                                                     ID="btnEliminarVehiculo"
-                                                                    ImageUrl="../../../img/delete.png"
+                                                                    ImageUrl="../../../img/remove.png"
                                                                     CommandName="eliminar"
+                                                                    Tooltip="Eliminar"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
-                                                                
                                                             </ItemTemplate>
-                                                             
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle HorizontalAlign="Center" />
                                                         </asp:TemplateField>
 
                                                     </Columns>
 
-                                                </asp:GridView>      
+                                                </asp:GridView>    
+                                                                                            <div runat="server" id="sinVehiculos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Vehiculos en el sistema</h1>
+                                        </div>
                             </div>
+                              <div class="card-footer"></div>    
                         </div>
                 </form>
                     </div>

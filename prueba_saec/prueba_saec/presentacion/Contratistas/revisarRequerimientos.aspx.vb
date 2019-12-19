@@ -21,7 +21,7 @@
             Response.Redirect("../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,1", "C")
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "60,1", "C")
 
             If acceso = "I" Or acceso Is Nothing Then
                 Response.Redirect("../401.aspx")
@@ -163,19 +163,19 @@
             End If
 
         Next
-
+        Response.Redirect(HttpContext.Current.Request.Url.ToString)
     End Sub
 
     Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles documentosEmpresa.RowCommand
 
-        If (e.CommandName = "Ver") Then
+        If (e.CommandName = "verComentarios") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = documentosEmpresa.Rows(pos).Cells(4).Text
-            Dim docuemntoId As String = documentosEmpresa.Rows(pos).Cells(3).Text
+            Dim documentoId As String = documentosEmpresa.Rows(pos).Cells(3).Text
             Dim carpetaId As String = documentosEmpresa.Rows(pos).Cells(2).Text
             Session("areaId") = areaId
-            Session("docuemntoId") = docuemntoId
+            Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
             Session("origen") = HttpContext.Current.Request.Url.ToString
             Response.Redirect("verComentarios.aspx")

@@ -2,6 +2,7 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinVehiculos.Visible = False
         validarContratista()
         If IsPostBack Then
             Return
@@ -12,21 +13,34 @@
         Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaVehiculos As DataTable = vehiculos.listarVehiculos(rutContratista)
         Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
-        gridListarVehiculos.DataSource = TablaVehiculos
-        gridListarVehiculos.DataBind()
+
+        If TablaVehiculos Is Nothing Then
+            sinVehiculos.Visible = True
+        Else
+            If TablaVehiculos.Rows.Count > 0 Then
+
+                gridListarVehiculos.DataSource = TablaVehiculos
+                gridListarVehiculos.DataBind()
+            Else
+                sinVehiculos.Visible = True
+            End If
+        End If
+
 
     End Sub
+
+
     Protected Sub validarContratista()
 
         Dim contratista As clsContratista = Session("contratistaEntrante")
         If (contratista Is Nothing) Then
-            Response.Redirect("../login.aspx")
+            Response.Redirect("../../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,4", "C")
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,3", "C")
 
             If acceso = "I" Or acceso Is Nothing Then
-                Response.Redirect("../401.aspx")
+                Response.Redirect("../../401.aspx")
             End If
         End If
 

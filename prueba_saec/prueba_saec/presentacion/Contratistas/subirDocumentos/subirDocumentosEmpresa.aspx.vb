@@ -1,7 +1,10 @@
-﻿Public Class subirDocumentosEmpresa
+﻿Imports System.Drawing
+
+Public Class subirDocumentosEmpresa
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinDocumentos.Visible = False
         validarContratista()
         cargarMenu()
 
@@ -12,24 +15,32 @@
         Dim rutContratista As String = Session("contratistaEntrante").getRut
         Dim TablaDocumentosPendienteEmpresa As DataTable = crearDocumentos().obtenerDocumentosEstadoPendienteEmpresa(rutContratista)
 
+        If TablaDocumentosPendienteEmpresa Is Nothing Then
+            sinDocumentos.Visible = True
+        Else
+            If TablaDocumentosPendienteEmpresa.Rows.Count > 0 Then
 
-        gridSubirDocumentosEmpresa.DataSource = TablaDocumentosPendienteEmpresa
-        gridSubirDocumentosEmpresa.DataBind()
-
-
+                gridSubirDocumentosEmpresa.DataSource = TablaDocumentosPendienteEmpresa
+                gridSubirDocumentosEmpresa.DataBind()
+            Else
+                sinDocumentos.Visible = True
+            End If
+        End If
 
     End Sub
+
+
     Protected Sub validarContratista()
 
         Dim contratista As clsContratista = Session("contratistaEntrante")
         If (contratista Is Nothing) Then
-            Response.Redirect("../login.aspx")
+            Response.Redirect("../../login.aspx")
         Else
             Dim menu As New clsMenu
-            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,2", "C")
+            Dim acceso As String = menu.validarAcceso(contratista.getRut, "61,1", "C")
 
             If acceso = "I" Or acceso Is Nothing Then
-                Response.Redirect("../401.aspx")
+                Response.Redirect("../../401.aspx")
             End If
         End If
 
@@ -97,6 +108,7 @@
             Dim idArea As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(5).Text
             Dim nombreArchivo As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(0).Text
             Dim rutEmpresa As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(7).Text
+            Dim periodo As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(9).Text
 
             Dim archivo As HtmlInputFile
             archivo = gridSubirDocumentosEmpresa.Rows(pos).FindControl("fileArchivo")
@@ -104,19 +116,73 @@
             'Si encuentra el archivo subido lo guarda en la ruta especifica
             If archivo.PostedFile.FileName <> "" Then
 
-                My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/"))
-                Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
-                archivo.PostedFile.SaveAs(ruta)
-                Dim documento = New clsDocumento()
+                If gridSubirDocumentosEmpresa.Rows(pos).Cells(8).Text = "" Or gridSubirDocumentosEmpresa.Rows(pos).Cells(8).Text = "&nbsp;" Then
 
-                documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
-                Response.Redirect(HttpContext.Current.Request.Url.ToString)
+                    'Si el contratista no ha subido un archivo anteriormente 
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/"))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    archivo.PostedFile.SaveAs(ruta)
+                    Dim documento = New clsDocumento()
+
+                    documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                Else
+                    'Si el contratista subio un documento previamente, se elimina y se sube el nuevo archivo.
+                    My.Computer.FileSystem.DeleteFile(gridSubirDocumentosEmpresa.Rows(pos).Cells(8).Text)
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/"))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/documentos Empresa/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    archivo.PostedFile.SaveAs(ruta)
+                    Dim documento = New clsDocumento()
+
+                    documento.cambiarEstadoDocumento(idCarpeta, idArea, idDocumento, "enviado", ruta)
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
+                End If
+
 
 
             End If
 
         End If
 
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim idArea As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(5).Text
+            Dim idDocumento As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(4).Text
+            Dim idCarpeta As Integer = gridSubirDocumentosEmpresa.Rows(pos).Cells(3).Text
+
+            Session("areaId") = idArea
+            Session("documentoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("rutUsuario") = Session("contratistaEntrante").getRut
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../verComentarios.aspx")
+
+        End If
+
+    End Sub
+
+    Protected Sub gridSubirDocumentosEmpresa_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridSubirDocumentosEmpresa.RowDataBound
+
+        If e.Row.Cells(2).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+        If e.Row.Cells(2).Text = "pendiente" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 240, 240)
+
+        End If
+
+        If e.Row.Cells(2).Text = "enviado" Then
+
+            e.Row.BackColor = Color.FromArgb(255, 252, 231)
+
+        End If
     End Sub
 
 End Class

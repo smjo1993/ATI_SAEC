@@ -39,4 +39,13 @@ Partial Public Class subirDocumentosEmpresa
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridSubirDocumentosEmpresa As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocumentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

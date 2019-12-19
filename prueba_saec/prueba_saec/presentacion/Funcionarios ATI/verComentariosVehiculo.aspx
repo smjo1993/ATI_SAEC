@@ -1,9 +1,8 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verEmpresas.aspx.vb" Inherits="prueba_saec.WebForm1" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verComentariosVehiculo.aspx.vb" Inherits="prueba_saec.verComentariosVehiculo" %>
 
 <!DOCTYPE html>
 
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
     <meta charset="utf-8">
@@ -12,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Empresas - SAEC</title>
+    <title>Comentarios - SAEC</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,7 +45,7 @@
 
                     <%--<i class="fas fa-laugh-wink"></i>--%>
 
-                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
@@ -69,16 +68,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -162,97 +161,52 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <div class="row">
-                                <div class="col-6">
-                                    <h4 class="m-0 font-weight text-primary">Empresas</h4>
-                                </div>
-                                <div class="col-6">
-                                    <a href="crearEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">
-                                        <i class="far fa-plus-square"></i>
-                                        Nueva Empresa
-                                    </a>
-                                </div>
-                            </div>
+                            <h5 class="m-0 font-weight-bold text-primary">Comentarios</h5>
+                            <asp:Label ID="lblDocumento" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
                         </div>
                         <div class="card-body">
+
+                            <div class="container-fluid">
+                                <!-- Card de cada comentario -->
+                                <asp:Label runat="server" ID="lblTarjetaComentario" Text=""></asp:Label>
+                                <!-- ---------------------------------------- -->
+                                <label id="lblPrueba" runat="server" class="col-12" text=""></label>
+
+                            </div>
+
                             <form id="documentos" runat="server">
-                                <div>
-                                    <asp:GridView ID="gridEmpresas" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
-                                        <Columns>
-                                            <asp:BoundField DataField="razonSocial" HeaderText="Razón Social" />
-                                            <asp:BoundField DataField="rut" HeaderText="Rut" />
-                                            <asp:BoundField DataField="giro" HeaderText="Giro" />
-                                            <asp:BoundField DataField="personaContacto" HeaderText="Contacto" />
-                                            <asp:BoundField DataField="correo" HeaderText="Correo" />
-                                            <asp:BoundField DataField="celular" HeaderText="Celular" />
-                                            <asp:TemplateField HeaderText="Edición">
-                                                <ItemTemplate>
-                                                    <asp:ImageButton
-                                                        ID="btnVer"
-                                                        ImageUrl="../../img/file.png"
-                                                        CommandName="Ver"
-                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                        runat="server" />
-                                                </ItemTemplate>
-                                                <HeaderStyle HorizontalAlign="Center" />
-                                                <ItemStyle HorizontalAlign="Center" />
-                                            </asp:TemplateField>
-                                        </Columns>
-                                    </asp:GridView>
+                                <div runat="server" id="seccionIngresarComentario">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div <%--class="col-sm-4"--%>>
+                                                <textarea id="TxtAreaNuevoComentario" class="col-12" rows="3" runat="server"></textarea>
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-end">
+                                                        <div class="col-11"></div>
+                                                        <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="btn btn-success btn-user ml-auto" />
+                                                        &nbsp;
+                                                        <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-success btn-user ml-auto" />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                                    <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span></span>
-                    </div>
-                </div>
-            </footer>
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- /.container-fluid -->
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -269,7 +223,5 @@
 
     <!-- Page level custom scripts -->
     <script src="../../js/demo/datatables-demo.js"></script>
-
 </body>
-
 </html>

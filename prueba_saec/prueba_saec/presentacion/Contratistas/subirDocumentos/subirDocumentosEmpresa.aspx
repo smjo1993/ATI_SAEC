@@ -12,6 +12,8 @@
     <link href="../../../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../../../css/checkbox.css" rel="stylesheet">
 </head>
+
+  
 <body>
     <div id="wrapper">
 
@@ -47,18 +49,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -148,49 +150,77 @@
                         <%-- EMPRESA --%>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
+
+
+
+                                                                                        <div class="row">
+                                        <div class="col-4">
+                                                                            <h4 class="m-0 font-weight text-primary">EMPRESA</h4>
+                                        </div>
+                                                                                            <div class="col-4"></div>
+                                        <div class="col-4" >
+                                        <a href="listarVehiculos.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Vehiculos                                 
+                                        </a>
+                                       <a href="listarTrabajadores.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Trabajador                                                 
+                                        </a>
+
+
+                                        </div>
+                                    </div>
+
                             </div>
                             <div class="card-body">
                                 <asp:GridView ID="gridSubirDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                     <Columns>
 
-                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="rutEmp" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                        <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                        <asp:BoundField DataField="periodo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:TemplateField HeaderText="Buscar">
-
                                             <ItemTemplate>
-
-                                                <div class="form-group">
-                                                    <input type="file" class="form-control-file" id="fileArchivo" runat="server" />
-                                                </div>
-
-
+                                                                                             
+                                                    <input type="file" class="form-control-file" id="fileArchivo" name="fileArchivo" runat="server" /> 
+                                                    
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="COMENTARIOS">
+                                        <asp:TemplateField HeaderText="Opciones">
                                             <ItemTemplate>
-                                                <asp:Button ID="Button1" runat="server" Text="Button" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="CONFIRMAR">
-                                            <ItemTemplate>
-                                                <asp:Button ID="btnSubir"
-                                                    CssClass="button primary" CommandName="subir"
+                                                <asp:ImageButton
+                                                        ID="btnSubir"
+                                                        ImageUrl="../../../img/upload.png"
+                                                        ToolTip="Subir archivo"
+                                                        CommandName="subir"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server"
+                                                        Text="Subir" />
+                                                &nbsp
+                                                <asp:ImageButton
+                                                    ID="btnVerComentarios"
+                                                    ImageUrl="../../../img/chat.png"
+                                                    ToolTip="Ver Comentarios"
+                                                    CommandName="verComentarios"
+                                                    OnClientClick=""
                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                    runat="server"
-                                                    Text="Subir" />
+                                                    runat="server" />
+
                                             </ItemTemplate>
+                                            <HeaderStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
+                                                                        <div runat="server" id="sinDocumentos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para subir</h1>
+                                        </div>
                             </div>
+                              <div class="card-footer"></div>    
                         </div>
                                         </form>
                     </div>
@@ -211,7 +241,8 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-
+    <script>
+</script>
     <!-- Bootstrap core JavaScript-->
     <script src="../../../../vendor/jquery/jquery.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

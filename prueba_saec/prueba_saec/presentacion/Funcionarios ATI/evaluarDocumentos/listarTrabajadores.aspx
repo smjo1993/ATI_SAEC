@@ -23,9 +23,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon">
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -47,18 +48,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -148,7 +149,17 @@
 
                  <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
+                                                    <div class="row">
+                                    <div class="col-4">
+                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6> 
+                                    </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+
+                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="Label"  style="float: right;"></asp:Label>
+                                                                                <asp:Label ID="lblDocumentosEmpresa" runat="server" Text="Label"  style="float: right;"></asp:Label>
+                                    </div>
+                                </div>
                 </div>
                 <div class="card-body">
                     
@@ -156,11 +167,11 @@
                                     <asp:GridView ID="gridListarTrabajadoresParaEvaluar" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         
                                         <Columns>
-                                            <asp:BoundField DataField="rut" HeaderText="RUT"  />
-                                            <asp:BoundField DataField="nombre" HeaderText="NOMBRE" />
+                                            <asp:BoundField DataField="rut" HeaderText="Rut"  />
+                                            <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                             <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                             <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                            <asp:TemplateField HeaderText="IR" HeaderStyle-HorizontalAlign="Center" >
+                                            <asp:TemplateField HeaderText="Ir" HeaderStyle-HorizontalAlign="Center" >
 
                                                 <ItemTemplate>
                                                     <asp:ImageButton
@@ -178,10 +189,12 @@
                                         </Columns>
 
                                     </asp:GridView>
-
+                                                                                <div runat="server" id="sinTrabajadores">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Trabajadores en el sistema</h1>
+                                        </div>
                                 
                 </div>
-
+                         <div class="card-footer"></div>    
             </div>
 </form>
                 </div>
@@ -189,7 +202,13 @@
 
             </div>
             <!-- End of Main Content -->
-
+                        <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Content Wrapper -->
 

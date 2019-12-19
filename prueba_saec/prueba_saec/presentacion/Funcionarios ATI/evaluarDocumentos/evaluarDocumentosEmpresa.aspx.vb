@@ -1,11 +1,11 @@
-﻿Public Class verDocumentos
+﻿Imports System.Drawing
+Public Class verDocumentos
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMenu.Visible = False
-        'lblFilaAprobar.Visible = False
         sinDocumentos.Visible = False
-        'btnModalConfirmacion.Visible = False
+        sinDocPendientes.Visible = False
         lblMensaje.Text = ""
         If Not Page.IsPostBack Then
             validarUsuario()
@@ -32,7 +32,7 @@
     Protected Sub validarUsuario()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         If (usuario Is Nothing) Then
-            Response.Redirect("../login.aspx")
+            Response.Redirect("../../login.aspx")
         Else
             Dim menu As New clsMenu
             Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,3", "A")
@@ -69,6 +69,7 @@
         Dim data() As Byte = System.Convert.FromBase64String(nombreCodificado)
         Dim nombreDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
         lblNombreEmpresa.Text = nombreDecodificado
+        lblNombreEmpresa2.Text = nombreDecodificado
         Dim idCarpeta As Integer = decodificarId()
 
         Dim documento As New clsDocumento
@@ -84,10 +85,24 @@
                 sinDocumentos.Visible = True
             End If
         End If
+
+        Dim documentosEmpresaPendientes As DataTable = documento.documentosEmpresaPendientes(idCarpeta, Session("usuario").getArea())
+
+        If documentosEmpresaPendientes Is Nothing Then
+            sinDocPendientes.Visible = True
+        Else
+            If documentosEmpresaPendientes.Rows.Count > 0 Then
+                gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
+                gridDocumentosPendientes.DataBind()
+            Else
+                sinDocPendientes.Visible = True
+            End If
+        End If
+
     End Sub
     Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
 
-        If (e.CommandName = "ver") Then
+        If (e.CommandName = "Ver") Then
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim ruta As String = gridDocumentos.Rows(pos).Cells(6).Text
             Dim nombreArchivo As String = gridDocumentos.Rows(pos).Cells(4).Text
@@ -99,8 +114,8 @@
                 'Response.Clear()
                 'Response.ContentType = "application/pdf"
                 Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
-        'Response.WriteFile(ruta)
-        Else
+                'Response.WriteFile(ruta)
+            Else
 
                 Response.Clear()
                 Response.AddHeader("content-disposition", String.Format("attachment;filename={0}", ruta))
@@ -145,6 +160,20 @@
             documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "pendiente", "")
 
         End If
+
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = Session("usuario").getArea().ToString
+            Dim documentoId As String = gridDocumentos.Rows(pos).Cells(1).Text
+            Dim carpetaId As String = gridDocumentos.Rows(pos).Cells(0).Text
+            Session("areaId") = areaId
+            Session("documentoId") = documentoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../../Contratistas/verComentarios.aspx")
+        End If
+
         Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
     End Sub
@@ -157,5 +186,30 @@
         ExtraerExtension = ret
 
     End Function
+    Protected Sub gridDocumentos_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles gridDocumentos.RowDataBound
 
+        If e.Row.Cells(5).Text = "aprobado" Then
+
+            e.Row.BackColor = Color.FromArgb(222, 249, 241)
+
+        End If
+
+    End Sub
+
+    Protected Sub gridDocumentosPendientes_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentosPendientes.RowCommand
+
+        If (e.CommandName = "verComentarios") Then
+
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim areaId As String = Session("usuario").getArea().ToString
+            Dim documentoId As String = gridDocumentosPendientes.Rows(pos).Cells(1).Text
+            Dim carpetaId As String = gridDocumentosPendientes.Rows(pos).Cells(0).Text
+            Session("areaId") = areaId
+            Session("documentoId") = documentoId
+            Session("carpetaId") = carpetaId
+            Session("origen") = HttpContext.Current.Request.Url.ToString
+            Response.Redirect("../../Contratistas/verComentarios.aspx")
+        End If
+
+    End Sub
 End Class

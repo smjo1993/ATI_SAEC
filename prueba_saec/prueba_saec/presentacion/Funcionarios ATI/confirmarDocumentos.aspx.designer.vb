@@ -41,6 +41,15 @@ Partial Public Class confirmarDocumentos
     Protected WithEvents confirmarEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocEmpresa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control confirmarTrabajador.
     '''</summary>
     '''<remarks>
@@ -50,6 +59,15 @@ Partial Public Class confirmarDocumentos
     Protected WithEvents confirmarTrabajador As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
+    '''Control sinDocTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
     '''Control confirmarVehiculo.
     '''</summary>
     '''<remarks>
@@ -57,6 +75,15 @@ Partial Public Class confirmarDocumentos
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents confirmarVehiculo As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control btnConfirmarDocumentos.

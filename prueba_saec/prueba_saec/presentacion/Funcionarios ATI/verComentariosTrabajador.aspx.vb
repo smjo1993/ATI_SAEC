@@ -1,6 +1,6 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
-Public Class verComentarios
+Public Class verComentariosTrabajador
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -9,7 +9,6 @@ Public Class verComentarios
             cargarMenu()
             lblDocumento.Text = cargarNombreDocumento(Session("documentoId"))
         End If
-
     End Sub
 
     Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
@@ -22,25 +21,25 @@ Public Class verComentarios
         Dim accion As Boolean
         'Dim fecha As Date
         'fecha = DateTime.Now
-        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")))
+        accion = comentario.insertarComentarioTrabajador(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")), Convert.ToInt32(Session("trabajadorId")))
         If accion = True Then
-            Response.Redirect("verComentarios.aspx")
+            Response.Redirect("verComentariosTrabajador.aspx")
             lblPrueba.InnerText = "Inserción realizada con éxito"
         Else
             lblPrueba.InnerText = "La inserción ha fallado. Por favor inténtelo de nuevo"
         End If
     End Sub
 
-    Public Function listarComentarios(areaId As Integer, documentoId As Integer, carpetaArranqueId As Integer) As DataTable
+    Public Function listarComentariosTrabajador(areaId As Integer, documentoId As Integer, carpetaArranqueId As Integer, trabajadorId As Integer) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_listarComentarios '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "'"
+            Dim sql As String = "SP_SAEC_listarComentariosTrabajador '" & areaId & "' , '" & documentoId & "' , '" & carpetaArranqueId & "' , '" & trabajadorId & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
-            dbDataAdapter.Fill(ds, "listarComentarios")
+            dbDataAdapter.Fill(ds, "listarComentariosTrabajdor")
             Return ds.Tables(0)
 
         Catch ex As Exception
@@ -118,30 +117,29 @@ Public Class verComentarios
 
     End Sub
 
-    'genera el string para la generación de cards de comentarios
     Protected Sub cargarComentarios()
-
         Dim areaId As String = Session("areaId")
         Dim documentoId As String = Session("documentoId")
         Dim carpetaId As String = Session("carpetaId")
         Dim rutUsuario As String = Session("rutUsuario")
+        Dim trabajdorId As String = Session("trabajadorId")
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
         'Dim color As String
-        Dim listaComentarios As DataTable = comentario.obtenerComentarios(Session("areaId"), Session("documentoId"), Session("carpetaId"))
+        Dim listaComentariosTrabajador As DataTable = comentario.obtenerComentariosTrabajador(Session("areaId"), Session("documentoId"), Session("carpetaId"), Session("trabajadorId"))
 
         'Ordenando la lista de comentarios por fecha
         Dim datav As New DataView
-        datav = listaComentarios.DefaultView
+        datav = listaComentariosTrabajador.DefaultView
         datav.Sort = "fecha"
-        listaComentarios = datav.ToTable()
+        listaComentariosTrabajador = datav.ToTable()
 
 
         'Dim Empresas As Object = crearEmpresas()
 
         ' Ciclo for que recorre la lista de comentarios 
-        For Each fila As DataRow In listaComentarios.Rows
+        For Each fila As DataRow In listaComentariosTrabajador.Rows
 
             If fila("rutAutor") = rutUsuario Then
                 tarjeta = tarjeta & "  <div class=""row"">"
@@ -191,7 +189,6 @@ Public Class verComentarios
 
                 lblTarjetaComentario.Text = tarjeta
             End If
-
         Next
 
     End Sub
@@ -210,5 +207,4 @@ Public Class verComentarios
             Return "Documento no encontrado"
         End If
     End Function
-
 End Class

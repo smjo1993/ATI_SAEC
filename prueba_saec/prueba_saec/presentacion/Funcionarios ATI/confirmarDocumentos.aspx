@@ -192,14 +192,14 @@
                                         <asp:GridView ID="confirmarEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                             <Columns>
 
-                                                <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                 <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                <asp:TemplateField HeaderText="CONFIRMAR">
+                                                <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
+                                                <asp:TemplateField HeaderText="Confirmar">
 
                                                     <ItemTemplate>
                                                         <label class="switch ">
@@ -238,7 +238,9 @@
 
                                         </asp:GridView>
 
-
+                                                                                            <div runat="server" id="sinDocEmpresa">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                                     </div>
                         </div>
 
@@ -251,14 +253,14 @@
                                                 <asp:GridView ID="confirmarTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
 
-                                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                        <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                        <asp:TemplateField HeaderText="CONFIRMAR">
+                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
+                                                        <asp:TemplateField HeaderText="Confirmar">
 
                                                             <ItemTemplate>
                                                                 <label class="switch ">
@@ -293,6 +295,9 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                                                    <div runat="server" id="sinDocTrabajador">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                             </div>
 
                         </div>
@@ -306,14 +311,14 @@
                                                 <asp:GridView ID="confirmarVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
 
-                                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                        <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="RESPUESTA" />
-                                                        <asp:TemplateField HeaderText="CONFIRMAR">
+                                                        <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
+                                                        <asp:TemplateField HeaderText="Confirmar">
 
                                                             <ItemTemplate>
                                                                 <label class="switch ">
@@ -324,7 +329,7 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
 
-                                                        <asp:TemplateField HeaderText="COMENTARIOS">
+                                                        <asp:TemplateField HeaderText="Comentarios">
 
                                                             <ItemTemplate>
                                                                 <asp:ImageButton
@@ -348,6 +353,9 @@
                                                         </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
+                                                                                    <div runat="server" id="sinDocVehiculo">
+                                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                                    </div>
                             </div>
 
                         </div>
@@ -357,7 +365,7 @@
                                 <div class="card-footer">
 
                                     <div class="row" style="float: right;">
-                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Confirmar Documentos" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-danger btn-user" value="Confirmar Documentos" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>

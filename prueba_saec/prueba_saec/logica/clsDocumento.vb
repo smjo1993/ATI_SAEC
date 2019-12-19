@@ -422,7 +422,7 @@ Public Class clsDocumento
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "TB_SAEC_ListarDocumentosEmpresaParaRevisar '" & idCarpeta & "','" & area & "'"
+            Dim sql As String = "SP_SAEC_ListarDocumentosEmpresaParaRevisar '" & idCarpeta & "','" & area & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
@@ -442,7 +442,7 @@ Public Class clsDocumento
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "TB_SAEC_FechaExpiracionDocumento '" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & fechaExpiracion & "'"
+            Dim sql As String = "SP_SAEC_FechaExpiracionDocumento '" & idCarpeta & "','" & idArea & "','" & idDocumento & "','" & fechaExpiracion & "'"
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
@@ -457,5 +457,39 @@ Public Class clsDocumento
         End Try
     End Function
 
+    Public Function documentosEmpresaPendientes(idCarpeta As Integer, area As Integer)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosEmpresaPendientes '" & idCarpeta & "','" & area & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
 
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function obtenerNombreDocumento(idDocumento As Integer)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ObtenerNombreDocumento '" & idDocumento & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class

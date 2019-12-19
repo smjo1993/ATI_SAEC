@@ -41,22 +41,13 @@ Partial Public Class evaluarDocumentosVehiculo
     Protected WithEvents lblVehiculo As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control lblDocumentosEmpresa.
+    '''Control lblVolver.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblDocumentosEmpresa As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Control lblDocumentosTrabajdor.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblDocumentosTrabajdor As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblVolver As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control gridListarDocumentosVehiculo.
@@ -66,6 +57,15 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridListarDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocumentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control Label1.
@@ -102,4 +102,13 @@ Partial Public Class evaluarDocumentosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridDocumentosPendientes As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocPendientes.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocPendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

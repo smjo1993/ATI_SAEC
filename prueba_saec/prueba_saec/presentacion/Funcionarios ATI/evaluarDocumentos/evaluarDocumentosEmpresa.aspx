@@ -43,7 +43,7 @@
             <!-- Sidebar - Brand -->
                         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
-                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
@@ -176,8 +176,9 @@
                                         <div class="col-4">
                                         </div>
                                         <div class="col-4">
-                                            <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text=""></asp:Label>
-                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""></asp:Label>
+                                                                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""  style="float: right;"></asp:Label>      
+                                            <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text=""  style="float: right;"></asp:Label>
+                   
                                         </div>
                                     </div>
 
@@ -207,8 +208,8 @@
                                                 <asp:BoundField DataField="idCarpeta" HeaderText="Id Carpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idDocumento" HeaderText="Id Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="idArea" HeaderText="id Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="nombreArea" HeaderText="Nombre Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Área" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
@@ -254,7 +255,7 @@
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
-                                                <asp:TemplateField HeaderText="Fecha de Expiracion">
+                                                <asp:TemplateField HeaderText="Fecha de expiracion">
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                     <ItemTemplate>
@@ -267,11 +268,86 @@
 
                                         <!-- seccion que muestra si no hay documentos en estado enviado -->
                                         <div runat="server" id="sinDocumentos">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">Empresa sin Documentos para revisar</h1>
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="card-footer"></div>    
                             </div>
+
+
+
+
+                         <div class="card shadow mb-4">
+
+                                <div class="card-header py-3">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h4 class="m-0 font-weight text-primary">Documentos Pendientes:
+                                <asp:Label ID="lblNombreEmpresa2" runat="server" Text=""></asp:Label></h4>
+                                        </div>
+                                        <div class="col-4">
+                                        </div>
+                                        <div class="col-4">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+
+                                        <!-- tabla con los documentos -->
+
+                    
+
+                                        <asp:GridView ID="gridDocumentosPendientes" runat="server"
+                                            AutoGenerateColumns="False"
+                                            class="table table-bordered dataTable"
+                                            Width="100%"
+                                            CellSpacing="0"
+                                            role="grid"
+                                            aria-describedby="dataTable_info"
+                                            Style="width: 100%;">
+                                            <Columns>
+                                                <asp:BoundField DataField="idCarpeta" HeaderText="Id Carpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idDocumento" HeaderText="Id Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="idArea" HeaderText="id Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreArea" HeaderText="Nombre Area" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
+                                                <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
+                                                <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:TemplateField HeaderText="Comentarios">
+                                                    <ItemTemplate>
+                                                        <asp:ImageButton
+                                                            ID="btnVerComentarios"
+                                                            ImageUrl="../../../img/chat.png"
+                                                            ToolTip="Ver Comentarios"
+                                                            CommandName="verComentarios"
+                                                            OnClientClick=""
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
+                                                        </ItemTemplate>
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                </asp:TemplateField>
+
+
+                                            </Columns>
+
+                                        </asp:GridView>
+
+                                        <!-- seccion que muestra si no hay documentos en estado enviado -->
+                                        <div runat="server" id="sinDocPendientes">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="card-footer"></div>    
+                            </div>
+
+
+
+
                         </div>
                     </form>
                 </div>

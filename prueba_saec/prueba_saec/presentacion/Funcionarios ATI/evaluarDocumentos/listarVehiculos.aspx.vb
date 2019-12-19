@@ -2,19 +2,45 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        sinVehiculos.Visible = False
         If IsPostBack Then
             Return
         End If
 
         cargarMenu()
+        cargarBotones()
         Dim vehiculos = New clsVehiculo()
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
         Dim TablaVehiculos As DataTable = vehiculos.listarVehiculosParaEvaluar(idCarpeta, idArea)
         'Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
-        gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
-        gridListarVehiculosParaEvaluar.DataBind()
 
+
+        If TablaVehiculos Is Nothing Then
+            sinVehiculos.Visible = True
+        Else
+            If TablaVehiculos.Rows.Count > 0 Then
+                gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
+                gridListarVehiculosParaEvaluar.DataBind()
+            Else
+                sinVehiculos.Visible = True
+            End If
+        End If
+
+    End Sub
+    Protected Sub cargarBotones()
+        Dim boton As String
+        Dim texto As String = "Documentos Trabajador"
+        Dim idCodificada As String = Request.QueryString("i").ToString()
+        Dim nombreCodificado As String = Request.QueryString("n").ToString()
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosTrabajdor.Text = boton
+        texto = "Documentos Empresa"
+        boton = ""
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<i class=""""></i>" + texto + "</a>"
+        lblDocumentosEmpresa.Text = boton
     End Sub
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")

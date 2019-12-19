@@ -18,6 +18,7 @@ Public Class verComentarios_
 
             cargarComentarios()
             cargarMenu()
+            lblDocumento.Text = cargarNombreDocumento(Session("documentoId"))
         End If
     End Sub
 
@@ -33,7 +34,7 @@ Public Class verComentarios_
         Dim accion As Boolean
         'Dim fecha As Date
         'fecha = DateTime.Now
-        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("docuemntoId")), Convert.ToInt32(Session("carpetaId")))
+        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")))
         If accion = True Then
             Response.Redirect("verComentarios_.aspx")
             lblPrueba.InnerText = "Inserción realizada con éxito"
@@ -133,8 +134,8 @@ Public Class verComentarios_
         Dim idDocCodificado As String = Request.QueryString("i").ToString()
         Dim data() As Byte = System.Convert.FromBase64String(idDocCodificado)
         Dim idDocDecodificado As String = System.Text.ASCIIEncoding.ASCII.GetString(data)
-        Dim docuemntoId As Integer = Convert.ToInt32(idDocDecodificado)
-        Return docuemntoId
+        Dim documentoId As Integer = Convert.ToInt32(idDocDecodificado)
+        Return documentoId
     End Function
 
     Protected Function decodificarIdArea() As Integer
@@ -197,7 +198,7 @@ Public Class verComentarios_
     Protected Sub cargarComentarios()
 
         Dim areaId As String = decodificarIdArea()
-        Dim docuemntoId As String = decodificarIdDocumento()
+        Dim documentoId As String = decodificarIdDocumento()
         Dim carpetaId As String = decodificarIdCarpeta()
         Dim rutUsuario As String = decodificarRutAutor()
         Dim tipo As String = decodificarTipo()
@@ -285,5 +286,20 @@ Public Class verComentarios_
 
 
     End Sub
+
+    Protected Function cargarNombreDocumento(documentoId As Integer) As String
+        Dim documento As New clsDocumento
+        Dim nombre As String
+        Dim dt As DataTable
+        Dim dr As DataRow
+        dt = documento.obtenerNombreDocumento(documentoId)
+        If dt.Rows.Count > 0 Then
+            dr = dt.Rows.Item(0)
+            nombre = dr("nombre")
+            Return nombre
+        Else
+            Return "Documento no encontrado"
+        End If
+    End Function
 
 End Class

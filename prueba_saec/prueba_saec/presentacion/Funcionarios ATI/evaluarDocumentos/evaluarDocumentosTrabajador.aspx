@@ -19,9 +19,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                <div class="sidebar-brand-icon">
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -43,18 +44,18 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                    <%--          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
-          </button>--%>
+          </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a>--%>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                             </div>
@@ -138,10 +139,10 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <form id="form15" runat="server" class="md-form">
+
 
                     <div class="container-fluid">
-
+                                        <form id="form15" runat="server" class="md-form">
 
                         <%-- TRABAJADOR --%>
                         <div class="card shadow mb-4">
@@ -153,8 +154,7 @@
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
-                                        <asp:Label ID="lblDocumentosEmpresa" runat="server" Text="Label"></asp:Label>
-                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="Label"></asp:Label>
+<asp:Label ID="lblVolver" runat="server" Text="Label"  style="float: right;"></asp:Label>
                                     </div>
                                 </div>
 
@@ -175,9 +175,9 @@
 
                                         <asp:BoundField DataField="rutTrabajador" HeaderText="RUT" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="nombreTrabajador" HeaderText="NOMBRE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                        <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
-                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                        <asp:BoundField DataField="nombreArea" HeaderText="Área" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
@@ -278,7 +278,7 @@
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Fecha de Expiracion">
+                                        <asp:TemplateField HeaderText="Fecha de Expiración">
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
@@ -291,9 +291,12 @@
                                     </Columns>
 
                                 </asp:GridView>
-
+                                                                        <div runat="server" id="sinDocumentos">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
+                                        </div>
 
                             </div>
+                                <div class="card-footer"></div>    
                         </div>
 
                          <div class="card shadow mb-4">
@@ -327,8 +330,8 @@
 
                                         <asp:BoundField DataField="rutTrabajador" HeaderText="RUT" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="nombreTrabajador" HeaderText="NOMBRE" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                        <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
+                                        <asp:BoundField DataField="estado" HeaderText="Estado" />
                                         <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
@@ -336,7 +339,7 @@
                                         <asp:BoundField DataField="idTrabajador" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
-                                        <asp:TemplateField HeaderText="COMENTARIOS">
+                                        <asp:TemplateField HeaderText="Comentarios">
 
                                             <ItemTemplate>
                                                  <asp:ImageButton
@@ -354,13 +357,26 @@
                                     </Columns>
 
                                 </asp:GridView>
-
+                                                                        <div runat="server" id="sinDocPendientes">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
+                                        </div>
 
                             </div>
+                                 <div class="card-footer"></div>    
                         </div>
+                                    </form>
                     </div>
             </div>
-            </form>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        </div>
+    
                   <!-- Bootstrap core JavaScript-->
             <script src="../../../../vendor/jquery/jquery.min.js"></script>
             <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
