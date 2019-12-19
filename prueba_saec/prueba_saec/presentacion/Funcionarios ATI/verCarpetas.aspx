@@ -135,8 +135,8 @@
                         <%--<div class="topbar-divider d-none d-sm-block"></div>--%>
 
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <!-- Dropdown - User Information -->
+                        <%--<li class="nav-item dropdown no-arrow">
+                           
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -155,6 +155,26 @@
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                            </div>
+                        </li>--%>
+
+                        <li class="nav-item dropdown no-arrow mx-1">
+
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <i class="fas fa-envelope fa-fw"></i>
+
+                                <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
+                            </a>
+                            
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">Comentarios
+                                </h6>
+
+                                <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
+
+                                
+                                <%--<a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>--%>
                             </div>
                         </li>
 
