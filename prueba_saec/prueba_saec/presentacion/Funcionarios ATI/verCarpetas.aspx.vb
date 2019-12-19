@@ -167,9 +167,9 @@
                 Dim idNotificacion As Integer = fila("idNotificacion")
                 Dim idComentario As Integer = fila("idComentario")
                 Dim tipo As String = fila("tipo")
-
                 Dim rutDestinatario As String = fila("rutDestinatario")
                 Dim rutAutor As String = fila("rutAutor")
+                Dim idItem As Integer = fila("idItem")
 
                 Session("origen") = HttpContext.Current.Request.Url.ToString
 
@@ -197,8 +197,11 @@
                 Dim tipoCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(tipo)
                 Dim tipoCodificado As String = System.Convert.ToBase64String(tipoCodificadoBase64)
 
+                Dim idItemCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idItem)
+                Dim idItemCodificado As String = System.Convert.ToBase64String(idItemCodificadoBase64)
 
-                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+
+                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
                 tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
                 tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
                 tarjeta = tarjeta & "       </div> "
