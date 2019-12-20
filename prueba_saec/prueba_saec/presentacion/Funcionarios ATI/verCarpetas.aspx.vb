@@ -28,6 +28,8 @@
             End If
         End If
 
+        LblNombreUsuario.Text = usuario.getNombre().ToString()
+
     End Sub
 
     Protected Sub cargarMenu()
