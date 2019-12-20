@@ -125,6 +125,7 @@ Public Class verComentariosTrabajador
         Dim trabajdorId As String = Session("trabajadorId")
 
         Dim comentario As New clsComentario
+        Dim notificacion As New clsNotificacion
         Dim tarjeta As String = ""
         'Dim color As String
         Dim listaComentariosTrabajador As DataTable = comentario.obtenerComentariosTrabajador(Session("areaId"), Session("documentoId"), Session("carpetaId"), Session("trabajadorId"))
@@ -189,6 +190,7 @@ Public Class verComentariosTrabajador
 
                 lblTarjetaComentario.Text = tarjeta
             End If
+            notificacion.actualizarEstado(carpetaId, areaId, documentoId, "Trabajador", rutUsuario)
         Next
 
     End Sub

@@ -57,17 +57,21 @@ Public Class clsNotificacion
         End Try
     End Function
 
-    Public Function actualizarEstado(idComentario As Integer, tipo As String) As DataTable
+    Public Function actualizarEstado(carpetaId As Integer,
+                                     areaId As Integer,
+                                     documentoId As Integer,
+                                     tipo As String,
+                                     rutUsuario As String) As Boolean
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
             Dim ds As New DataSet()
-            Dim sql As String = "SP_SAEC_actualizarEstadoNotificacion '" & idComentario & "' , '" & tipo & "'"
+            Dim sql As String = "SP_SAEC_actualizarEstadoNotificacion '" & carpetaId & "' , '" & areaId & "' , '" & documentoId & "' , '" & tipo & "' , '" & rutUsuario & "'"
 
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds, "actualizarEstado")
-            Return ds.Tables(0)
+            Return True
 
         Catch ex As Exception
             Return Nothing

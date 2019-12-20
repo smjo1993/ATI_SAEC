@@ -9,7 +9,7 @@ Public Class verComentarios_
 
         If Not Page.IsPostBack Then
 
-            notificacion.actualizarEstado(decodificarIdComentario(), decodificarTipo())
+
             If decodificarTipo() = "Empresa" Then
                 cargarComentariosEmpresa()
             End If
@@ -37,11 +37,25 @@ Public Class verComentarios_
         'Aquí va el la inserción a la BD del comentario
         Dim comentario As New clsComentario
         Dim accion As Boolean
+        Dim tipo As String = decodificarTipo()
+        Dim idItem As Integer = decodificarIdItem()
+
+        Dim areaId As Integer = decodificarIdArea()
+        Dim documentoId As Integer = decodificarIdDocumento()
+        Dim carpetaId As Integer = decodificarIdCarpeta()
+
         'Dim fecha As Date
         'fecha = DateTime.Now
-        accion = comentario.insertarComentario(Session("rutUsuario"), TxtAreaNuevoComentario.Value, Convert.ToInt32(Session("areaId")), Convert.ToInt32(Session("documentoId")), Convert.ToInt32(Session("carpetaId")))
+        If tipo = "Empresa" Then
+            accion = comentario.insertarComentario(Session("usuario").getRut(), TxtAreaNuevoComentario.Value, areaId, documentoId, carpetaId)
+        ElseIf tipo = "Trabajador" Then
+            accion = comentario.insertarComentarioTrabajador(Session("usuario").getRut(), TxtAreaNuevoComentario.Value, areaId, documentoId, carpetaId, idItem)
+        ElseIf tipo = "Vehiculo" Then
+            accion = comentario.insertarComentarioVehiculo(Session("usuario").getRut(), TxtAreaNuevoComentario.Value, areaId, documentoId, carpetaId, idItem)
+        End If
+
         If accion = True Then
-            Response.Redirect("verComentarios_.aspx")
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
             lblPrueba.InnerText = "Inserción realizada con éxito"
         Else
             lblPrueba.InnerText = "La inserción ha fallado. Por favor inténtelo de nuevo"
@@ -209,14 +223,15 @@ Public Class verComentarios_
     'genera el string para la generación de cards de comentarios
     Protected Sub cargarComentariosEmpresa()
 
-        Dim areaId As String = decodificarIdArea()
-        Dim documentoId As String = decodificarIdDocumento()
-        Dim carpetaId As String = decodificarIdCarpeta()
-        Dim rutUsuario As String = decodificarRutAutor()
+        Dim areaId As Integer = decodificarIdArea()
+        Dim documentoId As Integer = decodificarIdDocumento()
+        Dim carpetaId As Integer = decodificarIdCarpeta()
         Dim tipo As String = decodificarTipo()
-        'Dim rutUsuario As String = decodificarRutDestinatario()
+
+        Dim rutUsuario As String = Session("usuario").getRut()
 
         Dim idNotificacion As Integer = decodificarIdNotificacion()
+        Dim notificacion As New clsNotificacion
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
@@ -238,12 +253,10 @@ Public Class verComentarios_
                 Dim nombre As String
                 Dim rol As String
                 Dim mensaje As String
-                'Dim idComentario As Integer
 
                 nombre = obtenerNombreAutor(fila("rutAutor"))
                 rol = obtenerRolAutor(fila("rutAutor"))
                 mensaje = fila("texto")
-                'idComentario = fila("id")
 
                 tarjeta = tarjeta & "  <div class=""row"">"
                 tarjeta = tarjeta & "   <div class=""col-2""></div>"
@@ -263,8 +276,6 @@ Public Class verComentarios_
                 tarjeta = tarjeta & "    </div> "
 
                 lblTarjetaComentario.Text = tarjeta
-
-                'notificacion.actualizarEstado(fila("id"))
 
             Else
                 tarjeta = tarjeta & "  <div class=""col-10"">"
@@ -289,9 +300,9 @@ Public Class verComentarios_
 
                 lblTarjetaComentario.Text = tarjeta
 
-                'notificacion.actualizarEstado(fila("id"))
-
             End If
+
+            notificacion.actualizarEstado(carpetaId, areaId, documentoId, "Empresa", rutUsuario)
 
         Next
 
@@ -299,13 +310,14 @@ Public Class verComentarios_
 
     Protected Sub cargarComentariosTrabajador()
 
-        Dim areaId As String = decodificarIdArea()
-        Dim documentoId As String = decodificarIdDocumento()
-        Dim carpetaId As String = decodificarIdCarpeta()
-        Dim rutUsuario As String = decodificarRutAutor()
+        Dim areaId As Integer = decodificarIdArea()
+        Dim documentoId As Integer = decodificarIdDocumento()
+        Dim carpetaId As Integer = decodificarIdCarpeta()
+        Dim rutUsuario As String = Session("usuario").getRut()
         Dim tipo As String = decodificarTipo()
         Dim idTrabajador As Integer = decodificarIdItem()
 
+        Dim notificacion As New clsNotificacion
         Dim idNotificacion As Integer = decodificarIdNotificacion()
 
         Dim comentario As New clsComentario
@@ -379,23 +391,24 @@ Public Class verComentarios_
 
                 lblTarjetaComentario.Text = tarjeta
 
-                'notificacion.actualizarEstado(fila("id"))
+
 
             End If
-
+            notificacion.actualizarEstado(carpetaId, areaId, documentoId, "Trabajador", rutUsuario)
         Next
     End Sub
     Protected Sub cargarComentariosVehiculo()
 
-        Dim areaId As String = decodificarIdArea()
-        Dim documentoId As String = decodificarIdDocumento()
-        Dim carpetaId As String = decodificarIdCarpeta()
-        Dim rutUsuario As String = decodificarRutAutor()
+        Dim areaId As Integer = decodificarIdArea()
+        Dim documentoId As Integer = decodificarIdDocumento()
+        Dim carpetaId As Integer = decodificarIdCarpeta()
+        Dim rutUsuario As String = Session("usuario").getRut()
         Dim tipo As String = decodificarTipo()
         Dim idVehiculo As Integer = decodificarIdItem()
         'Dim rutUsuario As String = decodificarRutDestinatario()
 
         Dim idNotificacion As Integer = decodificarIdNotificacion()
+        Dim notificacion As New clsNotificacion
 
         Dim comentario As New clsComentario
         Dim tarjeta As String = ""
@@ -471,6 +484,7 @@ Public Class verComentarios_
                 'notificacion.actualizarEstado(fila("id"))
 
             End If
+            notificacion.actualizarEstado(carpetaId, areaId, documentoId, "Vehiculo", rutUsuario)
 
         Next
     End Sub
