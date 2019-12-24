@@ -196,8 +196,20 @@
                                                 <ItemTemplate>
                                                     <asp:ImageButton
                                                         ID="btnVer"
-                                                        ImageUrl="../../img/file.png"
+                                                        ImageUrl="https://cdn4.iconfinder.com/data/icons/simplicio/32x32/file_edit.png"
                                                         CommandName="Ver"
+                                                        CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                        runat="server" />
+                                                </ItemTemplate>
+                                                <HeaderStyle HorizontalAlign="Center" />
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Historico">
+                                                <ItemTemplate>
+                                                    <asp:ImageButton
+                                                        ID="btnHistorico"
+                                                        ImageUrl=""
+                                                        CommandName="Historico"
                                                         CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                         runat="server" />
                                                 </ItemTemplate>

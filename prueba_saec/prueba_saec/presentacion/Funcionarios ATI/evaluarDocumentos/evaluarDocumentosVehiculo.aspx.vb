@@ -6,9 +6,11 @@ Public Class evaluarDocumentosVehiculo
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         sinDocumentos.Visible = False
         sinDocPendientes.Visible = False
+
         If IsPostBack Then
             Return
         End If
+        validarUsuario()
         cargarMenu()
         Dim vehiculo = New clsVehiculo()
         Dim idCarpeta As Integer = decodificarId()
@@ -49,6 +51,21 @@ Public Class evaluarDocumentosVehiculo
         lblVehiculo.Text = Session("patente")
         cargarBotonVolver()
 
+    End Sub
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,5", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../../401.aspx")
+            End If
+        End If
+        Dim nombreUsuario As String = Session("nombreUsuario")
+        'lblNombreUsuario.Text = nombreUsuario
     End Sub
     Protected Sub cargarBotonVolver()
         Dim boton As String

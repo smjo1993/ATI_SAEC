@@ -1,32 +1,6 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verCarpetas.aspx.vb" Inherits="prueba_saec.verCarpetas" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="carpetasAntiguas.aspx.vb" Inherits="prueba_saec.carpetasAntiguas" %>
 
 <!DOCTYPE html>
-
-<%--<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-     <!-- Custom fonts for this template -->
-    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-</head>
-<body>
-
-
-
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label runat="server" ID="lblTarjetaCarpeta" Text=""></asp:Label>
-        </div>
-    </form>
-</body>
-</html>--%>
 
 <html lang="en">
 
@@ -38,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Carpeta de arranque - SAEC</title>
+    <title>Historico Carpetas de Arranque - SAEC</title>
 
     <!-- Custom fonts for this template -->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -95,16 +69,16 @@
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Sidebar Toggle (Topbar) -->
-                              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>--%>
                             <!-- Dropdown - Messages -->
@@ -191,52 +165,51 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                        <form id="documentos" runat="server">
+                    
+                            <form id="documentos" runat="server">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h4 class="m-0 font-weight text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblNombreEmpresa" Text="Carpeta Vigente"></asp:Label></h4>
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <h4 class="m-0 font-weight text-primary" style="text-align: center;">Carpetas de Arranque Antigua</h4>
+                                </div>
+                                <div class="col-4">
+<%--                                    <a href="../Empresa/iniciarCarpetaArranque.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                        <i class="far fa-plus-square"></i>
+                                        Nueva Carpeta
+                                    </a>--%>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
 
-                        
                                 <div>
-                                    <asp:Label runat="server" ID="lblTarjetaCarpeta" Text=""></asp:Label>
-                                </div>
-
-
-                                             <div runat="server" id="sinCarpeta">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Carpeta Vigente para este año</h1>
-                                        </div>
-                           
-                        </div>
-                            <div class="card-footer"></div>    
-
-
-
-
-                    </div>
-
-                            <div class="card shadow mb-4" id="divHistorico" runat="server">
-                                                       <div class="card-header py-3">
-                            <h4 class="m-0 font-weight text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblHistorico" Text="Carpetas Antiguas"></asp:Label></h4>
-                        </div>
-                          <div class="card-body">
-                                <div>
-                                <asp:Label runat="server" ID="lblTarjetaHistorico" Text=""></asp:Label>
+                                <asp:Label runat="server" ID="lblTarjetaEmpresa" Text=""></asp:Label>
                                     </div>
 
-                           
+                                        <div runat="server" id="sinCarpeta">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">No hay registros antiguos de esta empresa</h1>
+                                        </div>
+                            
                         </div>
-                        <div class="card-footer"></div>    
-                            </div>
-
-                     </form>
+                        <div class="card-footer"></div> 
+                    </div>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span><%--Copyright &copy; SAEC, CAPSTONE 2019--%></span>
+                    </div>
+                </div>
+            </footer>
 
         </div>
         <!-- End of Content Wrapper -->
@@ -288,4 +261,3 @@
 </body>
 
 </html>
-

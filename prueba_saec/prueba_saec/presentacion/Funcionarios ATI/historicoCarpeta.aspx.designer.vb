@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verCarpetas
+Partial Public Class historicoCarpeta
     
     '''<summary>
     '''Control lblMenu.
@@ -32,56 +32,83 @@ Partial Public Class verCarpetas
     Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblNombreEmpresa.
+    '''Control seccionEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents seccionEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control lblTarjetaCarpeta.
+    '''Control gridDocumentosEmpresa.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblTarjetaCarpeta As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gridDocumentosEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control sinCarpeta.
+    '''Control sinDocumentos.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinCarpeta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control divHistorico.
+    '''Control seccionTrabajador.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents divHistorico As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents seccionTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control lblHistorico.
+    '''Control gridListarTrabajadores.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblHistorico As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gridListarTrabajadores As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control lblTarjetaHistorico.
+    '''Control sinTrabajadores.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblTarjetaHistorico As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents sinTrabajadores As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control seccionVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents seccionVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control gridListarVehiculos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gridListarVehiculos As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinVehiculos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinVehiculos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

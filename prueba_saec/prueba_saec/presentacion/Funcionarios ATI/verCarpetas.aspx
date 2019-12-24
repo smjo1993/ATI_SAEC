@@ -165,7 +165,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                      <form id="documentos" runat="server">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -182,17 +182,23 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="card-body">
 
-                            <form id="documentos" runat="server">
-
+                          
+                                <div>
                                 <asp:Label runat="server" ID="lblTarjetaEmpresa" Text=""></asp:Label>
+                                    </div>
 
-
-                            </form>
+                                                                             <div runat="server" id="sinCarpeta">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">No se han iniciado Carpetas para este periodo</h1>
+                                        </div>
+                              
+                        
                         </div>
+                          <div class="card-footer"></div> 
                     </div>
-
+                        </form>
                 </div>
                 <!-- /.container-fluid -->
 

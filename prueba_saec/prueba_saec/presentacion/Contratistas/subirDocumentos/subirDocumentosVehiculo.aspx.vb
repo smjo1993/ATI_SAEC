@@ -30,7 +30,7 @@ Public Class subirDocumentosVehiculo
         End If
 
     End Sub
-    Function cargarGrid()
+    Protected Sub cargarGrid()
         'Se pobla la grilla con los datos obtenidos anteriormente
         Dim vehiculo = New clsVehiculo()
         Dim listaDocumentosVehiculo As DataTable = vehiculo.listarDocumentosVehiculo(Session("idVehiculo"), Session("rutContratista"))
@@ -48,7 +48,7 @@ Public Class subirDocumentosVehiculo
 
 
         lblVehiculo.Text = Session("patente")
-    End Function
+    End Sub
     Protected Sub cargarMenu()
 
         Dim contratista As clsContratista = Session("contratistaEntrante")

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verEmpresas
+Partial Public Class TrabajadorHistorico1
     
     '''<summary>
     '''Control lblMenu.
@@ -23,29 +23,56 @@ Partial Public Class verEmpresas
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control documentos.
+    '''Control form15.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents form15 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblTarjetaEmpresa.
+    '''Control lblTrabajador.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblTarjetaEmpresa As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTrabajador As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control sinCarpeta.
+    '''Control lblVolver.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinCarpeta As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents lblVolver As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control lblMensaje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control gridListarDocumentosTrabajador.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gridListarDocumentosTrabajador As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocumentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocumentos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

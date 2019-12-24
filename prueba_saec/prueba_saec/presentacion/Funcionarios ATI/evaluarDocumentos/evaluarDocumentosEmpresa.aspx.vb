@@ -164,14 +164,16 @@ Public Class verDocumentos
         If (e.CommandName = "verComentarios") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim areaId As String = Session("usuario").getArea().ToString
-            Dim documentoId As String = gridDocumentos.Rows(pos).Cells(1).Text
-            Dim carpetaId As String = gridDocumentos.Rows(pos).Cells(0).Text
-            Session("areaId") = areaId
-            Session("documentoId") = documentoId
-            Session("carpetaId") = carpetaId
+            Dim idArea As Integer = gridDocumentos.Rows(pos).Cells(5).Text
+            Dim idDocumento As Integer = gridDocumentos.Rows(pos).Cells(4).Text
+            Dim idCarpeta As Integer = gridDocumentos.Rows(pos).Cells(3).Text
+
+            Session("areaId") = idArea
+            Session("documentoId") = idDocumento
+            Session("carpetaId") = idCarpeta
+            Session("rutUsuario") = Session("contratistaEntrante").getRut
             Session("origen") = HttpContext.Current.Request.Url.ToString
-            Response.Redirect("../../Contratistas/verComentarios.aspx")
+            Response.Redirect("../verComentarios.aspx")
         End If
 
         Response.Redirect(HttpContext.Current.Request.Url.ToString)

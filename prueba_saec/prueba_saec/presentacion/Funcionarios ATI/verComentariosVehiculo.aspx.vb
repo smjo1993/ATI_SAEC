@@ -5,6 +5,11 @@ Public Class verComentariosVehiculo
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
+            If Session("verComentarios") Is Nothing Then
+            ElseIf Session("verComentarios") = "I" Then
+                TxtAreaNuevoComentario.Visible = False
+                BtnAceptar.Visible = False
+            End If
             cargarComentarios()
             cargarMenu()
         End If

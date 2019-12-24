@@ -71,7 +71,15 @@
             Session("rutEmpresa") = rutEmpresa
             Response.Redirect("modificarEmpresa.aspx")
         End If
+        If (e.CommandName = "Historico") Then
 
+            Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
+            Dim rutEmpresa As String = gridEmpresas.Rows(pos).Cells(1).Text
+
+            Session("nombreEmpresa") = gridEmpresas.Rows(pos).Cells(0).Text
+            Session("rutEmpresa") = rutEmpresa
+            Response.Redirect("../Funcionarios%20ATI/carpetasAntiguas.aspx")
+        End If
 
     End Sub
 

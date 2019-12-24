@@ -6,6 +6,7 @@ Public Class evaluarDocumentosTrabajador
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         sinDocumentos.Visible = False
         sinDocPendientes.Visible = False
+        validarUsuario()
         cargarMenu()
         cargarBotonVolver()
         If IsPostBack Then
@@ -53,7 +54,21 @@ Public Class evaluarDocumentosTrabajador
 
 
     End Sub
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,4", "A")
 
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../../401.aspx")
+            End If
+        End If
+        Dim nombreUsuario As String = Session("nombreUsuario")
+        'lblNombreUsuario.Text = nombreUsuario
+    End Sub
     Protected Sub cargarBotonVolver()
         Dim boton As String
         Dim texto As String = "Volver"

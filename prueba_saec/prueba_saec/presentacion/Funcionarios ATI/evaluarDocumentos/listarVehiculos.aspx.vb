@@ -6,7 +6,7 @@
         If IsPostBack Then
             Return
         End If
-
+        validarUsuario()
         cargarMenu()
         cargarBotones()
         Dim vehiculos = New clsVehiculo()
@@ -27,6 +27,21 @@
             End If
         End If
 
+    End Sub
+    Protected Sub validarUsuario()
+        Dim usuario As clsUsuarioSAEC = Session("usuario")
+        If (usuario Is Nothing) Then
+            Response.Redirect("../../login.aspx")
+        Else
+            Dim menu As New clsMenu
+            Dim acceso As String = menu.validarAcceso(usuario.getRut, "5,5", "A")
+
+            If acceso = "I" Or acceso Is Nothing Then
+                Response.Redirect("../../401.aspx")
+            End If
+        End If
+        Dim nombreUsuario As String = Session("nombreUsuario")
+        'lblNombreUsuario.Text = nombreUsuario
     End Sub
     Protected Sub cargarBotones()
         Dim boton As String
