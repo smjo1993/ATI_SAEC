@@ -12,6 +12,7 @@ Public Class verComentariosVehiculo
             End If
             cargarComentarios()
             cargarMenu()
+            lblDocumento.Text = cargarNombreDocumento(Session("documentoId"))
         End If
     End Sub
 
@@ -129,6 +130,7 @@ Public Class verComentariosVehiculo
         Dim vehiculoId As String = Session("vehiculoId")
 
         Dim comentario As New clsComentario
+        Dim notificacion As New clsNotificacion
         Dim tarjeta As String = ""
         'Dim color As String
         Dim listaComentariosVehiculo As DataTable = comentario.obtenerComentariosVehiculo(Session("areaId"), Session("documentoId"), Session("carpetaId"), Session("vehiculoId"))
@@ -193,8 +195,24 @@ Public Class verComentariosVehiculo
 
                 lblTarjetaComentario.Text = tarjeta
             End If
+            notificacion.actualizarEstado(carpetaId, areaId, documentoId, "Vehiculo", rutUsuario)
         Next
 
     End Sub
+
+    Protected Function cargarNombreDocumento(documentoId As Integer) As String
+        Dim documento As New clsDocumento
+        Dim nombre As String
+        Dim dt As DataTable
+        Dim dr As DataRow
+        dt = documento.obtenerNombreDocumento(documentoId)
+        If dt.Rows.Count > 0 Then
+            dr = dt.Rows.Item(0)
+            nombre = dr("nombre")
+            Return nombre
+        Else
+            Return "Documento no encontrado"
+        End If
+    End Function
 
 End Class

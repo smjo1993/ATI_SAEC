@@ -168,7 +168,7 @@
 
     Protected Sub documentosEmpresa_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles documentosEmpresa.RowCommand
 
-        If (e.CommandName = "Ver") Then
+        If (e.CommandName = "verComentarios") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim areaId As String = documentosEmpresa.Rows(pos).Cells(4).Text

@@ -69,6 +69,7 @@ Public Class SubirDocumentosTrabajador
             Dim rutEmpresa As String = gridListarDocumentosTrabajador.Rows(pos).Cells(9).Text
             Dim rutTrabajador As String = gridListarDocumentosTrabajador.Rows(pos).Cells(0).Text
             Dim idTrabajador As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(10).Text
+            Dim periodo As String = gridListarDocumentosTrabajador.Rows(pos).Cells(12).Text
 
             Dim archivo As HtmlInputFile
             archivo = gridListarDocumentosTrabajador.Rows(pos).FindControl("fileArchivo")
@@ -80,8 +81,8 @@ Public Class SubirDocumentosTrabajador
                 If gridListarDocumentosTrabajador.Rows(pos).Cells(11).Text = "" Or gridListarDocumentosTrabajador.Rows(pos).Cells(11).Text = "&nbsp;" Then
 
                     'Si el contratista no ha subido un archivo anteriormente 
-                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador))
-                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/" + "/documentos trabajadores/" + rutTrabajador))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/" + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
                     archivo.PostedFile.SaveAs(ruta)
                     Dim documento = New clsDocumento()
                     documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "enviado", ruta)
@@ -90,8 +91,8 @@ Public Class SubirDocumentosTrabajador
                 Else
                     'Si el contratista subio un documento previamente, se elimina y se sube el nuevo archivo.
                     My.Computer.FileSystem.DeleteFile(gridListarDocumentosTrabajador.Rows(pos).Cells(11).Text)
-                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador))
-                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/" + "/documentos trabajadores/" + rutTrabajador))
+                    Dim ruta = Server.MapPath("/Carpetas Arranque/" + rutEmpresa + "/" + periodo + "/" + "/documentos trabajadores/" + rutTrabajador + "/" + nombreArchivo + "." + archivo.PostedFile.FileName.Split(".")(1))
                     archivo.PostedFile.SaveAs(ruta)
                     Dim documento = New clsDocumento()
                     documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "enviado", ruta)

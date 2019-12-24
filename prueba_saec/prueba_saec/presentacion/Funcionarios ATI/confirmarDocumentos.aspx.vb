@@ -216,9 +216,9 @@
         If (e.CommandName = "Ver") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
-            Dim documentoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
-            Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Dim areaId As String = confirmarTrabajador.Rows(pos).Cells(4).Text
+            Dim documentoId As String = confirmarTrabajador.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = confirmarTrabajador.Rows(pos).Cells(2).Text
             Session("areaId") = areaId
             Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId
@@ -246,9 +246,9 @@
         If (e.CommandName = "Ver") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim areaId As String = confirmarEmpresa.Rows(pos).Cells(4).Text
-            Dim documentoId As String = confirmarEmpresa.Rows(pos).Cells(3).Text
-            Dim carpetaId As String = confirmarEmpresa.Rows(pos).Cells(2).Text
+            Dim areaId As String = confirmarVehiculo.Rows(pos).Cells(4).Text
+            Dim documentoId As String = confirmarVehiculo.Rows(pos).Cells(3).Text
+            Dim carpetaId As String = confirmarVehiculo.Rows(pos).Cells(2).Text
             Session("areaId") = areaId
             Session("documentoId") = documentoId
             Session("carpetaId") = carpetaId

@@ -190,13 +190,13 @@
                                                             <asp:GridView ID="documentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                                 <Columns>
 
-                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                                    <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                                                    <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                                     <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:TemplateField HeaderText="ACEPTAR">
+                                                                    <asp:TemplateField HeaderText="Aceptar">
 
                                                                         <ItemTemplate>
                                                                             <label class="switch ">
@@ -205,14 +205,25 @@
                                                                             </label>
 
                                                                         </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
 
 
-                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
+                                                                    <asp:TemplateField HeaderText="Comentarios">
 
                                                                         <ItemTemplate>
-                                                                            <asp:Button ID="btnComentario" CssClass="button primary" CommandName="Ver" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' runat="server" Text="Comentarios" />
+                                                                            <asp:ImageButton
+                                                                                ID="btnVerComentarios"
+                                                                                ImageUrl="../../../img/chat.png"
+                                                                                ToolTip="Ver Comentarios"
+                                                                                CommandName="verComentarios"
+                                                                                OnClientClick=""
+                                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                                runat="server" />
                                                                         </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
 
@@ -239,13 +250,13 @@
                                                             <asp:GridView ID="documentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                                 <Columns>
 
-                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                                    <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                                                    <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                                     <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:TemplateField HeaderText="ACEPTAR">
+                                                                    <asp:TemplateField HeaderText="Aceptar">
 
                                                                         <ItemTemplate>
                                                                             <label class="switch ">
@@ -254,13 +265,24 @@
                                                                             </label>
 
                                                                         </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
 
-                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
+                                                                    <asp:TemplateField HeaderText="Comentarios">
 
                                                                         <ItemTemplate>
-                                                                            <asp:Button ID="Button2" runat="server" Text="Button" />
+                                                                            <asp:ImageButton
+                                                                                ID="btnVerComentarios"
+                                                                                ImageUrl="../../../img/chat.png"
+                                                                                ToolTip="Ver Comentarios"
+                                                                                CommandName="verComentarios"
+                                                                                OnClientClick=""
+                                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                                runat="server" />
                                                                         </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
 
@@ -288,13 +310,13 @@
                                                             <asp:GridView ID="documentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                                 <Columns>
 
-                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="DOCUMENTOS" />
-                                                                    <asp:BoundField DataField="nombreArea" HeaderText="ÁREA" />
+                                                                    <asp:BoundField DataField="nombreDoc" HeaderText="Documentos" />
+                                                                    <asp:BoundField DataField="nombreArea" HeaderText="Área" />
                                                                     <asp:BoundField DataField="idCarpeta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:TemplateField HeaderText="ACEPTAR">
+                                                                    <asp:TemplateField HeaderText="Aceptar">
 
                                                                         <ItemTemplate>
                                                                             <label class="switch ">
@@ -303,13 +325,24 @@
                                                                             </label>
 
                                                                         </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
                                                                     </asp:TemplateField>
 
-                                                                    <asp:TemplateField HeaderText="COMENTARIOS">
+                                                                    <asp:TemplateField HeaderText="Comentarios">
 
                                                                         <ItemTemplate>
-                                                                            <asp:Button ID="Button4" runat="server" Text="Button" />
+                                                                            <asp:ImageButton
+                                                                                ID="btnVerComentarios"
+                                                                                ImageUrl="../../../img/chat.png"
+                                                                                ToolTip="Ver Comentarios"
+                                                                                CommandName="verComentarios"
+                                                                                OnClientClick=""
+                                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                                runat="server" />
                                                                         </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
 
