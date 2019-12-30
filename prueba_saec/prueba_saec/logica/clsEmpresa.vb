@@ -290,5 +290,57 @@ Public Class clsEmpresa
 
     End Function
 
+    Public Function obtenerCarpetasHistorico(rutEmpresa As String) As DataTable
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ListarCarpetasHistorico '" & rutEmpresa & "'"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
 
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function obtenerRutEmpresa(idCarpeta As String) As String
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ObtenerRutEmpresa'" & idCarpeta & "'"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0).Rows(0).Item(0).ToString
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function obtenerIdCarpetaVigente(rutEmpresa As String) As String
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_ObtenerIdCarpetaVigente'" & rutEmpresa & "'"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0).Rows(0).Item(0).ToString
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class

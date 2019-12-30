@@ -218,5 +218,95 @@ Public Class clsVehiculo
         End Try
 
     End Function
+    Public Function listarVehiculosHistorico(rutContratista As String, idCarpeta As Integer) As DataTable
 
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarVehiculosHistorico '" & rutContratista & "','" & idCarpeta & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+
+    Public Function listarDocumentosVehiculoHistorico(idVehiculo As Integer, rutContratista As String, idCarpeta As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosVehiculoHistorico'" & idVehiculo & "','" & rutContratista & "','" & idCarpeta & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+    Public Function listarVehiculosHistorico(idCarpeta As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarVehiculosHistoricoATI '" & idCarpeta & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
+    Public Function listarDocumentosVehiculoHistorico(idVehiculo As Integer, idCarpeta As Integer) As DataTable
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosVehiculoHistoricoATI'" & idVehiculo & "','" & idCarpeta & "'"
+            con.Open()
+
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+
+            dbDataAdapter.Fill(ds)
+
+            Return ds.Tables(0)
+
+        Catch ex As Exception
+            Return Nothing
+
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
 End Class

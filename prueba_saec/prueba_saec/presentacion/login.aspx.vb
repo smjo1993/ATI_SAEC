@@ -9,6 +9,14 @@ Public Class Login
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Session("usuario") Is Nothing Then
+        Else
+            Response.Redirect("Funcionarios%20ATI/verCarpetas.aspx")
+        End If
+        If Session("contratistaEntrante") Is Nothing Then
+        Else
+            Response.Redirect("Contratistas/verCarpetas.aspx")
+        End If
         lblMensaje.Text = ""
         'txtUsuario.Text = ""
     End Sub
@@ -18,7 +26,6 @@ Public Class Login
     'End Sub
 
     Protected Sub btLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-
         Dim login As String = txtUsuario.Text
         Dim contrasenia As String = txtContrasenia.Text
 
