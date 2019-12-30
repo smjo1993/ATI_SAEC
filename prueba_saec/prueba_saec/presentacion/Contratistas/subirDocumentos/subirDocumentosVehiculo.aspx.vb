@@ -127,7 +127,7 @@ Public Class subirDocumentosVehiculo
                 Response.Redirect("../../401.aspx")
             End If
         End If
-
+        LblNombreUsuario.Text = contratista.getNombre().ToString()
     End Sub
     Protected Sub cargarGrid()
         'Se pobla la grilla con los datos obtenidos anteriormente

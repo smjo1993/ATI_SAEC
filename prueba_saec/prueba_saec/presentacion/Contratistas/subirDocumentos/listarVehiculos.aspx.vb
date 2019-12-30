@@ -142,7 +142,7 @@
                 Response.Redirect("../../401.aspx")
             End If
         End If
-
+        LblNombreUsuario.Text = contratista.getNombre().ToString()
     End Sub
 
     Protected Sub btnIrVehiculo_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarVehiculos.RowCommand

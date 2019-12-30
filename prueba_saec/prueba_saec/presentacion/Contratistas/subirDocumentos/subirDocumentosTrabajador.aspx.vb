@@ -142,7 +142,7 @@ Public Class SubirDocumentosTrabajador
                 Response.Redirect("../../401.aspx")
             End If
         End If
-
+        LblNombreUsuario.Text = contratista.getNombre().ToString()
     End Sub
 
     Protected Sub cargarMenu()
