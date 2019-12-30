@@ -373,13 +373,13 @@
 
                                     <div class="modal-footer">
                                         <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
-                                        <%--<asp:Button
-                                            ID="Button1"
+                                        <asp:Button
+                                            ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-success btn-user"
-                                            Text="Aceptar" />--%>
+                                            Text="Aceptar" />
 
-                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>
+<%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
                                     </div>
                                 </div>
                             </div>
