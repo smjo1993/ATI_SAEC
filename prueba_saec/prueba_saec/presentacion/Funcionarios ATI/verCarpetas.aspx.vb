@@ -253,4 +253,8 @@
 
     End Sub
 
+    Protected Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Session.Contents.RemoveAll()
+        Response.Redirect("../login.aspx")
+    End Sub
 End Class
