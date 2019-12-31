@@ -23,16 +23,16 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <%--            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
 
                     <%--<i class="fas fa-laugh-wink"></i>--%>
 
-            <%--                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+           <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
-            </a>--%>--%>
+            </a>
 
             <!-- Divider -->
 

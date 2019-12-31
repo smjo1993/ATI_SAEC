@@ -325,8 +325,10 @@
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-success btn-user"
-                                            Text="Aceptar" />
-
+                                            Text="Aceptar" 
+                                            CausesValidation="false"
+                                            formnovalidate="false"
+                                            />
                                     </div>
                                 </div>
                             </div>

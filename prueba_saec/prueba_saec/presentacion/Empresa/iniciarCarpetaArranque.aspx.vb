@@ -163,41 +163,41 @@
                 Dim fechaExpiracion As Date
                 Dim fechaCreacion As Date
                 Dim carpetaArranque As New clsCarpetaArranque
-                If (txtFecha.Text = "") Then
-                    Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
-                    fechaCreacion = Today
-                    Dim mes As Integer = fechaCreacion.Month
-                    If (mes = 11 Or mes = 12) Then
-                        fechaExpiracion = calcularFechaExpiracion(fechaCreacion)
-                        fechaExpiracion = fechaExpiracion.AddYears(1)
-                    Else
-                        fechaExpiracion = calcularFechaExpiracion(fechaCreacion)
-                    End If
-
-                    'fechaExpiracion = DateAdd("m", 12, Today)
-                    If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.getRut) = True) Then
-                        My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa))
-                        Response.Redirect("iniciarCarpetaArranque.aspx")
-                    Else
-                        Response.Redirect("iniciarCarpetaArranque.aspx")
-                        End If
-                    Else
-                        fechaCreacion = Today
-                    fechaExpiracion = Convert.ToDateTime(txtFecha.Text)
-                    Dim fechaLimite As Date = calcularFechaExpiracion(fechaCreacion)
-                    fechaLimite = fechaLimite.AddYears(1)
-                    If (DateTime.Compare(fechaCreacion, fechaExpiracion) = 0 Or DateTime.Compare(fechaCreacion, fechaExpiracion) > 0 Or DateTime.Compare(fechaExpiracion, fechaLimite) > 0) Then
-                        lblMensaje.Text = alerta.alerta("ALERTA", "fecha erronea")
-                    Else
-                        Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
-                        If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.getRut) = True) Then
-                            My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa))
-                            Response.Redirect("iniciarCarpetaArranque.aspx")
-                        Else
-                            Response.Redirect("iniciarCarpetaArranque.aspx")
-                        End If
-                    End If
+                'If (txtFecha.Text = "") Then
+                Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
+                fechaCreacion = Today
+                Dim mes As Integer = fechaCreacion.Month
+                If (mes = 11 Or mes = 12) Then
+                    fechaExpiracion = calcularFechaExpiracion(fechaCreacion)
+                    fechaExpiracion = fechaExpiracion.AddYears(1)
+                Else
+                    fechaExpiracion = calcularFechaExpiracion(fechaCreacion)
                 End If
+
+                'fechaExpiracion = DateAdd("m", 12, Today)
+                If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.getRut) = True) Then
+                    My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa))
+                    Response.Redirect("iniciarCarpetaArranque.aspx")
+                Else
+                    Response.Redirect("iniciarCarpetaArranque.aspx")
+                End If
+                'Else
+                '    fechaCreacion = Today
+                '    fechaExpiracion = Convert.ToDateTime(txtFecha.Text)
+                '    Dim fechaLimite As Date = calcularFechaExpiracion(fechaCreacion)
+                '    fechaLimite = fechaLimite.AddYears(1)
+                '    If (DateTime.Compare(fechaCreacion, fechaExpiracion) = 0 Or DateTime.Compare(fechaCreacion, fechaExpiracion) > 0 Or DateTime.Compare(fechaExpiracion, fechaLimite) > 0) Then
+                '        lblMensaje.Text = alerta.alerta("ALERTA", "fecha erronea")
+                '    Else
+                '        Dim descripcion As String = "Creacion de la carpeta arranque de la empresa " + dropEmpresas.SelectedItem.Text
+                '        If (carpetaArranque.insertarEmpresa(fechaExpiracion, rutEmpresa, fechaCreacion, descripcion, usuario.getRut) = True) Then
+                '            My.Computer.FileSystem.CreateDirectory(Server.MapPath("/Carpetas Arranque/" + rutEmpresa))
+                '            Response.Redirect("iniciarCarpetaArranque.aspx")
+                '        Else
+                '            Response.Redirect("iniciarCarpetaArranque.aspx")
+                '        End If
+                '    End If
+                'End If
             End If
         End If
     End Sub

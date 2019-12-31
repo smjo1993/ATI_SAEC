@@ -224,7 +224,7 @@
                                         <div class="col-1"></div>
                                     </div>
                                     <p></p>
-                                    <div class="row">
+<%--                                    <div class="row">
                                         <div class="col-1"></div>
                                         <div class="col-4">
                                             <asp:Label ID="lblFechaExpiracion" class=" font-weight-bold" runat="server" Text="expiracion de carpeta arranque :"></asp:Label>
@@ -233,7 +233,7 @@
                                             <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
                                         </div>
                                         <div class="col-1"></div>
-                                    </div>
+                                    </div>--%>
                                     <p></p>
 
                                     <p></p>

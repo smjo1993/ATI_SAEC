@@ -41,7 +41,7 @@
                 Response.Redirect("../401.aspx")
             End If
         End If
-        'LblNombreUsuario.Text = usuario.getNombre().ToString()
+        LblNombreUsuario.Text = usuario.getNombre().ToString()
     End Sub
     Protected Sub cargarMenu()
         Dim usuario As clsUsuarioSAEC = Session("usuario")
