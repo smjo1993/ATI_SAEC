@@ -226,6 +226,7 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            <div class="table-responsive-xl">
                             <form id="documentos" runat="server">
                                 <div>
                                     <asp:GridView ID="gridEmpresas" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
@@ -288,6 +289,7 @@
                             </div>
                         </div>
                             </form>
+                            </div>
                         </div>
                     </div>
                                     <footer class="sticky-footer bg-white">

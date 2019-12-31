@@ -231,7 +231,7 @@
                                                 <h6 class="font-weight-bold text-primary">Documentos Empresa</h6>
                                             </div>
                                             <div class="card-body">
-                                                <div class="table-responsive">
+                                                <div class="table-responsive-xl">
                                                     <asp:GridView ID="gridDocumentosEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                         <Columns>
                                                             <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta">
@@ -267,7 +267,7 @@
                                                 <h6 class="font-weight-bold text-primary">Documentos Trabajador</h6>
                                             </div>
                                             <div class="card-body">
-                                                <div class="table-responsive">
+                                                <div class="table-responsive-xl">
                                                     <asp:GridView ID="gridDocumentosTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                         <Columns>
                                                             <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta">
@@ -303,7 +303,7 @@
                                                 <h6 class="font-weight-bold text-primary">Documentos Vehiculo</h6>
                                             </div>
                                             <div class="card-body">
-                                                <div class="table-responsive">
+                                                <div class="table-responsive-xl">
                                                     <asp:GridView ID="gridDocumentosVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                         <Columns>
                                                             <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />

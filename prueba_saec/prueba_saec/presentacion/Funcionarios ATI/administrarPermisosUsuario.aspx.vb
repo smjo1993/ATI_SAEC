@@ -30,8 +30,9 @@
             End If
         End If
         Dim nombreUsuario As String = Session("nombreUsuario")
-        lblNombreUsuario.Text = nombreUsuario
+        lblNombreUsuarioPermiso.Text = nombreUsuario
         lblNombreUsuario.Text = usuario.getNombre().ToString()
+
     End Sub
 
     Protected Sub cargarMenu()

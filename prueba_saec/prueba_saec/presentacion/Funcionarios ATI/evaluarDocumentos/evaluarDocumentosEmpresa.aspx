@@ -228,7 +228,7 @@
 
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive-xl">
 
                                         <!-- tabla con los documentos -->
 

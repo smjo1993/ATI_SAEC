@@ -173,7 +173,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                <asp:Label ID="Label1" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
+                                <asp:Label ID="lblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
 
                                 <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
                             </a>
@@ -215,7 +215,7 @@
                             <div>
                                 <div class="card-header py-3">
                                     <h4 class="m-0 font-weight text-primary">
-                                        <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label></h4>
+                                        <asp:Label ID="lblNombreUsuarioPermiso" runat="server" Text=""></asp:Label></h4>
                                 </div>
 
                                 <div class="card-body">

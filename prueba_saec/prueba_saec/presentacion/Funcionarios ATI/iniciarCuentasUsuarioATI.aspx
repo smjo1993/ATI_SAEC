@@ -202,7 +202,7 @@
                                     <h5 class="m-0 font-weight text-primary" style="text-align: center;">Usuarios ATI</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive-xl">
                                         <div class="dataTables_wrapper dt-bootstrap4">
                                             <div>
                                                 <div class="row">

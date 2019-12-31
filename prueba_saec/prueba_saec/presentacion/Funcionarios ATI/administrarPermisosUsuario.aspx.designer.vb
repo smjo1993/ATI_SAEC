@@ -41,13 +41,13 @@ Partial Public Class administrarUsuario
     Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control Label1.
+    '''Control lblNombreUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control usuarios.
@@ -59,13 +59,13 @@ Partial Public Class administrarUsuario
     Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblNombreUsuario.
+    '''Control lblNombreUsuarioPermiso.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblNombreUsuarioPermiso As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''Control gridPermisos.

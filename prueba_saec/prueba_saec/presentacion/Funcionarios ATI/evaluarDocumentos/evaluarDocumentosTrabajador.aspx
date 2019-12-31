@@ -204,7 +204,7 @@
 
                             </div>
                             <div class="card-body">
-
+                                <div class="table-responsive-xl">
                                 <div class="row">
                                     <div class="col-lg-4"></div>
                                     <div class="col-lg-4">
@@ -338,7 +338,7 @@
                                                                         <div runat="server" id="sinDocumentos">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                         </div>
-
+                                </div>
                             </div>
                                 <div class="card-footer"></div>    
                         </div>
@@ -359,7 +359,7 @@
 
                             </div>
                             <div class="card-body">
-
+                                <div class="table-responsive-xl">
                                 <div class="row">
                                     <div class="col-lg-4"></div>
                                     <div class="col-lg-4">
@@ -404,7 +404,7 @@
                                                                         <div runat="server" id="sinDocPendientes">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
                                         </div>
-
+                                </div>
                             </div>
                                  <div class="card-footer"></div>    
                         </div>

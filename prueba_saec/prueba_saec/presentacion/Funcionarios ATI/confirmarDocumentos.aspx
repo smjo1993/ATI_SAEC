@@ -231,7 +231,7 @@
                                         <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
                                     </div>
                                     <div class="card-body">
-
+                                        <div class="table-responsive-xl">
 
                                         <asp:GridView ID="confirmarEmpresa" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                             <Columns>
@@ -285,6 +285,7 @@
                                                                                             <div runat="server" id="sinDocEmpresa">
                                                         <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                                     </div>
+                                            </div>
                                     </div>
                         </div>
 
@@ -294,6 +295,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
                             </div>
                             <div class="card-body">
+                                <div class="table-responsive-xl">
                                                 <asp:GridView ID="confirmarTrabajador" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
 
@@ -342,6 +344,7 @@
                                                                                     <div runat="server" id="sinDocTrabajador">
                                                         <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                                     </div>
+                                    </div>
                             </div>
 
                         </div>
@@ -352,6 +355,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">VEHICULO</h6>
                             </div>
                             <div class="card-body">
+                                <div class="table-responsive-xl">
                                                 <asp:GridView ID="confirmarVehiculo" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                                     <Columns>
 
@@ -401,7 +405,7 @@
                                                         <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                                     </div>
                             </div>
-
+                                </div>
                         </div>
 
                                 </div>
