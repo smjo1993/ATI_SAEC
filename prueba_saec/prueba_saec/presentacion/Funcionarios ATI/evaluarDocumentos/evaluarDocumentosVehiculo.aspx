@@ -196,8 +196,8 @@
 
                                 <div class="row">
                                     <div class="col-4">
-                                        <h6 class="m-0 font-weight-bold text-primary">PATENTE:</h6>
-                                        <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                        <h4 class="m-0 font-weight text-primary">Patente:                                        <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
@@ -346,8 +346,8 @@
 
                                 <div class="row">
                                     <div class="col-4">
-                                        <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                        <asp:Label ID="Label1" runat="server" text="Documentos pendientes del Contratista" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                        <h4 class="m-0 font-weight text-primary">                                        <asp:Label ID="Label1" runat="server" text="Documentos pendientes del Contratista" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">

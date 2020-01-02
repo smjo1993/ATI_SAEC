@@ -195,7 +195,7 @@
 
                                                     <div class="row">
                                     <div class="col-4">
-                                          <h6 class="m-0 font-weight-bold text-primary">VEHICULOS</h6>
+                                          <h4 class="m-0 font-weight text-primary">Vehiculos:</h4>
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">

@@ -228,7 +228,7 @@
                                     <div runat="server" id="seccionEmpresa">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h6 class="font-weight-bold text-primary">Documentos Empresa</h6>
+                                                <h6 class="font-weight text-primary">Documentos Empresa</h6>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive-xl">
@@ -264,7 +264,7 @@
                                     <div runat="server" id="seccionTrabajador">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h6 class="font-weight-bold text-primary">Documentos Trabajador</h6>
+                                                <h6 class="font-weight text-primary">Documentos Trabajador</h6>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive-xl">
@@ -300,7 +300,7 @@
                                     <div runat="server" id="seccionVehiculo">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h6 class="font-weight-bold text-primary">Documentos Vehiculo</h6>
+                                                <h6 class="font-weight text-primary">Documentos Vehiculo</h6>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive-xl">

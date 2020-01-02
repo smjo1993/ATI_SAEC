@@ -197,7 +197,7 @@
                             <div class="card-header py-3">
                                 <div class="row">
                                     <div class="col-2">
-                                        <h4 class="m-0 font-weight text-primary">VEHÍCULOS</h4>
+                                        <h4 class="m-0 font-weight text-primary">Vehiculos:</h4>
                                     </div>
                                     <div class="col-10">
 

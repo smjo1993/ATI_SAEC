@@ -194,7 +194,7 @@
                 <div class="card-header py-3">
                                                     <div class="row">
                                     <div class="col-4">
-                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6> 
+                                        <h4 class="m-0 font-weight text-primary">Trabajadores:</h4> 
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">

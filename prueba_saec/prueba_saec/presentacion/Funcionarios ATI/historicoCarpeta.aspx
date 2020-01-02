@@ -214,16 +214,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <div class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <h4 class="m-0 font-weight text-primary" style="text-align: center;">Documentos:</h4>
-                                </div>
-                                <div class="col-4">
-<%--                                    <a href="../Empresa/iniciarCarpetaArranque.aspx" class="btn shadow-sm btn-success" style="float: right;">
-                                        <i class="far fa-plus-square"></i>
-                                        Nueva Carpeta
-                                    </a>--%>
-                                </div>
+                                    <h4 class="m-0 font-weight text-primary" style="text-align: left;">Documentos:</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -291,7 +282,7 @@
                                                                 <div runat="server" id="seccionTrabajador">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h4 class="font-weight text-primary">Trabajadores</h4>
+                                                <h4 class="font-weight text-primary">Trabajadores:</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">
@@ -333,7 +324,7 @@
                                                                <div runat="server" id="seccionVehiculo">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h4 class="font-weight text-primary">Vehiculos</h4>
+                                                <h4 class="font-weight text-primary">Vehiculos:</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">

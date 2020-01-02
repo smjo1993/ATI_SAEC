@@ -204,7 +204,7 @@
                         <div>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h4 class="m-0 font-weight text-primary" style="text-align: center;">
+                                    <h4 class="m-0 font-weight text-primary" style="text-align: left;">
                                         <asp:Label ID="lblModulo" runat="server" Text="Crear usuario"></asp:Label></h4>
                                 </div>
                                 <div class="card-body">

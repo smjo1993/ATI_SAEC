@@ -198,14 +198,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                     <h1 class="h3 mb-4 text-gray-800">Registro de Vehículos</h1>
 
                     <form runat="server">
                         <div>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3" runat="server">
                                     <h4 class="m-0 font-weight text-primary">
-                                        <asp:Label ID="lblHeadEdicion" runat="server" Text=""></asp:Label>
+Registro de Vehículos
 
                                     </h4>
                                 </div>

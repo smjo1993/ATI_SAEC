@@ -205,8 +205,8 @@
                             <div class="card-header py-3">
                                 <div class="row">
                                     <div class="col-4">
-                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
-                                        <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                        <h4 class="m-0 font-weight text-primary">Trabajador:                                        <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">

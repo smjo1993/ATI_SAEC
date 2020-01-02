@@ -214,7 +214,7 @@
 
 
                                 <div class="card-header py-3">
-                                    <h4 class="m-0 font-weight text-primary" style="text-align: center;">Usuarios</h4>
+                                    <h4 class="m-0 font-weight text-primary" style="text-align: left;">Usuarios</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">

@@ -59,15 +59,6 @@ Partial Public Class revisarRequerimientos
     Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''Control lblNombreEmpresa.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblNombreEmpresa As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''Control documentosEmpresa.
     '''</summary>
     '''<remarks>

@@ -198,7 +198,7 @@
 
                                                                                         <div class="row">
                                         <div class="col-4">
-                                                                            <h4 class="m-0 font-weight text-primary">EMPRESA</h4>
+                                                                            <h4 class="m-0 font-weight text-primary">Empresa</h4>
                                         </div>
                                                                                             <div class="col-4"></div>
                                         <div class="col-4" >

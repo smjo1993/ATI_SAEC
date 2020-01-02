@@ -199,7 +199,7 @@
                             <div class="card shadow mb-4">
 
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight text-primary" style="text-align: center;">Usuarios ATI</h5>
+                                    <h4 class="m-0 font-weight text-primary" style="text-align: left;">Usuarios ATI</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive-xl">

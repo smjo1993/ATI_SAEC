@@ -293,7 +293,7 @@
                                     <div runat="server" id="seccionTrabajador">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h4 class="font-weight text-primary">Trabajadores</h4>
+                                                <h4 class="font-weight text-primary">Trabajadores:</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">
@@ -335,7 +335,7 @@
                                     <div runat="server" id="seccionVehiculo">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
-                                                <h4 class="font-weight text-primary">Documentos Vehiculo</h4>
+                                                <h4 class="font-weight text-primary">Vehiculos:</h4>
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive">

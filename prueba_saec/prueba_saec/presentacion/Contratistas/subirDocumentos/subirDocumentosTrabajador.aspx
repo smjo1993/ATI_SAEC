@@ -196,8 +196,8 @@
 
                                                         <div class="row">
                                         <div class="col-4">
-                    <h4 class="m-0 font-weight text-primary">TRABAJADOR:</h4>
-                    <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                    <h4 class="m-0 font-weight text-primary">Trabajador:                    <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                         </div>
                                                                                                 <div class="col-7">
                                         </div>

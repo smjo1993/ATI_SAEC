@@ -200,8 +200,8 @@
                    
                                                         <div class="row">
                                         <div class="col-4">
-                    <h4 class="m-0 font-weight text-primary">PATENTE:</h4>
-                    <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                    <h4 class="m-0 font-weight text-primary">Patente:                    <asp:Label ID="lblVehiculo" runat="server" Text="Label" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                         </div>
                                                                                                 <div class="col-7">
                                         </div>

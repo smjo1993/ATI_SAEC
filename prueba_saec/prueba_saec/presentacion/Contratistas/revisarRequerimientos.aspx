@@ -213,8 +213,9 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h4 class="m-0 font-weight text-primary" style="text-align: center;">
-                                <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h4>
+                                          <h4 class="m-0 font-weight text-primary" style="text-align: left;">DOCUMENTOS</h4>
+<%--                            <h4 class="m-0 font-weight text-primary" style="text-align: center;">
+                                <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h4>--%>
                         </div>
                         <div class="card-body">
 
@@ -226,7 +227,7 @@
                                     <%-- EMPRESA --%>
                                     <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">EMPRESA</h6>
+                                        <h6 class="m-0 font-weight text-primary">Documentos Empresa</h6>
                                         </div>
                                         <div class="card-body">
                                             
@@ -286,7 +287,7 @@
                                                                         <%-- TRABAJADOR --%>
                                     <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR</h6>
+                                <h6 class="m-0 font-weight text-primary">Documentos Trabajador</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive-xl">
@@ -346,7 +347,7 @@
                                                                         <%-- VEHICULO --%>
                                     <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">VEHICULO</h6>
+                                <h6 class="m-0 font-weight text-primary">Documentos Vehiculo</h6>
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive-xl">
