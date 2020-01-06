@@ -1,4 +1,4 @@
-﻿    <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verCarpetas.aspx.vb" Inherits="prueba_saec.verEmpresas" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verCarpetas.aspx.vb" Inherits="prueba_saec.verEmpresas" %>
 
 <!DOCTYPE html>
 
@@ -32,7 +32,7 @@
 
 <body id="page-top">
     
-    <form runat="server">
+    
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -115,7 +115,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                      <%--<form id="documentos" runat="server">--%>
+                    <form id="documentos" runat="server">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
