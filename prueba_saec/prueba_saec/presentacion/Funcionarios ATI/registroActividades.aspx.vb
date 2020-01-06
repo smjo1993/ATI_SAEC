@@ -33,7 +33,9 @@ Public Class registroActividades
 
             '    Else
 
-            '        cargarGrid()
+
+
+            cargarGrid()
 
             '    End If
 
