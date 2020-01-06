@@ -23,6 +23,33 @@ Partial Public Class iniciarCarpetaArranque
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control LblNotificacionComentarios.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control LblNotificacion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control LblNombreUsuario.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control lblEmpresa.
     '''</summary>
     '''<remarks>
@@ -39,24 +66,6 @@ Partial Public Class iniciarCarpetaArranque
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents dropEmpresas As Global.System.Web.UI.WebControls.DropDownList
-    
-    '''<summary>
-    '''Control lblFechaExpiracion.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents lblFechaExpiracion As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''Control txtFecha.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtFecha As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Control lblMensaje.
@@ -84,4 +93,13 @@ Partial Public Class iniciarCarpetaArranque
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnCrearEmpresa As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Control btnLogOut.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnLogOut As Global.System.Web.UI.WebControls.Button
 End Class

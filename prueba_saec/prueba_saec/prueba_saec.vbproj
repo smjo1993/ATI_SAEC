@@ -163,12 +163,15 @@
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\crearVehiculo.aspx" />
+    <Content Include="presentacion\Contratistas\historicoCarpetaArranque.aspx" />
     <Content Include="presentacion\Contratistas\revisarRequerimientos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\listarTrabajadores.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\listarVehiculos.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosEmpresa.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosTrabajador.aspx" />
     <Content Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx" />
+    <Content Include="presentacion\Contratistas\TrabajadorHistorico.aspx" />
+    <Content Include="presentacion\Contratistas\VehiculoHistorico.aspx" />
     <Content Include="presentacion\Contratistas\verCarpetas.aspx" />
     <Content Include="presentacion\Contratistas\verComentarios.aspx" />
     <Content Include="presentacion\Contratistas\verComentarios_.aspx" />
@@ -181,6 +184,7 @@
     <Content Include="presentacion\Funcionarios ATI\administrarPermisosUsuario.aspx" />
     <Content Include="presentacion\Funcionarios ATI\administrarUsuarios.aspx" />
     <Content Include="presentacion\Funcionarios ATI\agregarDcto.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\carpetasAntiguas.aspx" />
     <Content Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\crearCuentaSAEC.aspx" />
     <Content Include="presentacion\Funcionarios ATI\CrearListaDocumentacion.aspx" />
@@ -189,9 +193,12 @@
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarTrabajadores.aspx" />
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\listarVehiculos.aspx" />
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\verDocumento.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\historicoCarpeta.aspx" />
     <Content Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx" />
     <Content Include="presentacion\Funcionarios ATI\modificarDcto.aspx" />
     <Content Include="presentacion\Funcionarios ATI\registroActividades.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\TrabajadorHistorico.aspx" />
+    <Content Include="presentacion\Funcionarios ATI\VehiculoHistorico.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verCarpetas.aspx" />
     <Content Include="presentacion\Funcionarios ATI\evaluarDocumentos\evaluarDocumentosEmpresa.aspx" />
     <Content Include="presentacion\Funcionarios ATI\verComentariosTrabajador.aspx" />
@@ -1888,6 +1895,13 @@
       <DependentUpon>crearVehiculo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Contratistas\historicoCarpetaArranque.aspx.designer.vb">
+      <DependentUpon>historicoCarpetaArranque.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\historicoCarpetaArranque.aspx.vb">
+      <DependentUpon>historicoCarpetaArranque.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Contratistas\revisarRequerimientos.aspx.designer.vb">
       <DependentUpon>revisarRequerimientos.aspx</DependentUpon>
     </Compile>
@@ -1929,6 +1943,20 @@
     <Compile Include="presentacion\Contratistas\subirDocumentos\subirDocumentosVehiculo.aspx.vb">
       <DependentUpon>subirDocumentosVehiculo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\TrabajadorHistorico.aspx.designer.vb">
+      <DependentUpon>TrabajadorHistorico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\TrabajadorHistorico.aspx.vb">
+      <DependentUpon>TrabajadorHistorico.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\VehiculoHistorico.aspx.designer.vb">
+      <DependentUpon>VehiculoHistorico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Contratistas\VehiculoHistorico.aspx.vb">
+      <DependentUpon>VehiculoHistorico.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Contratistas\verCarpetas.aspx.designer.vb">
       <DependentUpon>verCarpetas.aspx</DependentUpon>
@@ -2014,6 +2042,13 @@
       <DependentUpon>agregarDcto.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\carpetasAntiguas.aspx.designer.vb">
+      <DependentUpon>carpetasAntiguas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\carpetasAntiguas.aspx.vb">
+      <DependentUpon>carpetasAntiguas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Funcionarios ATI\confirmarDocumentos.aspx.designer.vb">
       <DependentUpon>confirmarDocumentos.aspx</DependentUpon>
     </Compile>
@@ -2070,6 +2105,13 @@
       <DependentUpon>verDocumento.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\historicoCarpeta.aspx.designer.vb">
+      <DependentUpon>historicoCarpeta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\historicoCarpeta.aspx.vb">
+      <DependentUpon>historicoCarpeta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="presentacion\Funcionarios ATI\iniciarCuentasUsuarioATI.aspx.designer.vb">
       <DependentUpon>iniciarCuentasUsuarioATI.aspx</DependentUpon>
     </Compile>
@@ -2089,6 +2131,20 @@
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\registroActividades.aspx.vb">
       <DependentUpon>registroActividades.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\TrabajadorHistorico.aspx.designer.vb">
+      <DependentUpon>TrabajadorHistorico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\TrabajadorHistorico.aspx.vb">
+      <DependentUpon>TrabajadorHistorico.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\VehiculoHistorico.aspx.designer.vb">
+      <DependentUpon>VehiculoHistorico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="presentacion\Funcionarios ATI\VehiculoHistorico.aspx.vb">
+      <DependentUpon>VehiculoHistorico.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="presentacion\Funcionarios ATI\verCarpetas.aspx.designer.vb">

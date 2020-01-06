@@ -238,7 +238,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h4 class="m-0 font-weight text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblNombreEmpresa" Text=""></asp:Label></h4>
+                            <h4 class="m-0 font-weight text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblNombreEmpresa" Text="Carpeta Vigente"></asp:Label></h4>
                         </div>
                         <div class="card-body">
 
@@ -246,11 +246,57 @@
                                 <div>
                                     <asp:Label runat="server" ID="lblTarjetaCarpeta" Text=""></asp:Label>
                                 </div>
-     
+
+
+                                             <div runat="server" id="sinCarpeta">
+                                            <h1 class="h3 mb-4 text-gray-800 text-center">Sin Carpeta Vigente para este año</h1>
+                                        </div>
                            
                         </div>
                             <div class="card-footer"></div>    
+
+
+
+
                     </div>
+
+                            <div class="card shadow mb-4" id="divHistorico" runat="server">
+                                                       <div class="card-header py-3">
+                            <h4 class="m-0 font-weight text-primary" style="text-align: center;"> <asp:Label runat="server" ID="lblHistorico" Text="Carpetas Antiguas"></asp:Label></h4>
+                        </div>
+                          <div class="card-body">
+                                <div>
+                                <asp:Label runat="server" ID="lblTarjetaHistorico" Text=""></asp:Label>
+                                    </div>
+
+                           
+                        </div>
+                        <div class="card-footer"></div>    
+                            </div>
+                        <!-- Modal Logout-->
+                        <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="lblModalLogout">Confirmación</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">¿Desea cerrar sesión?</div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <asp:Button
+                                            ID="btnLogOut"
+                                            runat="server"
+                                            class="btn shadow-sm btn-success btn-user"
+                                            Text="Aceptar" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                      </form>
                 </div>
                 <!-- /.container-fluid -->
@@ -269,24 +315,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>

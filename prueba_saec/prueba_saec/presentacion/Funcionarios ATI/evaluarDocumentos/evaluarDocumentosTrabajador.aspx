@@ -49,22 +49,39 @@
           </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                     <!-- Topbar Navbar -->
+
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-<%--                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                        <%--<li class="nav-item dropdown no-arrow d-sm-none">
+
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>--%>
-                            <!-- Dropdown - Messages -->
+                            </a>
+                            
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </li>
+                        </li>--%>
 
-                        <!-- Nav Item - Alerts -->
+                        
+                        <%--NOTIFICACIONES ALARMAS--%>
                         <li class="nav-item dropdown no-arrow mx-1">
-
-                            <!-- Dropdown - Alerts -->
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                
+                                <span class="badge badge-danger badge-counter">2+</span>
+                            </a>
+                            
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">Alerts Center
                                 </h6>
@@ -105,15 +122,43 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
 
-                        <%--<div class="topbar-divider d-none d-sm-block"></div>--%>
+                       <%-- LISTA DE COMENTARIOS--%>
+                        <li class="nav-item dropdown no-arrow mx-1">
 
-                        <!-- Nav Item - User Information -->
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <i class="fas fa-envelope fa-fw"></i>
+
+                                <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
+                            </a>
+                            
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">Comentarios
+                                </h6>
+
+                                <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
+
+                                
+                                <%--<a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>--%>
+                            </div>
+                        </li>
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        
                         <li class="nav-item dropdown no-arrow">
-                            <!-- Dropdown - User Information -->
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <asp:Label ID="LblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
+
+                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
+                            </a>
+                            
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+
+                                <%--<a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -125,14 +170,13 @@
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
                                 </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <div class="dropdown-divider"></div>--%>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Cerrar Sesión
                                 </a>
                             </div>
                         </li>
-
                     </ul>
 
                 </nav>
@@ -149,8 +193,8 @@
                             <div class="card-header py-3">
                                 <div class="row">
                                     <div class="col-4">
-                                        <h6 class="m-0 font-weight-bold text-primary">TRABAJADOR:</h6>
-                                        <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                        <h4 class="m-0 font-weight text-primary">Trabajador:                                        <asp:Label ID="lblTrabajador" runat="server" Text="Label" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
@@ -160,7 +204,7 @@
 
                             </div>
                             <div class="card-body">
-
+                                <div class="table-responsive-xl">
                                 <div class="row">
                                     <div class="col-lg-4"></div>
                                     <div class="col-lg-4">
@@ -294,7 +338,7 @@
                                                                         <div runat="server" id="sinDocumentos">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos para revisar</h1>
                                         </div>
-
+                                </div>
                             </div>
                                 <div class="card-footer"></div>    
                         </div>
@@ -303,8 +347,8 @@
                             <div class="card-header py-3">
                                 <div class="row">
                                     <div class="col-4">
-                                        <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                       <asp:Label ID="Label1" runat="server" text="Documentos pendientes del Contratista" class="m-0 font-weight-bold text-primary"></asp:Label>
+                                        <h4 class="m-0 font-weight text-primary">                                       <asp:Label ID="Label1" runat="server" text="Documentos pendientes del Contratista" class="m-0 font-weight text-primary"></asp:Label></h4>
+
                                     </div>
                                     <div class="col-4"></div>
                                     <div class="col-4">
@@ -315,7 +359,7 @@
 
                             </div>
                             <div class="card-body">
-
+                                <div class="table-responsive-xl">
                                 <div class="row">
                                     <div class="col-lg-4"></div>
                                     <div class="col-lg-4">
@@ -360,9 +404,33 @@
                                                                         <div runat="server" id="sinDocPendientes">
                                             <h1 class="h3 mb-4 text-gray-800 text-center">Sin Documentos pendientes</h1>
                                         </div>
-
+                                </div>
                             </div>
                                  <div class="card-footer"></div>    
+                        </div>
+                        <!-- Modal Logout-->
+                        <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="lblModalLogout">Confirmación</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">¿Desea cerrar sesión?</div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <asp:Button
+                                            ID="btnLogOut"
+                                            runat="server"
+                                            class="btn shadow-sm btn-success btn-user"
+                                            Text="Aceptar" />
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                                     </form>
                     </div>

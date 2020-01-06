@@ -23,6 +23,33 @@ Partial Public Class evaluarDocumentosTrabajador
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control LblNotificacionComentarios.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control LblNotificacion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control LblNombreUsuario.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''Control form15.
     '''</summary>
     '''<remarks>
@@ -111,4 +138,13 @@ Partial Public Class evaluarDocumentosTrabajador
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents sinDocPendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control btnLogOut.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnLogOut As Global.System.Web.UI.WebControls.Button
 End Class
