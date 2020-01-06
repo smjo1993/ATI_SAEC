@@ -240,7 +240,7 @@
                                                 <ItemTemplate>
                                                     <asp:ImageButton
                                                         ID="btnVer"
-                                                        ImageUrl="../../img/file.png"
+                                                        ImageUrl="../../img/user.png"
                                                         CommandName="Ver"
                                                         CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                         runat="server" />
