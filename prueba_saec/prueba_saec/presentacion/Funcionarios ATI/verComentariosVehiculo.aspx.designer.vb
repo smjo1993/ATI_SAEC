@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class verComentariosVehiculo
-    
+
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,7 +21,34 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-    
+
+    '''<summary>
+    '''Control LblNotificacionComentarios.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control LblNotificacion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control LblNombreUsuario.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
+
     '''<summary>
     '''Control lblDocumento.
     '''</summary>
@@ -30,7 +57,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDocumento As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblTarjetaComentario.
     '''</summary>
@@ -39,7 +66,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblTarjetaComentario As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblPrueba.
     '''</summary>
@@ -48,7 +75,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblPrueba As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control documentos.
     '''</summary>
@@ -57,7 +84,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control seccionIngresarComentario.
     '''</summary>
@@ -66,7 +93,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents seccionIngresarComentario As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control TxtAreaNuevoComentario.
     '''</summary>
@@ -75,7 +102,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtAreaNuevoComentario As Global.System.Web.UI.HtmlControls.HtmlTextArea
-    
+
     '''<summary>
     '''Control BtnVolver.
     '''</summary>
@@ -84,7 +111,7 @@ Partial Public Class verComentariosVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents BtnVolver As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control BtnAceptar.
     '''</summary>
