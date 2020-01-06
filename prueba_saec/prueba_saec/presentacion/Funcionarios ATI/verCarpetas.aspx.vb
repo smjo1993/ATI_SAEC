@@ -1,4 +1,7 @@
-﻿Public Class verEmpresas
+﻿Imports System.Web.Services
+Imports System.Web.Script.Services
+
+Public Class verEmpresas
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -163,7 +166,6 @@
         Dim rutUsuario As String = usuario.getRut
         Dim tarjeta As String = ""
 
-
         Dim listaNotificaciones As Data.DataTable = notificacion.obtenerNotificaciones(rutUsuario)
 
         If listaNotificaciones.Rows.Count > 0 Then
@@ -215,8 +217,7 @@
                 Dim idItemCodificado As String = System.Convert.ToBase64String(idItemCodificadoBase64)
 
                 If rutAutor = "ati" Then
-
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../funcionarios%20ATI/verCarpetas.aspx"">"
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
                     tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
                     tarjeta = tarjeta & "           <img class=""img-profile"" src=""https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/OOjs_UI_icon_alert-warning.svg/1024px-OOjs_UI_icon_alert-warning.svg.png"" style=""height:40px;width:40px;"">"
                     tarjeta = tarjeta & "       </div> "
@@ -225,10 +226,6 @@
                     tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreEmpresa + " • " + nombreDocumento + "</div> "
                     tarjeta = tarjeta & "       </div> "
                     tarjeta = tarjeta & "   </a> "
-
-
-                    notificacion.actualizarEstadoAlarma(idCarpeta, areaComentario, idDocumento, tipo, rutUsuario)
-
 
                 Else
 
@@ -244,19 +241,12 @@
                     tarjeta = tarjeta & "   </a> "
 
                 End If
-                'contNoLeidos = contNoLeidos + 1
-                'LblNotificacionComentarios.Text = contNoLeidos.ToString()
-
-
 
                 LblNotificacion.Text = tarjeta
 
                 LblNotificacionComentarios.Text = "!"
 
                 If listaNotificaciones.Rows.Count = 5 Then
-
-                    'notificacion.actualizarEstadoAlarma(idCarpeta, areaComentario, idDocumento, tipo, rutUsuario)
-
                     Exit For
                 End If
 
@@ -280,4 +270,5 @@
         Session.Contents.RemoveAll()
         Response.Redirect("../login.aspx")
     End Sub
+
 End Class
