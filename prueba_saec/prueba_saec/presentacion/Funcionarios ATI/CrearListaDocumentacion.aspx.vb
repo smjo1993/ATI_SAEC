@@ -132,8 +132,10 @@ Public Class CrearListaDocumentacion
             chk = documentoEmpresa.FindControl("chkDocEmpresa")
             If chk.Checked = True Then 'pasan a espera
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "espera", Nothing)
+                documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, Nothing)
             Else 'sino quedan no solicitados
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "no solicitado", Nothing)
+                documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, Nothing)
             End If
         Next
 
@@ -141,8 +143,12 @@ Public Class CrearListaDocumentacion
             chk = documentoTrabajador.FindControl("chkDocTrabajador")
             If chk.Checked = True Then
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, "espera", Nothing)
+                ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, Nothing)
+
             Else
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, "no solicitado", Nothing)
+                '' documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, Nothing)
+
             End If
         Next
 
@@ -150,8 +156,10 @@ Public Class CrearListaDocumentacion
             chk = documentoVehiculo.FindControl("chkDocVehiculo")
             If chk.Checked = True Then
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, "espera", Nothing)
+                ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, Nothing)
             Else
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, "no solicitado", Nothing)
+                ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, Nothing)
             End If
         Next
         'Response.Redirect(Page.Request.Url.AbsoluteUri)

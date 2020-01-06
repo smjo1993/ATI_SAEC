@@ -431,9 +431,7 @@
                                     </div>
                                 </div>
 
-                            
-                        </div>
-                                                                                <div class="card-footer">
+                                                                                                            <div class="card-footer">
 
                                 <div class="row" style="float: right;">
                                                                                     <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Confirmar" data-toggle="modal"
@@ -441,6 +439,8 @@
                                 </div>
 
                             </div>
+                        </div>
+
                     </div>
                                                                          <!-- Modal Logout-->
                         <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
@@ -470,9 +470,7 @@
                     </form>
                 </div>
                 <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
+                        <!-- End of Main Content -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -480,6 +478,8 @@
                     </div>
                 </div>
             </footer>
+            </div>
+
         </div>
         <!-- End of Content Wrapper -->
 
