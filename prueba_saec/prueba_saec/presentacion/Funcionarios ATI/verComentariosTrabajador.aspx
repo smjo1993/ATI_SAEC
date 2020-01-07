@@ -185,11 +185,11 @@
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div <%--class="col-sm-4"--%>>
-                                                <textarea id="TxtAreaNuevoComentario" class="col-12" rows="3" runat="server"></textarea>
+                                                <textarea id="TxtAreaNuevoComentario" class="col-12" rows="3" required runat="server"></textarea>
                                                 <div class="row">
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <div class="col-11"></div>
-                                                        <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="btn btn-success btn-user ml-auto" />
+                                                        <asp:Button ID="BtnVolver" runat="server" Text="Volver" CausesValidation="false" formnovalidate="false" class="btn btn-success btn-user ml-auto" />
                                                         &nbsp;
                                                         <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-success btn-user ml-auto" />
                                                     </div>
