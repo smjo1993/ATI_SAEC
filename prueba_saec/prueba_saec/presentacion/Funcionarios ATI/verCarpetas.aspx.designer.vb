@@ -50,6 +50,15 @@ Partial Public Class verEmpresas
     Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Control documentos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents documentos As Global.System.Web.UI.HtmlControls.HtmlForm
+
+    '''<summary>
     '''Control lblTarjetaEmpresa.
     '''</summary>
     '''<remarks>

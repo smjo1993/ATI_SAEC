@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class administrarUsuario
-    
+
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control LblNotificacionComentarios.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control LblNotificacion.
     '''</summary>
@@ -39,16 +39,16 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
-    '''Control lblNombreUsuario.
+    '''Control LblNombreUsuario.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
-    
+    Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
+
     '''<summary>
     '''Control usuarios.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents usuarios As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control lblNombreUsuarioPermiso.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblNombreUsuarioPermiso As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control gridPermisos.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents gridPermisos As Global.System.Web.UI.WebControls.GridView
-    
+
     '''<summary>
     '''Control sinPermisos.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents sinPermisos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control btnModalConfirmacion.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnModalConfirmacion As Global.System.Web.UI.HtmlControls.HtmlInputButton
-    
+
     '''<summary>
     '''Control btnPermisos.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class administrarUsuario
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnPermisos As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control btnLogOut.
     '''</summary>

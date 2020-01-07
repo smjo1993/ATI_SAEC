@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class crearVehiculo
-    
+
     '''<summary>
     '''Control lblMenu.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblMenu As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control LblNotificacionComentarios.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LblNotificacionComentarios As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control LblNotificacion.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LblNotificacion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control LblNombreUsuario.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents LblNombreUsuario As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control TxtPatente.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtPatente As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Control TxtMarca.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtMarca As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Control lblAdvertencia.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblAdvertencia As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control btnRealizarRegistro.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class crearVehiculo
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnRealizarRegistro As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Control btnLogOut.
     '''</summary>
