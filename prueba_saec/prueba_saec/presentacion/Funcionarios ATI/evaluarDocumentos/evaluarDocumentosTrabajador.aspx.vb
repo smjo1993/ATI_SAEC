@@ -117,6 +117,7 @@ Public Class evaluarDocumentosTrabajador
         Dim nombreArchivo As String = gridListarDocumentosTrabajador.Rows(pos).Cells(2).Text
         Dim txtFecha As TextBox = Me.gridListarDocumentosTrabajador.Rows(pos).Cells(12).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
+        Dim registroLog As Object = New clsLog()
 
         If (e.CommandName = "Ver") Then
 
@@ -152,6 +153,7 @@ Public Class evaluarDocumentosTrabajador
 
                 documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "aprobado", ruta)
                 Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, fechaExpiracionCarpeta)
+                registroLog.insertarRegistro("Se aprueba el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
                 Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
             Else
@@ -168,6 +170,7 @@ Public Class evaluarDocumentosTrabajador
 
                     documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "aprobado", ruta)
                     Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, fechaExpiracion)
+                    registroLog.insertarRegistro("Se aprueba el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
                     Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
                 End If
@@ -183,6 +186,7 @@ Public Class evaluarDocumentosTrabajador
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "pendiente", Nothing)
             Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, Nothing)
+            registroLog.insertarRegistro("Se rechaza el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
@@ -247,7 +251,6 @@ Public Class evaluarDocumentosTrabajador
         Dim rutUsuario As String = usuario.getRut
         Dim tarjeta As String = ""
 
-
         Dim listaNotificaciones As Data.DataTable = notificacion.obtenerNotificaciones(rutUsuario)
 
         If listaNotificaciones.Rows.Count > 0 Then
@@ -264,8 +267,10 @@ Public Class evaluarDocumentosTrabajador
                 Dim idNotificacion As Integer = fila("idNotificacion")
                 Dim idComentario As Integer = fila("idComentario")
                 Dim tipo As String = fila("tipo")
-
+                Dim rutDestinatario As String = fila("rutDestinatario")
                 Dim rutAutor As String = fila("rutAutor")
+                Dim idItem As Integer = fila("idItem")
+                Dim nombreEmpresa As String = fila("nombreEmpresa")
 
                 Session("origen") = HttpContext.Current.Request.Url.ToString
 
@@ -278,32 +283,57 @@ Public Class evaluarDocumentosTrabajador
                 Dim idCarpetaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idCarpeta)
                 Dim idCarpetaCodificada As String = System.Convert.ToBase64String(idCarpetaCodificadaBase64)
 
-                Dim RutCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(rutAutor)
-                Dim RutCodificado As String = System.Convert.ToBase64String(RutCodificadoBase64)
+                Dim rutAutorCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(rutAutor)
+                Dim rutAutorCodificado As String = System.Convert.ToBase64String(rutAutorCodificadoBase64)
+
+                Dim rutDestinatarioCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(rutDestinatario)
+                Dim rutDestinatarioCodificado As String = System.Convert.ToBase64String(rutDestinatarioCodificadoBase64)
 
                 Dim idComentarioCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idComentario)
                 Dim idComentarioCodificado As String = System.Convert.ToBase64String(idComentarioCodificadoBase64)
 
+                Dim idNotificacionCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idNotificacion)
+                Dim idNotificacionCodificada As String = System.Convert.ToBase64String(idNotificacionCodificadaBase64)
+
                 Dim tipoCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(tipo)
                 Dim tipoCodificado As String = System.Convert.ToBase64String(tipoCodificadoBase64)
 
-                tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&o=" + idCarpetaCodificada + "&p=" + RutCodificado + "&q=" + idComentarioCodificado + "&q=" + tipoCodificado + """>"
-                tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
-                tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
-                tarjeta = tarjeta & "       </div> "
-                tarjeta = tarjeta & "       <div class=""font-weight-bold""> "
-                tarjeta = tarjeta & "           <div class=""text-truncate"">" + resumenComentario + "</div> "
-                tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "</div> "
-                tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
-                tarjeta = tarjeta & "       </div> "
-                tarjeta = tarjeta & "   </a> "
+                Dim idItemCodificadoBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(idItem)
+                Dim idItemCodificado As String = System.Convert.ToBase64String(idItemCodificadoBase64)
 
-                'contNoLeidos = contNoLeidos + 1
-                'LblNotificacionComentarios.Text = contNoLeidos.ToString()
+                If rutAutor = "ati" Then
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+                    tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
+                    tarjeta = tarjeta & "           <img class=""img-profile"" src=""https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/OOjs_UI_icon_alert-warning.svg/1024px-OOjs_UI_icon_alert-warning.svg.png"" style=""height:40px;width:40px;"">"
+                    tarjeta = tarjeta & "       </div> "
+                    tarjeta = tarjeta & "       <div> "
+                    tarjeta = tarjeta & "           <span class=""font-weight-bold"">" + resumenComentario + "</span>"
+                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreEmpresa + " • " + nombreDocumento + "</div> "
+                    tarjeta = tarjeta & "       </div> "
+                    tarjeta = tarjeta & "   </a> "
+
+                Else
+
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+                    tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
+                    tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
+                    tarjeta = tarjeta & "       </div> "
+                    tarjeta = tarjeta & "       <div class=""font-weight-bold""> "
+                    tarjeta = tarjeta & "           <div class=""text-truncate"">" + resumenComentario + "</div> "
+                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreUsuarioRespuesta + "</div> "
+                    tarjeta = tarjeta & "           <div class=""small text-gray-500"">" + nombreDocumento + "</div> "
+                    tarjeta = tarjeta & "       </div> "
+                    tarjeta = tarjeta & "   </a> "
+
+                End If
 
                 LblNotificacion.Text = tarjeta
 
-                LblNotificacionComentarios.Text = " ! "
+                LblNotificacionComentarios.Text = "!"
+
+                If listaNotificaciones.Rows.Count = 5 Then
+                    Exit For
+                End If
 
             Next
 
