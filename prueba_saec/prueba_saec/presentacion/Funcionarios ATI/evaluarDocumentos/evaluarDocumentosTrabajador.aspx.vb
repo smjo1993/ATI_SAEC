@@ -117,6 +117,7 @@ Public Class evaluarDocumentosTrabajador
         Dim nombreArchivo As String = gridListarDocumentosTrabajador.Rows(pos).Cells(2).Text
         Dim txtFecha As TextBox = Me.gridListarDocumentosTrabajador.Rows(pos).Cells(12).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
+        Dim registroLog As Object = New clsLog()
 
         If (e.CommandName = "Ver") Then
 
@@ -152,6 +153,7 @@ Public Class evaluarDocumentosTrabajador
 
                 documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "aprobado", ruta)
                 Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, fechaExpiracionCarpeta)
+                registroLog.insertarRegistro("Se aprueba el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
                 Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
             Else
@@ -168,6 +170,7 @@ Public Class evaluarDocumentosTrabajador
 
                     documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "aprobado", ruta)
                     Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, fechaExpiracion)
+                    registroLog.insertarRegistro("Se aprueba el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
                     Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
                 End If
@@ -183,6 +186,7 @@ Public Class evaluarDocumentosTrabajador
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, "pendiente", Nothing)
             Trabajador.fechaExpiracionDocumentoTrabajador(idCarpeta, idArea, idDocumento, idTrabajador, Nothing)
+            registroLog.insertarRegistro("Se rechaza el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
