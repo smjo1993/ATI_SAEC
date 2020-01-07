@@ -144,6 +144,7 @@ Public Class verDocumentos
         End If
 
         If (e.CommandName = "Aprobar") Then
+            Dim registroLog As Object = New clsLog()
             Dim carpeta As New clsCarpetaArranque
             Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
@@ -153,6 +154,7 @@ Public Class verDocumentos
                 Dim documento As New clsDocumento
                 documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", gridDocumentos.Rows(pos).Cells(6).Text)
                 documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracionCarpeta)
+                registroLog.insertarRegistro("Se aprueba el documento " + gridDocumentos.Rows(pos).Cells(1).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(0).Text + "", Session("usuario").getRut())
             Else
                 Dim alerta As New clsAlertas
                 Dim fechaExpiracion As Date = Convert.ToDateTime(txtFecha.Text)
@@ -163,6 +165,7 @@ Public Class verDocumentos
                 Else
                     documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", "")
                     documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracion)
+                    registroLog.insertarRegistro("Se aprueba el documento " + gridDocumentos.Rows(pos).Cells(0).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(1).Text + "", Session("usuario").getRut())
                 End If
 
             End If
@@ -172,27 +175,27 @@ Public Class verDocumentos
         End If
 
         If (e.CommandName = "Reprobar") Then
-
+            Dim registroLog As Object = New clsLog()
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             My.Computer.FileSystem.DeleteFile(gridDocumentos.Rows(pos).Cells(6).Text)
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "pendiente", "")
-
+            registroLog.insertarRegistro("Se rechaza el documento " + gridDocumentos.Rows(pos).Cells(0).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(1).Text + "", Session("usuario").getRut())
         End If
 
         If (e.CommandName = "verComentarios") Then
 
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim idArea As Integer = gridDocumentos.Rows(pos).Cells(5).Text
-            Dim idDocumento As Integer = gridDocumentos.Rows(pos).Cells(4).Text
-            Dim idCarpeta As Integer = gridDocumentos.Rows(pos).Cells(3).Text
+            Dim idArea As Integer = gridDocumentos.Rows(pos).Cells(2).Text
+            Dim idDocumento As Integer = gridDocumentos.Rows(pos).Cells(1).Text
+            Dim idCarpeta As Integer = gridDocumentos.Rows(pos).Cells(0).Text
 
             Session("areaId") = idArea
             Session("documentoId") = idDocumento
             Session("carpetaId") = idCarpeta
-            Session("rutUsuario") = Session("contratistaEntrante").getRut
+            Session("rutUsuario") = Session("usuario").getRut()
             Session("origen") = HttpContext.Current.Request.Url.ToString
-            Response.Redirect("../verComentarios.aspx")
+            Response.Redirect("../../Contratistas/verComentarios.aspx")
         End If
 
         Response.Redirect(HttpContext.Current.Request.Url.ToString)
@@ -291,7 +294,7 @@ Public Class verDocumentos
                 Dim idItemCodificado As String = System.Convert.ToBase64String(idItemCodificadoBase64)
 
                 If rutAutor = "ati" Then
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
                     tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
                     tarjeta = tarjeta & "           <img class=""img-profile"" src=""https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/OOjs_UI_icon_alert-warning.svg/1024px-OOjs_UI_icon_alert-warning.svg.png"" style=""height:40px;width:40px;"">"
                     tarjeta = tarjeta & "       </div> "
@@ -303,7 +306,7 @@ Public Class verDocumentos
 
                 Else
 
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
                     tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
                     tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
                     tarjeta = tarjeta & "       </div> "

@@ -119,7 +119,7 @@ Public Class evaluarDocumentosVehiculo
         Dim idVehiculo As Integer = gridListarDocumentosVehiculo.Rows(pos).Cells(8).Text
         Dim txtFecha As TextBox = Me.gridListarDocumentosVehiculo.Rows(pos).Cells(11).Controls(1)
         Dim extension As String = ExtraerExtension(ruta, ".")
-
+        Dim registroLog As Object = New clsLog()
         If (e.CommandName = "Ver") Then
 
             If extension = "pdf" Then
@@ -154,6 +154,7 @@ Public Class evaluarDocumentosVehiculo
 
                 documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "aprobado", ruta)
                 vehiculo.fechaExpiracionDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, fechaExpiracionCarpeta)
+                registroLog.insertarRegistro("Se aprueba el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
                 Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
             Else
@@ -170,6 +171,7 @@ Public Class evaluarDocumentosVehiculo
 
                     documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "aprobado", ruta)
                     vehiculo.fechaExpiracionDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, fechaExpiracion)
+                    registroLog.insertarRegistro("Se aprueba el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
                     Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
                 End If
@@ -186,6 +188,7 @@ Public Class evaluarDocumentosVehiculo
             My.Computer.FileSystem.DeleteFile(ruta)
             documento.cambiarEstadoDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, "pendiente", Nothing)
             vehiculo.fechaExpiracionDocumentoVehiculo(idCarpeta, idArea, idDocumento, idVehiculo, Nothing)
+            registroLog.insertarRegistro("Se rechaza el documento " + idDocumento.ToString + " de la carpeta " + idCarpeta.ToString + "", Session("usuario").getRut())
             Response.Redirect(HttpContext.Current.Request.Url.ToString)
 
         End If
@@ -300,7 +303,7 @@ Public Class evaluarDocumentosVehiculo
                 Dim idItemCodificado As String = System.Convert.ToBase64String(idItemCodificadoBase64)
 
                 If rutAutor = "ati" Then
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
                     tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
                     tarjeta = tarjeta & "           <img class=""img-profile"" src=""https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/OOjs_UI_icon_alert-warning.svg/1024px-OOjs_UI_icon_alert-warning.svg.png"" style=""height:40px;width:40px;"">"
                     tarjeta = tarjeta & "       </div> "
@@ -312,7 +315,7 @@ Public Class evaluarDocumentosVehiculo
 
                 Else
 
-                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
+                    tarjeta = tarjeta & "   <a class=""dropdown-item d-flex align-items-center"" href=""../../Contratistas/verComentarios_.aspx?i=" + idDocCodificado + "&n=" + idAreaCodificada + "&a=" + idItemCodificado + "&o=" + idCarpetaCodificada + "&p=" + rutAutorCodificado + "&q=" + idComentarioCodificado + "&x=" + tipoCodificado + "&y=" + rutDestinatarioCodificado + "&z=" + idNotificacionCodificada + """>"
                     tarjeta = tarjeta & "       <div class=""dropdown-list-image mr-3"">"
                     tarjeta = tarjeta & "           <img class=""img-profile rounded-circle"" src=""https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg"" style=""height:40px;width:40px;"">"
                     tarjeta = tarjeta & "       </div> "
