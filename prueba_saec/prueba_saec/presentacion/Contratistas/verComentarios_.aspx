@@ -185,7 +185,7 @@
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <div <%--class="col-sm-4"--%>>
-                                                <textarea id="TxtAreaNuevoComentario" class="col-12" rows="3" runat="server"></textarea>
+                                                <textarea id="TxtAreaNuevoComentario" class="col-12" rows="3" required runat="server"></textarea>
                                                 <div class="row">
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <div class="col-11"></div>
