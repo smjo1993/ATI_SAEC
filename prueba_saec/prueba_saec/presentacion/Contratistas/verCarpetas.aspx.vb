@@ -68,7 +68,11 @@
                     tarjeta = tarjeta & "              </div> "
 
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
+
+                    ''tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
+
+                    tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
+
                     tarjeta = tarjeta & "              </div> "
 
                     tarjeta = tarjeta & "            </div> "
@@ -139,13 +143,21 @@
                     tarjeta = tarjeta & "              </div> "
 
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-comments fa-2x text-" + color + """></a>"
+
+                    ''tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-comments fa-2x text-" + color + """></a>"
+
+                    tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/revisarRequerimientos.aspx"" class=""fas fa-comments fa-2x text-" + color + """></a>"
+
                     tarjeta = tarjeta & "              </div> "
                     tarjeta = tarjeta & "              <div Class=""col-1""> "
                     tarjeta = tarjeta & "              </div> "
 
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+
+                    ''tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+
+                    tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+
                     tarjeta = tarjeta & "              </div> "
 
                     tarjeta = tarjeta & "            </div> "
