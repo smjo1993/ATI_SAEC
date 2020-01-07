@@ -189,7 +189,7 @@
                                                 <div class="row">
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <div class="col-11"></div>
-                                                        <asp:Button ID="BtnVolver" runat="server" Text="Volver" class="btn btn-success btn-user ml-auto" />
+                                                        <asp:Button ID="BtnVolver" runat="server" Text="Volver" CausesValidation="false" formnovalidate="false" class="btn btn-success btn-user ml-auto" />
                                                         &nbsp;
                                                         <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-success btn-user ml-auto" />
                                                     </div>
