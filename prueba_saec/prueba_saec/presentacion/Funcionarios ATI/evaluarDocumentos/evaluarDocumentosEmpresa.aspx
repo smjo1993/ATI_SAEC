@@ -15,19 +15,19 @@
     <title>Evaluar Documentos Empresa - SAEC</title>
 
     <!-- Custom fonts for this template -->
-    <link href="../../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../../../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../../../../css/checkbox.css" rel="stylesheet">
+    <link href="../../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../../css/checkbox.css" rel="stylesheet">
     <style type="text/css">
         .auto-style1 {
             width: 984px;
         }
     </style>
     <!-- Custom styles for this page -->
-    <link href="../../../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -41,9 +41,12 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-                        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
-                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
+
+                    <%--<i class="fas fa-laugh-wink"></i>--%>
+
+                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
 
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
@@ -208,20 +211,9 @@
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                     <ItemTemplate>
-<%--                                                            <body>
-<input type="date" id="dt" onchange="mydate1();" />
-<input type="text" id="ndt"  onclick="mydate();" hidden />
-</body>--%>
-
-                                           <%--             <input type="datetime" id="txtFecha" runat="server">--%>
 
                                                         <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" placeholder="YYYY-MM-DD" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" MaxLength="10"></asp:TextBox>
-                                                        
-<%--                                                        <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy">
-                                            <asp:TextBox runat="server" ID="txtFecha" AutoPostBack="True" Width="60%" ></asp:TextBox>
-                                            <button class="button"><span class="mif-calendar"></span></button>
-                                        </div>--%>
-
+ 
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:BoundField DataField="fechaDeExpiracion" HeaderText="Fecha de Expiracion" />
@@ -362,26 +354,23 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../../../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../../../../js/sb-admin-2.min.js"></script>
+    <script src="../../../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../../../../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
       <script>
           $(document).ready(function () {
               //FORMATO DE MASCARAS
-              $('#text1').mask('SSSSS');
               $('#txtFecha').mask('00/00/0000');
-              $('#text3').mask('(000) 0000-0000', { placeholder: '(000) 0000-0000' }); //placeholder
-              $('#text4').mask('-99999999999999999.00', {
                   //opciones
                   placeholder: '[-]000[.00]',
                   translation: {

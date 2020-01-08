@@ -148,9 +148,9 @@ Public Class Login
 
                                 Session("contratistaEntrante") = contratistaEntrante
 
-                                ''Response.Redirect("https://localhost:44310/presentacion/Contratistas/verCarpetas.aspx")
+                                Response.Redirect("https://localhost:44310/presentacion/Contratistas/verCarpetas.aspx")
 
-                                Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/verCarpetas.aspx")
+                                ''Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/verCarpetas.aspx")
 
                                 txtUsuario.Text = ""
                             Else 'CONTRATISTA INACTIVO
