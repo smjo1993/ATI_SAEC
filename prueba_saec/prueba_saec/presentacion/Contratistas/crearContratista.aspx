@@ -179,9 +179,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="row" style="float: right;">
-                                        <a class="btn btn-secondary" href="../Empresa/verContratistas.aspx">Volver</a>
+                                        <a class="btn btn-success shadow-sm" href="../Empresa/verContratistas.aspx">Volver</a>
                                         &nbsp;
-                                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="btn shadow-sm btn-success" Style="float: right;" />
+                                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="btn shadow-sm btn-secondary" Style="float: right;" />
                                     </div>
                                 </div>
                             </div>
