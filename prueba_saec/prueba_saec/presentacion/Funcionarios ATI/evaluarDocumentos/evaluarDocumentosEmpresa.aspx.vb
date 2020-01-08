@@ -16,6 +16,7 @@ Public Class verDocumentos
             Dim usuario As clsUsuarioSAEC = Session("usuario")
             Session("rutUsuario") = usuario.getRut
         End If
+        cargarMenu()
     End Sub
     Protected Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Session.Contents.RemoveAll()
@@ -26,12 +27,20 @@ Public Class verDocumentos
         Dim texto As String = "Documentos Trabajador"
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
+
         boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+
+        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosTrabajdor.Text = boton
         texto = "Documentos Vehiculo"
         boton = ""
+
         boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+
+        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosVehiculo.Text = boton
     End Sub
@@ -81,13 +90,17 @@ Public Class verDocumentos
 
         Dim documento As New clsDocumento
         Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisar(idCarpeta, Session("usuario").getArea())
-
+        'Dim txt As TextBox
         If documentosEmpresa Is Nothing Then
             sinDocumentos.Visible = True
         Else
             If documentosEmpresa.Rows.Count > 0 Then
                 gridDocumentos.DataSource = documentosEmpresa
                 gridDocumentos.DataBind()
+                'For Each documentoEmpresa As GridViewRow In gridDocumentos.Rows
+                '    txt = documentoEmpresa.FindControl("txtFecha")
+                '    txt.Text = Format$(Today, "DD-mm-yyyy")
+                'Next
             Else
                 sinDocumentos.Visible = True
             End If

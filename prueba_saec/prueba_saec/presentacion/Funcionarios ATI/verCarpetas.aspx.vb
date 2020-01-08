@@ -100,21 +100,21 @@ Public Class verEmpresas
 
                         If (opcionesCarpeta.Rows(0)("estado") = "A") Then
                             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/CrearListaDocumentacion.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
+                            tarjeta = tarjeta & "              <a href=""" + opcionesCarpeta.Rows(0)("link") + "?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-clipboard-list fa-2x text-" + color + """></a>"
                             tarjeta = tarjeta & "              </div> "
                             tarjeta = tarjeta & "              <div Class=""col-1""> "
                             tarjeta = tarjeta & "              </div> "
                         End If
                         If (opcionesCarpeta.Rows(1)("estado") = "A") Then
                             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/confirmarDocumentos.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-comments fa-2x text-" + color + """></a>"
+                            tarjeta = tarjeta & "              <a href=""" + opcionesCarpeta.Rows(1)("link") + "?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-comments fa-2x text-" + color + """></a>"
                             tarjeta = tarjeta & "              </div> "
                             tarjeta = tarjeta & "              <div Class=""col-1""> "
                             tarjeta = tarjeta & "              </div> "
                         End If
                         If (opcionesCarpeta.Rows(2)("estado") = "A") Then
                             tarjeta = tarjeta & "              <div Class=""col-auto""> "
-                            tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/funcionarios%20ATI/evaluarDocumentos/evaluarDocumentosEmpresa.aspx?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+                            tarjeta = tarjeta & "              <a href=""" + opcionesCarpeta.Rows(2)("link") + "?i=" + idCodificada + "&n=" + razonCodificada + """ class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
                             tarjeta = tarjeta & "              </div> "
                         End If
                         tarjeta = tarjeta & "            </div> "

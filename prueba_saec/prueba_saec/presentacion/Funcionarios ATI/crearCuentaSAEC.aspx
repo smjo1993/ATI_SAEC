@@ -153,7 +153,7 @@
                                             <label id="lblEmail" class="col-12">E-mail:</label>
                                         </div>
                                         <div class="col-6">
-                                            <asp:TextBox ID="txtEmail" runat="server" Class="col-12 form-control form-control-user" TextMode="Email" required></asp:TextBox>
+                                            <asp:TextBox ID="txtEmail" runat="server" Class="col-12 form-control form-control-user"  required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -161,7 +161,7 @@
                                             <label id="lblFono" class="col-12">Telefono:</label>
                                         </div>
                                         <div class="col-6">
-                                            <asp:TextBox ID="txtFono" runat="server" Class="col-12 form-control form-control-user" required TextMode="Phone"></asp:TextBox>
+                                            <asp:TextBox ID="txtFono" runat="server" Class="col-12 form-control form-control-user" required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row form-group">

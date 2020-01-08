@@ -165,7 +165,7 @@
                                                                         <ItemTemplate>
                                                                             <asp:ImageButton
                                                                                 ID="btnVerComentarios"
-                                                                                ImageUrl="../../../img/chat.png"
+                                                                                ImageUrl="../../img/chat.png"
                                                                                 ToolTip="Ver Comentarios"
                                                                                 CommandName="verComentarios"
                                                                                 OnClientClick=""
@@ -224,7 +224,7 @@
                                                                         <ItemTemplate>
                                                                             <asp:ImageButton
                                                                                 ID="btnVerComentarios"
-                                                                                ImageUrl="../../../img/chat.png"
+                                                                                ImageUrl="../../img/chat.png"
                                                                                 ToolTip="Ver Comentarios"
                                                                                 CommandName="verComentarios"
                                                                                 OnClientClick=""
@@ -284,7 +284,7 @@
                                                                         <ItemTemplate>
                                                                             <asp:ImageButton
                                                                                 ID="btnVerComentarios"
-                                                                                ImageUrl="../../../img/chat.png"
+                                                                                ImageUrl="../../img/chat.png"
                                                                                 ToolTip="Ver Comentarios"
                                                                                 CommandName="verComentarios"
                                                                                 OnClientClick=""

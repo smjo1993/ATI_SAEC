@@ -231,7 +231,11 @@
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <ItemStyle HorizontalAlign="Center" />
                                             <ItemTemplate>
-                                                <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>
+<%--                                                <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" TextMode="Date"></asp:TextBox>--%>
+                                                                                                      <asp:TextBox ID="TextBox1" class=" form-control form-control-user" runat="server" placeholder="YYYY-MM-DD" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" MaxLength="10"></asp:TextBox>
+<%--                                            <asp:TextBox runat="server" ID="txtFecha" AutoPostBack="True" Width="65%"></asp:TextBox>--%>
+<%--                                            <button class="button"><span class="mif-calendar"></span></button>
+                                        </div>--%>
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
@@ -366,6 +370,7 @@
 
             <!-- Page level custom scripts -->
             <script src="../../../../js/demo/datatables-demo.js"></script>
+
 </body>
 
 
