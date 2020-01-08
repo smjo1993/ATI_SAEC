@@ -19,7 +19,7 @@
 
     <!-- Custom script y para tablas -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
-    
+
     <%--Custom script para Checkbox--%>
     <link href="../../css/checkbox.css" rel="stylesheet" />
 
@@ -40,7 +40,6 @@
                     <%--<i class="fas fa-laugh-wink"></i>--%>
 
                     <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
-
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -64,17 +63,17 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                     <%--BARRA NAVEGACION--%>
+                    <%--BARRA NAVEGACION--%>
 
                     <ul class="navbar-nav ml-auto">
 
-                       <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
+                        <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
-                            </a>                            
+                            </a>
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">Comentarios</h6>
                                 <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
@@ -82,15 +81,15 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <asp:Label ID="LblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
 
-                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
+                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height: 40px; width: 40px;">
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -107,7 +106,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                   <%-- <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>--%>
+                    <%-- <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>--%>
 
                     <form runat="server">
 
@@ -133,7 +132,7 @@
                                         style="float: right;"
                                         Text="Nuevo Documento" />--%>
 
-                                        <a href="agregarDcto.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                        <a href="agregarDcto.aspx" class="btn shadow-sm btn-secondary" style="float: right;">
 
                                             <i class="far fa-plus-square"></i>
                                             Nuevo Documento
@@ -192,6 +191,11 @@
 
                                         </Columns>
                                     </asp:GridView>
+
+                                    <!-- label de gridview vacia -->
+                                    <div runat="server" id="lblsinRegistros">
+                                        <h1 class="h3 mb-4 text-gray-800 text-center">No hay registros disponibles</h1>
+                                    </div>
 
 
                                 </div>
@@ -257,7 +261,7 @@
                                             class="btn shadow-sm btn-success btn-user"
                                             Text="Aceptar" />
 
-<%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
+                                        <%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
                                     </div>
                                 </div>
                             </div>
@@ -270,13 +274,13 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <%--<footer class="sticky-footer bg-white">
+            <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SAEC, CAPSTONE 2019</span>
+                        <%--<span>Copyright &copy; SAEC, CAPSTONE 2019</span>--%>
                     </div>
                 </div>
-            </footer>--%>
+            </footer>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->
@@ -288,7 +292,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-        <!-- Bootstrap core JavaScript-->
+    <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

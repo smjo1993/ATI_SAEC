@@ -68,7 +68,7 @@ Public Class verComentarios_
 
         ElseIf Session("contratistaEntrante") Is Nothing Then
 
-            'Aquí va el la inserción a la BD del comentario
+            'Aquí va la inserción a la BD del comentario
             Dim comentario As New clsComentario
             Dim accion As Boolean
             Dim tipo As String = decodificarTipo()
