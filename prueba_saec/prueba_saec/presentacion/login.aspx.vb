@@ -86,9 +86,9 @@ Public Class Login
                                             Session("roles") = listaRoles
                                             Session("usuario") = usuarioEntrante
 
-                                            ''Response.Redirect("https://localhost:44310/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
+                                            Response.Redirect("https://localhost:44310/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
 
-                                            Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
+                                            ''Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
 
                                             txtUsuario.Text = ""
 
