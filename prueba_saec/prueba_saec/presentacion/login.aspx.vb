@@ -85,7 +85,11 @@ Public Class Login
 
                                             Session("roles") = listaRoles
                                             Session("usuario") = usuarioEntrante
-                                            Response.Redirect("Funcionarios%20ATI/verCarpetas.aspx")
+
+                                            ''Response.Redirect("https://localhost:44310/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
+
+                                            Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
+
                                             txtUsuario.Text = ""
 
                                         Else
@@ -143,7 +147,11 @@ Public Class Login
                                                                               contratista.Rows(0)("correo").ToString)
 
                                 Session("contratistaEntrante") = contratistaEntrante
-                                Response.Redirect("Contratistas/verCarpetas.aspx")
+
+                                ''Response.Redirect("https://localhost:44310/presentacion/Contratistas/verCarpetas.aspx")
+
+                                Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/verCarpetas.aspx")
+
                                 txtUsuario.Text = ""
                             Else 'CONTRATISTA INACTIVO
                                 lblMensaje.Text = alerta.alerta("ALERTA", "CONTRATISTA INACTIVO EN EL SISTEMA")
