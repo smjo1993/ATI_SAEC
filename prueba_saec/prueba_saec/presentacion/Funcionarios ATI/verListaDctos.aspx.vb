@@ -2,6 +2,8 @@
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        lblsinRegistros.Visible = False
         If Not IsPostBack Then
             validarUsuario()
             cargarNotificacionesComentarios()
@@ -47,6 +49,7 @@
         Dim documento As New clsDocumento
         Try
             Dim dt As Data.DataTable = documento.listarRequisitosDocumentales()
+            'Dim dt As Data.DataTable = New DataTable
 
             If dt.Rows.Count > 0 Then
                 Me.gridRequisitos.DataSource = dt
@@ -67,6 +70,8 @@
                 Next
 
             Else
+                lblsinRegistros.Visible = True
+                btnRealizarCambios.Visible = False
                 Return
             End If
         Catch ex As Exception
@@ -88,7 +93,6 @@
 
             Response.Redirect("modificarDcto.aspx")
         End If
-
 
     End Sub
 
