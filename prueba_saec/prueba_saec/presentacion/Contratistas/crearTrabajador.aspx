@@ -170,7 +170,6 @@ Registro de Trabajadores
                                                 Style="height: 30px"
                                                 placeholder=""
                                                 required
-                                                TextMode="Email"
                                                 Class="form-control bg-light small col-12">
                                             </asp:TextBox>
 
