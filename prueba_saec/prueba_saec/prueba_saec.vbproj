@@ -135,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\checkbox.css" />
-    <Content Include="css\sb-admin-2.css" />
     <Content Include="css\checkbox.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="img\carpeta.png" />
@@ -152,7 +151,6 @@
     <Content Include="js\demo\chart-bar-demo.js" />
     <Content Include="js\demo\chart-pie-demo.js" />
     <Content Include="js\demo\datatables-demo.js" />
-    <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="presentacion\Contratistas\crearContratista.aspx" />
     <Content Include="presentacion\Contratistas\crearTrabajador.aspx" />
