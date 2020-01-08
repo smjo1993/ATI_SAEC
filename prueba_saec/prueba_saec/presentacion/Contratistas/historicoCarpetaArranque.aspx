@@ -295,26 +295,7 @@
 
 
                                 <!--Modal-->
-                                <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="lblModalConfirmacion">Confirmación</h5>
-                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">¿Desea confirmar la lista de Documento?</div>
-
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-
-                                                <asp:Button ID="btnPedirDocumento" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                                         <!-- Modal Logout-->
                         <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -328,11 +309,11 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-seconday btn-user"
                                             Text="Aceptar" />
 
                                     </div>
