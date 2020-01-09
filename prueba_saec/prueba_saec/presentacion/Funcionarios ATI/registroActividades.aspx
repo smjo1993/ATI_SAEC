@@ -165,11 +165,11 @@
                                     <div class="modal-body">¿Desea confirmar los cambios a la lista de Documentos?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn btn-secondary btn-user"
                                             Text="Aceptar" />
                                     </div>
                                 </div>
@@ -187,11 +187,11 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" />
 
 <%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>

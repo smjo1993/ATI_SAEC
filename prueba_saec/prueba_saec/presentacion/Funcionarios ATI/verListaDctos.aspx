@@ -105,9 +105,6 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <%-- <h1 class="h3 mb-4 text-gray-800">Requerimientos Documentales</h1>--%>
-
                     <form runat="server">
 
                         <div class="card shadow mb-4">
@@ -125,14 +122,7 @@
                                         </script>
                                     </div>
                                     <div class="col-6 ">
-                                        <%--<asp:Button
-                                        ID="Button1"
-                                        runat="server"
-                                        class="btn shadow-sm btn-success btn-user"
-                                        style="float: right;"
-                                        Text="Nuevo Documento" />--%>
-
-                                        <a href="agregarDcto.aspx" class="btn shadow-sm btn-secondary" style="float: right;">
+                                        <a href="agregarDcto.aspx" class="btn shadow-sm btn-success" style="float: right;">
 
                                             <i class="far fa-plus-square"></i>
                                             Nuevo Documento
@@ -206,7 +196,7 @@
 
                                 <div class="row" style="float: right;">
 
-                                    <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                    <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-secondary btn-user" value="Realizar Cambios" data-toggle="modal"
                                         data-target="#modalConfirmacion" />
 
                                 </div>
@@ -230,11 +220,11 @@
                                     <div class="modal-body">¿Desea confirmar los cambios a la lista de Documentos?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" />
                                     </div>
                                 </div>
@@ -254,14 +244,12 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" />
-
-                                        <%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
                                     </div>
                                 </div>
                             </div>

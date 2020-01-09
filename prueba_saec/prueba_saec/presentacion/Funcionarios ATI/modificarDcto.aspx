@@ -98,61 +98,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                   <%-- <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>--%>
-
                     <form runat="server">
-
-                        <%--<div class="card shadow mb-4">
-
-                            <div class="card-header py-3">
-                                <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
-                            </div>
-
-                            <div class="card-body">
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                        <label id="lblAreaDocumentoEdicion" class="col-12">Área:</label>
-                                    </div>
-
-                                    <div class="col-6 my-auto">
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            Style="height: 30px; padding: 0px"
-                                            ID="dropAreas"
-                                            runat="server">
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-
-                                <br />
-                                <br />
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                        <label id="lblidDocumentoEdicion" class="col-12">Documento:</label>
-                                    </div>
-
-                                    <div class="col-6">
-
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            ID="dropDocumentos"
-                                            Style="height: 30px; padding: 0px;"
-                                            runat="server">
-                                        </asp:DropDownList>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>--%>
-
 
                         <div>
                             <div class="card shadow mb-4">
@@ -236,11 +182,11 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver </a>
+                                        <a class="btn btn-success shadow-sm" href="verListaDctos.aspx">Volver </a>
 
                                         &nbsp;
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-secondary btn-user" value="Realizar Cambios" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
@@ -264,11 +210,11 @@
                                     <div class="modal-body">¿Desea confirmar los cambios al Documento?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             data-toggle="modal"
                                             data-target="#modalConfirmacion"
                                             Text="Aceptar" />
@@ -290,11 +236,11 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" />
 
 <%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
