@@ -38,7 +38,7 @@
         Dim idAntiguaCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(Session("idCarpetaHistorico"))
         Dim idAntiguaCodificada As String = System.Convert.ToBase64String(idAntiguaCodificadaBase64)
 
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/historicoCarpeta.aspx?i=" + idCodificada + "&n=" + nombreCodificado + "&ia=" + idAntiguaCodificada + """ Class=""btn btn-secondary"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/historicoCarpeta.aspx?i=" + idCodificada + "&n=" + nombreCodificado + "&ia=" + idAntiguaCodificada + """ Class=""btn btn-success"" style=""float: Right();"">"
 
         ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/historicoCarpeta.aspx?i=" + idCodificada + "&n=" + nombreCodificado + "&ia=" + idAntiguaCodificada + """ Class=""btn btn-secondary"" style=""float: Right();"">"
 
