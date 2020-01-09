@@ -6,7 +6,6 @@ Public Class registroActividades
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        lblsinRegistros.Visible = False
         validarUsuario()
         cargarMenu()
         cargarNotificacionesComentarios()
@@ -46,7 +45,6 @@ Public Class registroActividades
                 Me.gridRegistros.DataSource = dt
                 Me.gridRegistros.DataBind()
             Else
-                lblsinRegistros.Visible = True
                 Return
             End If
         Catch ex As Exception

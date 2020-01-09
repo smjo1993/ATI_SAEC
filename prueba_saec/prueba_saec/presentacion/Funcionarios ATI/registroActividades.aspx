@@ -146,11 +146,6 @@
                                         </Columns>
                                     </asp:GridView>
 
-                                    <!-- label de gridview vacia -->
-                                    <div runat="server" id="lblsinRegistros">
-                                        <h1 class="h3 mb-4 text-gray-800 text-center">No hay registros disponibles</h1>
-                                    </div>
-
 
                                 </div>
                             </div>
