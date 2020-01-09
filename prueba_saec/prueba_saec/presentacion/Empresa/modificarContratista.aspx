@@ -147,7 +147,7 @@
                                                 <label id="lblCorreo" class="col-12">Correo:</label>
                                             </div>
                                             <div class="col-6">
-                                                <asp:TextBox ID="TxtCorreo" runat="server" required Class="form-control bg-light small col-12"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCorreo" runat="server" required Class="form-control bg-light small col-12" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -186,6 +186,8 @@
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-secondary btn-user"
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
                                             Text="Aceptar" />
 
                                     </div>
