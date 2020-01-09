@@ -64,10 +64,10 @@ Public Class clsMenu
                     stringMenu = stringMenu & "            <hr class=""sidebar-divider"">"
                     stringMenu = stringMenu & "            <li class=""nav-item"">"
                     stringMenu = stringMenu & "                <a class=""nav-link collapsed"" href=""#"" data-toggle=""collapse"" data-target=""#collapse" + contadorOpcion.ToString + """ aria-expanded=""True"" aria-controls=""collapseTwo"">"
-                    stringMenu = stringMenu & "                    <i Class=""""></i>"
+                    stringMenu = stringMenu & "                    <i class=""""></i>"
                     stringMenu = stringMenu & "                   <span>" + opcion("nombre") + "</span>"
                     stringMenu = stringMenu & "                </a>"
-                    stringMenu = stringMenu & "                 <div id=""collapse" + contadorOpcion.ToString + """Class=""collapse"" aria-labelledby=""heading" + contadorOpcion.ToString + """ data-parent=""#accordionSidebar"">"
+                    stringMenu = stringMenu & "                 <div id=""collapse" + contadorOpcion.ToString + """class=""collapse"" aria-labelledby=""heading" + contadorOpcion.ToString + """ data-parent=""#accordionSidebar"">"
                     stringMenu = stringMenu & "                    <div class=""bg-white py-2 collapse-inner rounded"">"
                     contadorOpcion += 1
                 Else
@@ -77,7 +77,7 @@ Public Class clsMenu
                         Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
                         Dim razonCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(nombreCarpeta)
                         Dim razonCodificada As String = System.Convert.ToBase64String(razonCodificadaBase64)
-                        stringMenu = stringMenu & "                        <a  style=""text-align: center;"" Class=""collapse-item"" href= """ + opcion("link") + "?i=" + idCodificada + "&n=" + razonCodificada + """> " + opcion("nombre") + "</a>"
+                        stringMenu = stringMenu & "                        <a  style=""text-align: center;""  class=""collapse-item"" href= """ + opcion("link") + "?i=" + idCodificada + "&n=" + razonCodificada + """> " + opcion("nombre") + "</a>"
                     Else
                         stringMenu = stringMenu & "                        <a  style=""text-align: center;"" Class=""collapse-item"" href= """ + opcion("link") + """> " + opcion("nombre") + "</a>"
                     End If
