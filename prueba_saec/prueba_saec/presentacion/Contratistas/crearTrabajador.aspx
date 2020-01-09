@@ -249,8 +249,9 @@ Registro de Trabajadores
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-secondary btn-user"
-                                            Text="Aceptar"
-                                            formnovalidate="false"/>
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
+                                            Text="Aceptar"/>
 
                                     </div>
                                 </div>

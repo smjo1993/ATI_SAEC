@@ -186,6 +186,8 @@
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-secondary btn-user"
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
                                             Text="Aceptar" />
 
                                     </div>
