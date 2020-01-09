@@ -188,7 +188,7 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver</a>
+                                        <a class="btn btn-success shadow-sm" href="verListaDctos.aspx">Volver</a>
 
                                         &nbsp;
 
@@ -219,7 +219,7 @@
                                         <asp:Button
                                             ID="btnCrearDocumento"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             data-toggle="modalConfirmacion"
                                             data-target="#modalConfirmacion"
                                             Text="Aceptar" />
@@ -244,7 +244,7 @@
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             CausesValidation="false" 
                                             formnovalidate="false"
                                             Text="Aceptar" />
