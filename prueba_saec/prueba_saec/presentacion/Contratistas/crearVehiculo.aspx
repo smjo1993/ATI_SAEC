@@ -148,10 +148,15 @@ Registro de Vehículos
 
 
                                     <div class="row">
-                                        <div>
-                                            <p>
-                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                                            </p>
+
+                                    </div>
+                                                                        <div style="margin-bottom:8px" class="row">
+                                                                                <div class="col-1">
+                                        </div>
+                                                                                <div class="col-10">
+                                                                                                                                <h6 class="h3 mb-4 text-gray-800 text-center">                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label></h6>
+                                        </div>
+                                                                                <div class="col-1">
                                         </div>
                                     </div>
                                 </div>

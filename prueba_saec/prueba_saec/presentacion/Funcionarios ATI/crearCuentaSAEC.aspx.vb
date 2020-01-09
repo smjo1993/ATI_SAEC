@@ -61,7 +61,11 @@
         txtRut.ReadOnly = True
 
         txtClave.Text = usuarioSAEC.getClave
-        txtEmail.Text = usuarioSAEC.getCorreo
+        If usuarioSAEC.getCorreo = "sin correo" Then
+            txtEmail.Text = ""
+        Else
+            txtEmail.Text = usuarioSAEC.getCorreo
+        End If
         txtFono.Text = usuarioSAEC.getFono.ToString
         txtNombreUsuario.Text = usuarioSAEC.getNombre
         txtLogin.Text = usuarioSAEC.getLogin

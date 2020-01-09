@@ -52,7 +52,7 @@
                       <asp:TextBox ID="txtContrasenia" runat="server" TextMode="Password"  class="form-control bg-light border-0 small" required></asp:TextBox>
                     </div>
                     <div class="form-group">
-                    <asp:Button ID="btnLogin" runat="server" class="btn btn-primary btn-user btn-block" Text="Inicia Sesion" />
+                    <asp:Button ID="btnLogin" runat="server" class="btn btn-primary btn-user btn-block" Text="Iniciar Sesion" />
                     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
                     </div>
 <%--                    <div class="text-center">

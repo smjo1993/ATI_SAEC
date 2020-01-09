@@ -153,7 +153,8 @@ Registro de Trabajadores
                                                 Style="height: 30px"
                                                 placeholder=""
                                                 required
-                                                Class="form-control bg-light small col-12">
+                                                Class="form-control bg-light small col-12"
+                                                 pattern="^\d+$">
                                             </asp:TextBox>
 
                                         </div>
@@ -168,9 +169,10 @@ Registro de Trabajadores
                                             <asp:TextBox ID="TxtCorreo"
                                                 runat="server"
                                                 Style="height: 30px"
-                                                placeholder=""
+                                            placeholder="ejemplo@ejemplo.ej" 
                                                 required
-                                                Class="form-control bg-light small col-12">
+                                                Class="form-control bg-light small col-12"
+                                                pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$">
                                             </asp:TextBox>
 
                                         </div>
@@ -179,10 +181,15 @@ Registro de Trabajadores
 
 
                                     <div class="row">
-                                        <div>
-                                            <p>
-                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                                            </p>
+
+                                    </div>
+                                                                        <div style="margin-bottom:8px" class="row">
+                                                                                <div class="col-1">
+                                        </div>
+                                                                                <div class="col-10">
+                                                                                                                                <h6 class="h3 mb-4 text-gray-800 text-center">                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label></h6>
+                                        </div>
+                                                                                <div class="col-1">
                                         </div>
                                     </div>
                                 </div>
