@@ -208,7 +208,7 @@
                                     <div class="row" style="float: right;">
                                         <a class="btn shadow-sm btn-success" href="verEmpresas.aspx">Volver</a>
                                         &nbsp;
-                                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="btn shadow-sm btn-success" Style="float: right;" />
+                                        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" class="btn shadow-sm btn-secondary" Style="float: right;" />
                                     </div>
                                 </div>
                             </div>
@@ -225,11 +225,11 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" 
                                             CausesValidation="false"
                                             formnovalidate="false"

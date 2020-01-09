@@ -229,8 +229,8 @@
                                         <div class="row" style="float: right;">
                                             <a ID="btnVolver" class="btn shadow-sm btn-success" style="float: right;" href="verEmpresas.aspx">Volver</a>
                                             &nbsp;
-                                            <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="btn shadow-sm btn-success" style="float: right;" />
-                                            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" class="btn shadow-sm btn-success" style="float: right;" />
+                                            <asp:Button ID="btnModificar" runat="server" Text="Modificar" class="btn shadow-sm btn-secondary" style="float: right;" />
+                                            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" class="btn shadow-sm btn-secondary" style="float: right;" />
                                         </div>
                                     </div>
                                 </div>
@@ -248,11 +248,13 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
                                             Text="Aceptar" />
 
                                     </div>

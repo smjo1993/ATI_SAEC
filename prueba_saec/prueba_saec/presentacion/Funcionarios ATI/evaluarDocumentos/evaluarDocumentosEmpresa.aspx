@@ -43,11 +43,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
-
-                    <%--<i class="fas fa-laugh-wink"></i>--%>
-
-                    <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
-
+                    <img src="../../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -72,17 +68,17 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                     <%--BARRA NAVEGACION--%>
+                    <%--BARRA NAVEGACION--%>
 
                     <ul class="navbar-nav ml-auto">
 
-                       <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
+                        <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
-                            </a>                            
+                            </a>
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">Comentarios</h6>
                                 <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
@@ -90,15 +86,15 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <asp:Label ID="LblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
 
-                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
+                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height: 40px; width: 40px;">
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -128,9 +124,9 @@
                                         <div class="col-4">
                                         </div>
                                         <div class="col-4">
-                                                                                        <asp:Label ID="lblDocumentosVehiculo" runat="server" Text=""  style="float: right;"></asp:Label>      
-                                            <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text=""  style="float: right;"></asp:Label>
-                   
+                                            <asp:Label ID="lblDocumentosVehiculo" runat="server" Text="" Style="float: right;"></asp:Label>
+                                            <asp:Label ID="lblDocumentosTrabajdor" runat="server" Text="" Style="float: right;"></asp:Label>
+
                                         </div>
                                     </div>
 
@@ -211,9 +207,20 @@
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                     <ItemTemplate>
+<%--                                                            <body>
+<input type="date" id="dt" onchange="mydate1();" />
+<input type="text" id="ndt"  onclick="mydate();" hidden />
+</body>--%>
+
+                                           <%--             <input type="datetime" id="txtFecha" runat="server">--%>
 
                                                         <asp:TextBox ID="txtFecha" class=" form-control form-control-user" runat="server" placeholder="YYYY-MM-DD" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" MaxLength="10"></asp:TextBox>
- 
+                                                        
+<%--                                                        <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy">
+                                            <asp:TextBox runat="server" ID="txtFecha" AutoPostBack="True" Width="60%" ></asp:TextBox>
+                                            <button class="button"><span class="mif-calendar"></span></button>
+                                        </div>--%>
+
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:BoundField DataField="fechaDeExpiracion" HeaderText="Fecha de Expiracion" />
@@ -226,13 +233,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="card-footer"></div>    
+                                <div class="card-footer"></div>
                             </div>
 
 
 
 
-                         <div class="card shadow mb-4">
+                            <div class="card shadow mb-4">
 
                                 <div class="card-header py-3">
                                     <div class="row">
@@ -252,7 +259,7 @@
 
                                         <!-- tabla con los documentos -->
 
-                    
+
 
                                         <asp:GridView ID="gridDocumentosPendientes" runat="server"
                                             AutoGenerateColumns="False"
@@ -280,7 +287,7 @@
                                                             OnClientClick=""
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
-                                                        </ItemTemplate>
+                                                    </ItemTemplate>
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <ItemStyle HorizontalAlign="Center" />
                                                 </asp:TemplateField>
@@ -296,7 +303,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                 <div class="card-footer"></div>    
+                                <div class="card-footer"></div>
                             </div>
 
 
@@ -316,11 +323,11 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" />
 
                                     </div>

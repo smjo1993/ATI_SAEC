@@ -16,9 +16,6 @@
 
     <!-- Custom styles for this template-->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
-    
-
 </head>
 
 <body id="page-top">
@@ -26,10 +23,10 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       
+
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            
+
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon">
                     <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; ></i>
@@ -39,15 +36,15 @@
 
             <asp:Label ID="lblMenu" runat="server" Text=""></asp:Label>
         </ul>
-        
 
-        
+
+
         <div id="content-wrapper" class="d-flex flex-column">
 
-            
+
             <div id="content">
 
-<!-- Topbar -->
+                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -56,17 +53,17 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                     <%--BARRA NAVEGACION--%>
+                    <%--BARRA NAVEGACION--%>
 
                     <ul class="navbar-nav ml-auto">
 
-                       <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
+                        <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
-                            </a>                            
+                            </a>
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">Comentarios</h6>
                                 <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
@@ -74,15 +71,15 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <asp:Label ID="LblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
 
-                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
+                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height: 40px; width: 40px;">
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -98,61 +95,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                   <%-- <h1 class="h3 mb-4 text-gray-800">Edición de Documento</h1>--%>
-
                     <form runat="server">
-
-                        <%--<div class="card shadow mb-4">
-
-                            <div class="card-header py-3">
-                                <h4 class="m-0 font-weight text-primary">Búsqueda</h4>
-                            </div>
-
-                            <div class="card-body">
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                        <label id="lblAreaDocumentoEdicion" class="col-12">Área:</label>
-                                    </div>
-
-                                    <div class="col-6 my-auto">
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            Style="height: 30px; padding: 0px"
-                                            ID="dropAreas"
-                                            runat="server">
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-
-                                <br />
-                                <br />
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                        <label id="lblidDocumentoEdicion" class="col-12">Documento:</label>
-                                    </div>
-
-                                    <div class="col-6">
-
-                                        <asp:DropDownList
-                                            class="btn btn-light bg-light dropdown-toggle col-12"
-                                            AutoPostBack="true" CausesValidation="false"
-                                            ID="dropDocumentos"
-                                            Style="height: 30px; padding: 0px;"
-                                            runat="server">
-                                        </asp:DropDownList>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>--%>
-
 
                         <div>
                             <div class="card shadow mb-4">
@@ -172,6 +115,7 @@
                                             <asp:TextBox ID="TxtNombreDocumentoEdicion"
                                                 runat="server"
                                                 Style="height: 30px"
+                                                required
                                                 placeholder=""
                                                 Class="form-control bg-light small col-12">
                                             </asp:TextBox>
@@ -190,6 +134,7 @@
                                                 class="form-control bg-light dropdown-toggle col-12"
                                                 ID="dropTipoNuevoDocumento"
                                                 Style="height: 30px; padding: 0px"
+                                                required
                                                 runat="server">
 
                                                 <asp:ListItem Selected="True" Value=""></asp:ListItem>
@@ -236,11 +181,11 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver </a>
+                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver</a>
 
                                         &nbsp;
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-success btn-user" value="Realizar Cambios" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-secondary btn-user" value="Realizar Cambios" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
@@ -264,21 +209,19 @@
                                     <div class="modal-body">¿Desea confirmar los cambios al Documento?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarCambios"
                                             runat="server"
                                             class="btn shadow-sm btn-success btn-user"
-                                            data-toggle="modal"
+                                            data-toggle="modalConfirmacion"
                                             data-target="#modalConfirmacion"
                                             Text="Aceptar" />
-
-                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                                <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
+                        <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -290,14 +233,16 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-success btn-user"
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
                                             Text="Aceptar" />
 
-<%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
+                                        <%--                                        <a href="../login.aspx" class="btn shadow-sm btn-success">Aceptar</a>--%>
                                     </div>
                                 </div>
                             </div>

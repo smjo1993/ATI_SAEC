@@ -191,7 +191,7 @@
                                                         <div class="col-11"></div>
                                                         <asp:Button ID="BtnVolver" runat="server" Text="Volver" CausesValidation="false" formnovalidate="false" class="btn btn-success btn-user ml-auto" />
                                                         &nbsp;
-                                                        <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-success btn-user ml-auto" />
+                                                        <asp:Button ID="BtnAceptar" runat="server" Text="Aceptar" class="btn btn-secondary btn-user ml-auto" />
                                                     </div>
 
                                                 </div>

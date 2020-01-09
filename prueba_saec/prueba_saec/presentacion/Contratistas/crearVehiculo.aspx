@@ -105,7 +105,6 @@
                                 <div class="card-header py-3" runat="server">
                                     <h4 class="m-0 font-weight text-primary">
 Registro de Vehículos
-
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -193,14 +192,12 @@ Registro de Vehículos
                                     <div class="modal-body">¿Desea confirmar el registro?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarRegistro"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn btn-secondary btn-user"
                                             Text="Aceptar" />
-
-
                                     </div>
                                 </div>
                             </div>
@@ -219,13 +216,14 @@ Registro de Vehículos
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
-                                            Text="Aceptar"
-                                            formnovalidate="false"/>
+                                            class="btn shadow-sm btn-secondary btn-user"
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
+                                            Text="Aceptar"/>
 
                                     </div>
                                 </div>

@@ -130,57 +130,6 @@
                                         <asp:BoundField DataField="idVehiculo" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                         <asp:BoundField DataField="ruta" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
 
-                                        <%--<asp:TemplateField HeaderText="VER">
-                                            <ItemTemplate>
-
-                                                <asp:ImageButton
-                                                    ID="btnVerDocumento"
-                                                    ImageUrl="../../../img/file.png"
-                                                    CommandName="ver"
-                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                    runat="server" />
-
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-
-
-                                        <asp:TemplateField HeaderText="COMENTARIOS">
-
-                                            <ItemTemplate>
-                                                <asp:Button ID="Button1" runat="server" Text="Button" />
-                                            </ItemTemplate>
-
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="aprobar">
-                                            <ItemTemplate>
-                                                <asp:ImageButton
-                                                    ID="btnAprobar"
-                                                    ImageUrl=""
-                                                    CommandName="Aprobar"
-                                                    OnClientClick="return confirm('¿Esta seguro de aprobar este documento?');"
-                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                    runat="server" />
-                                            </ItemTemplate>
-                                            <HeaderStyle HorizontalAlign="Center" />
-                                            <ItemStyle HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-
-
-                                        <asp:TemplateField HeaderText="Desaprobar">
-                                            <HeaderStyle HorizontalAlign="Center" />
-                                            <ItemStyle HorizontalAlign="Center" />
-                                            <ItemTemplate>
-                                                <asp:ImageButton
-                                                    ID="btnReprobar"
-                                                    ImageUrl=""
-                                                    CommandName="reprobar"
-                                                    OnClientClick="return confirm('¿Esta seguro de desaprobar este documento?');"
-                                                    CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
-                                                    runat="server" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>--%>
-
                                         <asp:TemplateField HeaderText="Opciones">
                                                     <ItemTemplate>
                                                         <asp:ImageButton
