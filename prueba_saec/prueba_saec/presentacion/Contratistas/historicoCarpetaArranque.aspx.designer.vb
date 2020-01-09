@@ -149,15 +149,6 @@ Partial Public Class historicoCarpetaArranque
     Protected WithEvents sinVehiculos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
-    '''Control btnPedirDocumento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents btnPedirDocumento As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
     '''Control btnLogOut.
     '''</summary>
     '''<remarks>

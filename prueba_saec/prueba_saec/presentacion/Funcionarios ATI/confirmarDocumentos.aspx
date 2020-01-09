@@ -315,7 +315,7 @@
                                 <div class="card-footer">
 
                                     <div class="row" style="float: right;">
-                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-danger btn-user" value="Confirmar Documentos" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-user btn-secondary" value="Confirmar Documentos" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
@@ -335,9 +335,9 @@
                                             <div class="modal-body">¿Desea confirmar la lista de Documento?</div>
 
                                             <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                <button class="btn btn-success" type="button" data-dismiss="modal">Cancelar</button>
 
-                                                <asp:Button ID="btnConfirmarDocumentos" class="btn btn-success btn-user" runat="server" Text="Aceptar" />
+                                                <asp:Button ID="btnConfirmarDocumentos" class="btn btn-secondary btn-user" runat="server" Text="Aceptar" />
 
                                             </div>
                                         </div>
@@ -356,11 +356,11 @@
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar" />
 
                                     </div>

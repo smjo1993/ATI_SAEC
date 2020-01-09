@@ -170,7 +170,6 @@ Registro de Trabajadores
                                                 Style="height: 30px"
                                                 placeholder=""
                                                 required
-                                                TextMode="Email"
                                                 Class="form-control bg-light small col-12">
                                             </asp:TextBox>
 
@@ -192,11 +191,11 @@ Registro de Trabajadores
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="subirDocumentos/listarTrabajadores.aspx">Volver</a>
+                                        <a class="btn btn-success shadow-sm" href="subirDocumentos/listarTrabajadores.aspx">Volver</a>
 
                                         &nbsp;
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Aceptar" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn btn-secondary btn-user" value="Aceptar" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>
@@ -220,11 +219,11 @@ Registro de Trabajadores
                                     <div class="modal-body">¿Desea confirmar el registro?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnRealizarRegistro"
                                             runat="server"
-                                            class="btn btn-success btn-user"
+                                            class="btn btn-secondary btn-user"
                                             Text="Aceptar" />
 
 
@@ -245,11 +244,11 @@ Registro de Trabajadores
                                     <div class="modal-body">¿Desea cerrar sesión?</div>
 
                                     <div class="modal-footer">
-                                        <button class="btn btn-secondary shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
+                                        <button class="btn btn-success shadow-sm" type="button" data-dismiss="modal">Cancelar</button>
                                         <asp:Button
                                             ID="btnLogOut"
                                             runat="server"
-                                            class="btn shadow-sm btn-success btn-user"
+                                            class="btn shadow-sm btn-secondary btn-user"
                                             Text="Aceptar"
                                             formnovalidate="false"/>
 
