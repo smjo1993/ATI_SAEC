@@ -128,6 +128,7 @@
                                                 ID="txtNombreDocumento"
                                                 runat="server"
                                                 Style="height: 30px"
+                                                required
                                                 Class="form-control bg-light small col-12">
                                             </asp:TextBox>
                                         </div>
@@ -143,6 +144,7 @@
                                             <asp:DropDownList
                                                 class="form-control bg-light dropdown-toggle col-12"
                                                 Style="height: 30px; padding: 0px"
+                                                required
                                                 ID="dropTipoDocumento"
                                                 runat="server">
 
@@ -186,7 +188,7 @@
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver </a>
+                                        <a class="btn btn-secondary shadow-sm" href="verListaDctos.aspx">Volver</a>
 
                                         &nbsp;
 
@@ -218,9 +220,9 @@
                                             ID="btnCrearDocumento"
                                             runat="server"
                                             class="btn shadow-sm btn-success btn-user"
+                                            data-toggle="modalConfirmacion"
+                                            data-target="#modalConfirmacion"
                                             Text="Aceptar" />
-
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -243,6 +245,8 @@
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-success btn-user"
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
                                             Text="Aceptar" />
 
                                     </div>
