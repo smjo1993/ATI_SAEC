@@ -133,6 +133,7 @@ Public Class verDocumentos
                 Dim rutaCodificada As String = System.Convert.ToBase64String(rutaBase64)
                 'Response.Clear()
                 'Response.ContentType = "application/pdf"
+                'Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
                 Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
                 'Response.WriteFile(ruta)
             Else
@@ -199,7 +200,7 @@ Public Class verDocumentos
             Response.Redirect("../../Contratistas/verComentarios.aspx")
         End If
 
-        Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
 
     End Sub
 
