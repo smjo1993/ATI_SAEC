@@ -1,18 +1,18 @@
-﻿Public Class modificarDcto
+﻿Imports System.Linq
+Public Class modificarDcto
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        If Not IsPostBack Then
-
-            validarUsuario()
-            lblMenu.Visible = False
-            cargarMenu()
-            lblHeadEdicion.Text = Session("nombreDocumento")
-            TxtNombreDocumentoEdicion.Attributes.Add("placeholder", lblHeadEdicion.Text)
-            cargarNotificacionesComentarios()
+        If IsPostBack Then
+            Return
         End If
-
+        validarUsuario()
+        lblMenu.Visible = False
+        cargarMenu()
+        lblHeadEdicion.Text = Session("nombreDocumento")
+        TxtNombreDocumentoEdicion.Attributes.Add("placeholder", lblHeadEdicion.Text)
+        cargarNotificacionesComentarios()
     End Sub
 
     Protected Sub validarUsuario()
@@ -68,7 +68,7 @@
         Else
 
             task = documento.actualizarDocumento(nombreDocumento, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text.Trim(), idDocumento)
-            Log.insertarRegistro("Se ha editado el Requerimiento Documental: " + TxtNombreDocumentoEdicion.Text.Trim(), Session("usuario").getRut)
+            log.insertarRegistro("Se ha editado el Requerimiento Documental: " + TxtNombreDocumentoEdicion.Text.Trim(), Session("usuario").getRut)
 
             If task = False Then
                 lblAdvertencia.Text = "Error de procedimiento almc."

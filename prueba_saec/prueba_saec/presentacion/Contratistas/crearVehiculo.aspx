@@ -105,7 +105,6 @@
                                 <div class="card-header py-3" runat="server">
                                     <h4 class="m-0 font-weight text-primary">
 Registro de Vehículos
-
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -148,10 +147,15 @@ Registro de Vehículos
 
 
                                     <div class="row">
-                                        <div>
-                                            <p>
-                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label>
-                                            </p>
+
+                                    </div>
+                                                                        <div style="margin-bottom:8px" class="row">
+                                                                                <div class="col-1">
+                                        </div>
+                                                                                <div class="col-10">
+                                                                                                                                <h6 class="h3 mb-4 text-gray-800 text-center">                                                <asp:Label ID="lblAdvertencia" runat="server" Text=""></asp:Label></h6>
+                                        </div>
+                                                                                <div class="col-1">
                                         </div>
                                     </div>
                                 </div>
@@ -194,8 +198,6 @@ Registro de Vehículos
                                             runat="server"
                                             class="btn btn-secondary btn-user"
                                             Text="Aceptar" />
-
-
                                     </div>
                                 </div>
                             </div>
@@ -219,8 +221,9 @@ Registro de Vehículos
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-secondary btn-user"
-                                            Text="Aceptar"
-                                            formnovalidate="false"/>
+                                            CausesValidation="false" 
+                                            formnovalidate="false"
+                                            Text="Aceptar"/>
 
                                     </div>
                                 </div>

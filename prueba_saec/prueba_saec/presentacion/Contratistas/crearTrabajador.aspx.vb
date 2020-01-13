@@ -151,9 +151,11 @@
         Dim registro As Boolean
         Dim nombreEmpresa As String
         nombreEmpresa = empresa.obtenerEmpresa(Session("rutEmpresa")).Rows(0).Item(0).ToString
-        insercion = trabajador.insertarTrabajador(TxtRut.Text.Trim(), TxtNombre.Text.Trim(), TxtFono.Text.Trim(), TxtCorreo.Text.Trim(), Session("contratistaEntrante").getRut)
-        registro = log.insertarRegistro("Se ha creado al trabajador de rut: " + TxtRut.Text.Trim() + " en la C.A de la empresa " + nombreEmpresa, Session("contratistaEntrante").getRut)
-        Response.Redirect("../Contratistas/subirDocumentos/listarTrabajadores.aspx")
+        If (TxtRut.Text.Trim() <> "" And TxtNombre.Text.Trim() <> "" And TxtFono.Text.Trim() <> "" And TxtCorreo.Text.Trim() <> "") Then
+            insercion = trabajador.insertarTrabajador(TxtRut.Text.Trim(), TxtNombre.Text.Trim(), TxtFono.Text.Trim(), TxtCorreo.Text.Trim(), Session("contratistaEntrante").getRut)
+            registro = log.insertarRegistro("Se ha creado al trabajador de rut: " + TxtRut.Text.Trim() + " en la C.A de la empresa " + nombreEmpresa, Session("contratistaEntrante").getRut)
+            Response.Redirect("../Contratistas/subirDocumentos/listarTrabajadores.aspx")
+        End If
     End Sub
 
 

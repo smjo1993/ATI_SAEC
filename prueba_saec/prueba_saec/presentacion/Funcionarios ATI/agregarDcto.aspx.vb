@@ -4,13 +4,13 @@ Public Class agregarDcto
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        If IsPostBack Then
-            Return
+        If Not Page.IsPostBack Then
+            validarUsuario()
+            cargarMenu()
+            cargarAreas()
+            cargarNotificacionesComentarios()
         End If
-        validarUsuario()
-        cargarMenu()
-        cargarAreas()
-        cargarNotificacionesComentarios()
+
     End Sub
     Protected Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
         Session.Contents.RemoveAll()
