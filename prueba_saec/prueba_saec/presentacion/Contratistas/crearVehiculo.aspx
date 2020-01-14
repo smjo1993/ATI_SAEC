@@ -164,11 +164,11 @@ Registro de Vehículos
 
                                     <div class="row" style="float: right;">
 
-                                        <a class="btn btn-secondary" href="subirDocumentos/listarVehiculos.aspx">Volver</a>
+                                        <a class="btn btn-success" href="subirDocumentos/listarVehiculos.aspx">Volver</a>
 
                                         &nbsp;
 
-                                        <input id="btnModalConfirmacion" type="button" class="btn btn-success btn-user" value="Aceptar" data-toggle="modal"
+                                        <input id="btnModalConfirmacion" type="button" class="btn btn-secondary btn-user" value="Aceptar" data-toggle="modal"
                                             data-target="#modalConfirmacion" />
 
                                     </div>

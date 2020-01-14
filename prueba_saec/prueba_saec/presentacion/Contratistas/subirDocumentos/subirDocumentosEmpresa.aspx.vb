@@ -201,7 +201,6 @@ Public Class subirDocumentosEmpresa
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")
