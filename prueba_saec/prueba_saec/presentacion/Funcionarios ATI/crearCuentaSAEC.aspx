@@ -161,7 +161,7 @@
                                             <label id="lblFono" class="col-12">Telefono:</label>
                                         </div>
                                         <div class="col-6">
-                                            <asp:TextBox ID="txtFono" runat="server" Class="col-12 form-control form-control-user" required pattern="^\d+$"></asp:TextBox>
+                                            <asp:TextBox ID="txtFono" runat="server" Class="col-12 form-control form-control-user" required></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row form-group">

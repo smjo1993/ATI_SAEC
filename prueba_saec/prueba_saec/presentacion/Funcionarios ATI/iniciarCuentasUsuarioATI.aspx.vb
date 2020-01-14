@@ -29,6 +29,7 @@
         If mensaje <> Nothing Then
             lblMensaje.Visible = True
             lblMensaje.Text = mensaje
+            Session("mensaje") = Nothing
         End If
         LblNombreUsuario.Text = usuario.getNombre().ToString()
     End Sub
@@ -67,9 +68,7 @@
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim fono As String = gridUsuariosATI.Rows(pos).Cells(5).Text
             If fono = "" Or fono = "-" Or fono = "&nbsp;" Then
-                fono = 0
-            Else
-                fono = Convert.ToInt32(gridUsuariosATI.Rows(pos).Cells(5).Text)
+                fono = "0"
             End If
             Dim correo As String = gridUsuariosATI.Rows(pos).Cells(4).Text
             If correo = "" Or correo = "-" Or correo = "&nbsp;" Then

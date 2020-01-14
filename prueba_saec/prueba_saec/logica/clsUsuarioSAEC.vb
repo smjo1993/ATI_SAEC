@@ -7,7 +7,7 @@ Public Class clsUsuarioSAEC
     Private clave As String
     Private rut As String
     Private estado As Char
-    Private fono As Integer
+    Private fono As String
     Private correo As String
     Private area As Integer
 
@@ -15,7 +15,7 @@ Public Class clsUsuarioSAEC
     End Sub
 
     Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char,
-                   ByVal fono As Integer, ByVal correo As String, ByVal area As Integer)
+                   ByVal fono As String, ByVal correo As String, ByVal area As Integer)
         Me.nombre = nombre
         Me.login = login
         Me.clave = clave
@@ -57,7 +57,7 @@ Public Class clsUsuarioSAEC
             Me.clave = Value
         End Set
     End Property
-    Public Property getFono() As Integer
+    Public Property getFono() As String
         Get
             Return Me.fono
         End Get
@@ -228,10 +228,9 @@ Public Class clsUsuarioSAEC
         End Try
     End Function
 
-    Public Function insertarUsuario(nombre As String, login As String, clave As String, rut As String, estado As Char, fono As Integer, correo As String, area As Integer, rol As Integer) As String
+    Public Function insertarUsuario(nombre As String, login As String, clave As String, rut As String, estado As Char, fono As String, correo As String, area As Integer, rol As Integer) As String
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
-        Console.WriteLine(con.ToString())
         Try
 
             Dim ds As New DataSet()
