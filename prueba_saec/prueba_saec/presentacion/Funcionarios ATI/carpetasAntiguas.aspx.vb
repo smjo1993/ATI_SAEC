@@ -87,7 +87,7 @@
                 For Each fila As DataRow In carpetasHistorico.Rows
 
                     Dim Empresas As Object = New clsEmpresa()
-                    Dim porcentaje As String = Empresas.calcularPorcentaje(fila("rut"))
+                    Dim porcentaje As String = Empresas.calcularPorcentajeHistorico(fila("id"))
                     Dim estado As Boolean = Empresas.ObtenerEstado(Session("usuario").getArea(), fila("rut"))
                     Dim idCarpeta As String = fila("id")
                     Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))

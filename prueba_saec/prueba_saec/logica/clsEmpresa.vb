@@ -343,4 +343,34 @@ Public Class clsEmpresa
             con.Dispose()
         End Try
     End Function
+
+    Public Function calcularPorcentajeHistorico(idCarpeta As String) As String
+
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim sql As String = "SP_SAEC_CalcularProgresoCarpetaHistorico'" & idCarpeta & "'"
+            Dim ds As New DataSet()
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Dim aprobados As Integer = ds.Tables(0).Rows(0).Item(0)
+            Dim resultado As String
+
+            If aprobados = 0 Then
+                Return "0"
+            Else
+                Dim total As Integer = ds.Tables(1).Rows(0).Item(0)
+                resultado = Int((aprobados * 100) / total)
+            End If
+
+            Return resultado
+
+        Catch ex As Exception
+            Return False
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+
+    End Function
 End Class

@@ -42,7 +42,7 @@
                 For Each fila As DataRow In carpeta.Rows
 
                     Dim Empresas As Object = New clsEmpresa()
-                    Dim porcentaje As String = Empresas.calcularPorcentaje(fila("TB_SAEC_Empresarut"))
+                    Dim porcentaje As String = Empresas.calcularPorcentajeHistorico(fila("id"))
                     Dim estado As Boolean = contratista.obtenerEstado(fila("TB_SAEC_Empresarut"))
                     Dim idCarpeta As String = fila("id")
                     Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(fila("id"))
@@ -69,9 +69,9 @@
 
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
 
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
+                    ''tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
 
-                    ''tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
+                    tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
 
                     tarjeta = tarjeta & "              </div> "
 
@@ -154,9 +154,9 @@
 
                     tarjeta = tarjeta & "              <div Class=""col-auto""> "
 
-                    tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+                    ''tarjeta = tarjeta & "              <a href=""https://localhost:44310/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
 
-                    ''tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
+                    tarjeta = tarjeta & "              <a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/subirDocumentos/subirDocumentosEmpresa.aspx"" class=""fas fa-fw fa-folder fa-2x text-" + color + """></a>"
 
                     tarjeta = tarjeta & "              </div> "
 

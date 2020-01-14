@@ -155,14 +155,14 @@
                                                     <ItemTemplate>
                                                         <asp:ImageButton
                                                             ID="btnDescargar"
-                                                            ImageUrl="../../../img/download.png"
+                                                            ImageUrl="../../img/download.png"
                                                             ToolTip="Ver"
                                                             CommandName="Ver"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
                                                         <asp:ImageButton
                                                             ID="btnVerComentarios"
-                                                            ImageUrl="../../../img/chat.png"
+                                                            ImageUrl="../../img/chat.png"
                                                             ToolTip="Ver Comentarios"
                                                             CommandName="verComentarios"
                                                             OnClientClick=""
@@ -204,7 +204,7 @@
                                             <ItemTemplate>
                                                 <asp:ImageButton
                                                     ID="btnIrTrabajador"
-                                                    ImageUrl="../../../img/user.png"
+                                                    ImageUrl="../../img/user.png"
                                                     CommandName="ir"
                                                     ToolTip="Ver Trabajador"
                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
@@ -246,7 +246,7 @@
                                                             <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     ID="btnIrVehiculo"
-                                                                    ImageUrl="../../../img/delivery-truck.png"
+                                                                    ImageUrl="../../img/delivery-truck.png"
                                                                     CommandName="ir"
                                                                     Tooltip="Ver Vehículo"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
