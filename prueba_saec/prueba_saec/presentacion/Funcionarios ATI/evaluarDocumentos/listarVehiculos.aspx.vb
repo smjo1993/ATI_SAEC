@@ -10,6 +10,7 @@
         cargarMenu()
         cargarBotones()
         cargarNotificacionesComentarios()
+        'se carga la gridview
         Dim vehiculos = New clsVehiculo()
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()

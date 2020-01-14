@@ -109,7 +109,7 @@ Public Class evaluarDocumentosVehiculo
         Return idCarpeta
     End Function
     Protected Sub btnVerDocumento_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarDocumentosVehiculo.RowCommand
-
+        'se obtienen los datos desde la gridview
         Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
         Dim ruta As String = gridListarDocumentosVehiculo.Rows(pos).Cells(9).Text
         Dim nombreArchivo As String = gridListarDocumentosVehiculo.Rows(pos).Cells(1).Text
@@ -123,7 +123,7 @@ Public Class evaluarDocumentosVehiculo
         If (e.CommandName = "Ver") Then
 
             If extension = "pdf" Then
-
+                'Se redireciona a otra pagina mediante un script con la ruta del archivo para poder visalizar el pdf en otra pestaña
                 'Se codifica la ruta del archivo para pasarlo por URl
                 Dim rutaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(ruta)
                 Dim rutaCodificada As String = System.Convert.ToBase64String(rutaBase64)
@@ -133,7 +133,7 @@ Public Class evaluarDocumentosVehiculo
                 'Response.WriteFile(ruta)
 
             Else
-
+                'Si el documento no tiene la extension 'pdf' se descarga el archivo
                 Response.Clear()
                 Response.AddHeader("content-disposition", String.Format("attachment;filename={0}", ruta))
                 Response.WriteFile(ruta)
@@ -144,7 +144,7 @@ Public Class evaluarDocumentosVehiculo
         End If
 
         If (e.CommandName = "Aprobar") Then
-
+            'Se cambia el estado del documento a 'aprobado', se agrega la fecha de expiracion y se inserta un registro Log
             Dim vehiculo As New clsVehiculo
             Dim documento As New clsDocumento
             Dim carpeta As New clsCarpetaArranque
@@ -181,7 +181,7 @@ Public Class evaluarDocumentosVehiculo
         End If
 
         If (e.CommandName = "Reprobar") Then
-
+            'Se cambia el estado del documento a 'pendiente', se elimina el archivo y se inserta un registro Log
             Dim documento As New clsDocumento
             Dim vehiculo As New clsVehiculo
 

@@ -10,6 +10,7 @@
         cargarMenu()
         cargarBotones()
         cargarNotificacionesComentarios()
+        'se carga la gridview
         Dim trabajadores = New clsTrabajador()
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
@@ -134,7 +135,6 @@
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")
