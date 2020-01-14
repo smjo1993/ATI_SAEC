@@ -166,6 +166,9 @@
                                             </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
+                                    <div runat="server" id="sinEmpresas">
+                                        <h1 class="h3 mb-4 text-gray-800 text-center">Sin Empresas registradas</h1>
+                                    </div>
                                 </div>
                                                         <!-- Modal Logout-->
                         <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
