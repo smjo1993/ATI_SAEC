@@ -77,20 +77,15 @@
             errorNumero.Visible = True
             cargarMenu()
         Else
-            Try
-                Dim Fono As Integer = Convert.ToInt32(txtFono.Text)
+            Dim Fono As String = txtFono.Text
                 Dim rol As Integer = Convert.ToInt32(dropRol.SelectedValue)
                 Dim usuarioSAEC As clsUsuarioSAEC = Session("usuarioNuevoSAEC")
-                Dim nuevoUsuario As New clsUsuarioSAEC
-                Dim mensaje As String = nuevoUsuario.insertarUsuario(usuarioSAEC.getNombre, usuarioSAEC.getLogin, usuarioSAEC.getClave, usuarioSAEC.getRut, usuarioSAEC.getEstado, Fono, txtEmail.Text, usuarioSAEC.getArea, rol)
-                Session("mensaje") = mensaje
+            Dim nuevoUsuario As New clsUsuarioSAEC
+            Dim rut As String = usuarioSAEC.getRut
+            Dim mensaje As String = nuevoUsuario.insertarUsuario(usuarioSAEC.getNombre, usuarioSAEC.getLogin, usuarioSAEC.getClave, rut, usuarioSAEC.getEstado, Fono, txtEmail.Text, usuarioSAEC.getArea, rol)
+            Session("mensaje") = mensaje
                 Response.Redirect("iniciarCuentasUsuarioATI.aspx")
-            Catch ex As FormatException
-                'MessageBox.Show(ex.Message)
-                lblMensaje.Text = "Error en el numero Telefonico"
-                errorNumero.Visible = True
                 cargarMenu()
-            End Try
         End If
     End Sub
     Private Sub cargarNotificacionesComentarios()

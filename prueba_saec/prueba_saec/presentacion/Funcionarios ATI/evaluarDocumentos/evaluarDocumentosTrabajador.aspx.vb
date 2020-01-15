@@ -81,9 +81,9 @@ Public Class evaluarDocumentosTrabajador
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
 
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn btn-secondary"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn btn-secondary"" style=""float: Right();"">"
 
-        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn btn-secondary"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn btn-secondary"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblVolver.Text = boton
@@ -111,7 +111,7 @@ Public Class evaluarDocumentosTrabajador
     End Function
 
     Protected Sub btnVerDocumento_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridListarDocumentosTrabajador.RowCommand
-
+        'se obtienen los datos desde la gridview
         Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
         Dim ruta As String = gridListarDocumentosTrabajador.Rows(pos).Cells(10).Text
         Dim idCarpeta As Integer = gridListarDocumentosTrabajador.Rows(pos).Cells(5).Text
@@ -126,17 +126,15 @@ Public Class evaluarDocumentosTrabajador
         If (e.CommandName = "Ver") Then
 
             If extension = "pdf" Then
-
+                'Se redireciona a otra pagina mediante un script con la ruta del archivo para poder visalizar el pdf en otra pestaña
                 'Se codifica la ruta del archivo para pasarlo por URl
                 Dim rutaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(ruta)
                 Dim rutaCodificada As String = System.Convert.ToBase64String(rutaBase64)
-                'Response.Clear()
-                'Response.ContentType = "application/pdf"
+
                 Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
-                'Response.WriteFile(ruta)
 
             Else
-
+                'Si el documento no tiene la extension 'pdf' se descarga el archivo
                 Response.Clear()
                 Response.AddHeader("content-disposition", String.Format("attachment;filename={0}", ruta))
                 Response.WriteFile(ruta)
@@ -147,7 +145,7 @@ Public Class evaluarDocumentosTrabajador
         End If
 
         If (e.CommandName = "Aprobar") Then
-
+            'Se cambia el estado del documento a 'aprobado', se agrega la fecha de expiracion y se inserta un registro Log
             Dim Trabajador As New clsTrabajador
             Dim documento As New clsDocumento
             Dim carpeta As New clsCarpetaArranque
@@ -184,7 +182,7 @@ Public Class evaluarDocumentosTrabajador
         End If
 
         If (e.CommandName = "Reprobar") Then
-
+            'Se cambia el estado del documento a 'pendiente', se elimina el archivo y se inserta un registro Log
             Dim Trabajador As New clsTrabajador
             My.Computer.FileSystem.DeleteFile(ruta)
             Dim documento As New clsDocumento
@@ -264,7 +262,6 @@ Public Class evaluarDocumentosTrabajador
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")

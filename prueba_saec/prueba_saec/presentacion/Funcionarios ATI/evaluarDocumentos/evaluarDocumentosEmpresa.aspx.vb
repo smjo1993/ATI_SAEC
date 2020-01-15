@@ -28,18 +28,18 @@ Public Class verDocumentos
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
 
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
-        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosTrabajdor.Text = boton
         texto = "Documentos Vehiculo"
         boton = ""
 
-        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
-        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosVehiculo.Text = boton
@@ -123,20 +123,21 @@ Public Class verDocumentos
     Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
 
         If (e.CommandName = "Ver") Then
+            'se obtienen los datos desde la gridview
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             Dim ruta As String = gridDocumentos.Rows(pos).Cells(6).Text
             Dim nombreArchivo As String = gridDocumentos.Rows(pos).Cells(4).Text
             Dim extension As String = ExtraerExtension(ruta, ".")
             If extension = "pdf" Then
+                'Se redireciona a otra pagina mediante un script con la ruta del archivo para poder visalizar el pdf en otra pestaña
                 'Se codifica la ruta del archivo para pasarlo por URl
                 Dim rutaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(ruta)
                 Dim rutaCodificada As String = System.Convert.ToBase64String(rutaBase64)
-                'Response.Clear()
-                'Response.ContentType = "application/pdf"
-                Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
-                'Response.WriteFile(ruta)
-            Else
 
+                Response.Write("<script type='text/javascript'>detailedresults=window.open('verDocumento.aspx?r=" + rutaCodificada + "');</script>")
+
+            Else
+                'Si el documento no tiene la extension 'pdf' se descarga el archivo
                 Response.Clear()
                 Response.AddHeader("content-disposition", String.Format("attachment;filename={0}", ruta))
                 Response.WriteFile(ruta)
@@ -145,6 +146,7 @@ Public Class verDocumentos
         End If
 
         If (e.CommandName = "Aprobar") Then
+            'Se cambia el estado del documento a 'aprobado', se agrega la fecha de expiracion y se inserta un registro Log
             Dim registroLog As Object = New clsLog()
             Dim carpeta As New clsCarpetaArranque
             Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
@@ -176,12 +178,14 @@ Public Class verDocumentos
         End If
 
         If (e.CommandName = "Reprobar") Then
+            'Se cambia el estado del documento a 'pendiente', se elimina el archivo y se inserta un registro Log
             Dim registroLog As Object = New clsLog()
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
             My.Computer.FileSystem.DeleteFile(gridDocumentos.Rows(pos).Cells(6).Text)
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "pendiente", "")
             registroLog.insertarRegistro("Se rechaza el documento " + gridDocumentos.Rows(pos).Cells(0).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(1).Text + "", Session("usuario").getRut())
+
         End If
 
         If (e.CommandName = "verComentarios") Then
@@ -199,7 +203,7 @@ Public Class verDocumentos
             Response.Redirect("../../Contratistas/verComentarios.aspx")
         End If
 
-        Response.Redirect(HttpContext.Current.Request.Url.ToString)
+
 
     End Sub
 
@@ -253,7 +257,6 @@ Public Class verDocumentos
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")

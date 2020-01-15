@@ -7,6 +7,7 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblMenu.Visible = False
+        sinEmpresas.Visible = False
         cargarMenu()
         If IsPostBack Then
             Return
@@ -59,7 +60,7 @@
 
             Else
                 'METRO.UI.MsgBox.Show(Page, "Alerta", "", METRO.UI.MsgBox.Modalidad.alert, METRO.UI.MsgBox.TipoWin8.Si, METRO.UI.MsgBox.OpcionColor.black)
-                Return
+                sinEmpresas.Visible = True
             End If
         Catch ex As Exception
             'METRO.UI.MsgBox.Show(Page, "Alerta", "Problemas desde BD al cargar menús", METRO.UI.MsgBox.Modalidad.alert, METRO.UI.MsgBox.TipoWin8.Si, METRO.UI.MsgBox.OpcionColor.black)

@@ -8,6 +8,7 @@
         'If (Not clsUsuario.ValidaAccesoForm(Session("Usuario"), Request.Url.Segments(Request.Url.Segments.Length - 1))) Then
         '    Response.Redirect("AccesoDenegado.aspx")
         'End If
+        sinContratistas.Visible = False
         validarUsuario()
         cargarMenu()
         cargarGrid()
@@ -56,7 +57,7 @@
 
             Else
                 'METRO.UI.MsgBox.Show(Page, "Alerta", "", METRO.UI.MsgBox.Modalidad.alert, METRO.UI.MsgBox.TipoWin8.Si, METRO.UI.MsgBox.OpcionColor.black)
-                Return
+                sinContratistas.Visible = True
             End If
         Catch ex As Exception
             'METRO.UI.MsgBox.Show(Page, "Alerta", "Problemas desde BD al cargar menús", METRO.UI.MsgBox.Modalidad.alert, METRO.UI.MsgBox.TipoWin8.Si, METRO.UI.MsgBox.OpcionColor.black)

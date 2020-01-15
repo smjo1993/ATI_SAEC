@@ -86,13 +86,40 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents gridDocumentosEmpresa As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control sinDocEmpresa.
+    '''Control sinDocEmpresaPedido.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinDocEmpresa As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents sinDocEmpresaPedido As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control documentosEmpresaPendientes.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents documentosEmpresaPendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control gridDocumentosEmpresaPendientes.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gridDocumentosEmpresaPendientes As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocEmpresaPendiente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocEmpresaPendiente As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control seccionTrabajador.
@@ -113,13 +140,31 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents gridDocumentosTrabajador As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control sinDocTrabajador.
+    '''Control sinDocTrabajadorPedido.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinDocTrabajador As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents sinDocTrabajadorPedido As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control gridDocumentosTrabajadorPendiente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gridDocumentosTrabajadorPendiente As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocTrabajadorPendiente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocTrabajadorPendiente As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control seccionVehiculo.
@@ -140,13 +185,31 @@ Partial Public Class CrearListaDocumentacion
     Protected WithEvents gridDocumentosVehiculo As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''Control sinDocVehiculo.
+    '''Control sinDocVehiculoPedido.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents sinDocVehiculo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents sinDocVehiculoPedido As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    
+    '''<summary>
+    '''Control gridDocumentosVehiculoPendiente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gridDocumentosVehiculoPendiente As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control sinDocVehiculoPendiente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents sinDocVehiculoPendiente As Global.System.Web.UI.HtmlControls.HtmlGenericControl
     
     '''<summary>
     '''Control btnPedirDocumento.

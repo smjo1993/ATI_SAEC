@@ -275,12 +275,12 @@ Public Class clsContratista
             con.Open()
             Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
             dbDataAdapter.Fill(ds)
-            Dim documentosPendientesEmpresa As Integer = ds.Tables(0).Rows(0).Item(0)
+            Dim documentosPendientes As Integer = ds.Tables(0).Rows(0).Item(0)
             Dim documentosPendientesTrabajadores As Integer = ds.Tables(1).Rows(0).Item(0)
             Dim documentosPendientesVehiculos As Integer = ds.Tables(2).Rows(0).Item(0)
 
             'Si el revisor tiene un documento pendiente mostrar color rojo
-            If documentosPendientesEmpresa > 0 Or documentosPendientesTrabajadores > 0 Or documentosPendientesVehiculos > 0 Then
+            If documentosPendientes > 0 Or documentosPendientesTrabajadores > 0 Or documentosPendientesVehiculos > 0 Then
                 Return True
             Else
                 Return False

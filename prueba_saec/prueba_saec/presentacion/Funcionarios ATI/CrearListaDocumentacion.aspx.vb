@@ -4,10 +4,12 @@ Public Class CrearListaDocumentacion
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        sinDocEmpresa.Visible = False
-        sinDocTrabajador.Visible = False
-        sinDocVehiculo.Visible = False
+        sinDocEmpresaPendiente.Visible = False
+        sinDocEmpresaPedido.Visible = False
+        sinDocTrabajadorPendiente.Visible = False
+        sinDocTrabajadorPedido.Visible = False
+        sinDocVehiculoPendiente.Visible = False
+        sinDocVehiculoPedido.Visible = False
         lblMenu.Visible = False
         lblNombreEmpresa.Visible = False
 
@@ -68,9 +70,11 @@ Public Class CrearListaDocumentacion
         Dim idCarpeta As Integer = decodificarId()
         Dim chk As HtmlInputCheckBox
 
+        ''Documentos Empresa
+
         Dim documentosEmpresa As DataTable = documento.buscarDocumentoPorArea(usuario.getArea, "empresa", idCarpeta)
         If (documentosEmpresa Is Nothing) Then
-            sinDocEmpresa.Visible = True
+            sinDocEmpresaPedido.Visible = True
         Else
             If (documentosEmpresa.Rows.Count > 0) Then
                 Me.gridDocumentosEmpresa.DataSource = documentosEmpresa
@@ -82,13 +86,28 @@ Public Class CrearListaDocumentacion
                     End If
                 Next
             Else
-                sinDocEmpresa.Visible = True
+                sinDocEmpresaPedido.Visible = True
             End If
         End If
 
+        Dim documentosEmpresaPendiente As DataTable = documento.buscarDocumentoPorAreaPendiente(usuario.getArea, "empresa", idCarpeta)
+
+        If (documentosEmpresaPendiente Is Nothing) Then
+            sinDocEmpresaPendiente.Visible = True
+        Else
+            If (documentosEmpresaPendiente.Rows.Count > 0) Then
+                Me.gridDocumentosEmpresaPendientes.DataSource = documentosEmpresaPendiente
+                Me.gridDocumentosEmpresaPendientes.DataBind()
+            Else
+                sinDocEmpresaPendiente.Visible = True
+            End If
+        End If
+
+        ''Documentos Trabajador
+
         Dim documentosTrabajador As DataTable = documento.buscarDocumentoPorArea(usuario.getArea, "trabajador", idCarpeta)
         If (documentosTrabajador Is Nothing) Then
-            sinDocTrabajador.Visible = True
+            sinDocTrabajadorPedido.Visible = True
         Else
             If (documentosTrabajador.Rows.Count > 0) Then
                 Me.gridDocumentosTrabajador.DataSource = documentosTrabajador
@@ -100,13 +119,27 @@ Public Class CrearListaDocumentacion
                     End If
                 Next
             Else
-                sinDocTrabajador.Visible = True
+                sinDocTrabajadorPedido.Visible = True
             End If
         End If
 
+        Dim documentosTrabajadorPendiente As DataTable = documento.buscarDocumentoPorAreaPendiente(usuario.getArea, "trabajador", idCarpeta)
+        If (documentosTrabajadorPendiente Is Nothing) Then
+            sinDocTrabajadorPendiente.Visible = True
+        Else
+            If (documentosTrabajadorPendiente.Rows.Count > 0) Then
+                Me.gridDocumentosTrabajadorPendiente.DataSource = documentosTrabajadorPendiente
+                Me.gridDocumentosTrabajadorPendiente.DataBind()
+            Else
+                sinDocTrabajadorPendiente.Visible = True
+            End If
+        End If
+
+        ''Documentos Vehiculo
+
         Dim documentosVehiculo As DataTable = documento.buscarDocumentoPorArea(usuario.getArea, "vehiculo", idCarpeta)
         If (documentosVehiculo Is Nothing) Then
-            sinDocVehiculo.Visible = True
+            sinDocVehiculoPedido.Visible = True
         Else
             If (documentosVehiculo.Rows.Count > 0) Then
                 Me.gridDocumentosVehiculo.DataSource = documentosVehiculo
@@ -118,7 +151,19 @@ Public Class CrearListaDocumentacion
                     End If
                 Next
             Else
-                sinDocVehiculo.Visible = True
+                sinDocVehiculoPedido.Visible = True
+            End If
+        End If
+
+        Dim documentosVehiculoPendiente As DataTable = documento.buscarDocumentoPorAreaPendiente(usuario.getArea, "vehiculo", idCarpeta)
+        If (documentosVehiculoPendiente Is Nothing) Then
+            sinDocVehiculoPendiente.Visible = True
+        Else
+            If (documentosVehiculoPendiente.Rows.Count > 0) Then
+                Me.gridDocumentosVehiculoPendiente.DataSource = documentosVehiculoPendiente
+                Me.gridDocumentosVehiculoPendiente.DataBind()
+            Else
+                sinDocVehiculoPendiente.Visible = True
             End If
         End If
     End Sub
@@ -128,9 +173,22 @@ Public Class CrearListaDocumentacion
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Dim idCarpeta As Integer = decodificarId()
         Dim chk As HtmlInputCheckBox
+        Dim listNombreDocumentos As New List(Of String)
         For Each documentoEmpresa As GridViewRow In gridDocumentosEmpresa.Rows
             chk = documentoEmpresa.FindControl("chkDocEmpresa")
             If chk.Checked = True Then 'pasan a espera
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "espera", Nothing)
+                documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, Nothing)
+            Else 'sino quedan no solicitados
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "no solicitado", Nothing)
+                documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, Nothing)
+            End If
+        Next
+
+        For Each documentoEmpresa As GridViewRow In gridDocumentosEmpresaPendientes.Rows
+            chk = documentoEmpresa.FindControl("chkDocEmpresa")
+            If chk.Checked = True Then 'pasan a espera
+                listNombreDocumentos.Add(documentoEmpresa.Cells(1).Text)
                 documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, "espera", Nothing)
                 documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoEmpresa.Cells(0).Text, Nothing)
             Else 'sino quedan no solicitados
@@ -152,6 +210,20 @@ Public Class CrearListaDocumentacion
             End If
         Next
 
+        For Each documentoTrabajador As GridViewRow In gridDocumentosTrabajadorPendiente.Rows
+            chk = documentoTrabajador.FindControl("chkDocTrabajador")
+            If chk.Checked = True Then
+                listNombreDocumentos.Add(documentoTrabajador.Cells(1).Text)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, "espera", Nothing)
+                ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, Nothing)
+
+            Else
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, "no solicitado", Nothing)
+                '' documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoTrabajador.Cells(0).Text, Nothing)
+
+            End If
+        Next
+
         For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculo.Rows
             chk = documentoVehiculo.FindControl("chkDocVehiculo")
             If chk.Checked = True Then
@@ -162,8 +234,27 @@ Public Class CrearListaDocumentacion
                 ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, Nothing)
             End If
         Next
-        'Response.Redirect(Page.Request.Url.AbsoluteUri)
-        cargarMenu()
+
+        For Each documentoVehiculo As GridViewRow In gridDocumentosVehiculoPendiente.Rows
+            chk = documentoVehiculo.FindControl("chkDocVehiculo")
+            If chk.Checked = True Then
+                listNombreDocumentos.Add(documentoVehiculo.Cells(1).Text)
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, "espera", Nothing)
+                ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, Nothing)
+            Else
+                documento.cambiarEstadoDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, "no solicitado", Nothing)
+                ''documento.fechaExpiracionDocumento(idCarpeta, usuario.getArea, documentoVehiculo.Cells(0).Text, Nothing)
+            End If
+        Next
+
+        Dim mensaje As String
+        If listNombreDocumentos.Count > 0 Then
+            documento.mailListaDocumento(idCarpeta)
+        End If
+
+
+        Response.Redirect(Page.Request.Url.AbsoluteUri)
+        ''cargarMenu()
     End Sub
     Private Sub cargarNotificacionesComentarios()
 
