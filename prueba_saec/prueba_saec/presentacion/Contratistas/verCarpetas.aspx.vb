@@ -49,7 +49,7 @@
                     Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
 
                     tarjeta = tarjeta & "            <div Class=""row justify-content-center "">"
-                    tarjeta = tarjeta & "   <div Class="" col-xl-8 col-md-6 mb-4""> "
+                    tarjeta = tarjeta & "   <div Class="" col-xl-8 col-md-10 col-sm-12 col-xs-12 mb-4""> "
                     tarjeta = tarjeta & "         <div Class=""card border-left-dark"" shadow h-100 py-2""> "
                     tarjeta = tarjeta & "           <div Class=""card-body""> "
                     tarjeta = tarjeta & "             <div Class=""row no-gutters align-items-center""> "
@@ -124,7 +124,7 @@
 
 
                     tarjeta = tarjeta & "            <div Class=""row justify-content-center "">"
-                    tarjeta = tarjeta & "   <div Class="" col-xl-8 col-md-6 mb-4""> "
+                    tarjeta = tarjeta & "  <div Class="" col-xl-8 col-md-10 col-sm-12 col-xs-12 mb-4""> "
                     tarjeta = tarjeta & "         <div Class=""card border-left-" + color + " shadow h-100 py-2""> "
                     tarjeta = tarjeta & "           <div Class=""card-body""> "
                     tarjeta = tarjeta & "             <div Class=""row no-gutters align-items-center""> "

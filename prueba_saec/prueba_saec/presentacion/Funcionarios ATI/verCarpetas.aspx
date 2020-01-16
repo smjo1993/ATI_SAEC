@@ -21,11 +21,11 @@
     <!-- Custom styles for this template -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../../css/checkbox.css" rel="stylesheet">
-    <style type="text/css">
+    <%--    <style type="text/css">
         .auto-style1 {
             width: 984px;
         }
-    </style>
+    </style>--%>
     <!-- Custom styles for this page -->
     <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
@@ -45,7 +45,6 @@
                     <%--<i class="fas fa-laugh-wink"></i>--%>
 
                     <img src="../../img/LOGO_BLANCO.png" alt="ATI LOGO" style="height:60px; width:60px"; >
-
                 </div>
                 <div class="sidebar-brand-text mx-3">SAEC</div>
             </a>
@@ -61,7 +60,7 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
-                
+
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -71,17 +70,17 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                     <%--BARRA NAVEGACION--%>
+                    <%--BARRA NAVEGACION--%>
 
                     <ul class="navbar-nav ml-auto">
 
-                       <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
+                        <%-- LISTA DE COMENTARIOS Y ALARMAS--%>
 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <asp:Label ID="LblNotificacionComentarios" class="badge badge-danger badge-counter" runat="server" Text=""></asp:Label>
-                            </a>                            
+                            </a>
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">Comentarios</h6>
                                 <asp:Label ID="LblNotificacion" runat="server" Text=""></asp:Label>
@@ -89,15 +88,15 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                 <asp:Label ID="LblNombreUsuario" class="mr-2 d-none d-lg-inline text-gray-600" runat="server" Text=""></asp:Label>
 
-                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height:40px;width:40px;">
+                                <img class="img-profile rounded-circle" src="https://c7.uihere.com/files/25/400/945/computer-icons-industry-business-laborer-industrail-workers-and-engineers-thumb.jpg" style="height: 40px; width: 40px;">
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -113,10 +112,10 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <form id="documentos" runat="server">
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <div class="row">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <%--<div class="row">
                                 <div class="col-4"></div>
                                 <div class="col-4">
                                     <h4 class="m-0 font-weight text-primary" style="text-align: center;">Carpetas de Arranque</h4>
@@ -127,24 +126,37 @@
                                         Nueva Carpeta
                                     </a>
                                 </div>
-                            </div>
-                        </div>
+                            </div>--%>
 
-                        <div class="card-body">
-
-                          
-                                <div>
-                                <asp:Label runat="server" ID="lblTarjetaEmpresa" Text=""></asp:Label>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h4 class="m-0 font-weight text-primary">Carpetas de Arranque</h4>
                                     </div>
+                                    <div class="col-4">
+                                        <a href="../Empresa/iniciarCarpetaArranque.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                            <i class="far fa-plus-square"></i>
 
-                                                                             <div runat="server" id="sinCarpeta">
-                                            <h1 class="h3 mb-4 text-gray-800 text-center">No se han iniciado Carpetas para este periodo</h1>
-                                        </div>
-                              
-                        
+                                            <span class="a-mob-visible">Nueva Carpeta</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+
+
+                                <div>
+                                    <asp:Label runat="server" ID="lblTarjetaEmpresa" Text=""></asp:Label>
+                                </div>
+
+                                <div runat="server" id="sinCarpeta">
+                                    <h1 class="h3 mb-4 text-gray-800 text-center">No se han iniciado Carpetas para este periodo</h1>
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer"></div>
                         </div>
-                          <div class="card-footer"></div> 
-                    </div>
                         <!-- Modal Logout-->
                         <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -169,7 +181,7 @@
                                 </div>
                             </div>
                         </div>
-                        </form>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -211,7 +223,7 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/datatables-demo.js"></script>
 
-      
+
 
 </body>
 
