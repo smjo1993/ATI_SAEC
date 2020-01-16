@@ -79,7 +79,7 @@ Public Class Login
                                                                                                                                   usuarioSAEC.Rows(0)("clave").ToString(),
                                                                                                                                   usuarioSAEC.Rows(0)("rut").ToString(),
                                                                                                                                   System.Convert.ToChar(usuarioSAEC.Rows(0)("estado").ToString()),
-                                                                                                                                  Convert.ToInt32(usuarioSAEC.Rows(0)("fono").ToString()),
+                                                                                                                                  usuarioSAEC.Rows(0)("fono").ToString(),
                                                                                                                                   usuarioSAEC.Rows(0)("correo").ToString(),
                                                                                                                                   Convert.ToInt32(usuarioSAEC.Rows(0)("TB_SAEC_Areaid").ToString()))
 
@@ -143,7 +143,7 @@ Public Class Login
                                                                               contratista.Rows(0)("clave").ToString,
                                                                               contratista.Rows(0)("rut").ToString,
                                                                               contratista.Rows(0)("estado").ToString,
-                                                                              Convert.ToInt32(contratista.Rows(0)("fono").ToString),
+                                                                              contratista.Rows(0)("fono").ToString,
                                                                               contratista.Rows(0)("correo").ToString)
 
                                 Session("contratistaEntrante") = contratistaEntrante

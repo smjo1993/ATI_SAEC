@@ -145,7 +145,8 @@
                                                             </asp:BoundField>
                                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                                            <asp:BoundField DataField="area" HeaderText="Area" >                                                                <ItemStyle Width="1px" />
+                                                            </asp:BoundField>
                                                             <asp:TemplateField HeaderText="Estado">
                                                                 <ItemStyle Width="1px" />
                                                                 <ItemTemplate>
@@ -157,6 +158,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
+                                                                                                                        <asp:BoundField DataField="idArea" HeaderText="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         </Columns>
                                                     </asp:GridView>
                                                     <div runat="server" id="sinDocEmpresaPedido">
@@ -179,7 +181,8 @@
                                                             </asp:BoundField>
                                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                                            <asp:BoundField DataField="area" HeaderText="Area" >                                                                <ItemStyle Width="1px" />
+                                                            </asp:BoundField>
                                                             <asp:TemplateField HeaderText="Estado">
                                                                 <ItemStyle Width="1px" />
                                                                 <ItemTemplate>
@@ -191,6 +194,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
+                                                            <asp:BoundField DataField="idArea" HeaderText="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         </Columns>
                                                     </asp:GridView>
                                                     <div runat="server" id="sinDocEmpresaPendiente">
@@ -216,7 +220,8 @@
                                                             </asp:BoundField>
                                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                                                                                                        <asp:BoundField DataField="area" HeaderText="Area" >                                                                <ItemStyle Width="1px" />
+                                                            </asp:BoundField>
                                                             <asp:TemplateField HeaderText="Estado">
                                                                 <ItemStyle Width="1px" />
                                                                 <ItemTemplate>
@@ -228,6 +233,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
+                                                                                                                        <asp:BoundField DataField="idArea" HeaderText="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         </Columns>
                                                     </asp:GridView>
                                                     <div runat="server" id="sinDocTrabajadorPedido">
@@ -250,7 +256,8 @@
                                                             </asp:BoundField>
                                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                                                                                                        <asp:BoundField DataField="area" HeaderText="Area" >                                                                <ItemStyle Width="1px" />
+                                                            </asp:BoundField>
                                                             <asp:TemplateField HeaderText="Estado">
                                                                 <ItemStyle Width="1px" />
                                                                 <ItemTemplate>
@@ -262,6 +269,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
+                                                                                                                        <asp:BoundField DataField="idArea" HeaderText="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         </Columns>
                                                     </asp:GridView>
                                                     <div runat="server" id="sinDocTrabajadorPendiente">
@@ -284,7 +292,8 @@
                                                             <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                                                                                                        <asp:BoundField DataField="area" HeaderText="Area" >                                                                <ItemStyle Width="1px" />
+                                                            </asp:BoundField>
                                                           <asp:TemplateField HeaderText="Estado">
                                                                 <ItemStyle Width="1px" />
                                                                 <ItemTemplate>
@@ -296,6 +305,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
+                                                                                                                        <asp:BoundField DataField="idArea" HeaderText="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         </Columns>
                                                     </asp:GridView>
                                                     <div runat="server" id="sinDocVehiculoPedido">
@@ -316,7 +326,8 @@
                                                             <asp:BoundField DataField="TB_SAEC_Documentoid" HeaderText="ID" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                                                             <asp:BoundField DataField="estado" HeaderText="EstadoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-
+                                                                                                                                        <asp:BoundField DataField="area" HeaderText="Area" >                                                                <ItemStyle Width="1px" />
+                                                            </asp:BoundField>                               
                                                           <asp:TemplateField HeaderText="Estado">
                                                                 <ItemStyle Width="1px" />
                                                                 <ItemTemplate>
@@ -328,6 +339,7 @@
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
+                                                                                                                        <asp:BoundField DataField="idArea" HeaderText="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         </Columns>
                                                     </asp:GridView>
                                                     <div runat="server" id="sinDocVehiculoPendiente">

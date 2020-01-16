@@ -17,7 +17,7 @@ Public Class clsTrabajador
     Public Sub New()
     End Sub
 
-    Public Function listarTrabajadores(rutContratista As Integer) As DataTable
+    Public Function listarTrabajadores(rutContratista As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
@@ -40,7 +40,7 @@ Public Class clsTrabajador
 
     End Function
 
-    Public Function obtenerRutEmpresa(rutContratista As Integer) As DataTable
+    Public Function obtenerRutEmpresa(rutContratista As String) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try
@@ -217,7 +217,7 @@ Public Class clsTrabajador
         End Try
 
     End Function
-    Public Function listarTrabajadoresHistorico(rutContratista As Integer, idCarpeta As Integer) As DataTable
+    Public Function listarTrabajadoresHistorico(rutContratista As String, idCarpeta As Integer) As DataTable
 
         Dim con As New SqlConnection(Conexion.strSQLSERVER)
         Try

@@ -13,7 +13,7 @@ Public Class clsContratista
 
     End Sub
 
-    Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char, ByVal fono As Integer,
+    Public Sub New(ByVal nombre As String, ByVal login As String, ByVal clave As String, ByVal rut As String, ByVal estado As Char, ByVal fono As String,
                    ByVal correo As String)
         Me.Nombre = nombre
         Me.Login = login
@@ -69,7 +69,7 @@ Public Class clsContratista
         End Set
     End Property
 
-    Public Property getFono() As Integer
+    Public Property getFono() As String
         Get
             Return Me.Fono
         End Get

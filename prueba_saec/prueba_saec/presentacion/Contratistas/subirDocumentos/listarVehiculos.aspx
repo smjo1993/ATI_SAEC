@@ -115,7 +115,7 @@
                                         <a href="subirDocumentosEmpresa.aspx" class="btn shadow-sm btn-success" style="float: right;">Documentos Empresa                                 
                                         </a>
                
-                                                                                 <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
+                                          <a href="../../Contratistas/crearVehiculo.aspx" class="btn shadow-sm btn-success" style="float: right;">
                                             <i class="far fa-plus-square"></i>
                                             Nuevo Vehículo
                                         </a>
