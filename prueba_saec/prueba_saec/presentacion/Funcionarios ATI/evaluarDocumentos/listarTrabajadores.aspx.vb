@@ -14,19 +14,45 @@
         Dim trabajadores = New clsTrabajador()
         Dim idCarpeta As Integer = decodificarId()
         Dim idArea As Integer = Session("usuario").getArea()
-        Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadoresParaEvaluar(idCarpeta, idArea)
 
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+        listaRoles = Session("roles")
 
-        If TablaTrabajadores Is Nothing Then
-            sinTrabajadores.Visible = True
-        Else
-            If TablaTrabajadores.Rows.Count > 0 Then
-                gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
-                gridListarTrabajadoresParaEvaluar.DataBind()
-            Else
+        If listaRoles(0).getId = 1 Then
+
+            Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadoresParaEvaluarAdmin(idCarpeta, Nothing)
+
+            If TablaTrabajadores Is Nothing Then
                 sinTrabajadores.Visible = True
+            Else
+                If TablaTrabajadores.Rows.Count > 0 Then
+                    gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
+                    gridListarTrabajadoresParaEvaluar.DataBind()
+                Else
+                    sinTrabajadores.Visible = True
+                End If
             End If
+
+        Else
+
+            Dim TablaTrabajadores As DataTable = trabajadores.listarTrabajadoresParaEvaluar(idCarpeta, idArea)
+
+
+            If TablaTrabajadores Is Nothing Then
+                sinTrabajadores.Visible = True
+            Else
+                If TablaTrabajadores.Rows.Count > 0 Then
+                    gridListarTrabajadoresParaEvaluar.DataSource = TablaTrabajadores
+                    gridListarTrabajadoresParaEvaluar.DataBind()
+                Else
+                    sinTrabajadores.Visible = True
+                End If
+            End If
+
+
         End If
+
+
 
     End Sub
     Protected Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click

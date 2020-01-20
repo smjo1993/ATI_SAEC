@@ -10,24 +10,54 @@
         cargarMenu()
         cargarBotones()
         cargarNotificacionesComentarios()
-        'se carga la gridview
-        Dim vehiculos = New clsVehiculo()
-        Dim idCarpeta As Integer = decodificarId()
-        Dim idArea As Integer = Session("usuario").getArea()
-        Dim TablaVehiculos As DataTable = vehiculos.listarVehiculosParaEvaluar(idCarpeta, idArea)
-        'Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
+
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+        listaRoles = Session("roles")
 
 
-        If TablaVehiculos Is Nothing Then
-            sinVehiculos.Visible = True
-        Else
-            If TablaVehiculos.Rows.Count > 0 Then
-                gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
-                gridListarVehiculosParaEvaluar.DataBind()
-            Else
+
+        If listaRoles(0).getId = 1 Then
+
+            'se carga la gridview
+            Dim vehiculos = New clsVehiculo()
+            Dim idCarpeta As Integer = decodificarId()
+            Dim idArea As Integer = Session("usuario").getArea()
+            Dim TablaVehiculos As DataTable = vehiculos.listarVehiculosParaEvaluarAdmin(idCarpeta, Nothing)
+            'Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
+            If TablaVehiculos Is Nothing Then
                 sinVehiculos.Visible = True
+            Else
+                If TablaVehiculos.Rows.Count > 0 Then
+                    gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
+                    gridListarVehiculosParaEvaluar.DataBind()
+                Else
+                    sinVehiculos.Visible = True
+                End If
+            End If
+
+        Else
+
+            'se carga la gridview
+            Dim vehiculos = New clsVehiculo()
+            Dim idCarpeta As Integer = decodificarId()
+            Dim idArea As Integer = Session("usuario").getArea()
+            Dim TablaVehiculos As DataTable = vehiculos.listarVehiculosParaEvaluar(idCarpeta, idArea)
+            'Session("rutEmpresa") = vehiculos.obtenerRutEmpresa(rutContratista).Rows(0).Item(0)
+            If TablaVehiculos Is Nothing Then
+                sinVehiculos.Visible = True
+            Else
+                If TablaVehiculos.Rows.Count > 0 Then
+                    gridListarVehiculosParaEvaluar.DataSource = TablaVehiculos
+                    gridListarVehiculosParaEvaluar.DataBind()
+                Else
+                    sinVehiculos.Visible = True
+                End If
             End If
         End If
+
+
+
+
 
     End Sub
     Protected Sub validarUsuario()
@@ -129,7 +159,6 @@
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")
