@@ -20,34 +20,69 @@ Public Class evaluarDocumentosTrabajador
         Dim idTrabajador As Integer = Session("idTrabajador")
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Session("rutUsuario") = usuario.getRut
-        Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
 
-        If tablaDocumentosTrabajador Is Nothing Then
-            sinDocumentos.Visible = True
-        Else
-            If tablaDocumentosTrabajador.Rows.Count > 0 Then
-                gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
-                gridListarDocumentosTrabajador.DataBind()
-            Else
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+        listaRoles = Session("roles")
+
+        If listaRoles(0).getId = 1 Then
+
+            Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisarAdmin(idCarpeta, Nothing, idTrabajador)
+
+            If tablaDocumentosTrabajador Is Nothing Then
                 sinDocumentos.Visible = True
-            End If
-        End If
-
-        Dim tablaDocumentosTrabajadorPentdientes = trabajador.ListarDocumentosPendientesTrabajadorRevisor(idCarpeta, idArea, idTrabajador)
-
-        If tablaDocumentosTrabajadorPentdientes Is Nothing Then
-            sinDocPendientes.Visible = True
-        Else
-            If tablaDocumentosTrabajadorPentdientes.Rows.Count > 0 Then
-                gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
-                gridDocumentosPendiente.DataBind()
-
             Else
-                sinDocPendientes.Visible = True
+                If tablaDocumentosTrabajador.Rows.Count > 0 Then
+                    gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
+                    gridListarDocumentosTrabajador.DataBind()
+                Else
+                    sinDocumentos.Visible = True
+                End If
             End If
+
+            Dim tablaDocumentosTrabajadorPentdientes = trabajador.ListarDocumentosPendientesTrabajadorRevisorAdmin(idCarpeta, Nothing, idTrabajador)
+
+            If tablaDocumentosTrabajadorPentdientes Is Nothing Then
+                sinDocPendientes.Visible = True
+            Else
+                If tablaDocumentosTrabajadorPentdientes.Rows.Count > 0 Then
+                    gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
+                    gridDocumentosPendiente.DataBind()
+
+                Else
+                    sinDocPendientes.Visible = True
+                End If
+            End If
+
+        Else
+
+            Dim tablaDocumentosTrabajador = trabajador.listarDocumentosTrabajadorParaRevisar(idCarpeta, idArea, idTrabajador)
+
+            If tablaDocumentosTrabajador Is Nothing Then
+                sinDocumentos.Visible = True
+            Else
+                If tablaDocumentosTrabajador.Rows.Count > 0 Then
+                    gridListarDocumentosTrabajador.DataSource = tablaDocumentosTrabajador
+                    gridListarDocumentosTrabajador.DataBind()
+                Else
+                    sinDocumentos.Visible = True
+                End If
+            End If
+
+            Dim tablaDocumentosTrabajadorPentdientes = trabajador.ListarDocumentosPendientesTrabajadorRevisor(idCarpeta, idArea, idTrabajador)
+
+            If tablaDocumentosTrabajadorPentdientes Is Nothing Then
+                sinDocPendientes.Visible = True
+            Else
+                If tablaDocumentosTrabajadorPentdientes.Rows.Count > 0 Then
+                    gridDocumentosPendiente.DataSource = tablaDocumentosTrabajadorPentdientes
+                    gridDocumentosPendiente.DataBind()
+
+                Else
+                    sinDocPendientes.Visible = True
+                End If
+            End If
+
         End If
-
-
 
 
 

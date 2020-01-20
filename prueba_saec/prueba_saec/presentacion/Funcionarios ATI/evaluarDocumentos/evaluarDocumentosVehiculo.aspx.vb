@@ -19,32 +19,72 @@ Public Class evaluarDocumentosVehiculo
         Dim idVehiculo As Integer = Session("idVehiculo")
         Dim usuario As clsUsuarioSAEC = Session("usuario")
         Session("rutUsuario") = usuario.getRut
-        Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
 
-        If tablaDocumentosVehiculo Is Nothing Then
-            sinDocumentos.Visible = True
-        Else
-            If tablaDocumentosVehiculo.Rows.Count > 0 Then
-                gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
-                gridListarDocumentosVehiculo.DataBind()
-            Else
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+        listaRoles = Session("roles")
+
+        If listaRoles(0).getId = 1 Then
+
+            Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisarAdmin(idCarpeta, Nothing, idVehiculo)
+
+            If tablaDocumentosVehiculo Is Nothing Then
                 sinDocumentos.Visible = True
-            End If
-        End If
-
-        Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
-
-
-        If tablaDocumentosPendientesVehiculo Is Nothing Then
-            sinDocPendientes.Visible = True
-        Else
-            If tablaDocumentosPendientesVehiculo.Rows.Count > 0 Then
-                gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
-                gridDocumentosPendientes.DataBind()
-
             Else
-                sinDocPendientes.Visible = True
+                If tablaDocumentosVehiculo.Rows.Count > 0 Then
+                    gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+                    gridListarDocumentosVehiculo.DataBind()
+                Else
+                    sinDocumentos.Visible = True
+                End If
             End If
+
+            Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisorAdmin(idCarpeta, Nothing, idVehiculo)
+
+
+            If tablaDocumentosPendientesVehiculo Is Nothing Then
+                sinDocPendientes.Visible = True
+            Else
+                If tablaDocumentosPendientesVehiculo.Rows.Count > 0 Then
+                    gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+                    gridDocumentosPendientes.DataBind()
+
+                Else
+                    sinDocPendientes.Visible = True
+                End If
+            End If
+
+
+        Else
+
+            Dim tablaDocumentosVehiculo = vehiculo.listarDocumentosVehiculoParaRevisar(idCarpeta, idArea, idVehiculo)
+
+            If tablaDocumentosVehiculo Is Nothing Then
+                sinDocumentos.Visible = True
+            Else
+                If tablaDocumentosVehiculo.Rows.Count > 0 Then
+                    gridListarDocumentosVehiculo.DataSource = tablaDocumentosVehiculo
+                    gridListarDocumentosVehiculo.DataBind()
+                Else
+                    sinDocumentos.Visible = True
+                End If
+            End If
+
+            Dim tablaDocumentosPendientesVehiculo = vehiculo.ListarDocumentosPendientesVehiculoRevisor(idCarpeta, idArea, idVehiculo)
+
+
+            If tablaDocumentosPendientesVehiculo Is Nothing Then
+                sinDocPendientes.Visible = True
+            Else
+                If tablaDocumentosPendientesVehiculo.Rows.Count > 0 Then
+                    gridDocumentosPendientes.DataSource = tablaDocumentosPendientesVehiculo
+                    gridDocumentosPendientes.DataBind()
+
+                Else
+                    sinDocPendientes.Visible = True
+                End If
+            End If
+
+
         End If
 
 
