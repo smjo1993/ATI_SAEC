@@ -146,10 +146,11 @@
                                                                     <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:TemplateField HeaderText="Aceptar">
+                                                                    <asp:TemplateField HeaderText="No Aplica/Aplica">
 
                                                                         <ItemTemplate>
                                                                             <label class="switch ">
+                                                                                                                                                <ItemStyle Width="1px" />
                                                                                 <input id="chk" type="checkbox" runat="server" />
                                                                                 <span class="slider round"></span>
                                                                             </label>
@@ -176,7 +177,7 @@
                                                                         <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
-
+                                                                                                                                        <asp:BoundField DataField="Estado"   ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                                                 </Columns>
 
                                                             </asp:GridView>
@@ -206,10 +207,11 @@
                                                                     <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:TemplateField HeaderText="Aceptar">
+                                                                    <asp:TemplateField HeaderText="No Aplica/Aplica">
 
                                                                         <ItemTemplate>
                                                                             <label class="switch ">
+                                                                                                                                                <ItemStyle Width="1px" />
                                                                                 <input id="chk" type="checkbox" runat="server" />
                                                                                 <span class="slider round"></span>
                                                                             </label>
@@ -235,8 +237,9 @@
                                                                         <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
-
+                                                                    <asp:BoundField DataField="Estado" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                 </Columns>
+
 
                                                             </asp:GridView>
 
@@ -266,10 +269,11 @@
                                                                     <asp:BoundField DataField="idDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                                     <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                    <asp:TemplateField HeaderText="Aceptar">
+                                                                    <asp:TemplateField HeaderText="No Aplica/Aplica">
 
                                                                         <ItemTemplate>
                                                                             <label class="switch ">
+                                                                                                                                                <ItemStyle Width="1px" />
                                                                                 <input id="chk" type="checkbox" runat="server" />
                                                                                 <span class="slider round"></span>
                                                                             </label>
@@ -295,7 +299,7 @@
                                                                         <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
-
+                                                                                                                                        <asp:BoundField DataField="Estado"  ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                                                 </Columns>
 
                                                             </asp:GridView>

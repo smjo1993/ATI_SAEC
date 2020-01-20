@@ -92,34 +92,34 @@ Public Class verDocumentos
         listaRoles = Session("roles")
 
         If listaRoles(0).getId = 1 Then
+            ''ES ADMIN
+            Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisarAdmin(idCarpeta, Session("usuario").getArea())
+            If documentosEmpresa Is Nothing Then
+                sinDocumentos.Visible = True
+            Else
+                If documentosEmpresa.Rows.Count > 0 Then
+                    gridDocumentos.DataSource = documentosEmpresa
+                    gridDocumentos.DataBind()
+                Else
+                    sinDocumentos.Visible = True
+                End If
+            End If
 
-            'Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisarAdmin(idCarpeta, Session("usuario").getArea())
-            'If documentosEmpresa Is Nothing Then
-            '    sinDocumentos.Visible = True
-            'Else
-            '    If documentosEmpresa.Rows.Count > 0 Then
-            '        gridDocumentos.DataSource = documentosEmpresa
-            '        gridDocumentos.DataBind()
-            '    Else
-            '        sinDocumentos.Visible = True
-            '    End If
-            'End If
+            Dim documentosEmpresaPendientes As DataTable = documento.documentosEmpresaPendientesAdmin(idCarpeta, Session("usuario").getArea())
 
-            'Dim documentosEmpresaPendientes As DataTable = documento.documentosEmpresaPendientesAdmin(idCarpeta, Session("usuario").getArea())
-
-            'If documentosEmpresaPendientes Is Nothing Then
-            '    sinDocPendientes.Visible = True
-            'Else
-            '    If documentosEmpresaPendientes.Rows.Count > 0 Then
-            '        gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
-            '        gridDocumentosPendientes.DataBind()
-            '    Else
-            '        sinDocPendientes.Visible = True
-            '    End If
-            'End If
+            If documentosEmpresaPendientes Is Nothing Then
+                sinDocPendientes.Visible = True
+            Else
+                If documentosEmpresaPendientes.Rows.Count > 0 Then
+                    gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
+                    gridDocumentosPendientes.DataBind()
+                Else
+                    sinDocPendientes.Visible = True
+                End If
+            End If
 
         Else
-
+            ''NO ES ADMIN
             Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisar(idCarpeta, Session("usuario").getArea())
             If documentosEmpresa Is Nothing Then
                 sinDocumentos.Visible = True
@@ -127,6 +127,7 @@ Public Class verDocumentos
                 If documentosEmpresa.Rows.Count > 0 Then
                     gridDocumentos.DataSource = documentosEmpresa
                     gridDocumentos.DataBind()
+                    gridDocumentos.Columns(7).Visible = False
                 Else
                     sinDocumentos.Visible = True
                 End If
@@ -140,6 +141,7 @@ Public Class verDocumentos
                 If documentosEmpresaPendientes.Rows.Count > 0 Then
                     gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
                     gridDocumentosPendientes.DataBind()
+                    gridDocumentosPendientes.Columns(7).Visible = False
                 Else
                     sinDocPendientes.Visible = True
                 End If

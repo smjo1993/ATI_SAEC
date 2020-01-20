@@ -160,6 +160,7 @@
                                                 <asp:BoundField DataField="nombreDoc" HeaderText="Nombre del documento" />
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
+                                                <asp:BoundField DataField="area" HeaderText="Area"/>
 
                                                 <asp:TemplateField HeaderText="Opciones">
                                                     <ItemTemplate>

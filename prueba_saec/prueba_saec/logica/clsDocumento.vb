@@ -679,4 +679,42 @@ Public Class clsDocumento
             con.Dispose()
         End Try
     End Function
+
+    Public Function documentosEmpresaParaRevisarAdmin(idCarpeta As Integer, area As Integer)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosEmpresaParaRevisarAdmin '" & idCarpeta & "','" & area & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
+
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
+
+    Public Function documentosEmpresaPendientesAdmin(idCarpeta As Integer, area As Integer)
+        Dim con As New SqlConnection(Conexion.strSQLSERVER)
+        Try
+            Dim ds As New DataSet()
+            Dim sql As String = "SP_SAEC_ListarDocumentosEmpresaPendientesAdmin '" & idCarpeta & "','" & area & "'"
+            con.Open()
+            Dim dbDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, con)
+            dbDataAdapter.Fill(ds)
+            Return ds.Tables(0)
+
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+            con.Close()
+            con.Dispose()
+        End Try
+    End Function
 End Class

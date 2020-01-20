@@ -151,7 +151,7 @@
     End Sub
 
     Protected Sub cargarGrid()
-
+        Dim chk As HtmlInputCheckBox
         Dim rutContratista As String = Session("contratistaEntrante").getRut()
         Session("rutUsuario") = Session("contratistaEntrante").getRut()
         Dim TablaDocumentosEsperaEmpresa As DataTable = crearDocumentos().obtenerDocumentoEstadoEsperaEmpresa(rutContratista)
@@ -162,6 +162,12 @@
             If (TablaDocumentosEsperaEmpresa.Rows.Count > 0) Then
                 documentosEmpresa.DataSource = TablaDocumentosEsperaEmpresa
                 documentosEmpresa.DataBind()
+                For Each documentoEmpresa As GridViewRow In documentosEmpresa.Rows
+                    chk = documentoEmpresa.FindControl("chk")
+                    If documentoEmpresa.Cells(8).Text = "aplica" Then
+                        chk.Checked = True
+                    End If
+                Next
             Else
                 sinDocEmpresa.Visible = True
             End If
@@ -175,6 +181,12 @@
             If (TablaDocumentosEsperaTrabajador.Rows.Count > 0) Then
                 documentosTrabajador.DataSource = TablaDocumentosEsperaTrabajador
                 documentosTrabajador.DataBind()
+                For Each documentoTrabajador As GridViewRow In documentosTrabajador.Rows
+                    chk = documentoTrabajador.FindControl("chk")
+                    If documentoTrabajador.Cells(8).Text = "aplica" Then
+                        chk.Checked = True
+                    End If
+                Next
             Else
                 sinDocTrabajador.Visible = True
             End If
@@ -188,6 +200,12 @@
             If (TablaDocumentosEsperaVehiculo.Rows.Count > 0) Then
                 documentosVehiculo.DataSource = TablaDocumentosEsperaVehiculo
                 documentosVehiculo.DataBind()
+                For Each documentoVehiculo As GridViewRow In documentosVehiculo.Rows
+                    chk = documentoVehiculo.FindControl("chk")
+                    If documentoVehiculo.Cells(8).Text = "aplica" Then
+                        chk.Checked = True
+                    End If
+                Next
             Else
                 sinDocVehiculo.Visible = True
             End If
