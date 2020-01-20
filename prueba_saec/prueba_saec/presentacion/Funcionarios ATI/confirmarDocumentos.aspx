@@ -145,25 +145,24 @@
                                                 <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
-                                                <asp:TemplateField HeaderText="Confirmar">
-
-                                                    <ItemTemplate>
-                                                        <label class="switch ">
-                                                            <input id="chk" type="checkbox" runat="server" />
-                                                            <span class="slider round"></span>
-                                                        </label>
-
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
+                                                
 
                                                 <asp:TemplateField HeaderText="Opciones">
 
                                                     <ItemTemplate>
+                                                            <asp:ImageButton
+                                                            ID="ImageButton1"
+                                                            ImageUrl="../../img/check.png"
+                                                            ToolTip="aceptar"
+                                                            CommandName="aceptar"
+                                                            OnClientClick="return confirm('¿aceptar este documento?');"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
                                                         <asp:ImageButton
                                                             ID="btnComentario"
                                                             ImageUrl="../../img/chat.png"
                                                             ToolTip="Ver Comentarios"
-                                                            CommandName="Ver"
+                                                            CommandName="ver"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
 
@@ -172,6 +171,7 @@
                                                             ImageUrl="../../img/remove.png"
                                                             ToolTip="Eliminar"
                                                             CommandName="eliminar"
+                                                            OnClientClick="return confirm('¿Deseas enviar este documento a la lista de Documentos a Solicitar?');"
                                                             CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                             runat="server" />
                                                     </ItemTemplate>
@@ -208,20 +208,22 @@
                                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
-                                                        <asp:TemplateField HeaderText="Confirmar">
-
-                                                            <ItemTemplate>
-                                                                <label class="switch ">
-                                                                    <input id="chk" type="checkbox" runat="server" />
-                                                                    <span class="slider round"></span>
-                                                                </label>
-
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                     
 
                                                         <asp:TemplateField HeaderText="Opciones">
 
                                                             <ItemTemplate>
+
+                                                                  
+                                                                <asp:ImageButton
+                                                                ID="ImageButton1"
+                                                                ImageUrl="../../img/check.png"
+                                                                ToolTip="aceptar"
+                                                                CommandName="aceptar"
+                                                                OnClientClick="return confirm('¿aceptar este documento?');"
+                                                                CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                                runat="server" />
+
                                                                 <asp:ImageButton
                                                                     ID="BtnComentariosTrabajador"
                                                                     ImageUrl="../../img/chat.png"
@@ -235,6 +237,7 @@
                                                                     ImageUrl="../../img/remove.png"
                                                                     ToolTip="Eliminar"
                                                                     CommandName="eliminar"
+                                                                    OnClientClick="return confirm('¿Deseas enviar este documento a la lista de Documentos a Solicitar?');"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
@@ -268,20 +271,21 @@
                                                         <asp:BoundField DataField="idArea" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="tipoDocumento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
                                                         <asp:BoundField DataField="estadoDocumento" HeaderText="Respuesta" />
-                                                        <asp:TemplateField HeaderText="Confirmar">
+                                                        
+
+                                                        <asp:TemplateField HeaderText="Opciones">
 
                                                             <ItemTemplate>
-                                                                <label class="switch ">
-                                                                    <input id="chk" type="checkbox" runat="server" />
-                                                                    <span class="slider round"></span>
-                                                                </label>
+                                                                
+                                                            <asp:ImageButton
+                                                            ID="ImageButton1"
+                                                            ImageUrl="../../img/check.png"
+                                                            ToolTip="aceptar"
+                                                            CommandName="aceptar"
+                                                            OnClientClick="return confirm('¿aceptar este documento?');"
+                                                            CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                            runat="server" />
 
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-
-                                                        <asp:TemplateField HeaderText="Comentarios">
-
-                                                            <ItemTemplate>
                                                                 <asp:ImageButton
                                                                     ID="BtnComentariosVehiculo"
                                                                     ImageUrl="../../img/chat.png"
@@ -295,6 +299,7 @@
                                                                     ImageUrl="../../img/remove.png"
                                                                     ToolTip="Eliminar"
                                                                     CommandName="eliminar"
+                                                                    OnClientClick="return confirm('¿Deseas enviar este documento a la lista de Documentos a Solicitar?');"
                                                                     CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
                                                                     runat="server" />
                                                             </ItemTemplate>
@@ -314,11 +319,6 @@
 
                                 <div class="card-footer">
 
-                                    <div class="row" style="float: right;">
-                                        <input id="btnModalConfirmacion" type="button" class="btn shadow-sm btn-user btn-secondary" value="Confirmar Documentos" data-toggle="modal"
-                                            data-target="#modalConfirmacion" />
-
-                                    </div>
 
                                 </div>
 
