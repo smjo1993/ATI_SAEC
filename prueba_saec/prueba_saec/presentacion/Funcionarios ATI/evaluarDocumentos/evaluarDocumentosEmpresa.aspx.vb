@@ -28,18 +28,18 @@ Public Class verDocumentos
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
 
-        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
-        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosTrabajdor.Text = boton
         texto = "Documentos Vehiculo"
         boton = ""
 
-        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
-        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosVehiculo.Text = boton
@@ -87,38 +87,64 @@ Public Class verDocumentos
         lblNombreEmpresa.Text = nombreDecodificado
         lblNombreEmpresa2.Text = nombreDecodificado
         Dim idCarpeta As Integer = decodificarId()
-
         Dim documento As New clsDocumento
-        Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisar(idCarpeta, Session("usuario").getArea())
-        'Dim txt As TextBox
-        If documentosEmpresa Is Nothing Then
-            sinDocumentos.Visible = True
+        Dim listaRoles As List(Of clsRol) = New List(Of clsRol)
+        listaRoles = Session("roles")
+
+        If listaRoles(0).getId = 1 Then
+
+            'Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisarAdmin(idCarpeta, Session("usuario").getArea())
+            'If documentosEmpresa Is Nothing Then
+            '    sinDocumentos.Visible = True
+            'Else
+            '    If documentosEmpresa.Rows.Count > 0 Then
+            '        gridDocumentos.DataSource = documentosEmpresa
+            '        gridDocumentos.DataBind()
+            '    Else
+            '        sinDocumentos.Visible = True
+            '    End If
+            'End If
+
+            'Dim documentosEmpresaPendientes As DataTable = documento.documentosEmpresaPendientesAdmin(idCarpeta, Session("usuario").getArea())
+
+            'If documentosEmpresaPendientes Is Nothing Then
+            '    sinDocPendientes.Visible = True
+            'Else
+            '    If documentosEmpresaPendientes.Rows.Count > 0 Then
+            '        gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
+            '        gridDocumentosPendientes.DataBind()
+            '    Else
+            '        sinDocPendientes.Visible = True
+            '    End If
+            'End If
+
         Else
-            If documentosEmpresa.Rows.Count > 0 Then
-                gridDocumentos.DataSource = documentosEmpresa
-                gridDocumentos.DataBind()
-                'For Each documentoEmpresa As GridViewRow In gridDocumentos.Rows
-                '    txt = documentoEmpresa.FindControl("txtFecha")
-                '    txt.Text = Format$(Today, "DD-mm-yyyy")
-                'Next
-            Else
+
+            Dim documentosEmpresa As DataTable = documento.documentosEmpresaParaRevisar(idCarpeta, Session("usuario").getArea())
+            If documentosEmpresa Is Nothing Then
                 sinDocumentos.Visible = True
-            End If
-        End If
-
-        Dim documentosEmpresaPendientes As DataTable = documento.documentosEmpresaPendientes(idCarpeta, Session("usuario").getArea())
-
-        If documentosEmpresaPendientes Is Nothing Then
-            sinDocPendientes.Visible = True
-        Else
-            If documentosEmpresaPendientes.Rows.Count > 0 Then
-                gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
-                gridDocumentosPendientes.DataBind()
             Else
+                If documentosEmpresa.Rows.Count > 0 Then
+                    gridDocumentos.DataSource = documentosEmpresa
+                    gridDocumentos.DataBind()
+                Else
+                    sinDocumentos.Visible = True
+                End If
+            End If
+
+            Dim documentosEmpresaPendientes As DataTable = documento.documentosEmpresaPendientes(idCarpeta, Session("usuario").getArea())
+
+            If documentosEmpresaPendientes Is Nothing Then
                 sinDocPendientes.Visible = True
+            Else
+                If documentosEmpresaPendientes.Rows.Count > 0 Then
+                    gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
+                    gridDocumentosPendientes.DataBind()
+                Else
+                    sinDocPendientes.Visible = True
+                End If
             End If
         End If
-
     End Sub
     Protected Sub gridDocumentos_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles gridDocumentos.RowCommand
 
