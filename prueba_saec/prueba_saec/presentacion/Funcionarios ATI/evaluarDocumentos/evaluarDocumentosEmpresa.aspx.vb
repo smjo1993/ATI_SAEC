@@ -179,13 +179,14 @@ Public Class verDocumentos
             Dim carpeta As New clsCarpetaArranque
             Dim fechaExpiracionCarpeta As Date = carpeta.obtenerFechaExpiracion(decodificarId())
             Dim pos As Integer = Convert.ToInt32(e.CommandArgument.ToString())
-            Dim txtFecha As TextBox = Me.gridDocumentos.Rows(pos).Cells(8).Controls(1)
+            Dim txtFecha As TextBox = Me.gridDocumentos.Rows(pos).Cells(9).Controls(1)
             'txtFecha = Me.gridDocumentos.Rows(pos).Cells(10).Controls(1)
             If txtFecha.Text = "" Then
                 Dim documento As New clsDocumento
                 documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", gridDocumentos.Rows(pos).Cells(6).Text)
                 documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracionCarpeta)
                 registroLog.insertarRegistro("Se aprueba el documento " + gridDocumentos.Rows(pos).Cells(1).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(0).Text + "", Session("usuario").getRut())
+                Response.Redirect(HttpContext.Current.Request.Url.ToString)
             Else
                 Dim alerta As New clsAlertas
                 Dim fechaExpiracion As Date = Convert.ToDateTime(txtFecha.Text)
@@ -197,6 +198,7 @@ Public Class verDocumentos
                     documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "aprobado", "")
                     documento.fechaExpiracionDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), fechaExpiracion)
                     registroLog.insertarRegistro("Se aprueba el documento " + gridDocumentos.Rows(pos).Cells(0).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(1).Text + "", Session("usuario").getRut())
+                    Response.Redirect(HttpContext.Current.Request.Url.ToString)
                 End If
 
             End If
@@ -213,7 +215,7 @@ Public Class verDocumentos
             Dim documento As New clsDocumento
             documento.cambiarEstadoDocumento(Convert.ToInt32(gridDocumentos.Rows(pos).Cells(0).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(2).Text), Convert.ToInt32(gridDocumentos.Rows(pos).Cells(1).Text), "pendiente", "")
             registroLog.insertarRegistro("Se rechaza el documento " + gridDocumentos.Rows(pos).Cells(0).Text + " de la carpeta " + gridDocumentos.Rows(pos).Cells(1).Text + "", Session("usuario").getRut())
-
+            Response.Redirect(HttpContext.Current.Request.Url.ToString)
         End If
 
         If (e.CommandName = "verComentarios") Then
