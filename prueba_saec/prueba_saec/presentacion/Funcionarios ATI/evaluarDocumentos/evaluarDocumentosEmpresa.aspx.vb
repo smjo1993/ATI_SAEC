@@ -28,18 +28,18 @@ Public Class verDocumentos
         Dim idCodificada As String = Request.QueryString("i").ToString()
         Dim nombreCodificado As String = Request.QueryString("n").ToString()
 
-        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
-        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarTrabajadores.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosTrabajdor.Text = boton
         texto = "Documentos Vehiculo"
         boton = ""
 
-        ''boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        boton = boton & "<a href=""https://localhost:44310/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
-        boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
+        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/evaluarDocumentos/listarVehiculos.aspx?i=" + idCodificada + "&n=" + nombreCodificado + """ Class=""btn shadow-sm btn-success"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblDocumentosVehiculo.Text = boton
@@ -127,7 +127,7 @@ Public Class verDocumentos
                 If documentosEmpresa.Rows.Count > 0 Then
                     gridDocumentos.DataSource = documentosEmpresa
                     gridDocumentos.DataBind()
-                    ''gridDocumentos.Columns(7).Visible = False
+                    gridDocumentos.Columns(7).Visible = False
                 Else
                     sinDocumentos.Visible = True
                 End If
@@ -141,7 +141,7 @@ Public Class verDocumentos
                 If documentosEmpresaPendientes.Rows.Count > 0 Then
                     gridDocumentosPendientes.DataSource = documentosEmpresaPendientes
                     gridDocumentosPendientes.DataBind()
-                    ''gridDocumentosPendientes.Columns(7).Visible = False
+                    gridDocumentosPendientes.Columns(7).Visible = False
                 Else
                     sinDocPendientes.Visible = True
                 End If
