@@ -111,6 +111,7 @@ Public Class subirDocumentosEmpresa
             Dim rutEmpresa As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(7).Text
             Dim periodo As String = gridSubirDocumentosEmpresa.Rows(pos).Cells(9).Text
 
+
             Dim archivo As HtmlInputFile
             archivo = gridSubirDocumentosEmpresa.Rows(pos).FindControl("fileArchivo")
 

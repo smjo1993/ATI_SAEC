@@ -67,7 +67,7 @@ Public Class modificarDcto
 
         Else
 
-            task = documento.actualizarDocumento(nombreDocumento, TxtNombreDocumentoEdicion.Text.Trim(), dropTipoNuevoDocumento.SelectedItem.Text.Trim(), idDocumento)
+            task = documento.actualizarDocumento(nombreDocumento, fncQuitarAcentos(TxtNombreDocumentoEdicion.Text.Trim()), dropTipoNuevoDocumento.SelectedItem.Text.Trim(), idDocumento)
             log.insertarRegistro("Se ha editado el Requerimiento Documental: " + TxtNombreDocumentoEdicion.Text.Trim(), Session("usuario").getRut)
 
             If task = False Then
@@ -102,7 +102,6 @@ Public Class modificarDcto
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")
@@ -192,4 +191,14 @@ Public Class modificarDcto
         End If
 
     End Sub
+
+    Public Function fncQuitarAcentos(ByVal strNombre As String) As String
+        Const conAcentos = "áàäâÁÀÄÂéèëêÉÈËÊíìïîÍÌÏÎóòöôÓÒÖÔúùüûÚÙÜÛýÿÝ/"
+        Const sinAcentos = "aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUyyY-"
+        Dim i As Integer
+        For i = Len(conAcentos) To 1 Step -1
+            strNombre = Replace(strNombre, Mid(conAcentos, i, 1), Mid(sinAcentos, i, 1))
+        Next
+        fncQuitarAcentos = strNombre
+    End Function
 End Class

@@ -89,7 +89,7 @@ Public Class agregarDcto
 
                 If item.Selected Then
 
-                    insercion = nuevoDocumento.insertarDocumento(txtNombreDocumento.Text,
+                    insercion = nuevoDocumento.insertarDocumento(fncQuitarAcentos(txtNombreDocumento.Text),
                                                              dropTipoDocumento.SelectedItem.Value,
                                                             item.Value)
                     log.insertarRegistro("Se ha creado el Requerimiento Documental: " + txtNombreDocumento.Text.Trim() + ", Área: " + item.ToString(), Session("usuario").getRut)
@@ -121,7 +121,6 @@ Public Class agregarDcto
                 Dim resumenComentario As String = fila("texto")
                 Dim nombreUsuarioRespuesta As String = fila("nombreAutor")
                 Dim nombreDocumento As String = fila("nombreDocumento")
-                Dim contNoLeidos As Integer
                 Dim areaComentario As String = fila("areaComentario")
                 Dim idDocumento As Integer = fila("idDocumento")
                 Dim idCarpeta As Integer = fila("idCarpeta")
@@ -211,4 +210,14 @@ Public Class agregarDcto
         End If
 
     End Sub
+
+    Public Function fncQuitarAcentos(ByVal strNombre As String) As String
+        Const conAcentos = "áàäâÁÀÄÂéèëêÉÈËÊíìïîÍÌÏÎóòöôÓÒÖÔúùüûÚÙÜÛýÿÝ/"
+        Const sinAcentos = "aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUyyY-"
+        Dim i As Integer
+        For i = Len(conAcentos) To 1 Step -1
+            strNombre = Replace(strNombre, Mid(conAcentos, i, 1), Mid(sinAcentos, i, 1))
+        Next
+        fncQuitarAcentos = strNombre
+    End Function
 End Class
