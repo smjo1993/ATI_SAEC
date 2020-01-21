@@ -278,7 +278,7 @@
                                                 <asp:BoundField DataField="nombreDoc" HeaderText="Nombre Documento" />
                                                 <asp:BoundField DataField="estadoDocumento" HeaderText="Estado" />
                                                 <asp:BoundField DataField="ruta" HeaderText="Ruta del Documento" ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta" />
-                                                                                                <asp:BoundField DataField="area" HeaderText="Area"/>
+                                                <asp:BoundField DataField="area" HeaderText="Area"/>
                                                 <asp:TemplateField HeaderText="Comentarios">
                                                     <ItemTemplate>
                                                         <asp:ImageButton
