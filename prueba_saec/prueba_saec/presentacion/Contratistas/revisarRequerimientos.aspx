@@ -177,7 +177,7 @@
                                                                         <ItemStyle HorizontalAlign="Center" />
 
                                                                     </asp:TemplateField>
-                                                                                                                                        <asp:BoundField DataField="Estado"   ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
+                                                                    <asp:BoundField DataField="Estado"   ItemStyle-CssClass="ColumnaOculta" HeaderStyle-CssClass="ColumnaOculta"/>
                                                                 </Columns>
 
                                                             </asp:GridView>
