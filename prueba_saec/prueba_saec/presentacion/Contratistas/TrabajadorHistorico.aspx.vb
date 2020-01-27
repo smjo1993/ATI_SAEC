@@ -57,10 +57,10 @@
         Dim texto As String = "Volver"
         Dim idCodificadaBase64 As Byte() = System.Text.ASCIIEncoding.ASCII.GetBytes(Session("idCarpetaHistorico"))
         Dim idCodificada As String = System.Convert.ToBase64String(idCodificadaBase64)
-
+        ''botonnes para el local
         boton = boton & "<a href=""https://localhost:44310/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ Class=""btn btn-secondary"" style=""float: Right();"">"
-
-        ''boton = boton & "<a href=""https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ Class=""btn btn-secondary"" style=""float: Right();"">"
+        ''botones cuando subas cambios al servidor
+        ''boton = boton & "<a href=""https://www.atiport.cl/saec/presentacion/Contratistas/historicoCarpetaArranque.aspx?i=" + idCodificada + """ Class=""btn btn-secondary"" style=""float: Right();"">"
 
         boton = boton & "<i class=""""></i>" + texto + "</a>"
         lblVolver.Text = boton

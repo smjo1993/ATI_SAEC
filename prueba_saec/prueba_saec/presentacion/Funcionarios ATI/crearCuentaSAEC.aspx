@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="crearCuentaSAEC.aspx.vb" Inherits="prueba_saec.crearCuentaSAEC" %>
 
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -153,7 +151,7 @@
                                             <label id="lblEmail" class="col-12">E-mail:</label>
                                         </div>
                                         <div class="col-6">
-                                            <asp:TextBox ID="txtEmail" runat="server" Class="col-12 form-control form-control-user" placeholder="ejemplo@ejemplo.ej" required pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"></asp:TextBox>
+                                            <asp:TextBox ID="txtEmail" runat="server" Class="col-12 form-control form-control-user" placeholder="ejemplo@ejemplo.ej" required pattern="^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -241,7 +239,9 @@
                                             ID="btnLogOut"
                                             runat="server"
                                             class="btn shadow-sm btn-secondary btn-user"
-                                            Text="Aceptar" />
+                                            Text="Aceptar"                                             
+                                            CausesValidation="false"
+                                            formnovalidate="false"/>
 
                                     </div>
                                 </div>

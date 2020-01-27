@@ -128,10 +128,10 @@
                     tarjeta = tarjeta & "              </div> "
 
                     tarjeta = tarjeta & "              <div Class="" col-auto""> "
-
+                    ''boton de local
                     tarjeta = tarjeta & "              <a href="" https://localhost:44310/presentacion/Funcionarios%20ATI/historicoCarpeta.aspx?i=" + idCarpetaActual + "&n=" + razonCodificada + "&ia=" + idAntiguaCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
-
-                    ''tarjeta = tarjeta & "              <a href="" https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/historicoCarpeta.aspx?i=" + idCarpetaActual + "&n=" + razonCodificada + "&ia=" + idAntiguaCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
+                    ''boton de servidor
+                    ''tarjeta = tarjeta & "              <a href="" https://www.atiport.cl/saec/presentacion/Funcionarios%20ATI/historicoCarpeta.aspx?i=" + idCarpetaActual + "&n=" + razonCodificada + "&ia=" + idAntiguaCodificada + """ class=""fas fa-fw fa-folder fa-2x text-dark""></a>"
 
                     tarjeta = tarjeta & "              </div> "
 

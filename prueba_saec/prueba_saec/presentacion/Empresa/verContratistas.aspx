@@ -114,7 +114,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                                                <form id="documentos" runat="server">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -132,7 +132,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive-xl">
-                            <form id="documentos" runat="server">
+
                                 <div>
                                     <asp:GridView ID="gridContratistas" runat="server" AutoGenerateColumns="False" class="table table-bordered dataTable" Width="100%" CellSpacing="0" role="grid" aria-describedby="dataTable_info" Style="width: 100%;">
                                         <Columns>
@@ -159,7 +159,12 @@
                                         <h1 class="h3 mb-4 text-gray-800 text-center">Sin Contratistas registrados</h1>
                                     </div>
                                 </div>
-                                                        <!-- Modal Logout-->
+
+                            </div>
+                        </div>
+    <div class="card-footer"></div>
+                    </div>
+                                                                                                            <!-- Modal Logout-->
                         <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="lblModalConfirmacion" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -183,10 +188,7 @@
                                 </div>
                             </div>
                         </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 

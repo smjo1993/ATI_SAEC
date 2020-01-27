@@ -88,7 +88,7 @@ Public Class Login
 
                                             Response.Redirect("https://localhost:44310/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
 
-                                            ''Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
+                                            ''Response.Redirect("https://www.atiport.cl/saec/presentacion/Funcionarios%20ATI/verCarpetas.aspx")
 
                                             txtUsuario.Text = ""
 
@@ -150,7 +150,7 @@ Public Class Login
 
                                 Response.Redirect("https://localhost:44310/presentacion/Contratistas/verCarpetas.aspx")
 
-                                ''Response.Redirect("https://www.atiport.cl/sandbox/saec/presentacion/Contratistas/verCarpetas.aspx")
+                                ''Response.Redirect("https://www.atiport.cl/saec/presentacion/Contratistas/verCarpetas.aspx")
 
                                 txtUsuario.Text = ""
                             Else 'CONTRATISTA INACTIVO
